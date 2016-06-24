@@ -8,63 +8,65 @@
 
         <h4 id="popup_fisher-markdown16" style="margin-top:5px;color:#000000;" class=" ">*Which landing site or community do you land at most often?</h4>
         <label class="item item-input item-stacked-label "  id="register1-input3">
-          <input type="text" required ng-model="user.landingSite" placeholder="Landing site or community" name="landingSite">
+          <input type="text" required ng-model="user.landing_site" placeholder="Landing site or community" name="landing_site">
         </label>
-
 
         <form name="fish_form" novalidate>  <!-- novalidate -> we will handle validation ourselves in each field -->
 
-          <h4 id="popup_fisher-markdown16" style="margin-top:5px;color:#000000;" class=" ">Co-Operative:</h4>
-          <ion-checkbox name="box_boat" ng-model="user.fisher_coOp">I am part of a Co-Operative</ion-checkbox>
+          <h4 id="popup_fisher-markdown16" style="margin-top:5px;color:#000000;" class=" ">Co-operative member?</h4>
+          <ion-checkbox name="box_boat" ng-model="user.fisher_co_op">I am a member of a co-operative</ion-checkbox>
 
           <!-- Co-op details (if fisher belongs to co-op) -->
-          <label ng-show="user.fisher_coOp==true" class="item item-input item-stacked-label "  id="register1-input3">
-            <span class="input-label">Name of Co-Operative:</span>
-            <input type="text" ng-model="user.fisher_coOp_name" placeholder="" name="coOp_name">
+          <label ng-show="user.fisher_co_op==true" class="item item-input item-stacked-label "  id="register1-input3">
+            <span class="input-label">Name of Co-operative:</span>
+            <input type="text" ng-model="user.fisher_co_op_name" placeholder="Enter co-op name here" name="co_op_name">
           </label>
 
 
-          <h4 id="popup_fisher-markdown15" style="margin-top:5px;color:#000000;" class=" ">*I fish from:</h4>
+          <h4 id="popup_fisher-markdown15" style="margin-top:5px;color:#000000;" class=" ">*Which of these do you fish from?</h4>
           <ion-checkbox name="box_boat" ng-model="user.fisher_boat">Boat</ion-checkbox>
-          <ion-checkbox name="box_shore" ng-model="user.fisher_shore"
-          >Shore</ion-checkbox>
+          <ion-checkbox name="box_shore" ng-model="user.fisher_shore">Shore</ion-checkbox>
 
           <!-- Boat details - if fish from boat) -->
           <label ng-show="user.fisher_boat==true">
-            <h4> Who's Boat? </h4>
-            <ion-checkbox ng-model="user.boat_own">My Own Boat</ion-checkbox>
+            <h4> Whose boat do you fish from? </h4>
+            <ion-checkbox ng-model="user.boat_own">My own boat</ion-checkbox>
             <ion-checkbox ng-model="user.boat_other"
-            >Someone Else's Boat</ion-checkbox>
+            >Someone else's boat</ion-checkbox>
           </label>
 
           <ion-list ng-show="user.boat_own==true">
             <h4> Boat information </h4>
             <label class="item item-input item-stacked-label "  id="register1-input3">
               <span class="input-label">Name of Boat</span>
-              <input type="text" ng-model="user.boat_name" placeholder="" name="boat_name">
+              <input type="text" ng-model="user.boat_name" placeholder="Enter name here" name="boat_name">
             </label>
             <label class="item item-input item-stacked-label ">
-              <span class="input-label">Boat Registration number</span>
-              <input type="text" ng-model="user.boat_reg" placeholder="" name="boat_reg">
+              <span class="input-label">Boat registration number</span>
+              <input type="text" ng-model="user.boat_reg" placeholder="Enter registration number here" name="boat_reg">
             </label>
             <label class="item item-input item-stacked-label ">
-              <span class="input-label">Date of Registration Expiry Date</span>
+              <span class="input-label">Registration expiry Date</span>
               <input type="date" ng-model="user.boat_expDate" placeholder="" name="boat_expDate">
             </label>
-            <ion-checkbox ng-model="user.boat_hasEngine">Has Engine</ion-checkbox>
 
-            <label ng-show="user.boat_hasEngine==true" class="item item-input ">
+            <h5>Does your boat have an engine?</h5>
+            <ion-checkbox ng-model="user.boat_has_engine">Yes, my boat has an engine</ion-checkbox>
+
+            <label ng-show="user.boat_has_engine==true" class="item item-input ">
               <strong><span>Engine Capacity:</span></strong>
             </label>
 
-            <div class="list" ng-show="user.boat_hasEngine==true">
+
+            <div class="list" ng-show="user.boat_has_engine==true">
+              <span>(Fill in either horsepower or cc)</span>
               <label class="item item-input">
                 <span class="input-label">HP:</span>
-                <input type="number" ng-model="user.boat_engineCapHP">
+                <input type="number" ng-model="user.boat_engine_hp">
               </label>
               <label class="item item-input">
                 <span class="input-label">CC:</span>
-                <input type="number" ng-model="user.boat_engineCapCC">
+                <input type="number" ng-model="user.boat_engine_cc">
               </label>
             </div>
 
@@ -74,7 +76,7 @@
       </ion-list>
 
       <!-- "Register" button -->
-      <button id="register2-button5" type="submit" ng-click="submitForm(fish_form.$valid)" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingSite == null)" class=" button button-positive button-large button-block">Register Me</button>
+      <button id="register2-button5" type="submit" ng-click="submitForm(fish_form.$valid)" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null)" class=" button button-positive button-large button-block">Register Me</button>
     </form>
 
     <!-- debug display of json -->

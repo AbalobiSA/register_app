@@ -5,34 +5,34 @@
     <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
     <ion-list id="register2-list2" class=" ">
 
-      <!-- Landing site input box (for Monitor or Fisher Managers) -->
-      <form name="landing_form" ng-hide="user.usertype == 'Co-Operative'" novalidate>
+      <!-- Landing site input box (for monitor or fisher_managers) -->
+      <form name="landing_form" ng-hide="user.usertype == 'co_op'" novalidate>
         <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span ng-hide="user.usertype != 'Monitor'" class="input-label">Which landing site or community will you be monitoring?</span>
-          <span ng-hide="user.usertype != 'Fisher Manager'" class="input-label">Which landing site or community do your fishers land at most often?</span>
-          <input type="text" required ng-model="user.landingSite" placeholder="" name="landingSite">
+          <span ng-hide="user.usertype != 'monitor'" class="input-label">Which landing site or community will you be monitoring?</span>
+          <span ng-hide="user.usertype != 'fisher_manager'" class="input-label">Which landing site or community do your fishers land at most often?</span>
+          <input type="text" required ng-model="user.landing_site" placeholder="Enter landing site here" name="landing_site">
         </label>
       </form>
 
 
       <!-- Co-op info input box (for Co-ops) -->
-      <form name="CoOp_form" ng-hide="user.usertype != 'Co-Operative'" novalidate>
+      <form name="co_op_form" ng-hide="user.usertype != 'co_op'" novalidate>
 
-        <h4 id="popup_fisher-markdown16" style="margin-top:0px;color:#000000;" class=" ">Co-Operative:</h4>
+        <h4 id="popup_fisher-markdown16" style="margin-top:0px;color:#000000;" class=" ">Co-operative:</h4>
         <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span class="input-label">Name of Co-Operative:</span>
-          <input type="text" required ng-model="user.CoOp_Name" placeholder="" name="Co-Op_name">
+          <span class="input-label">Name of co-operative:</span>
+          <input type="text" required ng-model="user.co_op_name" placeholder="" name="Co-Op_name">
         </label>
 
         <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span class="input-label">Registration Number of Co-Operative :</span>
-          <input type="text" required ng-model="user.CoOp_RegNum" placeholder="" name="Co-Op_name">
+          <span class="input-label">Registration number of co-operative :</span>
+          <input type="text" required ng-model="user.co_op_reg_num" placeholder="" name="Co-Op_name">
         </label>
 
       </form>
 
       <!-- Next button to route to Personal Details page -->
-      <button ui-sref="personal_details" ng-disabled="landing_form.$invalid && CoOp_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">Next</button>
+      <button ui-sref="personal_details" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">Next</button>
 
       <!-- debug display of json -->
       <pre>user = {{user | json}}</pre>

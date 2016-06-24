@@ -30,14 +30,14 @@ angular.module('app.controllers', [])
 
 
     //function either opens pop up or routes depending on $scope.user.usertype
-    if ($scope.user.usertype == 'Fisherman' || $scope.user.usertype == 'Co-Operative' || $scope.user.usertype == 'Monitor' ){
+    if ($scope.user.usertype == 'fisher' || $scope.user.usertype == 'co_op' || $scope.user.usertype == 'monitor' ){
       var confirmPopup = $ionicPopup.show({
         title: 'Terms of Use',
         templateUrl: 'templates/popup_terms.html',
         scope: $scope
       });
     }
-    else if ($scope.user.usertype == 'Fisher Manager'){
+    else if ($scope.user.usertype == 'fisher_manager'){
       $location.path('/monitor_fmanager_CoOp');
     }
     else{
@@ -47,10 +47,10 @@ angular.module('app.controllers', [])
     //function within leave_terms that closes popup and routes accordingly
     $scope.sendOrder = function() {
       confirmPopup.close();
-      if ($scope.user.usertype == 'Co-Operative' || $scope.user.usertype == 'Monitor'){
+      if ($scope.user.usertype == 'co_op' || $scope.user.usertype == 'monitor'){
         $location.path('/monitor_fmanager_CoOp');
       }
-      else {  // == Fisherman
+      else {  // == fisher
         $location.path('/personal_details');
       }
     }

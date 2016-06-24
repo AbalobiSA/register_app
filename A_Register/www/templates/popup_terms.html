@@ -3,27 +3,28 @@
 
     <h3 id="terms_fishers-heading5" style="color:#000000;text-align:center;" class=" ">Terms of Use</h3>
 
-    <!-- For Monitors: -->
-    <p  ng-hide="user.usertype !='Monitor'"id="popup_fisher-markdown12" style="color:#000000;" class=" "
-    >Note that in order to maintain the Abalobi system it is possible for the core Abalobi team to access
+    <!-- For monitors: -->
+    <p  ng-hide="user.usertype !='monitor'"id="popup_fisher-markdown12" style="color:#000000;" class=" "
+    >In order to maintain the Abalobi system it is possible for the core Abalobi team to access
     all data, however all data submitted to the Abalobi system will be treated with the utmost privacy.
     No data will be shared with 3rd parties without express consent of DAFF.
   </p>
 
-  <!-- For Fishermen / Co-op: -->
-  <p ng-hide="user.usertype =='Monitor'" id="popup_fisher-markdown12" style="color:#000000;" class=" "
-  >Note that in order to maintain the Abalobi system it is possible for the core Abalobi team to access
+  <!-- For fishermen / Co-op: -->
+  <p ng-hide="user.usertype =='monitor'" id="popup_fisher-markdown12" style="color:#000000;" class=" "
+  >In order to maintain the Abalobi system it is possible for the core Abalobi team to access
   all data, however all data submitted to the Abalobi system will be treated with the utmost privacy.
   No data will be shared with 3rd parties without express consent of the person who captured the data.
 </p>
 
 <!-- "I agree" - visible to all user types -->
 <div class="spacer" style="width: 300px; height: 28px;"></div>
+<strong>
 <p id="popup_fisher-markdown17" style="color:#000000;" class=" ">
-  I understand that above paragraph and hereby give permission to the core Abalobi team to view all data
+  By selecting "I agree" below I confirm that I understand the above paragraph and hereby give permission to the core Abalobi team to view all data
   I capture for the sole purpose of maintaining and improving the Abalobi system.
 </p>
-
+</strong>
 <form id="popup_fisher-form7" class="list ">
 
   <ion-checkbox ng-model="checked">I agree</ion-checkbox>
@@ -32,15 +33,15 @@
 
   <div class="spacer" style="width: 300px; height: 24px;"></div>
 
-<!--futher consent boxes for fisherman/Co-ops -->
-  <div ng-hide="user.usertype =='Monitor'" class="item item-body " id="popup_fisher-list-item-container4">
-    <p id="popup_fisher-markdown15" style="margin-top:0px;color:#000000;text-align:center;" class=" "
-    >I further consent to share my data with the following parties
-  </p>
+<!--futher consent boxes for fisher/Co-ops -->
+  <div ng-hide="user.usertype =='monitor'" class="item item-body " id="popup_fisher-list-item-container4">
+    <strong><p id="popup_fisher-markdown15" style="margin-top:0px;color:#000000;text-align:center;" class=" "
+    >I further consent to share my data with the following parties (tick where applicable):
+    </p></strong>
 
-  <ion-checkbox ng-model="user.per_local">Abalobi Local Implementer</ion-checkbox>
+  <ion-checkbox ng-model="user.permission_local_implementer">Abalobi Local Implementer</ion-checkbox>
 
-  <ion-checkbox ng-model="user.per_daff">Department of Fisheries</ion-checkbox>
+  <ion-checkbox ng-model="user.permission_daff">DAFF (Department of Agriculture, Forestry and fisheries)</ion-checkbox>
 </div>
 
 <!--Next button - used to Close the pop-up -->

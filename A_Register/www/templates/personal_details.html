@@ -4,95 +4,98 @@
     <form name="userForm" novalidate>
 
       <h2 id="register1-heading3" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
-      <h3 id="register1-heading4" ng-hide="user.usertype == 'Co-Operative'"style="color:#000000;text-align:center; margin-top:5px;" class=" ">Personal Information</h3>
-      <h3 id="register1-heading4" ng-hide="user.usertype != 'Co-Operative'" style="color:#000000;text-align:center; margin-top:5px;" class=" ">Personal Information of Person Responsible</h3>
+      <h3 id="register1-heading4" ng-hide="user.usertype == 'co_op'"style="color:#000000;text-align:center; margin-top:5px;" class=" ">Personal Information</h3>
+      <h3 id="register1-heading4" ng-hide="user.usertype != 'co_op'" style="color:#000000;text-align:center; margin-top:5px;" class=" ">Personal Information of Person Responsible</h3>
 
-      <h4 style="color:#000000;text-align:center; margin-top:5px;" class=" ">Required Fields Are Marked *</h3>
+      <h4 style="color:#000000;text-align:center; margin-top:5px;" class=" ">Required fields are marked with: *</h3>
 
         <ion-list id="register1-list1" class=" " >
 
           <label class="item item-input item-stacked-label " id="register1-input1">
             <span class="input-label">*Surname</span>
-            <input type="text" ng-model="user.surname" placeholder="" name="Surname" required >
+            <input type="text" ng-model="user.surname" placeholder="Enter your surname here" name="Surname" required >
             <span class="help-block" style="color:red"
-            ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">Required</span>
+            ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">You have to fill in this field</span>
           </label>
 
           <label class="item item-input item-stacked-label " id="register1-input2">
             <span class="input-label">*First Name</span>
-            <input type="text" ng-model="user.name" placeholder="" name="Name" required>
+            <input type="text" ng-model="user.name" placeholder="Enter your name here" name="Name" required>
             <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.Name.$touched && userForm.Name.$invalid }"
-            ng-show="userForm.Name.$invalid && userForm.Name.$touched">Required</span>
+            ng-show="userForm.Name.$invalid && userForm.Name.$touched">You have to fill in this field</span>
+          </label>
+
+          <label class="item item-input item-stacked-label " id="register1-input2">
+            <span class="input-label">Nickname</span>
+            <input type="text" ng-model="user.nickname" placeholder="What do people usually call you?" name="Nickame" >
           </label>
 
           <label class="item item-input item-stacked-label " id="register1-input4">
-            <span class="input-label">Email</span>
-            <input type="email" ng-model="user.email" placeholder="" name="Email" >
+            <span class="input-label">E-mail</span>
+            <input type="email" ng-model="user.email" placeholder="Enter your e-mail here" name="Email" >
             <span class="help-block" style="color:red"
-            ng-show="userForm.Email.$invalid && userForm.Email.$touched && !userForm.Email.$pristine ">Enter Valid Email</span>
+            ng-show="userForm.Email.$invalid && userForm.Email.$touched && !userForm.Email.$pristine ">Please enter a valid e-mail address</span>
           </label>
-        </label>
 
         <label class="item item-input item-stacked-label " id="register1-input3">
           <span class="input-label">*ID Number</span>
-          <input type="text" ng-model="user.id" placeholder="" name="ID"
+          <input type="text" ng-model="user.id" placeholder="Enter your ID number here" name="ID"
            required>
           <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.ID.$touched && userForm.ID.$invalid }"
-          ng-show="!checkID(user.id) && userForm.ID.$touched ">Warning: A Standard RSA ID is 13 characters long</span>
+          ng-show="!checkID(user.id) && userForm.ID.$touched ">Warning: A standard RSA ID is 13 characters long</span>
         </label>
 
-<!--&& userForm.ID.$touched-->
         <label class="item item-input item-stacked-label " id="register1-input4">
           <span class="input-label">*Date of Birth</span>
           <input type="date" required ng-model="user.birth_date" placeholder="" >
           <span class="help-block" name="Birth_Date" style="color:red" ng-class="{ 'has-error': userForm.Birth_Date.$touched && userForm.Birth_Date.$invalid }"
-          ng-show="userForm.Birth_Date.$touched">Required</span>
+          ng-show="userForm.Birth_Date.$touched">You have to fill in this field</span>
         </label>
 
         <label class="item item-input item-stacked-label " id="register2-input5">
           <span class="input-label">*Personal Cellphone Number</span>
           <input type="number" name="cell" ng-model="user.cell"
           ng-minlength="10"
-          ng-maxlength="10" required placeholder="">
+          ng-maxlength="10" required placeholder="Enter your cell number here">
           <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
-          ng-show="userForm.cell.$invalid && userForm.cell.$touched">Required 10 Digit Number</span>
+          ng-show="userForm.cell.$invalid && userForm.cell.$touched">Please enter a valid 10-digit cell number</span>
         </label>
       </label>
 
 
-      <!-- Device cell number (for Monitor and Co-op) -->
-      <label class="item item-input item-stacked-label " ng-show="user.usertype == 'Monitor' || user.usertype == 'Co-Operative'" id="register2-input5">
-        <span class="input-label">*Device Number</span>
+      <!-- Device cell number (for monitor and Co-op) -->
+      <label class="item item-input item-stacked-label " ng-show="user.usertype == 'monitor' || user.usertype == 'co_op'" id="register2-input5">
+        <span class="input-label">*This device's cell number</span>
         <input  type="number" name="cell_dev" ng-model="user.cell_dev"
         ng-minlength="10"
-        ng-maxlength="10"  ng-required="user.usertype == 'Monitor' || user.usertype == 'Co-Operative'" placeholder="">
+        ng-maxlength="10"  ng-required="user.usertype == 'monitor' || user.usertype == 'co_op'" placeholder="">
         <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
-        ng-show="userForm.cell_dev.$invalid && userForm.cell_dev.$touched">Required 10 Digit Number</span>
+        ng-show="userForm.cell_dev.$invalid && userForm.cell_dev.$touched">Please enter a valid 10-digit cell number</span>
       </label>
 
       <label class="item item-input item-stacked-label " id="register2-input6">
         <span class="input-label">*Password</span>
         <input type="password" name="password" ng-model="user.password"
-        ng-minlength="6" required="" placeholder="">
+        ng-minlength="6" required="" placeholder="Please choose a password for accessing the Abalobi system">
         <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }"
         ng-show="userForm.password.$invalid &&  userForm.password.$touched">Minimum of 6 Characters Required</span>
       </label>
 
       <label class="item item-input item-stacked-label " id="register2-input7">
         <span class="input-label">*Re-type Password</span>
-        <input type="password"  name="password1" ng-model="password1" placeholder="" required="">
+        <input type="password"  name="password1" ng-model="password1" placeholder="Please re-type the password here" required="">
         <span class="help-block" style="color:red"
-        ng-show="!match(password1) && userForm.password1.$touched" >Password Don't Match</span>
+        ng-show="!match(password1) && userForm.password1.$touched" >Passwords don't match</span>
       </label>
     </ion-list>
 
-    <!-- Next button (for Fishers) - goes to fisher-info page -->
+    <!-- Next button (for fishers) - goes to fisher-info page -->
     <a ui-sref="fisher_info" id="register1-button3" type="submit"
-    ng-hide="user.usertype != 'Fisherman'" ng-disabled="userForm.$invalid || !match(password1)"
+    ng-hide="user.usertype != 'fisher'" ng-disabled="userForm.$invalid || !match(password1)"
     class=" button button-positive button-large button-block ">Next</a>
 
     <!-- "Register" button (for all other user types) -->
-    <button ng-disabled="userForm.$invalid || !match(password1)" ng-hide="user.usertype == 'Fisherman'"
+    <button ng-disabled="userForm.$invalid || !match(password1)" ng-hide="user.usertype == 'fisher'"
     id="register2-button5" type="submit" ng-click="submitForm(fish_form.$valid)"
     class=" button button-positive button-large button-block">Register Me</button>
 
