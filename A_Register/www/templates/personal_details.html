@@ -7,12 +7,12 @@
       <h3 id="register1-heading4" ng-hide="user.usertype == 'co_op'"style="color:#000000;text-align:center; margin-top:5px;" class=" ">Personal Information</h3>
       <h3 id="register1-heading4" ng-hide="user.usertype != 'co_op'" style="color:#000000;text-align:center; margin-top:5px;" class=" ">Personal Information of Person Responsible</h3>
 
-      <h4 style="color:#000000;text-align:center; margin-top:5px;" class=" ">Required fields are marked with: *</h3>
+      <h5 style="color:#000000;text-align:center; margin-top:5px;" class=" ">Required fields are marked with: *</h5>
 
         <ion-list id="register1-list1" class=" " >
 
           <label class="item item-input item-stacked-label " id="register1-input1">
-            <span class="input-label">*Surname</span>
+            <span class="input-label item-text-wrap">*Surname</span>
             <input type="text" ng-model="user.surname" placeholder="Enter your surname here" name="Surname" required >
             <span class="help-block" style="color:red"
             ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">You have to fill in this field</span>
@@ -74,9 +74,9 @@
       </label>
 
       <label class="item item-input item-stacked-label " id="register2-input6">
-        <span class="input-label">*Password</span>
+        <span class="input-label item-text-wrap">*Password</span>
         <input type="password" name="password" ng-model="user.password"
-        ng-minlength="6" required="" placeholder="Please choose a password for accessing the Abalobi system">
+        ng-minlength="6" required="" class="item-text-wrap" title="Please choose a password for accessing the Abalobi system">
         <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }"
         ng-show="userForm.password.$invalid &&  userForm.password.$touched">Minimum of 6 Characters Required</span>
       </label>
