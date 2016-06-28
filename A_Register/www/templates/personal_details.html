@@ -1,4 +1,4 @@
-<ion-view title="personal_details" hide-nav-bar="true" id="page2" class=" " ng-controller="register2Ctrl">
+<ion-view title="personal_details" hide-nav-bar="true" id="page2" class=" " ng-controller="personal_detailsCtrl">
   <ion-content padding="true" class="manual-ios-statusbar-padding"  >
 
     <form name="userForm" novalidate>
@@ -74,9 +74,9 @@
       </label>
 
       <label class="item item-input item-stacked-label " id="register2-input6">
-        <span class="input-label item-text-wrap">*Password</span>
+        <span class="input-label item-text-wrap">*Password  (Please choose a password for accessing the Abalobi system)</span>
         <input type="password" name="password" ng-model="user.password"
-        ng-minlength="6" required="" class="item-text-wrap" title="Please choose a password for accessing the Abalobi system">
+        ng-minlength="6" required=""  placeholder="Please choose a password">
         <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }"
         ng-show="userForm.password.$invalid &&  userForm.password.$touched">Minimum of 6 Characters Required</span>
       </label>
@@ -90,18 +90,13 @@
     </ion-list>
 
     <!-- Next button (for fishers) - goes to fisher-info page -->
-    <a ui-sref="fisher_info" id="register1-button3" type="submit"
-    ng-hide="user.usertype != 'fisher'" ng-disabled="userForm.$invalid || !match(password1)"
+    <a  id="register1-button3" type="submit" ng-click="next()"
+     ng-disabled="userForm.$invalid || !match(password1)"
     class=" button button-positive button-large button-block ">Next</a>
 
-    <!-- "Register" button (for all other user types) -->
-    <button ng-disabled="userForm.$invalid || !match(password1)" ng-hide="user.usertype == 'fisher'"
-    id="register2-button5" type="submit" ng-click="submitForm(fish_form.$valid)"
-    class=" button button-positive button-large button-block">Register Me</button>
 
   </form>
 
-  <pre>user = {{user | json}}</pre>
 
 </ion-content>
 </ion-view>

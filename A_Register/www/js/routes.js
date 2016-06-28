@@ -19,25 +19,31 @@ angular.module('app.routes', [])
   .state('personal_details', {
     url: '/personal_details',
     templateUrl: 'templates/personal_details.html',
-    controller: 'register2Ctrl'
+    controller: 'personal_detailsCtrl'
   })
 
   .state('fisher_info', {
     url: '/fisher_info',
     templateUrl: 'templates/fisher_info.html',
-    controller: 'register2Ctrl'
+    controller: 'fisher_infoCtrl'
   })
 
   .state('terms', {
     url: '/terms',
     templateUrl: 'templates/terms.html',
-    controller: 'register2Ctrl'
+    controller: 'termsCtrl'
+  })
+
+  .state('register', {
+    url: '/register',
+    templateUrl: 'templates/register.html',
+    controller: 'registerCtrl'
   })
 
   .state('monitor_fmanager_CoOp', {
     url: '/monitor_fmanager_CoOp',
     templateUrl: 'templates/monitor_fmanager_CoOp.html',
-    controller: 'register2Ctrl'
+    controller: 'termsCtrl'
   })
 
 

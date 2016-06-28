@@ -1,4 +1,4 @@
-<ion-view title="monitor_fmanager_CoOp" hide-nav-bar="true" id="Co-op" class=" " ng-controller="register2Ctrl">
+<ion-view title="monitor_fmanager_CoOp" hide-nav-bar="true" id="Co-op" class=" " ng-controller="termsCtrl">
   <ion-content padding="true" class="manual-ios-statusbar-padding">
 
 
@@ -32,7 +32,7 @@
       </form>
 
       <!-- Next button to route to Personal Details page -->
-      <button ui-sref="personal_details" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">Next</button>
+      <button ui-sref="personal_details" ng-click="update()" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">Next</button>
 
       <!-- debug display of json -->
       <pre>user = {{user | json}}</pre>
