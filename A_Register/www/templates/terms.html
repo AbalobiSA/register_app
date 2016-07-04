@@ -1,25 +1,84 @@
-<ion-view title="Terms" hide-nav-bar="true" ng-controller="termsCtrl" hide-back-button="true" id="page3" class=" ">
+<ion-view title="Terms" hide-nav-bar="true" hide-back-button="true" id="page3" class=" ">
   <ion-content padding="true" class="manual-ios-statusbar-padding">
     <h3 id="terms-heading4" style="color:#000000;text-align:center;" class=" "
     >Abalobi Register
   </h3>
 
   <form id="terms-form3" class="list" name="myForm" >
-      <h4 class="" >Click the arrow (on the right) to select your role:<h4/>
+      <h4 class="" >{{"TERMS_SELECT_LABEL"| translate}}<h4/>
     <label class="item item-select" for="type" id="register1-select2" >
       <select name="type" ng-model="user.usertype" required>
-        <option value="fisher" >Fisher</option>
-        <option value="fisher_manager">Fisher manager</option>
-        <option value="co_op">Co-Operative</option>
-        <option value="monitor">Monitor</option>
-        <option value="monitor_manager">Monitor Manager</option>
+        <option value="fisher" >{{"TERMS_SELECT_FISHER"| translate}}</option>
+        <option value="fisher_manager">{{"TERMS_SELECT_FMANAGER"| translate}}</option>
+        <option value="co_op">{{"TERMS_SELECT_COOP"| translate}}</option>
+        <option value="monitor">{{"TERMS_SELECT_MONITOR"| translate}}</option>
+        <option value="monitor_manager">{{"TERMS_SELECT_MONMANAGER"| translate}}</option>
       </select>
     </label>
 
     <a ng-click="leave_terms()" ng-disabled="user.usertype == null " id="abalobiRegister-button1"
     class=" button button-positive button-large button-block "
-    >Next
+    >{{"GEN_NEXT" | translate}}
   </a>
 
 </ion-content>
 </ion-view>
+
+<!-- modal for terms that popover -->
+
+<script id="templates/modal.html" type="text/ng-template">
+<ion-modal-view style="width: 90%; height: 90%; top: 5%; left: 5%; right: 5%; bottom: 5%;">
+<ion-content>
+    <div style="margin-left:3%; margin-right:3%;color:#000000;text-align:center;">
+
+    <h3 id="terms_fishers-heading5" style="color:#000000;text-align:center; margin-top:2%;" class=" ">{{"TERMS_MODAL_TITLE" | translate}}</h3>
+
+    <!-- For monitors: -->
+    <p  ng-hide="user.usertype !='monitor'"id="popup_fisher-markdown12" style="color:#000000;" class=" "
+    >{{"TERMS_MODAL_FISHER_PAR" | translate}}
+  </p>
+
+  <!-- For fishermen / Co-op: -->
+  <p ng-hide="user.usertype =='monitor'" id="popup_fisher-markdown12" style="color:#000000; margin-left:3%; margin-right:3%;" class=" "
+  >{{"TERMS_MODAL_MONITOR_PAR" | translate}}
+</p>
+
+
+<!-- "I agree" - visible to all user types -->
+<div class="spacer" style="width: 300px; height: 28px;"></div>
+<strong>
+<p id="popup_fisher-markdown17" style="color:#000000; margin-left:3%; margin-right:3%" class=" ">
+{{"TERMS_MODAL_AGREE_TEXT" | translate }}
+</p>
+</strong>
+<form id="popup_fisher-form7" class="list ">
+
+  <ion-checkbox ng-model="checked">{{"TERMS_MODAL_AGREE_CONFIRM" | translate}}</ion-checkbox>
+
+<!-- ------------------------------ -->
+
+  <div class="spacer" style="width: 300px; height: 24px;"></div>
+
+<!--futher consent boxes for fisher/Co-ops -->
+  <div ng-hide="user.usertype == 'monitor'">
+      <strong><p id="popup_fisher-markdown15" style="margin-left:3%; margin-right:3%;color:#000000;text-align:center;" class=" "
+      >{{"TERMS_MODAL_CONSENT_TITLE" | translate}}
+      </p></strong>
+   <div class="item item-body " id="popup_fisher-list-item-container4">
+
+
+  <ion-checkbox class="item-text-wrap" ng-model="user.permission_local_implementer">{{"TERMS_MODAL_CONSENT_ABALOBI"| translate}}</ion-checkbox>
+
+  <ion-checkbox class="item-text-wrap" ng-model="user.permission_daff">{{"TERMS_MODAL_CONSENT_DAFF"| translate}}</ion-checkbox>
+  </div>
+</div>
+
+<!--Next button - used to Close the pop-up -->
+<button id="popup_fisher-button5" ng-click="sendOrder()" ng-disabled="!checked"
+class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}
+</button>
+
+</form>
+</div>
+</ion-content>
+</ion-modal-view>

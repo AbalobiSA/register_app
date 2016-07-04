@@ -5280,6 +5280,13 @@ ion-tabs.tabs-color-active-dark .tab-item {
   width: 100%;
   background-color: #fff; }
 
+  @media (min-width: 680px){
+    .modal{
+      border-radius: 8px !important;
+      overflow:hidden !important;
+    }
+  }
+
 @media (min-width: 680px) {
   .modal {
     top: 20%;
@@ -7232,6 +7239,15 @@ ion-slides {
   width: 100%;
   height: 100%;
   display: block; }
+
+  .termspopup {
+
+  .popup {
+    width:80% !important;
+    height: 20% !important;
+  }
+
+}
 
 .slide-zoom {
   display: block;

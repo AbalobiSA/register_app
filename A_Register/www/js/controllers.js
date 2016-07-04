@@ -1,12 +1,15 @@
 angular.module('app.controllers', [])
 
 // Constants
-.constant('OPENFN_URL', " ")
+.constant('OPENFN_URL', "URLHERE")
 .constant('SMS_TIMEOUT_PERIOD', 30)   //seconds
 
-.controller('homectrl', function($scope,  $ionicHistory, userinfo) {
+.controller('homectrl', function($scope, PopupTranslate, $ionicHistory, userinfo) {
 
     $scope.user = {}
+
+     var myPopup = PopupTranslate.getPopup();
+
 
     $scope.clear = function(){
         userinfo.clearInfo();
@@ -19,7 +22,7 @@ angular.module('app.controllers', [])
         if (networkState == "none"){
             alert("You currently have no connection.\nYou will not be able to register")
         }
-        $scope.device()
+        $scope.device();
     }
 
     $scope.device = function(){
@@ -41,20 +44,39 @@ angular.module('app.controllers', [])
     }
 })
 
-.controller('termsCtrl', function($scope, $ionicHistory, $ionicPopup, $location, userinfo) {
+.controller('termsCtrl', function($scope, $ionicHistory, $ionicModal, $ionicPopup, $location, userinfo) {
+
+
 
     $scope.user = {}
-    $scope.user.usertype = userinfo.info.usertype
+    $scope.user.usertype = userinfo.getInfo().usertype
 
     $scope.leave_terms = function() {
+
+
         userinfo.updateInfo($scope.user)
-        //function either opens pop up or routes depending on $scope.user.usertype
+
+
+        //function either opens pop up or routes depending on scope.user.usertype
         if ($scope.user.usertype == 'fisher' || $scope.user.usertype == 'co_op' || $scope.user.usertype == 'monitor' ){
-            var confirmPopup = $ionicPopup.show({
-                title: 'Terms of Use',
-                templateUrl: 'templates/popup_terms.html',
-                scope: $scope
-            });
+            $ionicModal.fromTemplateUrl('templates/modal.html', {
+           scope: $scope
+         }).then(function(modal) {
+           $scope.modal = modal;
+           modal.show()
+
+           //function within leave_terms that closes popup and routes accordingly
+           $scope.sendOrder = function() {
+               userinfo.updateInfo($scope.user)
+               modal.hide()
+               if ($scope.user.usertype == 'co_op' || $scope.user.usertype == 'monitor'){
+                   $location.path('/monitor_fmanager_CoOp');
+               }
+               else {  // == fisher
+                   $location.path('/personal_details');
+               }
+           }
+         });
         }
         else if ($scope.user.usertype == 'fisher_manager'){
             $location.path('/monitor_fmanager_CoOp');
@@ -63,24 +85,16 @@ angular.module('app.controllers', [])
             $location.path('/personal_details')
         }
 
-        //function within leave_terms that closes popup and routes accordingly
-        $scope.sendOrder = function() {
-            userinfo.updateInfo($scope.user)
-            confirmPopup.close();
-            if ($scope.user.usertype == 'co_op' || $scope.user.usertype == 'monitor'){
-                $location.path('/monitor_fmanager_CoOp');
-            }
-            else {  // == fisher
-                $location.path('/personal_details');
-            }
-        }
+
     }
+
+
 })//end terms controller
 
 .controller('personal_detailsCtrl', function($scope, $location, userinfo) {
 
     $scope.user = {}
-    $scope.user.usertype = userinfo.info.usertype
+    $scope.user.usertype = userinfo.getInfo().usertype
 
 
     //function to Check Whether password entered and password retyped match
@@ -106,13 +120,9 @@ angular.module('app.controllers', [])
     //function to go on from personal info
     $scope.next = function(){
         userinfo.updateInfo($scope.user)
-        if ($scope.user.usertype == 'fisher'){
-            $location.path('/fisher_info');
+        userinfo.updateInfo($scope.user)
+            $location.path('/photo');
         }
-        else{
-            $location.path('/register');
-        }
-    }
 
 })
 
@@ -126,41 +136,40 @@ angular.module('app.controllers', [])
     }
 })
 
-.controller('registerCtrl', function($scope,  $location, $ionicLoading, $http, $timeout, userinfo, OPENFN_URL, SMS_TIMEOUT_PERIOD) {
+.controller('registerCtrl', function($scope,  $location, $ionicLoading, $http, $timeout, userinfo, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms) {
 
     $scope.user = {}
-    $scope.user.cell = userinfo.info.cell;
-    $scope.user.cell_dev = userinfo.info.cell_dev;
+
+  $scope.user.name = angular.copy(userinfo.getInfo().name)
+    $scope.user.surname = angular.copy(userinfo.getInfo().surname)
+    $scope.user.id = angular.copy(userinfo.getInfo().id)
+    $scope.user.cell = angular.copy(userinfo.getInfo().cell)
+
 
     $scope.register = function(){
+
+        checkSms.checkSMSPermission();
 
         //injects filter text used by OpenFn to recognise a registration submission.
         $scope.user.filter = "abalobi_registration";
 
-        //converts numbers to Strings and add zeros as needed
-        $scope.user.cell = $scope.user.cell.toString();
-        if($scope.user.cell.length != 10){
-            $scope.user.cell = "0" + $scope.user.cell
-        }
 
-        if($scope.user.cell_dev != null){
-            $scope.user.cell_dev = $scope.user.cell_dev.toString();
-            if($scope.user.cell_dev.length != 10){
-                $scope.user.cell_dev = "0" + $scope.user.cell_dev
-            }
-        }
         userinfo.updateInfo($scope.user)
 
         //prompts whether the info is correct
-        var x = window.confirm("Are You Sure the following is Correct?" + JSON.stringify(userinfo.info, null, 2))
+        var x = window.confirm("Are You Sure the following is Correct?" + JSON.stringify(userinfo.getInfo(), null, 2))
         if (x == true){
+
+            $ionicLoading.show({
+                template: 'Waiting ' + SMS_TIMEOUT_PERIOD + 's for acknowledgement SMS - please wait...'
+            })
 
             //post http function with success and error results
             $http({
                 method: 'POST',
-                // url: OPENFN_URL ,
-                url: 'http://requestb.in/11gccj91',
-                data: JSON.stringify(userinfo.info),
+                url: OPENFN_URL ,
+                //url: 'http://requestb.in/11gccj91',
+                data: JSON.stringify(userinfo.getInfo()),
                 headers: {'Content-Type': 'application/json'}
             }) .success(function(data, status, headers, config){
 
@@ -174,9 +183,7 @@ angular.module('app.controllers', [])
                 var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
 
                 //disable user while waiting
-                $ionicLoading.show({
-                    template: 'Waiting ' + SMS_TIMEOUT_PERIOD + 's for acknowledgement SMS - please wait...'
-                })
+
 
                 //start sms plugin listening
                 smsInboxPlugin.startReception (function(msg) {
@@ -201,8 +208,87 @@ angular.module('app.controllers', [])
             }) //end of success
 
             .error(function(data, status, headers, config){
+                $ionicLoading.hide()
                 alert("Registration submission failed")
             })
+
         } //end "if true"
     }
+})
+
+.controller('photoCtrl', function($scope, $location, $ionicPopup, userinfo) {
+
+    $scope.user = {}
+
+
+    $scope.next = function(){
+        userinfo.updateInfo($scope.user)
+        $scope.user.usertype = userinfo.getInfo().usertype
+        if ($scope.user.usertype == 'fisher'){
+            $location.path('/fisher_info');
+        }
+        else{
+            $location.path('/register');
+        }
+    }
+
+
+    $scope.takePhoto = function(id){
+
+        $scope.type = id
+        var CameraPopup = $ionicPopup.show({
+            title: 'Camera',
+            templateUrl: 'templates/camera_popup.html',
+            scope: $scope
+        })
+
+
+    $scope.fetchPhoto = function(True_False, id){
+
+
+
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            console.log();
+        }
+
+        if (True_False == false){
+            navigator.camera.getPicture(onSuccess, onFail,
+                { quality: 10,
+                    destinationType: Camera.DestinationType.DATA_URL,
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY}
+                );
+            }
+            else {
+                navigator.camera.getPicture(onSuccess, onFail,
+                    { quality: 10,
+                        destinationType: Camera.DestinationType.DATA_URL }
+                    );
+                }
+
+                function onSuccess(imageData) {
+                    var image = document.getElementById(id);
+                    image.src = "data:image/jpeg;base64," + imageData;
+                    if (id == 'boatpic'){
+                    $scope.user.photo_boat = "data:image/jpeg;base64," + imageData;
+                    userinfo.updateInfo($scope.user)
+                }
+                if (id == 'profilepic'){
+                $scope.user.photo_selfie = "data:image/jpeg;base64," + imageData;
+                userinfo.updateInfo($scope.user)
+            }
+                    //alert("data:image/jpeg;base64," + imageData)
+                    CameraPopup.close();
+                }
+                function onFail(message) {
+                    alert('Failed because: ' + message);
+                    CameraPopup.close();
+                }
+            }
+
+
+
+}
+
 })

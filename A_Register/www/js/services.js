@@ -1,37 +1,73 @@
 angular.module('app.services', [])
 
-.service('userinfo', [function(){
+.factory('userinfo', [function(){
 
-    var info = {};
-       return {
-           getInfo: function () {
-               return info;
-           },
-           updateInfo: function(data) {
-              angular.merge(info, data);
-              //alert(JSON.stringify(info))
-          },
-           clearInfo: function(){
-            var blank = {};
-              angular.copy(blank, info)
-          },
-           info
-       };
+    var userinfo = {};
+    var info = {}
+
+    userinfo.getInfo =  function () {
+        return info;
+    }
+
+    userinfo.updateInfo = function(data) {
+        angular.merge(info, data);
+        //alert(JSON.stringify(info))
+        return info;
+    }
+
+    userinfo.clearInfo = function(){
+        var blank = {};
+        //info = blank
+        info = angular.copy(blank,info)
+        //alert(JSON.stringify(info))
+        //return info
+    }
+
+    return userinfo
+
 }])
 
-/*.service('deviceinfo', [function(){
+.service('checkSms', [function(){
 
-    var device_info = {};
-       return {
-           getInfo: function () {
-               device_info.device_manufacturer = device.manufacturer;
-               device_info.device_model = device.model;
-               device_info.device_platform = device.platform;
-               device_info.device_version = device.version;
-               device_info.device_uuid = device.uuid;
-               device_info.device_serial = device.serial;
-               return device_info;
-           },
-           device_info
-       };
-}])*/
+    var app = {}
+    app.checkSMSPermission =function() {
+
+        var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
+        smsInboxPlugin.isSupported ((function(supported) {
+            if(supported){}
+            else
+            alert("SMS not supported");
+        }), function() {
+            alert("Error while checking the SMS support");
+        });
+    }
+    return app;
+}])
+
+.factory("PopupTranslate", function ($ionicPopup, $translate) {
+  function getPopup(scope) {
+    return $ionicPopup.show({
+title: "Choose Language -- Kies Taal",
+buttons: [
+  { text: 'Afrikaans',
+    type: 'button-calm',
+    cssClass: "termspopup",
+    onTap: function() {
+        $translate.use('afr')
+    }
+},
+  {
+    text: 'English',
+    type: 'button-positive',
+    onTap: function() {
+        $translate.use('en')
+  }
+  }
+]
+});
+  }
+
+  return {
+      getPopup: getPopup
+  };
+});

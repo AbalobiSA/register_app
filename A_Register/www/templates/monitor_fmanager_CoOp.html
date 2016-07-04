@@ -1,4 +1,4 @@
-<ion-view title="monitor_fmanager_CoOp" hide-nav-bar="true" id="Co-op" class=" " ng-controller="termsCtrl">
+<ion-view title="monitor_fmanager_CoOp" hide-nav-bar="true" id="Co-op" class=" " >
   <ion-content padding="true" class="manual-ios-statusbar-padding">
 
 
@@ -8,9 +8,9 @@
       <!-- Landing site input box (for monitor or fisher_managers) -->
       <form name="landing_form" ng-hide="user.usertype == 'co_op'" novalidate>
         <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span ng-hide="user.usertype != 'monitor'" class="input-label">Which landing site or community will you be monitoring?</span>
-          <span ng-hide="user.usertype != 'fisher_manager'" class="input-label">Which landing site or community do your fishers land at most often?</span>
-          <input type="text" required ng-model="user.landing_site" placeholder="Enter landing site here" name="landing_site">
+          <span ng-hide="user.usertype != 'monitor'" class="input-label">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
+          <span ng-hide="user.usertype != 'fisher_manager'" class="input-label">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
+          <input type="text" required ng-model="user.landing_site" placeholder="{{'MFC_LANDINGSITE_PC' | translate}}">
         </label>
       </form>
 
@@ -18,24 +18,22 @@
       <!-- Co-op info input box (for Co-ops) -->
       <form name="co_op_form" ng-hide="user.usertype != 'co_op'" novalidate>
 
-        <h4 id="popup_fisher-markdown16" style="margin-top:0px;color:#000000;" class=" ">Co-operative:</h4>
+        <h4 id="popup_fisher-markdown16" style="margin-top:0px;color:#000000;" class=" ">{{"MFC_COOP_LABEL" | translate}}</h4>
         <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span class="input-label">Name of co-operative:</span>
-          <input type="text" required ng-model="user.co_op_name" placeholder="" name="Co-Op_name">
+          <span class="input-label">{{"MFC_COOP_NAME" | translate}}</span>
+          <input type="text" required ng-model="user.co_op_name" placeholder="{{'MFC_COOP_NAME_PC' | translate}}" name="Co-Op_name">
         </label>
 
         <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span class="input-label">Registration number of co-operative :</span>
-          <input type="text" required ng-model="user.co_op_reg_num" placeholder="" name="Co-Op_name">
+          <span class="input-label">{{"MFC_COOP_REG" | translate}}:</span>
+          <input type="text" required ng-model="user.co_op_reg_num" placeholder="{{'MFC_COOP_REG_PC' | translate}}" name="Co-Op_name">
         </label>
 
       </form>
 
       <!-- Next button to route to Personal Details page -->
-      <button ui-sref="personal_details" ng-click="update()" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">Next</button>
+      <button ui-sref="personal_details" ng-click="update()" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
 
-      <!-- debug display of json -->
-      <pre>user = {{user | json}}</pre>
 
     </ion-content>
 
