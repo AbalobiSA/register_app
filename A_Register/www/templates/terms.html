@@ -7,7 +7,7 @@
   <form id="terms-form3" class="list" name="myForm" >
       <h4 class="" >{{"TERMS_SELECT_LABEL"| translate}}<h4/>
     <label class="item item-select" for="type" id="register1-select2" >
-      <select name="type" ng-model="user.usertype" required>
+      <select name="type" ng-model="user.usertype"  ng-change="reset()" required>
         <option value="fisher" >{{"TERMS_SELECT_FISHER"| translate}}</option>
         <option value="fisher_manager">{{"TERMS_SELECT_FMANAGER"| translate}}</option>
         <option value="co_op">{{"TERMS_SELECT_COOP"| translate}}</option>
@@ -17,7 +17,7 @@
     </label>
 
     <a ng-click="leave_terms()" ng-disabled="user.usertype == null " id="abalobiRegister-button1"
-    class=" button button-positive button-large button-block "
+    class=" button button-positive button-block "
     >{{"GEN_NEXT" | translate}}
   </a>
 

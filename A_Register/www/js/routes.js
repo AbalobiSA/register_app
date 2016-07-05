@@ -1,6 +1,8 @@
 angular.module('app.routes', [])
 
-.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
+.config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider, $translateProvider) {
+
+    $ionicConfigProvider.scrolling.jsScrolling(false);
 
     $translateProvider.useStaticFilesLoader({
         prefix: 'data/locale-',

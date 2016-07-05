@@ -1,5 +1,6 @@
 {
     "GEN_NEXT" : "Next",
+    "GEN_REGISTER" : "Register",
     "HOME_REGISTER_ME": "Register",
     "HOME_CLEAR": "Clear",
     "HOME_VISIT_WEBSITE" : "Visit Abalobi Website",
@@ -102,7 +103,34 @@
 
     "PHOTO_INSTRUCTION" : "Touch the cross to add a new picture. Take a selfie for your profile picture and add a picture of your boat. Touch the cross again to add a different photo. Note: This is Optional",
     "PHOTO_PROFILEPIC" : "Profile Picture",
-    "PHOTO_BOAT" : "Boat"
+    "PHOTO_BOAT" : "Boat",
+
+    "HELP_INFO" : "Explanations of all fields that can be filled in below:",
+    "HELP_SURNAME" : "Surname:",
+    "HELP_SURNAME_TEXT" : "Enter your surname.",
+    "HELP_NAME" : "Name:",
+    "HELP_NAME_TEXT" : "Enter your first name.",
+    "HELP_NICKNAME" : "Nickname:",
+    "HELP_NICKNAME_TEXT" : "If you are known by another name then your first name enter it here.",
+    "HELP_EMAIL" : "E-mail:",
+    "HELP_EMAIL_TEXT" : "If you have an E-mail account enter it here.",
+    "HELP_ID" : "ID number:",
+    "HELP_ID_TEXT" : "Enter your Personal Identification Number. South African ID numbers are 13 digits long.",
+    "HELP_DATE" : "Date of Birth:",
+    "HELP_DATE_TEXT" : "Enter the date when you were born by selecting the year, month and day using the drop down.",
+    "HELP_CELL" : "Personal Cellphone Number:",
+    "HELP_CELL_TEXT" : "Enter your personal cellphone number",
+    "HELP_DEV" : "Device Cellphone Number:",
+    "HELP_DEV_TEXT" : "If you are currently using a device which is not your personal cellphone enter its number here.",
+    "HELP_PASSWORD" : "Password:",
+    "HELP_PASSWORD_TEXT" : "Select the password with which you will access the Abalobi system. It must be at least 6 characters long.",
+
+    "REGISTER_INFO" : "If any of the below information is incorrect please go back and change it. If everything is correct please press the Register button below",
+
+    "REGISTER_NAME" : "Name:",
+    "REGISTER_SURNAME" : "Surname:",
+    "REGISTER_ID" : "ID Number:",
+    "REGISTER_CELL" : "Personal Cell Number:"
 
 
 

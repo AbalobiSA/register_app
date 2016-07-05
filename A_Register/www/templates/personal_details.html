@@ -3,11 +3,17 @@
 
         <form name="userForm" novalidate>
 
-            <h2 id="register1-heading3" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
+            <h2 id="register1-heading3" style="color:#000000;text-align:center;" class="header">Abalobi Register</h2>
+
             <h3 id="register1-heading4" ng-hide="user.usertype == 'co_op'"style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_ALL" | translate}}</h3>
-            <h3 id="register1-heading4" ng-hide="user.usertype != 'co_op'" style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_CO" | translate}}</h3>
+
+            <h3 id="register1-heading4" ng-hide="user.usertype != 'co_op'" style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_CO" | translate}} </h3>
+
+
 
             <h5 style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_REQUIRED" | translate}}</h5>
+
+            <button ng-click="help()" class="button icon-right ion-help">Help</button>
 
             <ion-list id="register1-list1" class=" " >
 
@@ -92,7 +98,7 @@
         <!-- Next button (for fishers) - goes to fisher-info page -->
         <a  id="register1-button3"  ng-click="next()"
         ng-disabled="userForm.$invalid || !match(password1)"
-        class=" button button-positive button-large button-block ">{{"GEN_NEXT" | translate}}</a>
+        class=" button button-positive button-block ">{{"GEN_NEXT" | translate}}</a>
 
 
     </form>

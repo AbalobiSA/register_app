@@ -1,6 +1,7 @@
 
     {
         "GEN_NEXT": "Volgende",
+        "GEN_REGISTER" : "Registreer",
         "HOME_REGISTER_ME": "Registreer",
         "HOME_CLEAR": "Maak Skoon",
         "HOME_VISIT_WEBSITE" : "Besoek Abalobi Webtuiste",
@@ -101,10 +102,37 @@
         "FISHER_BOATINFO_ENGINE_CHECKBOX" : "Ja, my boot het n' enjin",
         "FISHER_BOATINFO_ENGINECAP" : "Enjin Kapasiteit",
         "FISHER_BOATINFO_ENGINECAP_FILL" : "(Vul in HP of CC)",
-        
+
         "PHOTO_INSTRUCTION" : "Raak die kruis om 'n nuwe foto by te voeg. Neem 'n foto van jouself vir jou profiel foto en 'n foto van jou boot. Raak weer die kruis om 'n ander foto by te voeg. Nota: Hierdie is optioneel",
         "PHOTO_PROFILEPIC" : "Profiel Foto",
-        "PHOTO_BOAT" : "Boot"
+        "PHOTO_BOAT" : "Boot",
+
+        "HELP_INFO" : "Verduideliking van alle velde wat in gevul kan word volg hier onder:",
+        "HELP_SURNAME" : "Van:",
+        "HELP_SURNAME_TEXT" : "Vul u van in.",
+        "HELP_NAME" : "Naam:",
+        "HELP_NAME_TEXT" : "Vul u voorname in.",
+        "HELP_NICKNAME" : "Bynaam:",
+        "HELP_NICKNAME_TEXT" : "Indien u bekend is by ander naam as u voornaam vul dit hier in.",
+        "HELP_EMAIL" : "E-pos:",
+        "HELP_EMAIL_TEXT" : "Indien u 'n e-pos address het vul dit hier in.",
+        "HELP_ID" : "ID Nommer:",
+        "HELP_ID_TEXT" : "Vul u persoonlike identiteits nommer in. Suid-Afrikaanse ID nommers is 13 sysfers lank.",
+        "HELP_DATE" : "Geboorte Datum:",
+        "HELP_DATE_TEXT" : "Kies u geboorte datum deur die jaar, maand en dag te kies van gegewe opsies.",
+        "HELP_CELL" : "Persoonlike Selfoon Nommer:",
+        "HELP_CELL_TEXT" : "Vul u persoonlike selfoon se nommer in.",
+        "HELP_DEV" : "Toestel Selfoon Nommer:",
+        "HELP_DEV_TEXT" : "Indien u tans 'n toestel gebruik wat nie u persoonlike selfoon is nie vul die toestel se selfoon nommer hier in.",
+        "HELP_PASSWORD" : "Wagwoord:",
+        "HELP_PASSWORD_TEXT" : "Kies die wagwoord waarmee u op die Abalobi sisteem sal aanteken. Die wagwoord moet 'n minimum van 6 karakters lank wees.",
+
+        "REGISTER_INFO" : "As enige van die onderstaande inligting verkeerd is gaan asseblief terug en koregeer dit andersins as alles korrek is druk asseblief die 'Registreer' opsie hier onder",
+
+        "REGISTER_NAME" : "Naam:",
+        "REGISTER_SURNAME" : "Van:",
+        "REGISTER_ID" : "ID Nommer:",
+        "REGISTER_CELL" : "Persoonlike Selfoon Nommer:"
 
 
 

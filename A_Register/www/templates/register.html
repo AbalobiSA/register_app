@@ -4,22 +4,19 @@
     >Abalobi Register
   </h3>
 
-  <h4 style="color:#000000;text-align:center;"> If any of the below information is incorrect please go back and change it. If everything is correct please press the Register button below </h4>
+  <h5 style="color:#000000;text-align:center;">{{"REGISTER_INFO" | translate}}</h5>
 
-  <ion-list class="list" >
-      <label class="item"> <strong> Name: </strong> {{ user.name }} </label>
-      <label class="item"><strong> Surname: </strong> {{ user.surname }} </label>
-      <label class="item"> <strong> ID number: </strong> {{user.id}} </label>
-      <label class="item"> <strong> Cellphone Number: </strong> {{user.cell}} </label>
+  <ion-list class="list item-text-wrap" >
+      <label class="item"> <strong> {{"REGISTER_NAME" | translate}} </strong> {{ user.name }} </label>
+      <label class="item"><strong> {{"REGISTER_SURNAME" | translate}}</strong> {{ user.surname }} </label>
+      <label class="item"> <strong>{{"REGISTER_ID" | translate}}</strong> {{user.id}} </label>
+      <label class="item"> <strong>{{"REGISTER_CELL" | translate}}</strong> {{user.cell}} </label>
 
 </ion-list>
 
 
-  <button id="register2-button5" type="submit" ng-click="register()" class=" button button-positive button-large button-block">Register Me</button>
+  <button id="register2-button5" type="submit" ng-click="register()" class=" button button-positive  button-block">{{"GEN_REGISTER" | translate}}</button>
       </form>
-
-
-
 
 </ion-content>
 </ion-view>
