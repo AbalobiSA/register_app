@@ -15,6 +15,18 @@ cordova plugin add cordova-plugin-inappbrowser
 
 cordova plugin add https://github.com/sidchilling/Phonegap-SMS-reception-plugin
 
+cordova plugin add cordova-plugin-camera
+
+cordova plugin add cordova-plugin-device
+
+cordova plugin add cordova-plugin-splashscreen
+
+cordova plugin add cordova-plugin-network-information
+
+cordova plugin add https://github.com/apache/cordova-plugin-compat
+
+
+
 **To check plugins installed (should list above plugins):**
 
 cordova plugins ls
