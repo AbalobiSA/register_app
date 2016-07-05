@@ -12,8 +12,10 @@ angular.module('app', ['ionic', 'pascalprecht.translate', 'ngStorage',  'app.con
 .run(function($ionicPlatform,PopupTranslate, userinfo) {
   $ionicPlatform.ready(function() {
 
+      //prompts user for language
       var myPopup = PopupTranslate.getPopup();
 
+      //loads device info on start up
       var dev_info = {}
 
       document.addEventListener("deviceready", onDeviceReady, false);
