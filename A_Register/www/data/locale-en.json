@@ -56,7 +56,7 @@
     "PERSONAL_DEV_CELL_LABEL" : "*This device's cell number",
     "PERSONAL_DEV_CELL_PH" : "Enter this device's cell number here",
 
-    "PERSONAL_PASSWORD_LABEL" : "*Password  (Please choose a password for accessing the Abalobi system)",
+    "PERSONAL_PASSWORD_LABEL" : "*Password",
     "PERSONAL_PASSWORD_PH" : "Please choose a password",
     "PERSONAL_PASSWORD_IV" : "Minimum of 6 Characters Required",
 
@@ -131,6 +131,7 @@
     "REGISTER_SURNAME" : "Surname:",
     "REGISTER_ID" : "ID Number:",
     "REGISTER_CELL" : "Personal Cell Number:"
+
 
 
 

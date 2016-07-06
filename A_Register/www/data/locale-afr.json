@@ -58,7 +58,7 @@
         "PERSONAL_DEV_CELL_LABEL" : "*Hierdie Toestel se Nommer",
         "PERSONAL_DEV_CELL_PH" : "Fill hierdie toestel se nommer hier in",
 
-        "PERSONAL_PASSWORD_LABEL" : "*Wagwoord (Kies 'n wagwoord waarmee u by die Abalobi sisteem sal aanteken)",
+        "PERSONAL_PASSWORD_LABEL" : "*Wagwoord",
         "PERSONAL_PASSWORD_PH" : "Kies 'n wagwoord",
         "PERSONAL_PASSWORD_IV" : "Minimum van 6 karakters word benodig",
 

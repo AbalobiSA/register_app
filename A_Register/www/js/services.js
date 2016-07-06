@@ -27,6 +27,23 @@ angular.module('app.services', [])
 
 }])
 
+.service('language', [function(){
+
+    var language = {};
+    var current_lang = "en"
+
+    language.getInfo =  function () {
+        return current_lang;
+    }
+    language.updateInfo = function(data) {
+        current_lang = data
+        return current_lang;
+    }
+
+    return language
+}])
+
+
 .service('checkSms', [function(){
 
     var app = {}
@@ -61,7 +78,7 @@ angular.module('app.services', [])
     return app;
 }])
 
-.factory("PopupTranslate", function ($ionicPopup, $translate) {
+.factory("PopupTranslate", function ($ionicPopup, language, $translate, $localStorage) {
     function getPopup(scope) {
         return $ionicPopup.show({
             title: "Choose Language -- Kies Taal",
@@ -71,6 +88,8 @@ angular.module('app.services', [])
                 cssClass: "termspopup",
                 onTap: function() {
                     $translate.use('afr')
+                    language.updateInfo("afr");
+                    $localStorage.language = "afr"
                 }
             },
             {
@@ -78,6 +97,8 @@ angular.module('app.services', [])
                 type: 'button-positive',
                 onTap: function() {
                     $translate.use('en')
+                    language.updateInfo("en")
+                    $localStorage.language = "en"
                 }
             }
         ]

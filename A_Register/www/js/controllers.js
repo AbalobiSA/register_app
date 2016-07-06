@@ -4,7 +4,9 @@ angular.module('app.controllers', [])
 .constant('OPENFN_URL', "URLHERE")
 .constant('SMS_TIMEOUT_PERIOD', 30)   //seconds
 
-.controller('homectrl', function($scope, $localStorage, $ionicHistory, userinfo) {
+.controller('homectrl', function($scope, $localStorage, $location, strings,  $ionicHistory, userinfo) {
+
+
     //loads info from localStorage if user saved info offline
     $scope.user = {}
     userinfo.updateInfo($localStorage.user)
@@ -14,7 +16,8 @@ angular.module('app.controllers', [])
         $localStorage.$reset();
         userinfo.clearInfo();
         $ionicHistory.clearCache();
-        alert("All Information has been cleared")
+        alert(strings.get_translation(strings.HOME_CLEAR))
+        
     }
 
     //evaluates the current netowrk connection and warns user if offline
@@ -22,7 +25,7 @@ angular.module('app.controllers', [])
         var networkState = navigator.connection.type;
 
         if (networkState == "none"){
-            alert("You currently have no connection.\nYou will not be able to register.\n U het tans geen internet toegang, u sal nie registreer nie")
+            alert(strings.get_translation(strings.HOME_NO_CONNECTION))
         }
     }
 })//end home controller
@@ -34,6 +37,8 @@ angular.module('app.controllers', [])
 
     //loads information previously stored offline
     $scope.user = angular.copy(userinfo.getInfo())
+    $scope.user.usertype = angular.copy(userinfo.getInfo().usertype)
+    //alert(userinfo.getInfo().usertype)
 
     //if usertype is changed reset fields
     $scope.reset = function(){
@@ -69,9 +74,11 @@ angular.module('app.controllers', [])
             });
         }
         else if ($scope.user.usertype == 'fisher_manager'){
+            userinfo.updateInfo($scope.user)
             $location.path('/monitor_fmanager_CoOp');
         }
         else{
+            userinfo.updateInfo($scope.user)
             $location.path('/personal_details')
         }
     }
@@ -113,8 +120,13 @@ angular.module('app.controllers', [])
 
     //function to go on from personal info
     $scope.next = function(){
+
+        //injects filter text used by OpenFn to recognise a registration submission.
+        $scope.user.filter = "abalobi_registration";
+
         userinfo.updateInfo($scope.user)
-        userinfo.updateInfo($scope.user)
+
+
         $location.path('/photo');
     }
 
@@ -132,14 +144,30 @@ angular.module('app.controllers', [])
     }
 })//end fisher_infoCtrl
 
-.controller('registerCtrl', function($scope,  $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms) {
+.controller('registerCtrl', function($scope,  $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
+
+    //loads device info on start up
+    var dev_info = {}
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        console.log(device.cordova);
+    }
+    dev_info.device_manufacturer = device.manufacturer;
+    dev_info.device_model = device.model;
+    dev_info.device_platform = device.platform;
+    dev_info.device_version = device.version;
+    dev_info.device_uuid = device.uuid;
+    dev_info.device_serial = device.serial;
+
+    userinfo.updateInfo(dev_info)
 
     $scope.user = {}
     //loads information for display and check by user
-    $scope.user.name = angular.copy(userinfo.getInfo().name)
-    $scope.user.surname = angular.copy(userinfo.getInfo().surname)
-    $scope.user.id = angular.copy(userinfo.getInfo().id)
-    $scope.user.cell = angular.copy(userinfo.getInfo().cell)
+    $scope.user.name = userinfo.getInfo().name
+    $scope.user.surname = userinfo.getInfo().surname
+    $scope.user.id = userinfo.getInfo().id
+    $scope.user.cell = userinfo.getInfo().cell
 
 
     $scope.register = function(){
@@ -147,35 +175,40 @@ angular.module('app.controllers', [])
         //checks sms permissions and tells user to check inbox if no permission
         checkSms.checkSMSPermission();
 
-        //injects filter text used by OpenFn to recognise a registration submission.
-        $scope.user.filter = "abalobi_registration";
-
         //saves info before post
         userinfo.updateInfo($scope.user)
 
         //checks for network connection if no connection prompt user to store offline else proceed to post
         var networkState = navigator.connection.type;
-
+        alert(JSON.stringify(userinfo.getInfo(), null, 2))
         //if no connection
         if (networkState == "none"){
-            var confirm = window.confirm("Offline Store?")
+            var confirm = window.confirm(strings.get_translation(strings.REGISTER_OFFLINE))
             if (confirm == true){
                 $localStorage.user = angular.copy(userinfo.getInfo());
-                alert("Information has been stored")
+                alert(strings.get_translation(strings.REGISTER_INFO_STORED))
             }
         }
 
-        //if connection is present
-        else{
+        //else connection is present
+        else {
 
             //prompts whether the info is correct
-            var x = window.confirm("Are You Sure the following is Correct?") //+ JSON.stringify(userinfo.getInfo(), null, 2))
+            var x = window.confirm(strings.get_translation(strings.REGISTER_INFO_CONFIRM)) //+ JSON.stringify(userinfo.getInfo(), null, 2))
             if (x == true){
 
                 //disable user while waiting
-                $ionicLoading.show({
-                    template: 'Waiting ' + SMS_TIMEOUT_PERIOD + 's for acknowledgement SMS - please wait...'
-                })
+                if (language.getInfo() == "en"){
+                    $ionicLoading.show({
+                        template: 'Waiting ' + SMS_TIMEOUT_PERIOD + 's for acknowledgement SMS - please wait...'
+                    })
+                }
+
+                if (language.getInfo() == "afr"){
+                    $ionicLoading.show({
+                        template: 'Wag ' + SMS_TIMEOUT_PERIOD + 's vir bevestigings SMS - wag asseblief...'
+                    })
+                }
 
                 //post http function with success and error results
                 $http({
@@ -188,7 +221,7 @@ angular.module('app.controllers', [])
 
                     //start timeout call
                     var timeout = $timeout(function () {
-                        alert("Registration Couldn't Be Completed \nCheck Inbox For Username");
+                        alert(strings.get_translation(strings.REGISTER_TIMEOUT))
                         $ionicLoading.hide()
                     }, SMS_TIMEOUT_PERIOD * 1000);
 
@@ -203,7 +236,7 @@ angular.module('app.controllers', [])
                         if (msg.indexOf("[Abalobi Registration]") >= 0){
 
                             $timeout.cancel(timeout);
-                            alert("Registration was successful");
+                            alert(strings.get_translation(strings.REGISTER_SUCCESS))
 
                             //stop sms plugin listening disable loading status and route user to home, clean storage on successful submission
                             smsInboxPlugin.stopReception (function() {
@@ -223,15 +256,16 @@ angular.module('app.controllers', [])
 
                 .error(function(data, status, headers, config){
                     $ionicLoading.hide()
-                    alert("Registration submission failed" + data)
+                    alert(strings.get_translation(strings.REGISTER_FAIL) + data)
                 })
+
 
             } //end "if true"
         }
     }
 })//end registerCtrl
 
-.controller('photoCtrl', function($scope, $location, $ionicPopup, userinfo) {
+.controller('photoCtrl', function($scope, $location, language, $ionicPopup, userinfo) {
 
     $scope.user = {}
 
@@ -294,7 +328,7 @@ angular.module('app.controllers', [])
                         CameraPopup.close();
                     }
                     function onFail(message) {
-                        alert('Failed because: ' + message);
+                        alert(strings.get_translation(strings.REGISTER_FAIL)  + message)
                         CameraPopup.close();
                     }
                 }

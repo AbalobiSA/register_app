@@ -5,40 +5,38 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'pascalprecht.translate', 'ngStorage',  'app.controllers', 'app.routes', 'app.services', 'app.directives'])
+angular.module('app', ['ionic', 'pascalprecht.translate', 'ngStorage',  'app.controllers', 'app.routes', 'app.strings', 'app.services', 'app.directives'])
 
 
 
-.run(function($ionicPlatform,PopupTranslate, userinfo) {
-  $ionicPlatform.ready(function() {
-
-      //prompts user for language
-      var myPopup = PopupTranslate.getPopup();
-
-      //loads device info on start up
-      var dev_info = {}
-
-      document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() {
-          console.log(device.cordova);
-      }
-      dev_info.device_manufacturer = device.manufacturer;
-      dev_info.device_model = device.model;
-      dev_info.device_platform = device.platform;
-      dev_info.device_version = device.version;
-      dev_info.device_uuid = device.uuid;
-      dev_info.device_serial = device.serial;
-
-      userinfo.updateInfo(dev_info)
+.run(function($ionicPlatform, PopupTranslate, language, $translate, $localStorage, $location, userinfo, strings ) {
+    $ionicPlatform.ready(function() {
 
 
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
+        //check for localStorage. If present load language of choice and prompt for skip to register
+
+        if ($localStorage.user != null)
+        {
+            $translate.use($localStorage.language)
+            language.updateInfo($localStorage.language)
+            var x = window.confirm(strings.get_translation(strings.START_STORAGE))
+            if (x == true){
+                $location.path('/register');
+            }
+        }
+        else{
+            //prompts user for language
+            var myPopup = PopupTranslate.getPopup()
+        }
+
+
+        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+    });
 })
