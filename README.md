@@ -25,6 +25,8 @@ cordova plugin add cordova-plugin-network-information
 
 cordova plugin add https://github.com/apache/cordova-plugin-compat
 
+cordova plugin add https://github.com/whiteoctober/cordova-plugin-app-version.git
+
 
 
 **To check plugins installed (should list above plugins):**

@@ -27,11 +27,11 @@
 <!-- modal for terms that popover -->
 
 <script id="templates/modal.html" type="text/ng-template">
-<ion-modal-view style="width: 90%; height: 90%; top: 5%; left: 5%; right: 5%; bottom: 5%;">
+<ion-modal-view style=" width: 90%; height: 85%; left: 5%; right: 5%;">
 <ion-content>
     <div style="margin-left:3%; margin-right:3%;color:#000000;text-align:center;">
 
-    <h3 id="terms_fishers-heading5" style="color:#000000;text-align:center; margin-top:2%;" class=" ">{{"TERMS_MODAL_TITLE" | translate}}</h3>
+    <h3 id="terms_fishers-heading5" style="color:#000000;text-align:center; margin-top:5%;" class=" ">{{"TERMS_MODAL_TITLE" | translate}}</h3>
 
     <!-- For monitors: -->
     <p  ng-hide="user.usertype !='monitor'"id="popup_fisher-markdown12" style="color:#000000;" class=" "
@@ -71,12 +71,14 @@
 
   <ion-checkbox class="item-text-wrap" ng-model="user.permission_daff">{{"TERMS_MODAL_CONSENT_DAFF"| translate}}</ion-checkbox>
   </div>
-</div>
+
 
 <!--Next button - used to Close the pop-up -->
 <button id="popup_fisher-button5" ng-click="sendOrder()" ng-disabled="!checked"
 class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}
 </button>
+</div>
+
 
 </form>
 </div>

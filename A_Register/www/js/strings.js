@@ -4,6 +4,8 @@ angular.module('app.strings', [])
 
 
     var strings = {
+
+        "HOME_SELECT_HEADING" : "Select Language -- Kies Taal",
         "HOME_CLEAR": {
             "en" : "All Information has been cleared",
             "afr" :"Alle informasie is nou uitgevee"

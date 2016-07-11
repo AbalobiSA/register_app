@@ -268,3 +268,4 @@
 [0704/135321:WARNING:process_snapshot_win.cc(102)] ReadMemory ExceptionInformation failed
 [0704/135321:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::InitializeException failed
 [0704/135321:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558
+[0711/125413:ERROR:settings.cc(261)] Settings magic is not 1129342067

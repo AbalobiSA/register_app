@@ -6,6 +6,12 @@ angular.module('app.controllers', [])
 
 .controller('homectrl', function($scope, $localStorage, $location, strings,  $ionicHistory, userinfo) {
 
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        cordova.getAppVersion(function(version) {
+                $scope.appVersion = version;
+            })
+    }
 
     //loads info from localStorage if user saved info offline
     $scope.user = {}
@@ -17,7 +23,7 @@ angular.module('app.controllers', [])
         userinfo.clearInfo();
         $ionicHistory.clearCache();
         alert(strings.get_translation(strings.HOME_CLEAR))
-        
+
     }
 
     //evaluates the current netowrk connection and warns user if offline
@@ -198,15 +204,15 @@ angular.module('app.controllers', [])
             if (x == true){
 
                 //disable user while waiting
-                if (language.getInfo() == "en"){
-                    $ionicLoading.show({
-                        template: 'Waiting ' + SMS_TIMEOUT_PERIOD + 's for acknowledgement SMS - please wait...'
-                    })
-                }
-
                 if (language.getInfo() == "afr"){
                     $ionicLoading.show({
                         template: 'Wag ' + SMS_TIMEOUT_PERIOD + 's vir bevestigings SMS - wag asseblief...'
+                    })
+                }
+
+                else {
+                    $ionicLoading.show({
+                        template: 'Waiting ' + SMS_TIMEOUT_PERIOD + 's for acknowledgement SMS - please wait...'
                     })
                 }
 

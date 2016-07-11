@@ -78,12 +78,15 @@ angular.module('app.services', [])
     return app;
 }])
 
-.factory("PopupTranslate", function ($ionicPopup, language, $translate, $localStorage) {
+.factory("PopupTranslate",  function ($ionicPopup, language, $translate, $localStorage) {
+
+    var title = "Select Language -- Kies Taal"
+
     function getPopup(scope) {
         return $ionicPopup.show({
-            title: "Choose Language -- Kies Taal",
+            title: title,
             buttons: [
-                { text: 'Afrikaans',
+                { text: 'AFR',
                 type: 'button-calm',
                 cssClass: "termspopup",
                 onTap: function() {
@@ -92,8 +95,17 @@ angular.module('app.services', [])
                     $localStorage.language = "afr"
                 }
             },
+            { text: 'XH',
+            type: 'button-stable',
+            cssClass: "termspopup",
+            onTap: function() {
+                $translate.use('xh')
+                language.updateInfo("xh");
+                $localStorage.language = "xh"
+            }
+        },
             {
-                text: 'English',
+                text: 'ENG',
                 type: 'button-positive',
                 onTap: function() {
                     $translate.use('en')

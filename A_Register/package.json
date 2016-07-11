@@ -26,7 +26,5 @@
       "id": "com.borismus.webintent"
     }
   ],
-  "cordovaPlatforms": [
-    "android"
-  ]
+  "cordovaPlatforms": []
 }
