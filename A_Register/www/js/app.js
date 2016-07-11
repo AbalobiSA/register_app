@@ -19,10 +19,8 @@ angular.module('app', ['ionic', 'pascalprecht.translate', 'ngStorage',  'app.con
         {
             $translate.use($localStorage.language)
             language.updateInfo($localStorage.language)
-            var x = window.confirm(strings.get_translation(strings.START_STORAGE))
-            if (x == true){
-                $location.path('/register');
-            }
+             alert(strings.get_translation(strings.START_STORAGE))
+
         }
         else{
             //prompts user for language

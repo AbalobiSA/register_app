@@ -19,7 +19,7 @@
 
     "TERMS_MODAL_AGREE_TEXT" : "By selecting 'I agree' below I confirm that I understand the above paragraph and hereby give permission to the core Abalobi team to view all data I capture for the sole purpose of maintaining and improving the Abalobi system.",
 
-    "TERMS_MODAL_AGREE_CONFIRM" : "I Agree",
+    "TERMS_MODAL_AGREE_CONFIRM" : "*I Agree",
 
     "TERMS_MODAL_CONSENT_TITLE" : "I further consent to share my data with the following parties (tick where applicable):",
 

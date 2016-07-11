@@ -1,7 +1,7 @@
 <ion-view title="fisher_info" hide-nav-bar="true" id="page3" class=" " ng-controller="fisher_infoCtrl">
   <ion-content padding="true" class="manual-ios-statusbar-padding">
 
-    <form id="register2-form2" class="list " name="userForm" novalidate >
+    <form id="register2-form2" class="list item-text-wrap" name="userForm" novalidate >
 
       <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
       <ion-list id="register2-list2" class=" ">
@@ -77,10 +77,10 @@
 
       <!-- "Register" button -->
       <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null)" class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
+
+      <div class="spacer" style="width: 300px; height: 5px;"></div>
     </form>
-
   </div>
-
 
 </ion-content>
 

@@ -24,7 +24,13 @@
     {
       "locator": "https://github.com/Initsogar/cordova-webintent",
       "id": "com.borismus.webintent"
+    },
+    {
+      "locator": "https://github.com/sidchilling/Phonegap-SMS-reception-plugin",
+      "id": "com.cordova.plugins.sms"
     }
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
 
 // Constants
-.constant('OPENFN_URL', "URLHERE")
+.constant('OPENFN_URL', "https://register.abalobi.info/")
 .constant('SMS_TIMEOUT_PERIOD', 30)   //seconds
 
 .controller('homectrl', function($scope, $localStorage, $location, strings,  $ionicHistory, userinfo) {
@@ -152,23 +152,23 @@ angular.module('app.controllers', [])
 
 .controller('registerCtrl', function($scope,  $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
 
-    //loads device info on start up
-    var dev_info = {}
+    $scope.user = {}
 
-    document.addEventListener("deviceready", onDeviceReady, false);
+   document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         console.log(device.cordova);
     }
-    dev_info.device_manufacturer = device.manufacturer;
-    dev_info.device_model = device.model;
-    dev_info.device_platform = device.platform;
-    dev_info.device_version = device.version;
-    dev_info.device_uuid = device.uuid;
-    dev_info.device_serial = device.serial;
 
-    userinfo.updateInfo(dev_info)
+    $scope.user.device_manufacturer = device.manufacturer;
+    $scope.user.device_model = device.model;
+    $scope.user.device_platform = device.platform;
+    $scope.user.device_version = device.version;
+    $scope.user.device_uuid = device.uuid;
+    $scope.user.device_serial = device.serial;
 
-    $scope.user = {}
+    userinfo.updateInfo($scope.user)
+
+
     //loads information for display and check by user
     $scope.user.name = userinfo.getInfo().name
     $scope.user.surname = userinfo.getInfo().surname
@@ -186,8 +186,8 @@ angular.module('app.controllers', [])
 
         //checks for network connection if no connection prompt user to store offline else proceed to post
         var networkState = navigator.connection.type;
-        alert(JSON.stringify(userinfo.getInfo(), null, 2))
-        //if no connection
+
+            //if no connection
         if (networkState == "none"){
             var confirm = window.confirm(strings.get_translation(strings.REGISTER_OFFLINE))
             if (confirm == true){
@@ -200,7 +200,9 @@ angular.module('app.controllers', [])
         else {
 
             //prompts whether the info is correct
-            var x = window.confirm(strings.get_translation(strings.REGISTER_INFO_CONFIRM)) //+ JSON.stringify(userinfo.getInfo(), null, 2))
+            var x = window.confirm(strings.get_translation(strings.REGISTER_INFO_CONFIRM))
+            //Add below for debugging
+            // alert(JSON.stringify(userinfo.getInfo(), null, 2))
             if (x == true){
 
                 //disable user while waiting

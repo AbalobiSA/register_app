@@ -43,9 +43,9 @@ angular.module('app.strings', [])
             "afr" : "Omdat because:"
         },
         "START_STORAGE" : {
-            "en" :"Previous Information Detected.\nGo to register page?",
-            "afr" : "Vorige Inligting opgetel. \nGaan na registreer bladsy?"
-        },
+            "en" :"Saved details were found and have been loaded. Click Clear to clear saved details",
+            "afr" : "Gestoorde inligting is gevind en gelaai. Gebruik maak skoon om alle inligting skoon te maak."
+        }
 
 
     }
