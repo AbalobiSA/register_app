@@ -1,7 +1,9 @@
 # register_app 
 
 cordova platform add android
-Note: if you have sdk22 installed - might need to: cordova platform add android@4.1.1   
+Note: if you have sdk22 installed - might need to: cordova platform add android@4.1.1  
+
+TODO: add url for post to Open Function 
 
 npm install
 
