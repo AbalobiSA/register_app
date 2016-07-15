@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
 
 // Constants
-.constant('OPENFN_URL', "https://register.abalobi.info/")
+.constant('OPENFN_URL', "")
 .constant('SMS_TIMEOUT_PERIOD', 30)   //seconds
 
 .controller('homectrl', function($scope, $localStorage, $location, strings,  $ionicHistory, userinfo) {
