@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
     <title></title>
 
     <link rel="stylesheet" href="fonts/montserrat/css/fonts.css">
@@ -12,62 +12,79 @@
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+-->
 
 
-    <link href="css/ionic.app.css" rel="stylesheet">
+<link href="css/ionic.app.css" rel="stylesheet">
 
 
-    <style type="text/css">
-      .platform-ios .manual-ios-statusbar-padding{
-        padding-top:20px;
-      }
-      .manual-remove-top-padding{
-        padding-top:0px;
-      }
-      .popup {
-        width: 1000px !important;
-        height: 650px !important;
-        }
-      .manual-remove-top-padding .scroll{
-        padding-top:0px !important;
-      }
-      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
-        margin-left:-10px;
-        margin-right:-10px;
-      }
-      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
-        border-radius:0px;
-        border-left:0px;
-        border-right: 0px;
-      }
+<style type="text/css">
+.platform-ios .manual-ios-statusbar-padding{
+    padding-top:20px;
+}
+.manual-remove-top-padding{
+    padding-top:0px;
+}
+.home{
+    height: 100% !important;
+}
+@media (min-width: 680px){
+  .modal{
+    border-radius: 8px !important;
+    overflow:hidden !important;
+  }
+}
+
+.manual-remove-top-padding .scroll{
+    padding-top:0px !important;
+}
+ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+    margin-left:-10px;
+    margin-right:-10px;
+}
+ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+    border-radius:0px;
+    border-left:0px;
+    border-right: 0px;
+}
 .help-block{
- font color="red"
+    font color="red"
+}
+
+.popup{
+    width : 70%;
+    height: 23%;
 }
 
 
 
-    </style>
+</style>
 
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/routes.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/directives.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/strings.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/angular-translate.min.js"></script>
+<script src="js/angular-translate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-static-files/2.8.1/angular-translate-loader-static-files.js"></script>
 
-    <!-- Only required for Tab projects w/ pages in multiple tabs
-    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
-    -->
+<script src="lib/ngstorage/ngStorage.min.js"></script>
 
-  </head>
-  <body ng-app="app" ng-csp="" animation="slide-left-right-ios7">
-  <div>
+<!-- Only required for Tab projects w/ pages in multiple tabs
+<script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+-->
+
+</head>
+<body ng-app="app" ng-csp="" animation="slide-left-right-ios7">
     <div>
-        <ion-nav-bar class="bar-dark">
-            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
-        </ion-nav-bar>
-        <ion-nav-view></ion-nav-view>
+        <div>
+            <ion-nav-bar class="bar-dark">
+                <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
+            </ion-nav-bar>
+            <ion-nav-view></ion-nav-view>
+        </div>
     </div>
-</div>
-  </body>
+</body>
 </html>

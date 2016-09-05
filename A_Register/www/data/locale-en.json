@@ -1,0 +1,141 @@
+{
+    "GEN_NEXT" : "Next",
+    "GEN_REGISTER" : "Register",
+    "HOME_REGISTER_ME": "Register",
+    "HOME_CLEAR": "Clear",
+    "HOME_VISIT_WEBSITE" : "Visit Abalobi Website",
+    "TERMS_SELECT_LABEL" : "Click the arrow (on the right) to select your role:",
+    "TERMS_SELECT_FISHER" : "Fisher",
+    "TERMS_SELECT_FMANAGER" : "Fisher Manager",
+    "TERMS_SELECT_MONITOR" : "Monitor",
+    "TERMS_SELECT_COOP" : "Co-Operative",
+    "TERMS_SELECT_MONMANAGER" : "Monitor Manager",
+
+    "TERMS_MODAL_TITLE" : "Terms of Use",
+
+    "TERMS_MODAL_FISHER_PAR" : "In order to maintain the Abalobi system it is possible for the core Abalobi team to access all data, however all data submitted to the Abalobi system will be treated with the utmost privacy. No data will be shared with 3rd parties without express consent of DAFF.",
+
+    "TERMS_MODAL_MONITOR_PAR" : "In order to maintain the Abalobi system it is possible for the core Abalobi team to access all data, however all data submitted to the Abalobi system will be treated with the utmost privacy. No data will be shared with 3rd parties without express consent of the person who captured the data.",
+
+    "TERMS_MODAL_AGREE_TEXT" : "By selecting 'I agree' below I confirm that I understand the above paragraph and hereby give permission to the core Abalobi team to view all data I capture for the sole purpose of maintaining and improving the Abalobi system.",
+
+    "TERMS_MODAL_AGREE_CONFIRM" : "*I Agree",
+
+    "TERMS_MODAL_CONSENT_TITLE" : "I further consent to share my data with the following parties (tick where applicable):",
+
+    "TERMS_MODAL_CONSENT_ABALOBI": "Abalobi Local Implementer",
+    "TERMS_MODAL_CONSENT_DAFF": "DAFF (Department of Agriculture, Forestry and fisheries)",
+
+    "PERSONAL_TITLE_ALL" : "Personal Information",
+    "PERSONAL_TITLE_CO" : "Personal Information of Person Responsible ",
+    "PERSONAL_REQUIRED" : "Required fields are marked with: *",
+
+    "PERSONAL_SURNAME_LABEL" : "*Surname",
+    "PERSONAL_SURNAME_PH" : "Enter your surname here",
+
+    "PERSONAL_NAME_LABEL": "*First Name",
+    "PERSONAL_NAME_PH": "Enter your name here",
+
+    "PERSONAL_NICKNAME_LABEL": "Nickname",
+    "PERSONAL_NICKNAME_PH": "What do people usually call you?",
+
+    "PERSONAL_EMAIL_LABEL": "E-mail",
+    "PERSONAL_EMAIL_PH": "Enter your e-mail address here",
+    "PERSONAL_EMAIL_IV": "Please enter a valid e-mail address",
+
+    "PERSONAL_ID_LABEL" : "*ID Number",
+    "PERSONAL_ID_PH" : "Enter your ID number here",
+    "PERSONAL_ID_IV" : "Warning: A standard RSA ID is 13 characters long",
+
+    "PERSONAL_DATE_LABEL" : "*Date of Birth",
+
+    "PERSONAL_CELL_LABEL" : "*Personal Cellphone Number",
+    "PERSONAL_CELL_PH" : "Enter your cell number here",
+    "PERSONAL_CELL_IV" : "Please enter a valid 10-digit cell number",
+
+    "PERSONAL_DEV_CELL_LABEL" : "*This device's cell number",
+    "PERSONAL_DEV_CELL_PH" : "Enter this device's cell number here",
+
+    "PERSONAL_PASSWORD_LABEL" : "*Password",
+    "PERSONAL_PASSWORD_PH" : "Please choose a password",
+    "PERSONAL_PASSWORD_IV" : "Minimum of 6 Characters Required",
+
+    "PERSONAL_REPASSWORD_LABEL" : "*Re-type Password",
+    "PERSONAL_REPASSWORD_PH" : "Please re-type the password here",
+    "PERSONAL_REPASSWORD_IV" : "Passwords don't match",
+
+    "PERSONAL_REQUIRED_FIELD" : "You have to fill in this field",
+
+    "MFC_LANDINGSITE_MONITOR" : "Which landing site or community will you be monitoring?",
+
+    "MFC_LANDINGSITE_FISHMANAGER" : "Which landing site or community do your fishers land at most often",
+
+    "MFC_LANDINGSITE_PC" : "Enter landing site or community here",
+
+    "MFC_COOP_LABEL" : "Co-Operative:",
+    "MFC_COOP_REG" : "Registration number of co-operative :",
+    "MFC_COOP_REG_PC" : "Enter registration number of Co-Operative here",
+    "MFC_COOP_NAME" : "Name of Co-Operative:",
+    "MFC_COOP_NAME_PC" : "Enter name of Co-Operative here",
+
+    "FISHER_LANDINGSITE_LABEL" : "*Which landing site or community do you land at most often?",
+    "FISHER_LANDINGSITE_PH": "Landing site or community",
+    "FISHER_COOP_HEADING" : "Co-operative member?",
+    "FISHER_COOP_CHECKBOX" : "I am a member of a co-operative",
+    "FISHER_COOP_NAME" : "Name of Co-operative:",
+    "FISHER_COOP_NAME_PH" : "Enter co-op name here",
+    "FISHER_FROM_LABEL" : "*Which of these do you fish from?",
+    "FISHER_FROM_BOAT" : "Boat",
+    "FISHER_FROM_SHORE" : "Shore",
+    "FISHER_BOAT_LABEL" : "Whose boat do you fish from?",
+    "FISHER_BOAT_OWN" : "My own boat",
+    "FISHER_BOAT_ELSE" : "Someone else's boat",
+    "FISHER_BOATINFO_LABEL" : "Boat Information",
+    "FISHER_BOATINFO_NAME_LABEL" : "Name of Boat",
+    "FISHER_BOATINFO_NAME_PH" : "Enter name here",
+    "FISHER_BOATINFO_REG_LABEL" : "Boat registration number",
+    "FISHER_BOATINFO_REG_PH" : "Enter registration number here",
+    "FISHER_BOATINFO_REG_EXPIRY" : "Registration expiry Date",
+    "FISHER_BOATINFO_ENGINE_LABEL" : "Does your boat have an engine?",
+    "FISHER_BOATINFO_ENGINE_CHECKBOX" : "Yes, my boat has an engine",
+    "FISHER_BOATINFO_ENGINECAP" : "Engine Capacity",
+    "FISHER_BOATINFO_ENGINECAP_FILL" : "(Fill in either horsepower or cc)",
+
+    "PHOTO_INSTRUCTION" : "Touch the cross to add a new picture. Take a selfie for your profile picture and add a picture of your boat. Touch the cross again to add a different photo. Note: This is Optional",
+    "PHOTO_PROFILEPIC" : "Profile Picture",
+    "PHOTO_BOAT" : "Boat",
+
+    "HELP_INFO" : "Explanations of all fields that can be filled in below:",
+    "HELP_SURNAME" : "Surname:",
+    "HELP_SURNAME_TEXT" : "Enter your surname.",
+    "HELP_NAME" : "Name:",
+    "HELP_NAME_TEXT" : "Enter your first name.",
+    "HELP_NICKNAME" : "Nickname:",
+    "HELP_NICKNAME_TEXT" : "If you are known by another name then your first name enter it here.",
+    "HELP_EMAIL" : "E-mail:",
+    "HELP_EMAIL_TEXT" : "If you have an E-mail account enter it here.",
+    "HELP_ID" : "ID number:",
+    "HELP_ID_TEXT" : "Enter your Personal Identification Number. South African ID numbers are 13 digits long.",
+    "HELP_DATE" : "Date of Birth:",
+    "HELP_DATE_TEXT" : "Enter the date when you were born by selecting the year, month and day using the drop down.",
+    "HELP_CELL" : "Personal Cellphone Number:",
+    "HELP_CELL_TEXT" : "Enter your personal cellphone number",
+    "HELP_DEV" : "Device Cellphone Number:",
+    "HELP_DEV_TEXT" : "If you are currently using a device which is not your personal cellphone enter its number here.",
+    "HELP_PASSWORD" : "Password:",
+    "HELP_PASSWORD_TEXT" : "Select the password with which you will access the Abalobi system. It must be at least 6 characters long.",
+
+    "REGISTER_INFO" : "If any of the below information is incorrect please go back and change it. If everything is correct please press the Register button below",
+
+    "REGISTER_NAME" : "Name:",
+    "REGISTER_SURNAME" : "Surname:",
+    "REGISTER_ID" : "ID Number:",
+    "REGISTER_CELL" : "Personal Cell Number:"
+
+
+
+
+
+
+
+        }

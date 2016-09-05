@@ -1,0 +1,145 @@
+
+    {
+        "GEN_NEXT": "Volgende",
+        "GEN_REGISTER" : "Registreer",
+        "HOME_REGISTER_ME": "Registreer",
+        "HOME_CLEAR": "Maak Skoon",
+        "HOME_VISIT_WEBSITE" : "Besoek Abalobi Webtuiste",
+        "TERMS_SELECT_LABEL" : "Gebruik die pyl (aan die regterkant) om u beroep te kies:",
+        "TERMS_SELECT_FISHER" : "Visserman",
+        "TERMS_SELECT_FMANAGER" : "Visser Bestuurder",
+        "TERMS_SELECT_MONITOR" : "Monitor",
+        "TERMS_SELECT_COOP" : "Ko-Operatief",
+        "TERMS_SELECT_MONMANAGER" : "Monitor Bestuurder",
+
+        "TERMS_MODAL_TITLE" : "Terme van Gebruik",
+
+        "TERMS_MODAL_FISHER_PAR" : "In orde om die Abalobi sisteem te onderhou is dit moontlik vir die kern Abalobi span om all data wat na die Abalobi sisteem gestuur te hanteer, alle data word egter met uitermate privaatheid hanteer. Geen data sal met 'n 3de party gedeel word sonder die permissie van DAFF nie",
+
+        "TERMS_MODAL_MONITOR_PAR" : "In orde om die Abalobi sisteem te onderhou is dit moontlik vir die kern Abalobi span om all data te hanteer, alle data wat na die Abalobi sisteem gestuur word, word egter met uitermate privaatheid hanteer. Geen data sal met 'n 3de party gedeel word sonder die permissie van die persoon wat die data in gesammel het nie.",
+
+        "TERMS_MODAL_AGREE_TEXT" : "Deur 'Ek Bevestig' hier onder te kies bevestig ek dat ek die bo-staande paragraaf verstaan en gee permissie aan die kern Abalobi span om alle data wat ek in sammel te beskou slegs vir die behoud en verbetering van die Abalobi sisteem.",
+
+        "TERMS_MODAL_AGREE_CONFIRM" : "*Ek Bevestig",
+
+        "TERMS_MODAL_CONSENT_TITLE" : "Verder gee ek toestemming dat my data met die volgende partye gedeel mag word:",
+
+        "TERMS_MODAL_CONSENT_ABALOBI": "Abalobi Plaaslike Implementeerder",
+        "TERMS_MODAL_CONSENT_DAFF": "DAFF (Departement van Agrikultuur, Bosbou and Visserye)",
+
+
+        "PERSONAL_TITLE_ALL" : "Persoonlike Inligting",
+        "PERSONAL_TITLE_CO" : "Persoonlike Inligting van  Persoon Verantwoordelik",
+        "PERSONAL_REQUIRED" : "Verpligde velde word gemerk met: *",
+
+        "PERSONAL_SURNAME_LABEL" : "*Van",
+        "PERSONAL_SURNAME_PH" : "Fill u van hier in",
+
+        "PERSONAL_NAME_LABEL": "*Voorname",
+        "PERSONAL_NAME_PH": "Fill u voorname hier in",
+
+        "PERSONAL_NICKNAME_LABEL": "Bynaam",
+        "PERSONAL_NICKNAME_PH": "Wat noem mense jou gewoonlik?",
+
+        "PERSONAL_EMAIL_LABEL": "E-pos",
+        "PERSONAL_EMAIL_PH": "Vill u e-pos address hier in",
+        "PERSONAL_EMAIL_IV": "Fill asseblief 'n geldige e-pos address in",
+
+        "PERSONAL_ID_LABEL" : "*ID Nommer",
+        "PERSONAL_ID_PH" : "Fill u ID nommer hier in",
+        "PERSONAL_ID_IV" : "Waarskuwing: 'n Standaard RSA ID is 13 karakters lank",
+
+        "PERSONAL_DATE_LABEL" : "*Geboorte Datum",
+
+        "PERSONAL_CELL_LABEL" : "*Persoonlike Selfoon Nommer",
+        "PERSONAL_CELL_PH" : "Fil u selfoon nommer hier in",
+        "PERSONAL_CELL_IV" : "Fill asseblief 'n geldige, 10 syfer nommer in'",
+
+        "PERSONAL_DEV_CELL_LABEL" : "*Hierdie Toestel se Nommer",
+        "PERSONAL_DEV_CELL_PH" : "Fill hierdie toestel se nommer hier in",
+
+        "PERSONAL_PASSWORD_LABEL" : "*Wagwoord",
+        "PERSONAL_PASSWORD_PH" : "Kies 'n wagwoord",
+        "PERSONAL_PASSWORD_IV" : "Minimum van 6 karakters word benodig",
+
+        "PERSONAL_REPASSWORD_LABEL" : "*Herhaal Wagwoord",
+        "PERSONAL_REPASSWORD_PH" : "Asseblief herhaal wagwoord hier",
+        "PERSONAL_REPASSWORD_IV" : "Wagwoorde is nie dieselfde nie",
+
+        "PERSONAL_REQUIRED_FIELD" : "Hierdie veld is verpligtend",
+
+        "MFC_LANDINGSITE_MONITOR" : "Watter landing site of gemeenskap monitor u?",
+
+        "MFC_LANDINGSITE_FISHMANANGER" : "Aan Watter landing site of gemeenskap land u vissers gewoonlik",
+
+        "MFC_LANDINGSITE_PC" : "Vul u landing site of gemeenskap hier in",
+
+        "MFC_COOP_LABEL" : "Ko-Operatief:",
+        "MFC_COOP_REG" : "Ko-Operatief registrasie nommer :",
+        "MFC_COOP_REG_PC" : "Vul u Ko-Operatief se registrasie nommer hier in",
+        "MFC_COOP_NAME" : "Naam van Ko-Operatief:",
+        "MFC_COOP_PC" : "Vul u Ko-Operatief se naam hier in",
+
+        "FISHER_LANDINGSITE_LABEL" : "*By watter landig site of gemeenskap gaan u mees gereeld te land?",
+        "FISHER_LANDINGSITE_PH": "Landing site of gemeenskap",
+        "FISHER_COOP_HEADING" : "Ko-Operatief lid?",
+        "FISHER_COOP_CHECKBOX" : "Ek is 'n lid van 'n ko-operatief",
+        "FISHER_COOP_NAME" : "Naam van Ko-operatief",
+        "FISHER_COOP_NAME_PH" : "Vul u ko-operatief se naam hier in",
+        "FISHER_FROM_LABEL" : "*Vanaf watter van die volgende vang u vis?",
+        "FISHER_FROM_BOAT" : "Boot",
+        "FISHER_FROM_SHORE" : "Kus",
+        "FISHER_BOAT_LABEL" : "Aan wie behoort die boot?",
+        "FISHER_BOAT_OWN" : "My eie boot",
+        "FISHER_BOAT_ELSE" : "Iemand anders se boot",
+        "FISHER_BOATINFO_LABEL" : "Boot Inligting",
+        "FISHER_BOATINFO_NAME_LABEL" : "Naam van Boat",
+        "FISHER_BOATINFO_NAME_PH" : "Vul naam hier in",
+        "FISHER_BOATINFO_REG_LABEL" : "Boot Registrasie Nommer",
+        "FISHER_BOATINFO_REG_PH" : "Vul registrasie nommer hier in",
+        "FISHER_BOATINFO_REG_EXPIRY" : "Registrasie verval datum",
+        "FISHER_BOATINFO_ENGINE_LABEL" : "Het u boot 'n enjin'?",
+        "FISHER_BOATINFO_ENGINE_CHECKBOX" : "Ja, my boot het n' enjin",
+        "FISHER_BOATINFO_ENGINECAP" : "Enjin Kapasiteit",
+        "FISHER_BOATINFO_ENGINECAP_FILL" : "(Vul in HP of CC)",
+
+        "PHOTO_INSTRUCTION" : "Raak die kruis om 'n nuwe foto by te voeg. Neem 'n foto van jouself vir jou profiel foto en 'n foto van jou boot. Raak weer die kruis om 'n ander foto by te voeg. Nota: Hierdie is optioneel",
+        "PHOTO_PROFILEPIC" : "Profiel Foto",
+        "PHOTO_BOAT" : "Boot",
+
+        "HELP_INFO" : "Verduideliking van alle velde wat in gevul kan word volg hier onder:",
+        "HELP_SURNAME" : "Van:",
+        "HELP_SURNAME_TEXT" : "Vul u van in.",
+        "HELP_NAME" : "Naam:",
+        "HELP_NAME_TEXT" : "Vul u voorname in.",
+        "HELP_NICKNAME" : "Bynaam:",
+        "HELP_NICKNAME_TEXT" : "Indien u bekend is by ander naam as u voornaam vul dit hier in.",
+        "HELP_EMAIL" : "E-pos:",
+        "HELP_EMAIL_TEXT" : "Indien u 'n e-pos address het vul dit hier in.",
+        "HELP_ID" : "ID Nommer:",
+        "HELP_ID_TEXT" : "Vul u persoonlike identiteits nommer in. Suid-Afrikaanse ID nommers is 13 sysfers lank.",
+        "HELP_DATE" : "Geboorte Datum:",
+        "HELP_DATE_TEXT" : "Kies u geboorte datum deur die jaar, maand en dag te kies van gegewe opsies.",
+        "HELP_CELL" : "Persoonlike Selfoon Nommer:",
+        "HELP_CELL_TEXT" : "Vul u persoonlike selfoon se nommer in.",
+        "HELP_DEV" : "Toestel Selfoon Nommer:",
+        "HELP_DEV_TEXT" : "Indien u tans 'n toestel gebruik wat nie u persoonlike selfoon is nie vul die toestel se selfoon nommer hier in.",
+        "HELP_PASSWORD" : "Wagwoord:",
+        "HELP_PASSWORD_TEXT" : "Kies die wagwoord waarmee u op die Abalobi sisteem sal aanteken. Die wagwoord moet 'n minimum van 6 karakters lank wees.",
+
+        "REGISTER_INFO" : "As enige van die onderstaande inligting verkeerd is gaan asseblief terug en koregeer dit andersins as alles korrek is druk asseblief die 'Registreer' opsie hier onder",
+
+        "REGISTER_NAME" : "Naam:",
+        "REGISTER_SURNAME" : "Van:",
+        "REGISTER_ID" : "ID Nommer:",
+        "REGISTER_CELL" : "Persoonlike Selfoon Nommer:"
+
+
+
+
+
+
+
+
+
+    }

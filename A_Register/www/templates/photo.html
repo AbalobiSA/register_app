@@ -1,0 +1,22 @@
+<ion-view title="Home" hide-nav-bar="true" hide-back-button="true" id="page6" class=" ">
+    <ion-content padding="true" class="manual-ios-statusbar-padding">
+        <h3 id="terms-heading4" style="color:#000000;text-align:center;" class=" "
+        >Abalobi Register
+      </h3>
+
+        <p id="home-markdown2" style="color:#000000;font-size:14px;" class=" ">{{"PHOTO_INSTRUCTION" | translate}}</p>
+        <ion-list id="home-list3" class=" ">
+            <ion-item class="item-thumbnail-left item-icon-right">
+                <img style="width:250px; height 400px;" src="img/d4LuX9zISZqeInsei7mg_profile-placeholder.png" id="profilepic">
+                <h2>{{"PHOTO_PROFILEPIC" | translate}}</h2>
+                <i ng-click="takePhoto('profilepic')" class="icon ion-android-add-circle"></i>
+            </ion-item>
+            <ion-item class="item-thumbnail-left item-icon-right  " id="home-list-item2">
+                <img src="img/7cxVZB8aRRKB3ctvBEPz_placeholder3.png" id="boatpic">
+                <h2>{{"PHOTO_BOAT" | translate}}</h2>
+                <i ng-click="takePhoto('boatpic')" class="icon ion-android-add-circle"></i>
+            </ion-item>
+        </ion-list>
+        <button ng-click="next()" id="home-button6" class=" button button-positive  button-block ">{{"GEN_NEXT" | translate}}</button>
+    </ion-content>
+</ion-view>

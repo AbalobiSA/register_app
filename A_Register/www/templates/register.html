@@ -1,0 +1,22 @@
+<ion-view cache-view="false" title="register" hide-nav-bar="true" hide-back-button="true" id="page3" class=" ">
+  <ion-content  padding="true" class="manual-ios-statusbar-padding">
+    <h3 id="terms-heading4" style="color:#000000;text-align:center;" class=" "
+    >Abalobi Register
+  </h3>
+
+  <h5 style="color:#000000;text-align:center;">{{"REGISTER_INFO" | translate}}</h5>
+
+  <ion-list class="list item-text-wrap" >
+      <label class="item"> <strong> {{"REGISTER_NAME" | translate}} </strong> {{ user.name }} </label>
+      <label class="item"><strong> {{"REGISTER_SURNAME" | translate}}</strong> {{ user.surname }} </label>
+      <label class="item"> <strong>{{"REGISTER_ID" | translate}}</strong> {{user.id}} </label>
+      <label class="item"> <strong>{{"REGISTER_CELL" | translate}}</strong> {{user.cell}} </label>
+
+</ion-list>
+
+
+  <button id="register2-button5" type="submit" ng-click="register()" class=" button button-positive  button-block">{{"GEN_REGISTER" | translate}}</button>
+      </form>
+
+</ion-content>
+</ion-view>

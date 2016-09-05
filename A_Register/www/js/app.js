@@ -5,19 +5,36 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
+angular.module('app', ['ionic', 'pascalprecht.translate', 'ngStorage',  'app.controllers', 'app.routes', 'app.strings', 'app.services', 'app.directives'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
+
+
+.run(function($ionicPlatform, PopupTranslate, language, $translate, $localStorage, $location, userinfo, strings ) {
+    $ionicPlatform.ready(function() {
+
+
+        //check for localStorage. If present load language of choice and prompt for skip to register
+
+        if ($localStorage.user != null)
+        {
+            $translate.use($localStorage.language)
+            language.updateInfo($localStorage.language)
+             alert(strings.get_translation(strings.START_STORAGE))
+
+        }
+        else{
+            //prompts user for language
+            var myPopup = PopupTranslate.getPopup()
+        }
+
+
+        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+    });
 })
