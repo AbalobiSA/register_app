@@ -2,14 +2,18 @@
     "GEN_NEXT" : "Next",
     "GEN_REGISTER" : "Register",
     "HOME_REGISTER_ME": "Register",
-    "HOME_CLEAR": "Clear",
-    "HOME_VISIT_WEBSITE" : "Visit Abalobi Website",
+    "HOME_CLEAR": "Clear info",
+    "HOME_VISIT_WEBSITE" : "Visit Abalobi website",
     "TERMS_SELECT_LABEL" : "Click the arrow (on the right) to select your role:",
     "TERMS_SELECT_FISHER" : "Fisher",
-    "TERMS_SELECT_FMANAGER" : "Fisher Manager",
+    "TERMS_SELECT_FMANAGER" : "Local fisher Assistant/Manager",
     "TERMS_SELECT_MONITOR" : "Monitor",
     "TERMS_SELECT_COOP" : "Co-Operative",
+    "TERMS_SELECT_COOPADMIN" : "Co-Operative Administator",
     "TERMS_SELECT_MONMANAGER" : "Monitor Manager",
+    "TERMS_SELECT_DEMOFISHER" : "Demo Fisher",
+    "TERMS_SELECT_DEMOMON" : "Demo Monitor",
+
 
     "TERMS_MODAL_TITLE" : "Terms of Use",
 
@@ -45,7 +49,7 @@
 
     "PERSONAL_ID_LABEL" : "*ID Number",
     "PERSONAL_ID_PH" : "Enter your ID number here",
-    "PERSONAL_ID_IV" : "Warning: A standard RSA ID is 13 characters long",
+    "PERSONAL_ID_IV" : "Warning: A standard RSA ID is 13 characters long - yours is not. Please ensure that you filled it in correctly.",
 
     "PERSONAL_DATE_LABEL" : "*Date of Birth",
 
@@ -58,25 +62,25 @@
 
     "PERSONAL_PASSWORD_LABEL" : "*Password",
     "PERSONAL_PASSWORD_PH" : "Please choose a password",
-    "PERSONAL_PASSWORD_IV" : "Minimum of 6 Characters Required",
+    "PERSONAL_PASSWORD_IV" : "Minimum of 6 characters required",
 
     "PERSONAL_REPASSWORD_LABEL" : "*Re-type Password",
     "PERSONAL_REPASSWORD_PH" : "Please re-type the password here",
     "PERSONAL_REPASSWORD_IV" : "Passwords don't match",
 
-    "PERSONAL_REQUIRED_FIELD" : "You have to fill in this field",
+    "PERSONAL_REQUIRED_FIELD" : "This field is required",
 
     "MFC_LANDINGSITE_MONITOR" : "Which landing site or community will you be monitoring?",
 
-    "MFC_LANDINGSITE_FISHMANAGER" : "Which landing site or community do your fishers land at most often",
+    "MFC_LANDINGSITE_FISHMANAGER" : "Which landing site or community do your fishers land at most often?",
 
     "MFC_LANDINGSITE_PC" : "Enter landing site or community here",
 
-    "MFC_COOP_LABEL" : "Co-Operative:",
+    "MFC_COOP_LABEL" : "Co-operative:",
     "MFC_COOP_REG" : "Registration number of co-operative :",
-    "MFC_COOP_REG_PC" : "Enter registration number of Co-Operative here",
-    "MFC_COOP_NAME" : "Name of Co-Operative:",
-    "MFC_COOP_NAME_PC" : "Enter name of Co-Operative here",
+    "MFC_COOP_REG_PC" : "Enter registration number of Co-operative here",
+    "MFC_COOP_NAME" : "Name of Co-operative:",
+    "MFC_COOP_NAME_PC" : "Enter name of Co-operative here",
 
     "FISHER_LANDINGSITE_LABEL" : "*Which landing site or community do you land at most often?",
     "FISHER_LANDINGSITE_PH": "Landing site or community",

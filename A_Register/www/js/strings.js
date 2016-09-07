@@ -7,47 +7,45 @@ angular.module('app.strings', [])
 
         "HOME_SELECT_HEADING" : "Select Language -- Kies Taal",
         "HOME_CLEAR": {
-            "en" : "All Information has been cleared",
+            "en" : "All information has been cleared",
             "afr" :"Alle informasie is nou uitgevee"
         },
         "HOME_NO_CONNECTION" : {
-            "en" :"You currently have no connection.\nYou will not be able to register.",
-            "afr" :  "U het tans geen internet toegang, u sal nie kan registreer nie"
+            "en" :"You currently have no internet connection.\nYou will need to connect to the internet to be able to register.",
+            "afr" :  "U het tans nie internet toegang nie.\nU sal aan die internet moet koppel om te kan registreer."
         },
         "REGISTER_OFFLINE" : {
-            "en" :"You are offline. Do you want to store information to submit later?",
-            "afr" :  "U is nie aanlyn nie. Wil u die inligting stoor om later te registreer"
+            "en" :"You currently have no internet connection.\nDo you want to save your information to submit later?",
+            "afr" :  "U het tans nie internet toegang nie.\nWil u die inligting stoor om later te kan registreer?"
         },
         "REGISTER_INFO_STORED" : {
-            "en" :"Your information has been stored",
-            "afr" :  "U inligting is gestoor"
+            "en" :"Your information has been saved.",
+            "afr" :  "U inligting is gestoor."
         },
         "REGISTER_INFO_CONFIRM" : {
-            "en" :"Are You Sure the following is Correct?",
-            "afr" : "Is u seker die volgende is korrek?"
+            "en" :"Please confirm - is all this information correct?",
+            "afr" : "Bevestig asseblief - is hierdie inligting korrek?"
         },
         "REGISTER_TIMEOUT" : {
-            "en" :"Registration Couldn't Be Completed \nCheck Inbox For Username",
-            "afr" : "Registrasie kon nie voltooi word nie \n Hou Inbox dop vir username"
+            "en" :"Registration timeout - confirmation SMS not received yet.\nPlease watch your SMS Inbox for the confirmation SMS. Please contact the Abalobi team if no SMS is received within 24 hours.",
+            "afr" : "Registrasie timeout - registrasie SMS nog nie ontvang nie.\nHou asb u SMS Inbox dop vir die registrasie SMS. Kontak asseblief die Abalobi span indien u nie binne 24uur 'n SMS ontvang nie.'"
         },
         "REGISTER_SUCCESS" : {
-            "en" :"Registration was successful",
-            "afr" : "Registrasie was suksesvol"
+            "en" :"Registration SMS received - your registration was submitted.",
+            "afr" : "Registrasie SMS ontvang - u registrasie is ingedien."
         },
         "REGISTER_FAIL" : {
-            "en" :"Registration submission failed",
-            "afr" : "Registrasie wegsending het misluk"
+            "en" :"Registration submission failed.",
+            "afr" : "Stuur van registrasie inligting het misluk."
         },
         "CAMERA_FAIL" : {
-            "en" :"Failed because:",
-            "afr" : "Omdat because:"
+            "en" :"Failure reason:",
+            "afr" : "Mislukking rede:"
         },
         "START_STORAGE" : {
-            "en" :"Saved details were found and have been loaded. Click Clear to clear saved details",
-            "afr" : "Gestoorde inligting is gevind en gelaai. Gebruik maak skoon om alle inligting skoon te maak."
+            "en" :"Saved information was found and have been loaded. Click 'Clear info' to clear the registration info on your device.",
+            "afr" : "Gestoorde inligting is gevind en gelaai. Gebruik 'Vee inligting uit' om die registrasie inligting op u foon/tablet uit te wis."
         }
-
-
     }
 
     strings.get_translation = function(data){
