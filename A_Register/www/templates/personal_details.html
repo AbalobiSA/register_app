@@ -5,9 +5,9 @@
 
             <h2 id="register1-heading3" style="color:#000000;text-align:center;" class="header">Abalobi Register</h2>
 
-            <h3 id="register1-heading4" ng-hide="user.usertype == 'co_op'"style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_ALL" | translate}}</h3>
+            <h3 id="personal_details_title_all" ng-show="evaluate_byindex(10)"style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_ALL" | translate}}</h3>
 
-            <h3 id="register1-heading4" ng-hide="user.usertype != 'co_op'" style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_CO" | translate}} </h3>
+            <h3 id="personal_details_title_co" ng-show="evaluate_byindex(11)" style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_CO" | translate}} </h3>
 
 
 
@@ -70,11 +70,11 @@
 
 
             <!-- Device cell number (for monitor and Co-op) -->
-            <label class="item item-input item-stacked-label " ng-show="user.usertype == 'monitor' || user.usertype == 'co_op'" id="register2-input5">
+            <label class="item item-input item-stacked-label " ng-show="evaluate_byindex(12)" id="personal_details_device_num">
                 <span class="input-label">{{"PERSONAL_DEV_CELL_LABEL" | translate}}</span>
                 <input  type="tel" name="cell_dev" ng-model="user.cell_dev"
                 ng-minlength="10"
-                ng-maxlength="10"  ng-required="user.usertype == 'monitor' || user.usertype == 'co_op'" placeholder="{{'PERSONAL_DEV_CELL_PH' | translate}}">
+                ng-maxlength="10"  ng-required="evaluate_byindex(12)" placeholder="{{'PERSONAL_DEV_CELL_PH' | translate}}">
                 <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
                 ng-show="userForm.cell_dev.$invalid && userForm.cell_dev.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
             </label>
@@ -95,7 +95,9 @@
             </label>
         </ion-list>
 
-        <!-- Next button (for fishers) - goes to fisher-info page -->
+        <p style="color:red;" ng-show="userForm.$invalid || !match(password1)" > {{"GEN_REQUIRED" | translate}} </p>
+
+        <!-- Next button - goes to photo page -->
         <a  id="register1-button3"  ng-click="next()"
         ng-disabled="userForm.$invalid || !match(password1)"
         class=" button button-positive button-block ">{{"GEN_NEXT" | translate}}</a>

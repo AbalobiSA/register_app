@@ -2,6 +2,8 @@
     {
         "GEN_NEXT": "Volgende",
         "GEN_REGISTER" : "Registreer",
+        "GEN_CHANGE" : "Verander",
+        "GEN_REQUIRED" : "U moet alle benodigde velde invul (gemerk met * ) voor u 'Volgende' kan kies",
         "HOME_REGISTER_ME": "Registreer",
         "HOME_CLEAR": "Vee inligting uit",
         "HOME_VISIT_WEBSITE" : "Besoek Abalobi webtuiste",
@@ -14,7 +16,6 @@
         "TERMS_SELECT_MONMANAGER" : "Monitor Bestuurder",
         "TERMS_SELECT_DEMOFISHER" : "Demo Visser",
         "TERMS_SELECT_DEMOMON" : "Demo Monitor",
-
 
         "TERMS_MODAL_TITLE" : "Terme van Gebruik",
 
@@ -73,8 +74,9 @@
         "PERSONAL_REQUIRED_FIELD" : "Hierdie veld is verpligtend",
 
         "MFC_LANDINGSITE_MONITOR" : "Watter 'landing site' of gemeenskap monitor u?",
-
-        "MFC_LANDINGSITE_FISHMANANGER" : "Aan watter landing site of gemeenskap land u vissers gewoonlik?",
+        "MFC_LANDINGSITE_PROVINCE": "Kies asb u provinsie",
+        "MFC_LANDINGSITE_SELECTED" : "U huidige landingsite/gemeenskap:",
+        "MFC_LANDINGSITE_FISHMANAGER" : "Aan watter landing site of gemeenskap land u vissers gewoonlik?",
 
         "MFC_LANDINGSITE_PC" : "Vul u landing site of gemeenskap hier in",
 

@@ -1,6 +1,8 @@
 {
     "GEN_NEXT" : "Next",
     "GEN_REGISTER" : "Register",
+    "GEN_CHANGE" : "Change",
+    "GEN_REQUIRED" : "You need to fill in all required fields (marked with * ) before you can select 'Next'",
     "HOME_REGISTER_ME": "Register",
     "HOME_CLEAR": "Clear info",
     "HOME_VISIT_WEBSITE" : "Visit Abalobi website",
@@ -75,6 +77,9 @@
     "MFC_LANDINGSITE_FISHMANAGER" : "Which landing site or community do your fishers land at most often?",
 
     "MFC_LANDINGSITE_PC" : "Enter landing site or community here",
+
+    "MFC_LANDINGSITE_PROVINCE": "Please Choose Your Province",
+    "MFC_LANDINGSITE_SELECTED" : "Your current landingsite:",
 
     "MFC_COOP_LABEL" : "Co-operative:",
     "MFC_COOP_REG" : "Registration number of co-operative :",

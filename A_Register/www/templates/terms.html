@@ -13,6 +13,9 @@
         <option value="co_op" >{{"TERMS_SELECT_COOP"| translate}}</option>
         <option value="monitor" >{{"TERMS_SELECT_MONITOR"| translate}}</option>
         <option value="monitor_manager" >{{"TERMS_SELECT_MONMANAGER"| translate}}</option>
+        <option value="co_op_admin" >{{"TERMS_SELECT_COOPADMIN"| translate}}</option>
+        <option value="demo_fisher" >{{"TERMS_SELECT_DEMOFISHER"| translate}}</option>
+        <option value="demo_monitor" >{{"TERMS_SELECT_DEMOMON"| translate}}</option>
       </select>
     </label>
 
@@ -34,12 +37,12 @@
     <h3 id="terms_fishers-heading5" style="color:#000000;text-align:center; margin-top:5%;" class=" ">{{"TERMS_MODAL_TITLE" | translate}}</h3>
 
     <!-- For monitors: -->
-    <p  ng-hide="user.usertype !='monitor'"id="popup_fisher-markdown12" style="color:#000000;" class=" "
+    <p  ng-show="evaluate_byindex(0)"id="terms_monitor" style="color:#000000;" class=" "
     >{{"TERMS_MODAL_FISHER_PAR" | translate}}
   </p>
 
   <!-- For fishermen / Co-op: -->
-  <p ng-hide="user.usertype =='monitor'" id="popup_fisher-markdown12" style="color:#000000; margin-left:3%; margin-right:3%;" class=" "
+  <p ng-show="evaluate_byindex(1)" id="terms_fisher" style="color:#000000; margin-left:3%; margin-right:3%;" class=" "
   >{{"TERMS_MODAL_MONITOR_PAR" | translate}}
 </p>
 
@@ -60,8 +63,8 @@
   <div class="spacer" style="width: 300px; height: 24px;"></div>
 
 <!--futher consent boxes for fisher/Co-ops -->
-  <div ng-hide="user.usertype == 'monitor'">
-      <strong><p id="popup_fisher-markdown15" style="margin-left:3%; margin-right:3%;color:#000000;text-align:center;" class=" "
+  <div ng-show="evaluate_byindex(2)">
+      <strong><p id="terms_consentbox" style="margin-left:3%; margin-right:3%;color:#000000;text-align:center;" class=" "
       >{{"TERMS_MODAL_CONSENT_TITLE" | translate}}
       </p></strong>
    <div class="item item-body " id="popup_fisher-list-item-container4">
@@ -72,12 +75,13 @@
   <ion-checkbox class="item-text-wrap" ng-model="user.permission_daff">{{"TERMS_MODAL_CONSENT_DAFF"| translate}}</ion-checkbox>
   </div>
 
-
+</div>
+  <p style="color:red;" ng-show="!checked" > {{"GEN_REQUIRED" | translate}} </p>
 <!--Next button - used to Close the pop-up -->
 <button id="popup_fisher-button5" ng-click="sendOrder()" ng-disabled="!checked"
 class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}
 </button>
-</div>
+
 
 
 </form>

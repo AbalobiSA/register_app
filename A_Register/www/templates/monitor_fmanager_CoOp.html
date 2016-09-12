@@ -5,36 +5,62 @@
     <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
     <ion-list id="register2-list2" class=" ">
 
-      <!-- Landing site input box (for monitor or fisher_managers) -->
-      <form name="landing_form" ng-hide="user.usertype == 'co_op'" novalidate>
-        <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span ng-hide="user.usertype != 'monitor'" class="input-label">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
-          <span ng-hide="user.usertype != 'fisher_manager'" class="input-label">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
-          <input type="text" required ng-model="user.landing_site" placeholder="{{'MFC_LANDINGSITE_PC' | translate}}">
+      <form name="landing_form" ng-show="evaluate_byindex(6) && user.landingsite == undefined " id="MFC_landingsite1" novalidate>
+        <label class="item item-input item-stacked-label select" >
+          <span class="input-label"> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+            <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
+          </span>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="select.province!= undefined" class="item item-input">
+          <span ng-show="evaluate_byindex(7) && select.province!= undefined" id="MFC_landingsite2" class="input-label">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
+          <span ng-show="evaluate_byindex(8) && select.province!= undefined" id="MFC_landingsite3" class="input-label">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
+        </label>
+        <label class="item item-input" ng-show="select.province!= undefined">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input  ng-model="searchbox" type="search" placeholder="Type your landingsite here">
         </label>
       </form>
 
+      <ion-list ng-hide="searchbox == undefined || user.landingsite != undefined " >
 
-      <!-- Co-op info input box (for Co-ops) -->
-      <form name="co_op_form" ng-hide="user.usertype != 'co_op'" novalidate>
+        <ion-item ng-repeat="site in landingsites | filter:searchbox"
+        site="site"
+        ng-click="select_landingsite(site)">
+        <strong> {{site}} </strong>
+      </ion-item>
+    </ion-list>
+  </form>
 
-        <h4 id="popup_fisher-markdown16" style="margin-top:0px;color:#000000;" class=" ">{{"MFC_COOP_LABEL" | translate}}</h4>
-        <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span class="input-label">{{"MFC_COOP_NAME" | translate}}</span>
-          <input type="text" required ng-model="user.co_op_name" placeholder="{{'MFC_COOP_NAME_PC' | translate}}" name="Co-Op_name">
-        </label>
-
-        <label class="item item-input item-stacked-label "  id="register1-input3">
-          <span class="input-label">{{"MFC_COOP_REG" | translate}}:</span>
-          <input type="text" required ng-model="user.co_op_reg_num" placeholder="{{'MFC_COOP_REG_PC' | translate}}" name="Co-Op_name">
-        </label>
-
-      </form>
-
-      <!-- Next button to route to Personal Details page -->
-      <button ui-sref="personal_details" ng-click="update()" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
+  <ion-item ng-hide="user.landingsite == undefined">
+    {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{user.landingsite}}</strong>
+    <div class="text-right">   <button  class="button button-stable" ng-click="change()">
+      {{"GEN_CHANGE" | translate}}
+    </button> </div>
+  </ion-item>
 
 
-    </ion-content>
+  <!-- Co-op info input box (for Co-ops) -->
+  <form name="co_op_form" ng-show="evaluate_byindex(9)" id="MFC_co_op" novalidate>
 
-  </ion-view>
+    <h4 id="popup_fisher-markdown16" style="margin-top:0px;color:#000000;" class=" ">{{"MFC_COOP_LABEL" | translate}}</h4>
+    <label class="item item-input item-stacked-label "  id="register1-input3">
+      <span class="input-label">{{"MFC_COOP_NAME" | translate}}</span>
+      <input type="text" required ng-model="user.co_op_name" placeholder="{{'MFC_COOP_NAME_PC' | translate}}" name="Co-Op_name">
+    </label>
+
+    <label class="item item-input item-stacked-label "  id="register1-input3">
+      <span class="input-label">{{"MFC_COOP_REG" | translate}}:</span>
+      <input type="text" required ng-model="user.co_op_reg_num" placeholder="{{'MFC_COOP_REG_PC' | translate}}" name="Co-Op_name">
+    </label>
+
+  </form>
+
+  <p style="color:red;" ng-show="landing_form.$invalid && co_op_form.$invalid" > {{"GEN_REQUIRED" | translate}} </p>
+
+  <!-- Next button to route to Personal Details page -->
+  <button ui-sref="personal_details" ng-click="update()" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
+
+
+</ion-content>
+
+</ion-view>
