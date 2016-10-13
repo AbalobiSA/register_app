@@ -1,1 +1,16 @@
 /* Empty. Add your own CSS if you like */
+.cs-spanwrap{
+  word-wrap:break-word !important;
+  display: block !important;
+  /*width: 100% !important;*/
+  /*height: 300px !important;*/
+  white-space: normal !important;
+  padding: 0% !important;
+  margin: 0% !important;
+  border: 1px solid black !important;
+  position: relative !important;
+}
+.cs-max-width{
+  border: 1px solid black !important;
+  width: 100% !important;
+}

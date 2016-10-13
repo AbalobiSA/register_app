@@ -11,9 +11,9 @@
             <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
           </span>
         </label>
-        <label class="item item-input item-stacked-label" ng-show="select.province!= undefined" class="item item-input">
-          <span ng-show="evaluate_byindex(7) && select.province!= undefined" id="MFC_landingsite2" class="input-label">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
-          <span ng-show="evaluate_byindex(8) && select.province!= undefined" id="MFC_landingsite3" class="input-label">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
+        <label class="item item-input item-stacked-label cs-max-width" ng-show="select.province!= undefined" class="item item-input">
+          <span ng-show="evaluate_byindex(7) && select.province!= undefined" id="MFC_landingsite2" class="input-label cs-spanwrap">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
+          <span ng-show="evaluate_byindex(8) && select.province!= undefined" id="MFC_landingsite3" class="input-label cs-spanwrap">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
         </label>
         <label class="item item-input" ng-show="select.province!= undefined">
           <i class="icon ion-search placeholder-icon"></i>
