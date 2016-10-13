@@ -1,15 +1,21 @@
-# register_app
+# Abalobi Register App
 
-- clone repository into local directory
-- in local directory open CLI and run: `npm install`
-
-cordova platform add android
-Note: if you have sdk22 installed - might need to: cordova platform add android@4.1.1  
+This app is used for fishers etc to register themselves once-off with Abalobi.
 
 TODO: add url for post to Open Function
 
 -----
 ### Getting Started
+
+Clone the repo:
+
+    $ git clone https://github.com/AbalobiSA/register_app.git
+    $ cd register_app
+
+In local directory, open CLI and run:
+
+    $ npm install
+
 Add android as a platform in cordova.
 ```
 cordova platform add android
