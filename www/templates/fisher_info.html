@@ -9,12 +9,12 @@
 
         <form >
           <label class="item item-input item-stacked-label select" ng-hide="user.landingsite != undefined" >
-            <span class="input-label"> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+            <span class=""> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
               <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
             </span>
           </label>
           <label class="item item-input item-stacked-label" ng-show="select.province!= undefined  && user.landingsite == undefined" class="item item-input">
-            <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="input-label">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>
+            <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>
           </label>
           <label class="item item-input" ng-show="select.province!= undefined && user.landingsite == undefined">
             <i class="icon ion-search placeholder-icon"></i>
@@ -63,7 +63,7 @@
           >{{"FISHER_BOAT_ELSE" |translate}}</ion-checkbox>
         </label>
 
-        <ion-list ng-show="user.boat_own==true">
+        <ion-list ng-show="user.boat_own==true && user.fisher_boat==true">
           <h4> {{"FISHER_BOATINFO_LABEL" | translate}} </h4>
           <label class="item item-input item-stacked-label "  id="register1-input3">
             <span class="input-label">{{"FISHER_BOATINFO_NAME_LABEL" | translate}}</span>
@@ -103,10 +103,11 @@
 
     </ion-list>
 
-    <p style="color:red;" ng-show="(user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null)" > {{"GEN_REQUIRED" | translate}} </p>
+    <p style="color:red;" ng-show="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null)" > {{"GEN_REQUIRED" | translate}} </p>
     <!-- "Register" button -->
-    <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null)" class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
-
+    <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null) " class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
+    <!-- (user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null) -->
+    <!-- (user.fisher_boat == false && user.fisher_shore == false) || (user.landing_site == null) -->
     <div class="spacer" style="width: 300px; height: 5px;"></div>
   </form>
 </div>

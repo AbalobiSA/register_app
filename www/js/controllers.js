@@ -1,7 +1,9 @@
 angular.module('app.controllers', [])
 
 // Constants
-.constant('OPENFN_URL', "")
+.constant('OPENFN_URL', "http://requestb.in/1bvebu11")
+//TODO: Add URL for OpenFunction #CARL
+
 .constant('SMS_TIMEOUT_PERIOD', 30)   //seconds
 
 .controller('homectrl', function($scope, $localStorage, $location, strings, matrix,  $ionicHistory, userinfo) {
@@ -346,7 +348,6 @@ $scope.register = function(){
       $http({
         method: 'POST',
         url: OPENFN_URL ,
-        //url: 'http://requestb.in/11gccj91',
         data: JSON.stringify(userinfo.getInfo()),
         headers: {'Content-Type': 'application/json'}
       }) .success(function(data, status, headers, config){

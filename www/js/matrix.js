@@ -18,31 +18,35 @@ var role_monitor =          [true,          false,        false,            true
 var role_monitor_manager =  [false,         false,        false,            false,                false,                false,                false,            false,            false,            false,     true,                       false,                     false,                       false]
 var role_demo_fisher =      [false,         true,         true,             true,                 false,                false,                false,            false,            false,            false,     true,                       false,                     false,                       true]
 var role_demo_monitor =     [true,          false,        false,            true,                 true,                 false,                true,             true,             false,            false,     true,                       false,                     true,                        false]
+var role_demo_carl =        [false,         false,        false,            false,                false,                false,                false,            false,            false,            false,     false,                      false,                     true,                        true]
 var role_co_op_admin =      [false,         true,         true,             true,                 true,                 false,                false,            false,            false,            true,      false,                      true,                      true,                        false]
 
 
 matrix.evaluate =  function (role, destination) {
   switch (role) {
   case 'fisher':
-      return role_fisher[destination]
+    return role_fisher[destination]
 
   case 'fisher_manager':
-      return role_fisher_manager[destination]
+    return role_fisher_manager[destination]
 
   case 'co_op':
-      return role_co_op[destination]
+    return role_co_op[destination]
 
   case 'monitor':
-      return role_monitor[destination]
+    return role_monitor[destination]
 
   case 'monitor_manager':
-      return role_monitor_manager[destination]
+    return role_monitor_manager[destination]
 
   case 'demo_fisher':
-      return role_demo_fisher[destination]
+    return role_demo_fisher[destination]
 
   case 'demo_monitor':
-     return role_demo_monitor[destination]
+    return role_demo_monitor[destination]
+
+  case 'demo_carl':
+    return role_demo_carl[destination]
 
   case 'co_op_admin':
     return role_co_op_admin[destination]

@@ -7,7 +7,7 @@
 
       <form name="landing_form" ng-show="evaluate_byindex(6) && user.landingsite == undefined " id="MFC_landingsite1" novalidate>
         <label class="item item-input item-stacked-label select" >
-          <span class="input-label"> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+          <span class=""> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
             <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
           </span>
         </label>
