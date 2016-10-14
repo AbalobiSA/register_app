@@ -41,6 +41,22 @@
 
       <form name="fish_form" novalidate>  <!-- novalidate -> we will handle validation ourselves in each field -->
 
+        <!-- TODO: Add variables in the translation files for these strings #CARL -->
+        <!-- TODO: Rename some of these checkboxes #CARL -->
+        <h4>Fishing Permit?</h4>
+        <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">IRP / Exemption</ion-checkbox>
+        <ion-checkbox name="box_boat2" ng-model="user.fisher_license_commercial" ng-disabled="user.fisher_license_irp">Commercial</ion-checkbox>
+        <ion-checkbox name="box_boat3" ng-model="user.fisher_license_recreational">Recreational</ion-checkbox>
+
+        <div ng-show="user.fisher_license_commercial">
+          <h4>Type of Commercial License?</h4>
+          <ion-checkbox name="box_boat4" ng-model="user.fisher_com_wcrl">Commercial WCRL</ion-checkbox>
+          <ion-checkbox name="box_boat5" ng-model="user.fisher_com_tlf">Commercial TLF</ion-checkbox>
+          <ion-checkbox name="box_boat6" ng-model="user.fisher_com_other">Commercial Other</ion-checkbox>
+        </div>
+
+
+
         <h4 id="popup_fisher-markdown16" style="margin-top:5px;color:#000000;" class="">{{"FISHER_COOP_HEADING" | translate}}</h4>
         <ion-checkbox name="box_boat" ng-model="user.fisher_co_op">{{"FISHER_COOP_CHECKBOX" | translate}}</ion-checkbox>
 
