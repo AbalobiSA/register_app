@@ -13,18 +13,22 @@
     "TERMS_SELECT_COOP" : "Co-Operative",
     "TERMS_SELECT_COOPADMIN" : "Co-Operative Administator",
     "TERMS_SELECT_MONMANAGER" : "Monitor Manager",
+    "TERMS_SELECT_DAFFMANAGER": "DAFF Manager",
     "TERMS_SELECT_DEMOFISHER" : "Demo Fisher",
     "TERMS_SELECT_DEMOMON" : "Demo Monitor",
     "TERMS_SELECT_DEMOCARL" : "Demo Carl",
 
-    "TERMS_DESCRIBE_FISHER" : "DESCRIPTIONHERE",
-    "TERMS_DESCRIBE_FMANAGER" : "DESCRIPTIONHERE",
+    "TERMS_DESCRIBE_FISHER" : "Fishers like to catch fish. This is some placeholder text which will be replaced later by a proper description.",
+    "TERMS_DESCRIBE_FMANAGER" : "Fishing managers like to manage people who catch fish.",
     "TERMS_DESCRIBE_MONITOR" : "DESCRIPTIONHERE",
     "TERMS_DESCRIBE_COOP" : "DESCRIPTIONHERE",
     "TERMS_DESCRIBE_COOPADMIN" : "DESCRIPTIONHERE",
     "TERMS_DESCRIBE_MONMANAGER" : "DESCRIPTIONHERE",
     "TERMS_DESCRIBE_DEMOFISHER" : "DESCRIPTIONHERE",
     "TERMS_DESCRIBE_DEMOMON" : "DESCRIPTIONHERE",
+    "TERMS_DESCRIBE_DEMOCARL" : "DESCRIPTIONHERE",
+    "TERMS_DESCRIBE_DAFFMANAGER": "This person is a DAFF Manager",
+
 
 
     "TERMS_MODAL_TITLE" : "Terms of Use",

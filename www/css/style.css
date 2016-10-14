@@ -14,3 +14,13 @@
   /*border: 1px solid black !important;*/
   width: 100% !important;
 }
+.usertype-description, {
+  margin-top:5px !important;
+  border-radius: 5px !important;
+  border: 1px solid blue !important;
+  padding: 2px !imporant;
+
+}
+.usertype-description p, .usertype-description h1, .usertype-description h2,.usertype-description h3,.usertype-description h4,.usertype-description h5{
+  color: white;
+}

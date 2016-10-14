@@ -11,14 +11,29 @@
         <option value="fisher" >{{"TERMS_SELECT_FISHER"| translate}}</option>
         <option value="fisher_manager" >{{"TERMS_SELECT_FMANAGER"| translate}}</option>
         <option value="co_op" >{{"TERMS_SELECT_COOP"| translate}}</option>
-        <option value="monitor" >{{"TERMS_SELECT_MONITOR"| translate}}</option>
-        <option value="monitor_manager" >{{"TERMS_SELECT_MONMANAGER"| translate}}</option>
-        <option value="co_op_admin" >{{"TERMS_SELECT_COOPADMIN"| translate}}</option>
+        <!-- <option value="monitor" >{{"TERMS_SELECT_MONITOR"| translate}}</option> -->
+        <!-- <option value="monitor_manager" >{{"TERMS_SELECT_MONMANAGER"| translate}}</option> -->
+        <!-- <option value="co_op_admin" >{{"TERMS_SELECT_COOPADMIN"| translate}}</option> -->
+        <option value="daff_manager" >{{"TERMS_SELECT_DAFFMANAGER"| translate}}</option>
         <option value="demo_fisher" >{{"TERMS_SELECT_DEMOFISHER"| translate}}</option>
-        <option value="demo_monitor" >{{"TERMS_SELECT_DEMOMON"| translate}}</option>
-        <option value="demo_carl" >{{"TERMS_SELECT_DEMOCARL"| translate}}</option>
+        <!-- <option value="demo_monitor" >{{"TERMS_SELECT_DEMOMON"| translate}}</option> -->
+        <!-- <option value="demo_carl" >{{"TERMS_SELECT_DEMOCARL"| translate}}</option> -->
       </select>
     </label>
+
+    <div ng-hide="user.usertype == null" class="usertype-description" style="background-color: #81D4FA !important; border: 1px solid #03A9F4 !important; border-radius: 4px !important; padding: 4px !important; margin-top: 10px !important">
+      <p>Your usertype is:&nbsp;{{user.usertype}}</p>
+      <p ng-show="(user.usertype == 'fisher' && user.usertype != null)">{{"TERMS_DESCRIBE_FISHER"| translate}}</p>
+      <p ng-show="(user.usertype == 'fisher_manager' && user.usertype != null)">{{"TERMS_DESCRIBE_FMANAGER"| translate}}</p>
+      <p ng-show="(user.usertype == 'co_op' && user.usertype != null)">{{"TERMS_DESCRIBE_COOP"| translate}}</p>
+      <p ng-show="(user.usertype == 'monitor' && user.usertype != null)">{{"TERMS_DESCRIBE_MONITOR"| translate}}</p>
+      <p ng-show="(user.usertype == 'monitor_manager' && user.usertype != null)">{{"TERMS_DESCRIBE_MONMANAGER"| translate}}</p>
+      <p ng-show="(user.usertype == 'co_op_admin' && user.usertype != null)">{{"TERMS_DESCRIBE_COOPADMIN"| translate}}</p>
+      <p ng-show="(user.usertype == 'demo_fisher' && user.usertype != null)">{{"TERMS_DESCRIBE_DEMOFISHER"| translate}}</p>
+      <p ng-show="(user.usertype == 'demo_monitor' && user.usertype != null)">{{"TERMS_DESCRIBE_DEMOMON"| translate}}</p>
+      <p ng-show="(user.usertype == 'demo_carl' && user.usertype != null)">{{"TERMS_DESCRIBE_DEMOCARL"| translate}}</p>
+      <p ng-show="(user.usertype == 'daff_manager' && user.usertype != null)">{{"TERMS_DESCRIBE_DAFFMANAGER"| translate}}</p>
+    </div>
 
     <a ng-click="leave_terms()" ng-disabled="user.usertype == null " id="abalobiRegister-button1"
     class=" button button-positive button-block "
