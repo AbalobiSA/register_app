@@ -55,10 +55,16 @@
 
   </form>
 
-  <p style="color:red;" ng-show="landing_form.$invalid && co_op_form.$invalid" > {{"GEN_REQUIRED" | translate}} </p>
+  <p style="color:red;" ng-show="landing_form.$invalid && co_op_form.$invalid" ng-hide="user.usertype=='daff_manager'" > {{"GEN_REQUIRED" | translate}} </p>
+
+  <!-- TODO: Translate this #CARL -->
+  <h4 ng-show="user.usertype=='daff_manager'">You are about to be registered as a DAFF Manager. If you are sure this is correct, please click the button below.</h4>
 
   <!-- Next button to route to Personal Details page -->
-  <button ui-sref="personal_details" ng-click="update()" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
+  <!-- <p>Usertype:&nbsp;{{user.usertype}} <br>
+  Should the button be disabled? {{user.usertype!='daff_manager'}}</p> -->
+  <button ui-sref="personal_details" ng-click="update()" ng-hide="user.usertype=='daff_manager'" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
+  <button ui-sref="personal_details" ng-click="update()" ng-show="user.usertype=='daff_manager'" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
 
 
 </ion-content>

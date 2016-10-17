@@ -189,7 +189,7 @@ $scope.network = function(){
     $scope.user.nickname = "Test Nickname";
     $scope.user.email = "test@test.com";
     $scope.user.id = "0123456789012";
-    $scope.user.birth_date = "2016-10-13";
+    // $scope.user.birth_date = "2016-10-13";
     $scope.user.cell = "0721234567";
     $scope.user.password = "123456";
     $scope.password1 = "123456";
@@ -235,11 +235,18 @@ $scope.network = function(){
 
 .controller('fisher_infoCtrl', function($scope, userinfo, $location, $http, Storage) {
 
+
+
   //loads information previously entered
   $scope.user = angular.copy(userinfo.getInfo())
 
   //saves info and goes to next page
   $scope.next = function(){
+
+    if ($scope.user.usertype == "daff_manager")
+    {
+      alert("TEST", "USER IS A DAFF MANAGER");
+    }
     userinfo.updateInfo($scope.user)
     $location.path('/register');
   }

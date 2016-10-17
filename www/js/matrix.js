@@ -20,7 +20,7 @@ var role_demo_fisher =      [false,         true,         true,             true
 var role_demo_monitor =     [true,          false,        false,            true,                 true,                 false,                true,             true,             false,            false,     true,                       false,                     true,                        false]
 var role_demo_carl =        [false,         false,        false,            false,                false,                false,                false,            false,            false,            false,     false,                      false,                     true,                        true]
 var role_co_op_admin =      [false,         true,         true,             true,                 true,                 false,                false,            false,            false,            true,      false,                      true,                      true,                        false]
-var role_daff_manager =     [false,         false,        false,            false,                false,                true,                 true,             false,            true,             false,     true,                       false,                     false,                       false]
+var role_daff_manager =     [false,         false,        false,            false,                false,                true,                 false,            false,            false,            false,     true,                       false,                     false,                       false]
 
 
 matrix.evaluate =  function (role, destination) {
