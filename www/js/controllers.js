@@ -182,6 +182,19 @@ $scope.network = function(){
     })
   }
 
+  $scope.autofillme = function(){
+    // alert("This works!", "This works!");
+    $scope.user.name = "Test User";
+    $scope.user.surname = "Test Surname";
+    $scope.user.nickname = "Test Nickname";
+    $scope.user.email = "test@test.com";
+    $scope.user.id = "0123456789012";
+    $scope.user.birth_date = "2016-10-13";
+    $scope.user.cell = "0721234567";
+    $scope.user.password = "123456";
+    $scope.password1 = "123456";
+  }
+
   $scope.evaluate_byindex = function(destination){
     return (matrix.evaluate($scope.user.usertype, destination))
   }

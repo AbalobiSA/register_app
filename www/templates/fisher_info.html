@@ -37,11 +37,17 @@
           {{"GEN_CHANGE" | translate}}
         </button> </div>
       </ion-item>
+      <!-- TODO: Add translations for these #CARL -->
+      <label ng-show="user.landingsite == 'Other'" class="item item-input item-stacked-label "  id="register1-input3">
+        <!-- <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span> -->
+        <span>"Please enter the name of your community"</span>
+        <!-- <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name"> -->
+        <input type="text" ng-model="user.landingsite_custom" placeholder="Community Name Here" name="other_landingsite_name">
+      </label>
 
 
       <form name="fish_form" novalidate>  <!-- novalidate -> we will handle validation ourselves in each field -->
 
-        <!-- TODO: Add variables in the translation files for these strings #CARL -->
         <!-- TODO: Rename some of these checkboxes #CARL -->
         <h4>{{"FISHER_PERMIT_QUESTION" | translate}}</h4>
         <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">{{"FISHER_PERMIT_IRP_EXEMPTION" | translate}}</ion-checkbox>
