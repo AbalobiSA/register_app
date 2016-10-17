@@ -124,6 +124,16 @@
     "FISHER_BOATINFO_ENGINECAP" : "Engine Capacity",
     "FISHER_BOATINFO_ENGINECAP_FILL" : "(Fill in either horsepower or cc)",
 
+    "FISHER_PERMIT_QUESTION" : "Do you have a fishing permit?",
+    "FISHER_PERMIT_IRP_EXEMPTION" : "IRP / Exemption",
+    "FISHER_PERMIT_COMMERCIAL": "Commercial",
+    "FISHER_PERMIT_RECREATIONAL": "Recreational",
+
+    "FISHER_COM_LICENSE_QUESTION" : "What type of commercial license do you have?",
+    "FISHER_COM_TYPE_WCRL" : "Commercial WCRL",
+    "FISHER_COM_TYPE_TLF" : "Commercial TLF",
+    "FISHER_COM_TYPE_OTHER" : "Commercial Other",
+
     "PHOTO_INSTRUCTION" : "Touch the cross to add a new picture. Take a selfie for your profile picture and add a picture of your boat. Touch the cross again to add a different photo. Note: This is Optional",
     "PHOTO_PROFILEPIC" : "Profile Picture",
     "PHOTO_BOAT" : "Boat",

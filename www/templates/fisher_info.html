@@ -43,16 +43,16 @@
 
         <!-- TODO: Add variables in the translation files for these strings #CARL -->
         <!-- TODO: Rename some of these checkboxes #CARL -->
-        <h4>Fishing Permit?</h4>
-        <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">IRP / Exemption</ion-checkbox>
-        <ion-checkbox name="box_boat2" ng-model="user.fisher_license_commercial" ng-disabled="user.fisher_license_irp">Commercial</ion-checkbox>
-        <ion-checkbox name="box_boat3" ng-model="user.fisher_license_recreational">Recreational</ion-checkbox>
+        <h4>{{"FISHER_PERMIT_QUESTION" | translate}}</h4>
+        <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">{{"FISHER_PERMIT_IRP_EXEMPTION" | translate}}</ion-checkbox>
+        <ion-checkbox name="box_boat2" ng-model="user.fisher_license_commercial" ng-disabled="user.fisher_license_irp">{{"FISHER_PERMIT_COMMERCIAL" | translate}}</ion-checkbox>
+        <ion-checkbox name="box_boat3" ng-model="user.fisher_license_recreational">{{"FISHER_PERMIT_RECREATIONAL" | translate}}</ion-checkbox>
 
         <div ng-show="user.fisher_license_commercial">
-          <h4>Type of Commercial License?</h4>
-          <ion-checkbox name="box_boat4" ng-model="user.fisher_com_wcrl">Commercial WCRL</ion-checkbox>
-          <ion-checkbox name="box_boat5" ng-model="user.fisher_com_tlf">Commercial TLF</ion-checkbox>
-          <ion-checkbox name="box_boat6" ng-model="user.fisher_com_other">Commercial Other</ion-checkbox>
+          <h4>{{"FISHER_COM_LICENSE_QUESTION" | translate}}</h4>
+          <ion-checkbox name="box_boat4" ng-model="user.fisher_com_wcrl">{{"FISHER_COM_TYPE_WCRL" | translate}}</ion-checkbox>
+          <ion-checkbox name="box_boat5" ng-model="user.fisher_com_tlf">{{"FISHER_COM_TYPE_TLF" | translate}}</ion-checkbox>
+          <ion-checkbox name="box_boat6" ng-model="user.fisher_com_other">{{"FISHER_COM_TYPE_OTHER" | translate}}</ion-checkbox>
         </div>
 
 

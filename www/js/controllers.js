@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
 
 // Constants
-.constant('OPENFN_URL', "http://requestb.in/1bvebu11")
+.constant('OPENFN_URL', "http://requestb.in/12hl06v1")
 //TODO: Add URL for OpenFunction #CARL
 
 .constant('SMS_TIMEOUT_PERIOD', 30)   //seconds

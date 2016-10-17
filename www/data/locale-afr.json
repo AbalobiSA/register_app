@@ -1,5 +1,11 @@
 
     {
+        "NOTES_DEVELOPMENT":"Please do not use any special characters in the translations,",
+        "NOTES_DEVELOPMENT2":"As they do not get shown correctly.",
+
+
+
+
         "GEN_NEXT": "Volgende",
         "GEN_REGISTER" : "Registreer",
         "GEN_CHANGE" : "Verander",
@@ -14,8 +20,20 @@
         "TERMS_SELECT_COOP" : "Ko-Operatief",
         "TERMS_SELECT_COOPADMIN" : "Ko-Operatief Administreerder",
         "TERMS_SELECT_MONMANAGER" : "Monitor Bestuurder",
+        "TERMS_SELECT_DAFFMANAGER": "DAFF Manager",
         "TERMS_SELECT_DEMOFISHER" : "Demo Visser",
         "TERMS_SELECT_DEMOMON" : "Demo Monitor",
+
+        "TERMS_DESCRIBE_FISHER" : "Vissers hou om visse te vang. This is some placeholder text which will be replaced later by a proper description.",
+        "TERMS_DESCRIBE_FMANAGER" : "Visser Bestuurders like to manage people who catch fish.",
+        "TERMS_DESCRIBE_MONITOR" : "Afrikaans description of fishing MFC_LANDINGSITE_MONITOR",
+        "TERMS_DESCRIBE_COOP" : "Afrikaans description here!",
+        "TERMS_DESCRIBE_COOPADMIN" : "Afrikaans description here!",
+        "TERMS_DESCRIBE_MONMANAGER" : "Afrikaans description here!",
+        "TERMS_DESCRIBE_DEMOFISHER" : "Afrikaans description here!",
+        "TERMS_DESCRIBE_DEMOMON" : "Afrikaans description here!",
+        "TERMS_DESCRIBE_DEMOCARL" : "Afrikaans description here!",
+        "TERMS_DESCRIBE_DAFFMANAGER": "Afrikaans description here!",
 
         "TERMS_MODAL_TITLE" : "Terme van Gebruik",
 
@@ -108,6 +126,16 @@
         "FISHER_BOATINFO_ENGINE_CHECKBOX" : "Ja, my boot het n' enjin",
         "FISHER_BOATINFO_ENGINECAP" : "Enjin Kapasiteit",
         "FISHER_BOATINFO_ENGINECAP_FILL" : "(Vul in HP of CC)",
+
+        "FISHER_PERMIT_QUESTION" : "Het jy 'n visvang permit?",
+        "FISHER_PERMIT_IRP_EXEMPTION" : "IRP / Vrystelling",
+        "FISHER_PERMIT_COMMERCIAL": "Kommersiele",
+        "FISHER_PERMIT_RECREATIONAL": "Recreational",
+
+        "FISHER_COM_LICENSE_QUESTION" : "Watter tipe kommersiele lisensie het jy?",
+        "FISHER_COM_TYPE_WCRL" : "Kommersiele WCRL",
+        "FISHER_COM_TYPE_TLF" : "Kommersiele TLF",
+        "FISHER_COM_TYPE_OTHER" : "Kommersiele Ander",
 
         "PHOTO_INSTRUCTION" : "Raak die kruis om 'n nuwe foto by te voeg. Neem 'n foto van jouself vir jou profiel foto en 'n foto van jou boot. Raak weer die kruis om 'n ander foto by te voeg. Nota: Hierdie is optioneel",
         "PHOTO_PROFILEPIC" : "Profiel Foto",
