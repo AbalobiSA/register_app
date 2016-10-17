@@ -287,13 +287,18 @@ $scope.network = function(){
   //function to go on from personal info
   $scope.next = function(){
 
+    // $scope.user = {};
+    userinfo.updateInfo($scope.user);
+    $scope.user.usertype = userinfo.getInfo().usertype;
+
     //injects filter text used by OpenFn to recognise a registration submission.
     $scope.user.filter = "abalobi_registration";
 
-    userinfo.updateInfo($scope.user)
+    // userinfo.updateInfo($scope.user);
 
 
-    $location.path('/photo');
+    // $location.path('/photo');
+    $location.path('/register_coop_summary');
   }
 
 })//end personal_detailsCtrl
@@ -385,6 +390,12 @@ $scope.user.name = userinfo.getInfo().name
 $scope.user.surname = userinfo.getInfo().surname
 $scope.user.id = userinfo.getInfo().id
 $scope.user.cell = userinfo.getInfo().cell
+
+//loads information for CO-OP registration
+$scope.user.coop_admin_name = userinfo.getInfo().coop_admin_name
+$scope.user.coop_admin_surname = userinfo.getInfo().coop_admin_surname
+$scope.user.coop_admin_id = userinfo.getInfo().coop_admin_id
+$scope.user.co_op_name = userinfo.getInfo().co_op_name
 
 
 $scope.register = function(){

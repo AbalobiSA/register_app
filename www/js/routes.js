@@ -57,6 +57,12 @@ angular.module('app.routes', [])
         controller: 'registerCtrl'
     })
 
+    .state('register_coop_summary', {
+        url: '/register_coop_summary',
+        templateUrl: 'templates/register_coop_summary.html',
+        controller: 'registerCtrl'
+    })
+
     .state('monitor_fmanager_CoOp', {
         url: '/monitor_fmanager_CoOp',
         templateUrl: 'templates/monitor_fmanager_CoOp.html',
