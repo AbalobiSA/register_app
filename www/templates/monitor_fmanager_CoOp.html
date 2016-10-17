@@ -63,8 +63,15 @@
   <!-- Next button to route to Personal Details page -->
   <!-- <p>Usertype:&nbsp;{{user.usertype}} <br>
   Should the button be disabled? {{user.usertype!='daff_manager'}}</p> -->
-  <button ui-sref="personal_details" ng-click="update()" ng-hide="user.usertype=='daff_manager'" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
+
+  <!-- Show if not a manager or coop -->
+  <button ui-sref="personal_details" ng-click="update()" ng-hide="user.usertype=='daff_manager' || user.usertype=='co_op'" ng-disabled="landing_form.$invalid && co_op_form.$invalid" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
+
+  <!-- Show only for managers -->
   <button ui-sref="personal_details" ng-click="update()" ng-show="user.usertype=='daff_manager'" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
+
+  <!-- Show only for co-ops -->
+  <button ui-sref="personal_details_coop" ng-click="update()" ng-show="user.usertype=='co_op'" id="popup_fisher-button5" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}</button>
 
 
 </ion-content>

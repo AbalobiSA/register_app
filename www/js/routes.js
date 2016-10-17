@@ -33,6 +33,12 @@ angular.module('app.routes', [])
         controller: 'personal_detailsCtrl'
     })
 
+    .state('personal_details_coop', {
+        url: '/personal_details_coop',
+        templateUrl: 'templates/personal_details_coop.html',
+        controller: 'personal_detailsCtrl_coop'
+    })
+
     .state('fisher_info', {
         url: '/fisher_info',
         templateUrl: 'templates/fisher_info.html',

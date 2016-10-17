@@ -1,0 +1,63 @@
+<ion-view title="personal_details_coop" hide-nav-bar="true" id="page2_2" class=" " >
+    <ion-content padding="true" class="manual-ios-statusbar-padding"  >
+
+        <form name="userForm" class="item-text-wrap" novalidate>
+
+            <h2 id="register1-heading3" style="color:#000000;text-align:center;" class="header">Abalobi Register</h2>
+
+            <h3 id="personal_details_title_all" ng-show="evaluate_byindex(10)"style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_ALL" | translate}}</h3>
+
+            <h3 id="personal_details_title_co" ng-show="evaluate_byindex(11)" style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_TITLE_CO" | translate}} </h3>
+
+
+
+            <h5 style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_REQUIRED" | translate}}</h5>
+
+            <button ng-click="help()" class="button icon-right ion-help">Help</button>
+            <button ng-click="autofillme()" class="button icon-right ion-nuclear">DEBUG</button>
+
+            <ion-list id="register1-list1" class=" " >
+
+                <label class="item item-input item-stacked-label " id="register1-input1">
+                    <span class="input-label item-text-wrap">{{"PERSONAL_SURNAME_LABEL" | translate}}</span>
+                    <input type="text" ng-model="user.coop_admin_surname" placeholder="{{'PERSONAL_SURNAME_PH' | translate}}" name="Surname" required >
+                    <span class="help-block" style="color:red"
+                    ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
+                </label>
+
+                <label class="item item-input item-stacked-label " id="register1-input2">
+                    <span class="input-label">{{"PERSONAL_NAME_LABEL" | translate}}</span>
+                    <input type="text" ng-model="user.coop_admin_name" placeholder="{{'PERSONAL_NAME_PH' | translate}}" name="Name" required>
+                    <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.Name.$touched && userForm.Name.$invalid }"
+                    ng-show="userForm.Name.$invalid && userForm.Name.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
+                </label>
+
+                <label class="item item-input item-stacked-label " id="register1-input2">
+                    <span class="input-label">{{"PERSONAL_NICKNAME_LABEL" | translate}}</span>
+                    <input type="text" ng-model="user.coop_admin_nickname" placeholder="{{'PERSONAL_NICKNAME_PH' | translate}}" name="Nickame" >
+                </label>
+
+                <label class="item item-input item-stacked-label " id="register1-input3">
+                    <span class="input-label">{{"PERSONAL_ID_LABEL" | translate}}</span>
+                    <input type="text" ng-model="user.coop_admin_id" placeholder="{{'PERSONAL_ID_PH' | translate}}" name="ID"
+                    required>
+                    <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.ID.$touched && userForm.ID.$invalid }"
+                    ng-show="!checkID(user.id) && userForm.ID.$touched ">{{"PERSONAL_ID_IV" | translate}}</span>
+                </label>
+
+            </label>
+        </ion-list>
+
+        <!-- <p style="color:red;" ng-show="userForm.$invalid || !match(password1)" > {{"GEN_REQUIRED" | translate}} </p> -->
+
+        <!-- Next button - goes to photo page -->
+        <a  id="register1-button3"  ng-click="next()"
+        ng-disabled="userForm.$invalid"
+        class=" button button-positive button-block ">{{"GEN_NEXT" | translate}}</a>
+
+
+    </form>
+
+
+</ion-content>
+</ion-view>
