@@ -229,6 +229,7 @@ $scope.network = function(){
 
 
     $location.path('/photo');
+    // alert(JSON.stringify(userinfo));
   }
 
 })//end personal_detailsCtrl
@@ -496,8 +497,8 @@ $scope.register = function(){
 
 .controller('photoCtrl', function($scope, $location, language, matrix, $ionicPopup, userinfo) {
 
-  $scope.user = {}
-
+  // $scope.user = {}
+  $scope.user = angular.copy(userinfo.getInfo());
   $scope.evaluate_bystring = function(destination){
     switch(destination){
       case 'photoCtrl_from_photo' :
