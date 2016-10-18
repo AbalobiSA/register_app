@@ -15,25 +15,25 @@
         "HOME_VISIT_WEBSITE" : "Besoek Abalobi webtuiste",
         "TERMS_SELECT_LABEL" : "Gebruik die pyl (aan die regterkant) om u rol te kies:",
         "TERMS_SELECT_FISHER" : "Visser",
-        "TERMS_SELECT_FMANAGER" : "Visser Bestuurder of ",
+        "TERMS_SELECT_FMANAGER" : "Plaaslike Visser Assistent",
         "TERMS_SELECT_MONITOR" : "Monitor",
         "TERMS_SELECT_COOP" : "Ko-Operatief",
         "TERMS_SELECT_COOPADMIN" : "Ko-Operatief Administreerder",
         "TERMS_SELECT_MONMANAGER" : "Monitor Bestuurder",
-        "TERMS_SELECT_DAFFMANAGER": "DAFF Manager",
+        "TERMS_SELECT_DAFFMANAGER": "DAFF Bestuurder",
         "TERMS_SELECT_DEMOFISHER" : "Demo Visser",
         "TERMS_SELECT_DEMOMON" : "Demo Monitor",
 
-        "TERMS_DESCRIBE_FISHER" : "Vissers hou om visse te vang. This is some placeholder text which will be replaced later by a proper description.",
-        "TERMS_DESCRIBE_FMANAGER" : "Visser Bestuurders like to manage people who catch fish.",
-        "TERMS_DESCRIBE_MONITOR" : "Afrikaans description of fishing MFC_LANDINGSITE_MONITOR",
-        "TERMS_DESCRIBE_COOP" : "Afrikaans description here!",
-        "TERMS_DESCRIBE_COOPADMIN" : "Afrikaans description here!",
-        "TERMS_DESCRIBE_MONMANAGER" : "Afrikaans description here!",
-        "TERMS_DESCRIBE_DEMOFISHER" : "Afrikaans description here!",
-        "TERMS_DESCRIBE_DEMOMON" : "Afrikaans description here!",
-        "TERMS_DESCRIBE_DEMOCARL" : "Afrikaans description here!",
-        "TERMS_DESCRIBE_DAFFMANAGER": "Afrikaans description here!",
+        "TERMS_DESCRIBE_FISHER" : "Kies 'Visser' indien u 'n visser is wat met Abalobi u vangs wil kan opskryf.",
+        "TERMS_DESCRIBE_FMANAGER" : "Kies 'Plaaslike Visser Assistent' indien u 'n Abalobi verteenwoordiger is, \nOF indien u wil toelaat dat 'n paar verskillende vissers hulle vangs op Abalobi kan opskryf met gebruik van u selfoon of tablet.\nLet Wel: Alle vissers moet steeds hulself op Abalobi registreer, al gebruik hulle u selfoon/tablet om hulle vangs op te skryf.",
+        "TERMS_DESCRIBE_MONITOR" : "Kies 'DAFF Monitor' indien u as 'n Vangs Monitor werk",
+        "TERMS_DESCRIBE_COOP" : "Kies 'Ko-Operatief' om u ko-operatief op die Abalobi stelsel by te voeg",
+        "TERMS_DESCRIBE_COOPADMIN" : "DESCRIPTIONHERE",
+        "TERMS_DESCRIBE_MONMANAGER" : "DESCRIPTIONHERE",
+        "TERMS_DESCRIBE_DEMOFISHER" : "Kies 'Demo Visser' om 'n visser-rekening te skep om ander te kan wys hoe Abalobi werk.",
+        "TERMS_DESCRIBE_DEMOMON" : "DESCRIPTIONHERE",
+        "TERMS_DESCRIBE_DEMOCARL" : "DESCRIPTIONHERE",
+        "TERMS_DESCRIBE_DAFFMANAGER": "Kies 'DAFF Bestuurder' indien u vir DAFF werk en die data wat deur Vangs Monitors opgeskryf is wil sien",
 
         "TERMS_MODAL_TITLE" : "Terme van Gebruik",
 
@@ -52,7 +52,7 @@
 
 
         "PERSONAL_TITLE_ALL" : "Persoonlike Inligting",
-        "PERSONAL_TITLE_CO" : "Persoonlike Inligting van  Persoon Verantwoordelik",
+        "PERSONAL_TITLE_CO" : "Besonderhede van  persoon verantwoordelik vir die ko-op",
         "PERSONAL_REQUIRED" : "Verpligde velde word gemerk met: *",
 
         "PERSONAL_SURNAME_LABEL" : "*Van",
@@ -93,20 +93,20 @@
 
         "PERSONAL_REQUIRED_FIELD" : "Hierdie veld is verpligtend",
 
-        "MFC_LANDINGSITE_MONITOR" : "Watter 'landing site' of gemeenskap monitor u?",
-        "MFC_LANDINGSITE_PROVINCE": "Kies asb u provinsie",
-        "MFC_LANDINGSITE_SELECTED" : "U huidige landingsite/gemeenskap:",
-        "MFC_LANDINGSITE_FISHMANAGER" : "Aan watter landing site of gemeenskap land u vissers gewoonlik?",
+        "MFC_LANDINGSITE_MONITOR" : "Watter 'landing site' of gemeenskap monitor u? (Tik die eerste letter and kies dan vanaf die lys)",
+        "MFC_LANDINGSITE_PROVINCE": "*Kies asb u provinsie",
+        "MFC_LANDINGSITE_SELECTED" : "U huidige landing site/gemeenskap:",
+        "MFC_LANDINGSITE_FISHMANAGER" : "Aan watter landing site of gemeenskap land u vissers gewoonlik? (Tik die eerste letter and kies dan vanaf die lys)",
 
         "MFC_LANDINGSITE_PC" : "Vul u landing site of gemeenskap hier in",
 
         "MFC_COOP_LABEL" : "Ko-operatief:",
-        "MFC_COOP_REG" : "Ko-operatief registrasie nommer :",
+        "MFC_COOP_REG" : "Ko-operatief registrasie nommer:",
         "MFC_COOP_REG_PC" : "Vul u Ko-operatief se registrasie nommer hier in",
         "MFC_COOP_NAME" : "Naam van Ko-operatief:",
         "MFC_COOP_PC" : "Vul u Ko-operatief se naam hier in",
 
-        "FISHER_LANDINGSITE_LABEL" : "*By watter landing site of gemeenskap gaan u mees gereeld te land?",
+        "FISHER_LANDINGSITE_LABEL" : "*By watter landing site of gemeenskap gaan u mees gereeld te land? (Tik die eerste letter and kies dan vanaf die lys)",
         "FISHER_LANDINGSITE_PH": "Landing site of gemeenskap",
         "FISHER_COOP_HEADING" : "Ko-operatief lid?",
         "FISHER_COOP_CHECKBOX" : "Ek is 'n lid van 'n ko-operatief",
@@ -129,12 +129,12 @@
         "FISHER_BOATINFO_ENGINECAP" : "Enjin Kapasiteit",
         "FISHER_BOATINFO_ENGINECAP_FILL" : "(Vul in HP of CC)",
 
-        "FISHER_PERMIT_QUESTION" : "Het jy 'n visvang permit?",
+        "FISHER_PERMIT_QUESTION" : "Het u 'n visvang permit?",
         "FISHER_PERMIT_IRP_EXEMPTION" : "IRP / Vrystelling",
         "FISHER_PERMIT_COMMERCIAL": "Kommersiele",
         "FISHER_PERMIT_RECREATIONAL": "Recreational",
 
-        "FISHER_COM_LICENSE_QUESTION" : "Watter tipe kommersiele lisensie het jy?",
+        "FISHER_COM_LICENSE_QUESTION" : "Watter tipe kommersiele permit het u?",
         "FISHER_COM_TYPE_WCRL" : "Kommersiele WCRL",
         "FISHER_COM_TYPE_TLF" : "Kommersiele TLF",
         "FISHER_COM_TYPE_OTHER" : "Kommersiele Ander",
