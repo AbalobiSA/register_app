@@ -84,6 +84,8 @@
     "PERSONAL_REPASSWORD_PH" : "Please re-type the password here",
     "PERSONAL_REPASSWORD_IV" : "Passwords don't match",
 
+    "MFC_COMMUNITY_LANDINGSITE_DESC":"*Community / Landing Site",
+
     "PERSONAL_REQUIRED_FIELD" : "This field is required",
 
     "MFC_LANDINGSITE_MONITOR" : "Which landing site or community will you be monitoring?",

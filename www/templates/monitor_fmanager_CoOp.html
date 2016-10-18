@@ -4,7 +4,7 @@
 
     <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
     <ion-list id="register2-list2" class=" ">
-
+    <h4 ng-show="evaluate_byindex(6) && user.landingsite == undefined ">{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
       <form name="landing_form" ng-show="evaluate_byindex(6) && user.landingsite == undefined " id="MFC_landingsite1" novalidate>
         <label class="item item-input item-stacked-label select" >
           <span class=""> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>

@@ -6,6 +6,7 @@
       <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
       <ion-list id="register2-list2" class=" ">
 
+        <h4>{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
 
         <form >
           <label class="item item-input item-stacked-label select" ng-hide="user.landingsite != undefined" >
@@ -47,18 +48,38 @@
 
 
       <form name="fish_form" novalidate>  <!-- novalidate -> we will handle validation ourselves in each field -->
-
-        <!-- TODO: Rename some of these checkboxes #CARL -->
         <h4>{{"FISHER_PERMIT_QUESTION" | translate}}</h4>
+        <!-- Ask for IRP permit -->
         <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">{{"FISHER_PERMIT_IRP_EXEMPTION" | translate}}</ion-checkbox>
+        <label ng-show="user.fisher_license_irp" class="item item-input">
+          <input  ng-model="user.fisher_licence_irp_number" type="text"  placeholder="IRP Permit Number">
+        </label>
+
+        <!-- Ask for Commercial permit -->
         <ion-checkbox name="box_boat2" ng-model="user.fisher_license_commercial" ng-disabled="user.fisher_license_irp">{{"FISHER_PERMIT_COMMERCIAL" | translate}}</ion-checkbox>
+
+        <!-- Ask for Recreational permit -->
         <ion-checkbox name="box_boat3" ng-model="user.fisher_license_recreational">{{"FISHER_PERMIT_RECREATIONAL" | translate}}</ion-checkbox>
+        <label ng-show="user.fisher_license_recreational" class="item item-input">
+          <input  ng-model="user.fisher_licence_recreational_number" type="text"  placeholder="Recreational Permit Number">
+        </label>
 
         <div ng-show="user.fisher_license_commercial">
           <h4>{{"FISHER_COM_LICENSE_QUESTION" | translate}}</h4>
           <ion-checkbox name="box_boat4" ng-model="user.fisher_com_wcrl">{{"FISHER_COM_TYPE_WCRL" | translate}}</ion-checkbox>
+          <label ng-show="user.fisher_com_wcrl" class="item item-input">
+            <input  ng-model="user.fisher_licence_com_wcrl_number" type="text"  placeholder="WCRL Permit Number">
+          </label>
+
           <ion-checkbox name="box_boat5" ng-model="user.fisher_com_tlf">{{"FISHER_COM_TYPE_TLF" | translate}}</ion-checkbox>
+          <label ng-show="user.fisher_com_tlf" class="item item-input">
+            <input  ng-model="user.fisher_licence_com_tlf_number" type="text"  placeholder="TLF Permit Number">
+          </label>
+
           <ion-checkbox name="box_boat6" ng-model="user.fisher_com_other">{{"FISHER_COM_TYPE_OTHER" | translate}}</ion-checkbox>
+          <label ng-show="user.fisher_com_other" class="item item-input">
+            <input  ng-model="user.fisher_licence_com_other_number" type="text"  placeholder="Other Permit Number">
+          </label>
         </div>
 
 
