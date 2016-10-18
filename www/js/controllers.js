@@ -466,7 +466,8 @@ $scope.register = function(){
           if (msg.indexOf("[Abalobi Registration]") >= 0){
 
             $timeout.cancel(timeout);
-            alert(strings.get_translation(strings.REGISTER_SUCCESS))
+            alert(strings.get_translation(strings.REGISTER_SUCCESS)
+              + "\n" + msg);
 
             //stop sms plugin listening disable loading status and route user to home, clean storage on successful submission
             smsInboxPlugin.stopReception (function() {
