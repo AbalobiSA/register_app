@@ -101,6 +101,12 @@
     "MFC_COOP_NAME" : "Name of Co-operative:",
     "MFC_COOP_NAME_PC" : "Enter name of Co-operative here",
 
+    "FISHER_PLACEHOLDER_PERMIT_IRP":"IRP Permit Number",
+    "FISHER_PLACEHOLDER_PERMIT_REC":"Recreational Permit Number",
+    "FISHER_PLACEHOLDER_PERMIT_WCRL":"WCRL Permit Number",
+    "FISHER_PLACEHOLDER_PERMIT_TLF":"TLF Permit Number",
+    "FISHER_PLACEHOLDER_PERMIT_OTHER":"Other Permit Number",
+
     "FISHER_LANDINGSITE_LABEL" : "*Which landing site or community do you land at most often? (Type the first letter and then select from the options)",
     "FISHER_LANDINGSITE_PH": "Landing site or community",
     "FISHER_COOP_HEADING" : "Co-operative member?",

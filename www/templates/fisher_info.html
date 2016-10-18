@@ -52,7 +52,7 @@
         <!-- Ask for IRP permit -->
         <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">{{"FISHER_PERMIT_IRP_EXEMPTION" | translate}}</ion-checkbox>
         <label ng-show="user.fisher_license_irp" class="item item-input">
-          <input  ng-model="user.fisher_licence_irp_number" type="text"  placeholder="IRP Permit Number">
+          <input  ng-model="user.fisher_licence_irp_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_IRP' | translate}}">
         </label>
 
         <!-- Ask for Commercial permit -->
@@ -61,24 +61,24 @@
         <!-- Ask for Recreational permit -->
         <ion-checkbox name="box_boat3" ng-model="user.fisher_license_recreational">{{"FISHER_PERMIT_RECREATIONAL" | translate}}</ion-checkbox>
         <label ng-show="user.fisher_license_recreational" class="item item-input">
-          <input  ng-model="user.fisher_licence_recreational_number" type="text"  placeholder="Recreational Permit Number">
+          <input  ng-model="user.fisher_licence_recreational_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_REC' | translate}}">
         </label>
 
         <div ng-show="user.fisher_license_commercial">
           <h4>{{"FISHER_COM_LICENSE_QUESTION" | translate}}</h4>
           <ion-checkbox name="box_boat4" ng-model="user.fisher_com_wcrl">{{"FISHER_COM_TYPE_WCRL" | translate}}</ion-checkbox>
           <label ng-show="user.fisher_com_wcrl" class="item item-input">
-            <input  ng-model="user.fisher_licence_com_wcrl_number" type="text"  placeholder="WCRL Permit Number">
+            <input  ng-model="user.fisher_licence_com_wcrl_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_WCRL' | translate}}">
           </label>
 
           <ion-checkbox name="box_boat5" ng-model="user.fisher_com_tlf">{{"FISHER_COM_TYPE_TLF" | translate}}</ion-checkbox>
           <label ng-show="user.fisher_com_tlf" class="item item-input">
-            <input  ng-model="user.fisher_licence_com_tlf_number" type="text"  placeholder="TLF Permit Number">
+            <input  ng-model="user.fisher_licence_com_tlf_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_TLF' | translate}}">
           </label>
 
           <ion-checkbox name="box_boat6" ng-model="user.fisher_com_other">{{"FISHER_COM_TYPE_OTHER" | translate}}</ion-checkbox>
           <label ng-show="user.fisher_com_other" class="item item-input">
-            <input  ng-model="user.fisher_licence_com_other_number" type="text"  placeholder="Other Permit Number">
+            <input  ng-model="user.fisher_licence_com_other_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_OTHER' | translate}}">
           </label>
         </div>
 

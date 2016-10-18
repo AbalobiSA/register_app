@@ -106,6 +106,12 @@
         "MFC_COOP_NAME" : "Naam van Ko-operatief:",
         "MFC_COOP_PC" : "Vul u Ko-operatief se naam hier in",
 
+        "FISHER_PLACEHOLDER_PERMIT_IRP":"IRP Permit Number",
+        "FISHER_PLACEHOLDER_PERMIT_REC":"Recreational Permit Number",
+        "FISHER_PLACEHOLDER_PERMIT_WCRL":"WCRL Permit Number",
+        "FISHER_PLACEHOLDER_PERMIT_TLF":"TLF Permit Number",
+        "FISHER_PLACEHOLDER_PERMIT_OTHER":"Other Permit Number",
+
         "FISHER_LANDINGSITE_LABEL" : "*By watter landing site of gemeenskap gaan u mees gereeld te land? (Tik die eerste letter and kies dan vanaf die lys)",
         "FISHER_LANDINGSITE_PH": "Landing site of gemeenskap",
         "FISHER_COOP_HEADING" : "Ko-operatief lid?",
