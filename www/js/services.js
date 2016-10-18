@@ -12,6 +12,7 @@ angular.module('app.services', [])
     userinfo.updateInfo = function(data) {
         angular.merge(info, data);
         //alert(JSON.stringify(info))
+        console.log("Updated to: " + JSON.stringify(info));
         return info;
     }
 

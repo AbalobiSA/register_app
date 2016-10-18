@@ -225,7 +225,8 @@ $scope.network = function(){
     //injects filter text used by OpenFn to recognise a registration submission.
     $scope.user.filter = "abalobi_registration";
 
-    userinfo.updateInfo($scope.user)
+    userinfo.updateInfo($scope.user);
+    console.log("EDITED: " + JSON.stringify($scope.user));
 
 
     $location.path('/photo');
@@ -369,21 +370,40 @@ $scope.network = function(){
 
 .controller('registerCtrl', function($scope,  $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
 
-  $scope.user = {}
+  console.log("USER: " + JSON.stringify($scope.user));
+  // $scope.user = angular.copy(userinfo.getInfo());
+  $scope.user = {};
+  console.log("USER2: " + JSON.stringify($scope.user));
 
-     document.addEventListener("deviceready", onDeviceReady, false);
-  function onDeviceReady() {
-  console.log(device.cordova);
-}
 
-$scope.user.device_manufacturer = device.manufacturer;
-$scope.user.device_model = device.model;
-$scope.user.device_platform = device.platform;
-$scope.user.device_version = device.version;
-$scope.user.device_uuid = device.uuid;
-$scope.user.device_serial = device.serial;
 
-userinfo.updateInfo($scope.user)
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+      console.log(device.cordova);
+      console.log("MAIN USERINFO: " + JSON.stringify(userinfo.getInfo()));
+      $scope.user.name = userinfo.getInfo().name
+      $scope.user.surname = userinfo.getInfo().surname
+      $scope.user.id = userinfo.getInfo().id
+      $scope.user.cell = userinfo.getInfo().cell
+
+      $scope.user.coop_admin_name = userinfo.getInfo().coop_admin_name
+      $scope.user.coop_admin_surname = userinfo.getInfo().coop_admin_surname
+      $scope.user.coop_admin_id = userinfo.getInfo().coop_admin_id
+      $scope.user.co_op_name = userinfo.getInfo().co_op_name
+      //
+      $scope.user.device_manufacturer = device.manufacturer;
+      $scope.user.device_model = device.model;
+      $scope.user.device_platform = device.platform;
+      $scope.user.device_version = device.version;
+      $scope.user.device_uuid = device.uuid;
+      $scope.user.device_serial = device.serial;
+
+      userinfo.updateInfo($scope.user);
+    }
+
+
+
 
 
 //loads information for display and check by user
@@ -392,7 +412,7 @@ $scope.user.surname = userinfo.getInfo().surname
 $scope.user.id = userinfo.getInfo().id
 $scope.user.cell = userinfo.getInfo().cell
 
-//loads information for CO-OP registration
+// //loads information for CO-OP registration
 $scope.user.coop_admin_name = userinfo.getInfo().coop_admin_name
 $scope.user.coop_admin_surname = userinfo.getInfo().coop_admin_surname
 $scope.user.coop_admin_id = userinfo.getInfo().coop_admin_id
@@ -498,8 +518,9 @@ $scope.register = function(){
 
 .controller('photoCtrl', function($scope, $location, language, matrix, $ionicPopup, userinfo) {
 
-  // $scope.user = {}
-  $scope.user = angular.copy(userinfo.getInfo());
+  $scope.user = {};
+  $scope.user.usertype = userinfo.getInfo().usertype;
+  // $scope.user = angular.copy(userinfo.getInfo());
   $scope.evaluate_bystring = function(destination){
     switch(destination){
       case 'photoCtrl_from_photo' :
@@ -512,7 +533,7 @@ $scope.register = function(){
 
   //save info and continue to next page
   $scope.next = function(){
-    userinfo.updateInfo($scope.user)
+    userinfo.updateInfo($scope.user);
     $scope.user.usertype = userinfo.getInfo().usertype
     if ($scope.evaluate_bystring('photoCtrl_from_photo')){
       $location.path('/fisher_info');
