@@ -18,18 +18,16 @@
     "TERMS_SELECT_DEMOMON" : "Demo Monitor",
     "TERMS_SELECT_DEMOCARL" : "Demo Carl",
 
-    "TERMS_DESCRIBE_FISHER" : "Local Fishers, possessing fishing permits. Can be members of CO-OP groups.",
-    "TERMS_DESCRIBE_FMANAGER" : "Fishing managers like to manage people who catch fish.",
-    "TERMS_DESCRIBE_MONITOR" : "DESCRIPTIONHERE",
-    "TERMS_DESCRIBE_COOP" : "DESCRIPTIONHERE",
+    "TERMS_DESCRIBE_FISHER" : "Select 'Fisher' if you are a fisher wanting to record and view your catch data using Abalobi.",
+    "TERMS_DESCRIBE_FMANAGER" : "Select 'Local fisher assistant' if you are an Abalobi representative, \n OR if you would like to allow several fishers to record their catch on Abalobi using your cellphone or tablet. \nNote: All fishers still need to register themselves on Abalobi, even if they are using your device to record their catch.",
+    "TERMS_DESCRIBE_MONITOR" : "Select 'DAFF Monitor' if you are employed as a Catch Monitor",
+    "TERMS_DESCRIBE_COOP" : "Select 'Co-operative' to have your co-operative listed on the Abalobi Sysytem",
     "TERMS_DESCRIBE_COOPADMIN" : "DESCRIPTIONHERE",
     "TERMS_DESCRIBE_MONMANAGER" : "DESCRIPTIONHERE",
-    "TERMS_DESCRIBE_DEMOFISHER" : "DESCRIPTIONHERE",
+    "TERMS_DESCRIBE_DEMOFISHER" : "Select 'Demo Fisher' to register a fisher account for demonstrating to others how Abalobi works.",
     "TERMS_DESCRIBE_DEMOMON" : "DESCRIPTIONHERE",
     "TERMS_DESCRIBE_DEMOCARL" : "DESCRIPTIONHERE",
-    "TERMS_DESCRIBE_DAFFMANAGER": "This person is a DAFF Manager",
-
-
+    "TERMS_DESCRIBE_DAFFMANAGER": "Select 'DAFF Manager' if you are employed by DAFF and would like to view data collected by Catch Monitors",
 
     "TERMS_MODAL_TITLE" : "Terms of Use",
 
@@ -47,7 +45,7 @@
     "TERMS_MODAL_CONSENT_DAFF": "DAFF (Department of Agriculture, Forestry and fisheries)",
 
     "PERSONAL_TITLE_ALL" : "Personal Information",
-    "PERSONAL_TITLE_CO" : "Personal Information of Person Responsible ",
+    "PERSONAL_TITLE_CO" : "Details of person responsible for the co-op",
     "PERSONAL_REQUIRED" : "Required fields are marked with: *",
 
     "PERSONAL_SURNAME_LABEL" : "*Surname",
@@ -86,14 +84,14 @@
 
     "PERSONAL_REQUIRED_FIELD" : "This field is required",
 
-    "MFC_LANDINGSITE_MONITOR" : "Which landing site or community will you be monitoring?",
+    "MFC_LANDINGSITE_MONITOR" : "Which landing site or community will you be monitoring? (Type the first letter and then select from the options)",
 
-    "MFC_LANDINGSITE_FISHMANAGER" : "Which landing site or community do your fishers land at most often?",
+    "MFC_LANDINGSITE_FISHMANAGER" : "Which landing site or community do your fishers land at most often? (Type the first letter and then select from the options)",
 
     "MFC_LANDINGSITE_PC" : "Enter landing site or community here",
 
-    "MFC_LANDINGSITE_PROVINCE": "Please Choose Your Province",
-    "MFC_LANDINGSITE_SELECTED" : "Your current landingsite:",
+    "MFC_LANDINGSITE_PROVINCE": "*Please Choose Your Province",
+    "MFC_LANDINGSITE_SELECTED" : "Your current landing site:",
 
     "MFC_COOP_LABEL" : "Co-operative:",
     "MFC_COOP_REG" : "Registration number of co-operative :",
@@ -101,7 +99,7 @@
     "MFC_COOP_NAME" : "Name of Co-operative:",
     "MFC_COOP_NAME_PC" : "Enter name of Co-operative here",
 
-    "FISHER_LANDINGSITE_LABEL" : "*Which landing site or community do you land at most often?",
+    "FISHER_LANDINGSITE_LABEL" : "*Which landing site or community do you land at most often? (Type the first letter and then select from the options)",
     "FISHER_LANDINGSITE_PH": "Landing site or community",
     "FISHER_COOP_HEADING" : "Co-operative member?",
     "FISHER_COOP_CHECKBOX" : "I am a member of a co-operative",
@@ -129,7 +127,7 @@
     "FISHER_PERMIT_COMMERCIAL": "Commercial",
     "FISHER_PERMIT_RECREATIONAL": "Recreational",
 
-    "FISHER_COM_LICENSE_QUESTION" : "What type of commercial license do you have?",
+    "FISHER_COM_LICENSE_QUESTION" : "What type of commercial permit do you have?",
     "FISHER_COM_TYPE_WCRL" : "Commercial WCRL",
     "FISHER_COM_TYPE_TLF" : "Commercial TLF",
     "FISHER_COM_TYPE_OTHER" : "Commercial Other",
