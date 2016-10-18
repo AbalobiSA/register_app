@@ -11,7 +11,9 @@
                 <h2>{{"PHOTO_PROFILEPIC" | translate}}</h2>
                 <i ng-click="takePhoto('profilepic')" class="icon ion-android-add-circle"></i>
             </ion-item>
-            <ion-item ng-show="user.usertype==fisher" class="item-thumbnail-left item-icon-right  " id="home-list-item2">
+            <!-- <h4>Usertype: {{user.usertype}}</h4>
+            <h4>Usertype Deep: {{userinfo.usertype}}</h4> -->
+            <ion-item ng-show="user.usertype=='fisher'" class="item-thumbnail-left item-icon-right  " id="home-list-item2">
                 <img src="img/7cxVZB8aRRKB3ctvBEPz_placeholder3.png" id="boatpic">
                 <h2>{{"PHOTO_BOAT" | translate}}</h2>
                 <i ng-click="takePhoto('boatpic')" class="icon ion-android-add-circle"></i>
