@@ -22,7 +22,7 @@
     </label>
 
     <div ng-hide="user.usertype == null" class="usertype-description" style="background-color: #81D4FA !important; border: 1px solid #03A9F4 !important; border-radius: 4px !important; padding: 4px !important; margin-top: 10px !important">
-      <p>Your usertype is:&nbsp;{{user.usertype}}</p>
+      <!-- <p>Your usertype is:&nbsp;{{user.usertype}}</p> -->
       <p ng-show="(user.usertype == 'fisher' && user.usertype != null)">{{"TERMS_DESCRIBE_FISHER"| translate}}</p>
       <p ng-show="(user.usertype == 'fisher_manager' && user.usertype != null)">{{"TERMS_DESCRIBE_FMANAGER"| translate}}</p>
       <p ng-show="(user.usertype == 'co_op' && user.usertype != null)">{{"TERMS_DESCRIBE_COOP"| translate}}</p>
