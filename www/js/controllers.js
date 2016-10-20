@@ -1,8 +1,8 @@
 angular.module('app.controllers', [])
 
 // Constants
-// .constant('OPENFN_URL', "http://requestb.in/x6qg17x6")
-.constant('OPENFN_URL', "URLHERE")
+.constant('OPENFN_URL', "http://requestb.in/rfjmg9rf")
+// .constant('OPENFN_URL', "URLHERE")
 //TODO: Add URL for OpenFunction #CARL
 
 .constant('SMS_TIMEOUT_PERIOD', 30)   //seconds
@@ -564,14 +564,17 @@ $scope.register = function(){
 
       if (True_False == false){
         navigator.camera.getPicture(onSuccess, onFail,
-          { quality: 10,
+          { quality: 90,
+            targetWidth: 640,
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.PHOTOLIBRARY}
           );
         }
         else {
           navigator.camera.getPicture(onSuccess, onFail,
-            { quality: 10,
+            { quality: 90,
+              targetWidth: 640,
+              correctOrientation: true,
               destinationType: Camera.DestinationType.DATA_URL }
             );
           }
