@@ -57,8 +57,7 @@
 
   <p style="color:red;" ng-show="landing_form.$invalid && co_op_form.$invalid" ng-hide="user.usertype=='daff_manager'" > {{"GEN_REQUIRED" | translate}} </p>
 
-  <!-- TODO: Translate this #CARL -->
-  <h4 ng-show="user.usertype=='daff_manager'">You are about to be registered as a DAFF Manager. If you are sure this is correct, please click the button below.</h4>
+  <h4 ng-show="user.usertype=='daff_manager'">{{"TERMS_CONFIRM_DAFFMANAGER" | translate}}</h4>
 
   <!-- Next button to route to Personal Details page -->
   <!-- <p>Usertype:&nbsp;{{user.usertype}} <br>

@@ -38,10 +38,9 @@
           {{"GEN_CHANGE" | translate}}
         </button> </div>
       </ion-item>
-      <!-- TODO: Add translations for these #CARL -->
       <label ng-show="user.landingsite == 'Other'" class="item item-input item-stacked-label "  id="register1-input3">
         <!-- <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span> -->
-        <span>"Please enter the name of your community"</span>
+        <span>{{"MFC_LANDINGSITE_ENTER_NAME" | translate}}</span>
         <!-- <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name"> -->
         <input type="text" ng-model="user.landingsite_custom" placeholder="Community Name Here" name="other_landingsite_name">
       </label>

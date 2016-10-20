@@ -23,6 +23,7 @@
         "TERMS_SELECT_DAFFMANAGER": "DAFF Bestuurder",
         "TERMS_SELECT_DEMOFISHER" : "Demo Visser",
         "TERMS_SELECT_DEMOMON" : "Demo Monitor",
+        "TERMS_SELECT_DEMOCARL" : "Demo Carl", 
 
         "TERMS_DESCRIBE_FISHER" : "Kies 'Visser' indien u 'n visser is wat met Abalobi u vangs wil kan opskryf.",
         "TERMS_DESCRIBE_FMANAGER" : "Kies 'Plaaslike Visser Assistent' indien u 'n Abalobi verteenwoordiger is, \nOF indien u wil toelaat dat 'n paar verskillende vissers hulle vangs op Abalobi kan opskryf met gebruik van u selfoon of tablet.\nLet Wel: Alle vissers moet steeds hulself op Abalobi registreer, al gebruik hulle u selfoon/tablet om hulle vangs op te skryf.",
@@ -34,6 +35,8 @@
         "TERMS_DESCRIBE_DEMOMON" : "DESCRIPTIONHERE",
         "TERMS_DESCRIBE_DEMOCARL" : "DESCRIPTIONHERE",
         "TERMS_DESCRIBE_DAFFMANAGER": "Kies 'DAFF Bestuurder' indien u vir DAFF werk en die data wat deur Vangs Monitors opgeskryf is wil sien",
+
+        "TERMS_CONFIRM_DAFFMANAGER": "You are about to be registered as a DAFF Manager. If you are sure this is correct, please click the button below.",
 
         "TERMS_MODAL_TITLE" : "Terme van Gebruik",
 
@@ -90,6 +93,8 @@
         "PERSONAL_REPASSWORD_IV" : "Wagwoorde is nie dieselfde nie",
 
         "MFC_COMMUNITY_LANDINGSITE_DESC":"*Community / Landing Site",
+        "MFC_LANDINGSITE_ENTER_NAME":"Please enter the name of your community",
+
 
         "PERSONAL_REQUIRED_FIELD" : "Hierdie veld is verpligtend",
 
@@ -104,7 +109,7 @@
         "MFC_COOP_REG" : "Ko-operatief registrasie nommer:",
         "MFC_COOP_REG_PC" : "Vul u Ko-operatief se registrasie nommer hier in",
         "MFC_COOP_NAME" : "Naam van Ko-operatief:",
-        "MFC_COOP_PC" : "Vul u Ko-operatief se naam hier in",
+        "MFC_COOP_NAME_PC" : "Vul u Ko-operatief se naam hier in",
 
         "FISHER_PLACEHOLDER_PERMIT_IRP":"IRP Permit Number",
         "FISHER_PLACEHOLDER_PERMIT_REC":"Recreational Permit Number",
@@ -171,6 +176,7 @@
 
         "REGISTER_INFO" : "As enige van die onderstaande inligting verkeerd is gaan asseblief terug en koregeer dit andersins as alles korrek is druk asseblief die 'Registreer' opsie hier onder",
 
+        "REGISTER_COOP" : "Name of Co-Op:",
         "REGISTER_NAME" : "Naam:",
         "REGISTER_SURNAME" : "Van:",
         "REGISTER_ID" : "ID Nommer:",

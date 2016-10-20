@@ -29,6 +29,8 @@
     "TERMS_DESCRIBE_DEMOCARL" : "DESCRIPTION HERE",
     "TERMS_DESCRIBE_DAFFMANAGER": "Select 'DAFF Manager' if you are employed by DAFF and would like to view data collected by Catch Monitors",
 
+    "TERMS_CONFIRM_DAFFMANAGER": "You are about to be registered as a DAFF Manager. If you are sure this is correct, please click the button below.",
+
     "TERMS_MODAL_TITLE" : "Terms of Use",
 
     "TERMS_MODAL_FISHER_PAR" : "In order to maintain the Abalobi system it is possible for the core Abalobi team to access all data, however all data submitted to the Abalobi system will be treated with the utmost privacy. No data will be shared with 3rd parties without express consent of DAFF.",
@@ -83,6 +85,8 @@
     "PERSONAL_REPASSWORD_IV" : "Passwords don't match",
 
     "MFC_COMMUNITY_LANDINGSITE_DESC":"*Community / Landing Site",
+    "MFC_LANDINGSITE_ENTER_NAME":"Please enter the name of your community",
+
 
     "PERSONAL_REQUIRED_FIELD" : "This field is required",
 
@@ -167,6 +171,7 @@
     "REGISTER_INFO" : "If any of the below information is incorrect please go back and change it. If everything is correct please press the Register button below",
 
     "REGISTER_NAME" : "Name:",
+    "REGISTER_COOP" : "Name of Co-Op:",
     "REGISTER_SURNAME" : "Surname:",
     "REGISTER_ID" : "ID Number:",
     "REGISTER_CELL" : "Personal Cell Number:"
