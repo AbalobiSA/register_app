@@ -54,7 +54,8 @@
 
                 <label class="item item-input item-stacked-label " id="register1-input4">
                     <span class="input-label">{{"PERSONAL_DATE_LABEL" | translate}}</span>
-                    <input type="date" required ng-model="user.birth_date" placeholder="" >
+                    <input type="date" required ng-model-options="{timezone:'UTC'}" ng-model="user.birth_date" placeholder="" >
+                    <!-- <input ui-date="{dateFormat: 'yy-mm-dd'}" ui-date-format="yy-mm-dd" ng-model="user.birth_date"></input> -->
                     <span class="help-block" name="Birth_Date" style="color:red" ng-class="{ 'has-error': userForm.Birth_Date.$touched && userForm.Birth_Date.$invalid }"
                     ng-show="userForm.Birth_Date.$touched">{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
                 </label>
