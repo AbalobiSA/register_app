@@ -14,6 +14,7 @@
         <label class="item item-input item-stacked-label cs-max-width" ng-show="select.province!= undefined" class="item item-input">
           <span ng-show="evaluate_byindex(7) && select.province!= undefined" id="MFC_landingsite2" class="cs-spanwrap">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
           <span ng-show="evaluate_byindex(8) && select.province!= undefined" id="MFC_landingsite3" class="cs-spanwrap">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
+          <span ng-hide="evaluate_byindex(8) || evaluate_byindex(7)" id="MFC_landingsite31" class="cs-spanwrap">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
         </label>
         <label class="item item-input" ng-show="select.province!= undefined">
           <i class="icon ion-search placeholder-icon"></i>
@@ -32,7 +33,7 @@
   </form>
 
   <ion-item ng-hide="user.landingsite == undefined">
-    {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{user.landingsite}}</strong>
+    <span class="cs-spanwrap">{{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{user.landingsite}}</strong></span>
     <div class="text-right">   <button  class="button button-stable" ng-click="change()">
       {{"GEN_CHANGE" | translate}}
     </button> </div>
@@ -42,14 +43,14 @@
   <!-- Co-op info input box (for Co-ops) -->
   <form name="co_op_form" ng-show="evaluate_byindex(9)" id="MFC_co_op" novalidate>
 
-    <h4 id="popup_fisher-markdown16" style="margin-top:0px;color:#000000;" class=" ">{{"MFC_COOP_LABEL" | translate}}</h4>
+    <h4 id="popup_fisher-markdown16" style="color:#000000;" class=" ">{{"MFC_COOP_LABEL" | translate}}</h4>
     <label class="item item-input item-stacked-label "  id="register1-input3">
-      <span class="input-label">{{"MFC_COOP_NAME" | translate}}</span>
+      <span class="input-label cs-spanwrap">{{"MFC_COOP_NAME" | translate}}</span>
       <input type="text" required ng-model="user.co_op_name" placeholder="{{'MFC_COOP_NAME_PC' | translate}}" name="Co-Op_name">
     </label>
 
     <label class="item item-input item-stacked-label "  id="register1-input3">
-      <span class="input-label">{{"MFC_COOP_REG" | translate}}</span>
+      <span class="input-label cs-spanwrap">{{"MFC_COOP_REG" | translate}}</span>
       <input type="text" required ng-model="user.co_op_reg_num" placeholder="{{'MFC_COOP_REG_PC' | translate}}" name="Co-Op_name">
     </label>
 
