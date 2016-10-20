@@ -321,7 +321,14 @@ angular.module('app.controllers', [])
 
 
     //loads information previously entered
-    $scope.user = angular.copy(userinfo.getInfo())
+    $scope.user = {};
+    $scope.user = angular.copy(userinfo.getInfo());
+
+    $scope.$on('$ionicView.enter', function() {
+        console.log("Resetting Scope...")
+        $scope.user = {};
+        $scope.user = angular.copy(userinfo.getInfo());
+    })
 
     //saves info and goes to next page
     $scope.next = function() {
