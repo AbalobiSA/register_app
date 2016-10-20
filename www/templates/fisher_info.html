@@ -117,7 +117,7 @@
           </label>
           <label class="item item-input item-stacked-label ">
             <span class="input-label">{{"FISHER_BOATINFO_REG_EXPIRY" | translate}}</span>
-            <input type="date" ng-model="user.boat_expDate" name="boat_expDate">
+            <input type="date" ng-model-options="{timezone:'UTC'}" ng-model="user.boat_expDate" name="boat_expDate">
           </label>
 
           <h5>{{"FISHER_BOATINFO_ENGINE_LABEL" | translate}}</h5>
