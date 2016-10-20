@@ -63,3 +63,8 @@ ionic run android
 ```
 ionic serve
 ```
+
+-----------
+### Building
+
+[Follow this guide](https://ionicframework.com/docs/guide/publishing.html)
