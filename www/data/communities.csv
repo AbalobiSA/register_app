@@ -1,12 +1,13 @@
-community,display_name,province
-lambertsbaai,Lamberts Bay,WC
-struisbaai,Struisbaai,WC
-kleinmond,Kleinmond,WC
-portnolloth,Port Nolloth,NC
-hondeklipbaai,Hondeklipbaai,NC
-sainthelena,Saint Helena,WC
-doringbaai,Doringbaai,WC
-olifants,Olifants,WC
-elandsbaai,Elands Bay,WC
-not_on_list,Other,WC
-not_on_list,Other,NC
+name_key,province,name_Eng,name_Afr
+lambertsbaai,WC,Lamberts Bay,Lambertsbaai
+struisbaai,WC,Struis Bay,Struisbaai
+kleinmond,WC,Kleinmond,Kleinmond
+portnolloth,NC,Port Nolloth,Port Nolloth
+hondeklipbaai,NC,Hondeklip Bay,Hondeklipbaai
+sainthelena,WC,Saint Helena,Saint Helena
+doringbaai,WC,Doring Bay,Doringbaai
+olifants,WC,Olifants,Olifants
+elandsbaai,WC,Elands Bay,Elandsbaai
+arniston,WC,Arniston,Waenhuiskrans
+not_on_list,WC,Other
+not_on_list,NC,Other

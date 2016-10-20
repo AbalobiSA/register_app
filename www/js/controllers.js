@@ -69,8 +69,8 @@ angular.module('app.controllers', [])
       $scope.provinces = []
 
       for (x = 0; x < data.length; x++) {
-        if ($scope.provinces.indexOf(data[x][2]) == -1) {
-          $scope.provinces.push(data[x][2])
+        if ($scope.provinces.indexOf(data[x][1]) == -1) {
+          $scope.provinces.push(data[x][1])
         }
       }
     }
@@ -79,8 +79,8 @@ angular.module('app.controllers', [])
 
       $scope.landingsites = []
       for (x = 0; x < data.length; x++) {
-        if (data[x][2] == $scope.select.province) {
-          $scope.landingsites.push(data[x][1])
+        if (data[x][1] == $scope.select.province) {
+          $scope.landingsites.push(data[x][2])
         }
       }
     }
@@ -357,32 +357,32 @@ angular.module('app.controllers', [])
         $scope.processData(response.data)
       });
 
-    $scope.processData = function(text) {
+      $scope.processData = function(text) {
 
-      var lines = text.split("\n")
-      for (x = 1; x < lines.length - 1; x++) {
-        var line = lines[x].split(",")
-        data.push(line)
-      }
+        var lines = text.split("\n")
+        for (x = 1; x < lines.length - 1; x++) {
+          var line = lines[x].split(",")
+          data.push(line)
+        }
 
-      $scope.provinces = []
+        $scope.provinces = []
 
-      for (x = 0; x < data.length; x++) {
-        if ($scope.provinces.indexOf(data[x][2]) == -1) {
-          $scope.provinces.push(data[x][2])
+        for (x = 0; x < data.length; x++) {
+          if ($scope.provinces.indexOf(data[x][1]) == -1) {
+            $scope.provinces.push(data[x][1])
+          }
         }
       }
-    }
 
-    $scope.filter_by_province = function() {
+      $scope.filter_by_province = function() {
 
-      $scope.landingsites = []
-      for (x = 0; x < data.length; x++) {
-        if (data[x][2] == $scope.select.province) {
-          $scope.landingsites.push(data[x][1])
+        $scope.landingsites = []
+        for (x = 0; x < data.length; x++) {
+          if (data[x][1] == $scope.select.province) {
+            $scope.landingsites.push(data[x][2])
+          }
         }
       }
-    }
   }) //end fisher_infoCtrl
 
 .controller('registerCtrl', function($scope, $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
