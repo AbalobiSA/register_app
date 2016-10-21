@@ -101,6 +101,7 @@
 
     "MFC_LANDINGSITE_PROVINCE": "*Please select your province",
     "MFC_LANDINGSITE_SELECTED" : "Your current community/landing site:",
+    "MFC_LANDINGSITE_PLACEHOLDER":"Type your landing site here",
 
     "MFC_COOP_LABEL" : "Co-operative:",
     "MFC_COOP_REG" : "Registration number of co-operative :",
