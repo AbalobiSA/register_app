@@ -19,26 +19,26 @@
             <ion-list id="register1-list1" class=" " >
 
                 <label class="item item-input item-stacked-label " id="register1-input1">
-                    <span class="input-label item-text-wrap">{{"PERSONAL_SURNAME_LABEL" | translate}}</span>
+                    <span class="input-label item-text-wrap cs-max-width">{{"PERSONAL_SURNAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.coop_admin_surname" placeholder="{{'PERSONAL_SURNAME_PH' | translate}}" name="Surname" required >
                     <span class="help-block" style="color:red"
                     ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input2">
-                    <span class="input-label">{{"PERSONAL_NAME_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_NAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.coop_admin_name" placeholder="{{'PERSONAL_NAME_PH' | translate}}" name="Name" required>
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.Name.$touched && userForm.Name.$invalid }"
                     ng-show="userForm.Name.$invalid && userForm.Name.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input2">
-                    <span class="input-label">{{"PERSONAL_NICKNAME_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_NICKNAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.coop_admin_nickname" placeholder="{{'PERSONAL_NICKNAME_PH' | translate}}" name="Nickame" >
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input3">
-                    <span class="input-label">{{"PERSONAL_ID_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_ID_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.coop_admin_id" placeholder="{{'PERSONAL_ID_PH' | translate}}" name="ID"
                     required>
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.ID.$touched && userForm.ID.$invalid }"

@@ -19,33 +19,33 @@
             <ion-list id="register1-list1" class=" " >
 
                 <label class="item item-input item-stacked-label " id="register1-input1">
-                    <span class="input-label item-text-wrap">{{"PERSONAL_SURNAME_LABEL" | translate}}</span>
+                    <span class="input-label item-text-wrap cs-max-width">{{"PERSONAL_SURNAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.surname" placeholder="{{'PERSONAL_SURNAME_PH' | translate}}" name="Surname" required >
                     <span class="help-block" style="color:red"
                     ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input2">
-                    <span class="input-label">{{"PERSONAL_NAME_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_NAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.name" placeholder="{{'PERSONAL_NAME_PH' | translate}}" name="Name" required>
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.Name.$touched && userForm.Name.$invalid }"
                     ng-show="userForm.Name.$invalid && userForm.Name.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input2">
-                    <span class="input-label">{{"PERSONAL_NICKNAME_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_NICKNAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.nickname" placeholder="{{'PERSONAL_NICKNAME_PH' | translate}}" name="Nickame" >
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input4">
-                    <span class="input-label">{{"PERSONAL_EMAIL_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_EMAIL_LABEL" | translate}}</span>
                     <input type="email" ng-model="user.email" placeholder="{{'PERSONAL_EMAIL_PH' | translate}}" name="Email" >
                     <span class="help-block" style="color:red"
                     ng-show="userForm.Email.$invalid && userForm.Email.$touched && !userForm.Email.$pristine ">{{"PERSONAL_EMAIL_IV" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input3">
-                    <span class="input-label">{{"PERSONAL_ID_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_ID_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.id" placeholder="{{'PERSONAL_ID_PH' | translate}}" name="ID"
                     required>
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.ID.$touched && userForm.ID.$invalid }"
@@ -53,7 +53,7 @@
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input4">
-                    <span class="input-label">{{"PERSONAL_DATE_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_DATE_LABEL" | translate}}</span>
                     <input type="date" required ng-model-options="{timezone:'UTC'}" ng-model="user.birth_date" placeholder="" >
                     <!-- <input ui-date="{dateFormat: 'yy-mm-dd'}" ui-date-format="yy-mm-dd" ng-model="user.birth_date"></input> -->
                     <span class="help-block" name="Birth_Date" style="color:red" ng-class="{ 'has-error': userForm.Birth_Date.$touched && userForm.Birth_Date.$invalid }"
@@ -61,7 +61,7 @@
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register2-input5">
-                    <span class="input-label">{{"PERSONAL_CELL_LABEL" | translate}}</span>
+                    <span class="input-label cs-max-width">{{"PERSONAL_CELL_LABEL" | translate}}</span>
                     <input type="tel" name="cell" ng-model="user.cell"
                     ng-minlength="10"
                     ng-maxlength="10" required placeholder="{{'PERSONAL_CELL_PH' | translate}}">
@@ -73,7 +73,7 @@
 
             <!-- Device cell number (for monitor and Co-op) -->
             <label class="item item-input item-stacked-label " ng-show="evaluate_byindex(12)" id="personal_details_device_num">
-                <span class="input-label">{{"PERSONAL_DEV_CELL_LABEL" | translate}}</span>
+                <span class="input-label cs-max-width">{{"PERSONAL_DEV_CELL_LABEL" | translate}}</span>
                 <input  type="tel" name="cell_dev" ng-model="user.cell_dev"
                 ng-minlength="10"
                 ng-maxlength="10"  ng-required="evaluate_byindex(12)" placeholder="{{'PERSONAL_DEV_CELL_PH' | translate}}">
@@ -82,7 +82,7 @@
             </label>
 
             <label class="item item-input item-stacked-label " id="register2-input6">
-                <text  class="input-label item-text-wrap">{{"PERSONAL_PASSWORD_LABEL" | translate}}</text>
+                <text  class="input-label item-text-wrap cs-max-width">{{"PERSONAL_PASSWORD_LABEL" | translate}}</text>
                 <input type="password" name="password" ng-model="user.password"
                 ng-minlength="6" required=""  placeholder="{{'PERSONAL_PASSWORD_PH' | translate}}">
                 <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }"
@@ -90,7 +90,7 @@
             </label>
 
             <label class="item item-input item-stacked-label " id="register2-input7">
-                <span class="input-label">{{"PERSONAL_REPASSWORD_LABEL" | translate}}</span>
+                <span class="input-label cs-max-width">{{"PERSONAL_REPASSWORD_LABEL" | translate}}</span>
                 <input type="password"  name="password1" ng-model="password1" placeholder="{{'PERSONAL_REPASSWORD_PH' | translate}}" required="">
                 <span class="help-block" style="color:red"
                 ng-show="!match(password1) && userForm.password1.$touched" >{{"PERSONAL_REPASSWORD_IV" | translate}}</span>
