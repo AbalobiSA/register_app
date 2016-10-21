@@ -28,7 +28,7 @@ angular.module('app.strings', [])
         },
         "REGISTER_TIMEOUT" : {
             "en" :"Registration timeout - confirmation SMS not received yet.\nPlease watch your SMS Inbox for the confirmation SMS. Please contact the Abalobi team if no SMS is received within 24 hours.",
-            "afr" : "Registrasie timeout - registrasie SMS nog nie ontvang nie.\nHou asb u SMS Inbox dop vir die registrasie SMS. Kontak asseblief die Abalobi span indien u nie binne 24uur 'n SMS ontvang nie.'"
+            "afr" : "Neem asseblief kennis: Die SMS om u registrasie te bevestig is nog nie ontvang nie.\nHou asb u SMS posbus dop vir hierdie SMS. Kontak asseblief die Abalobi span indien u nie binne 24 uur hierdie SMS ontvang nie."
         },
         "REGISTER_SUCCESS" : {
             "en" :"Registration SMS received - your registration was submitted.",

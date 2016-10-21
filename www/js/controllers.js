@@ -468,11 +468,11 @@ angular.module('app.controllers', [])
           //disable user while waiting
           if (language.getInfo() == "afr") {
             $ionicLoading.show({
-              template: 'Wag ' + SMS_TIMEOUT_PERIOD + 's vir bevestigings SMS - wag asseblief...'
+              template: "U registrasie word ingedien. U behoort binne " + SMS_TIMEOUT_PERIOD + "s 'n bevestigings SMS te ontvang - wag asseblief..."
             })
           } else {
             $ionicLoading.show({
-              template: 'Waiting ' + SMS_TIMEOUT_PERIOD + 's for acknowledgement SMS - please wait...'
+              template: 'Your registration is being submitted. You should receive a confirmation SMS within ' + SMS_TIMEOUT_PERIOD + 's - please wait...'
             })
           }
 
