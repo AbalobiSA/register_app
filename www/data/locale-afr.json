@@ -96,9 +96,9 @@
 
         "PERSONAL_REQUIRED_FIELD" : "Hierdie veld mag nie leeg wees nie",
 
-        "MFC_LANDINGSITE_MONITOR" : "Watter 'landing site' of gemeenskap monitor u? (Tik die eerste letter en kies dan vanaf die lys)",
+        "MFC_LANDINGSITE_MONITOR" : "Watter 'landing site' of gemeenskap monitor u? (Tik die eerste letters van die naam en kies dan vanaf die lys)",
 
-        "MFC_LANDINGSITE_FISHMANAGER" : "By watter landing site of gemeenskap land u vissers gewoonlik? (Tik die eerste letter en kies dan vanaf die lys)",
+        "MFC_LANDINGSITE_FISHMANAGER" : "By watter landing site of gemeenskap land u vissers gewoonlik? (Tik die eerste letters van die naam en kies dan vanaf die lys)",
 
         "MFC_LANDINGSITE_PC" : "Vul u landing site of gemeenskap hier in",
 
@@ -111,7 +111,7 @@
         "MFC_COOP_NAME" : "Naam van Ko-operatief:",
         "MFC_COOP_NAME_PC" : "Vul u Ko-operatief se naam hier in",
 
-        "FISHER_LANDINGSITE_LABEL" : "*By watter landing site of gemeenskap laai u mees gereeld u vis af? (Tik die eerste letter en kies dan vanaf die lys)",
+        "FISHER_LANDINGSITE_LABEL" : "*By watter landing site of gemeenskap laai u mees gereeld u vis af? (Tik die eerste letters van die naam en kies dan vanaf die lys)",
         "FISHER_LANDINGSITE_PH": "Landing site of gemeenskap",
         "FISHER_COOP_HEADING" : "Ko-operatief lid?",
         "FISHER_COOP_CHECKBOX" : "Ek is 'n lid van 'n ko-operatief",

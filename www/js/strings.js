@@ -27,8 +27,8 @@ angular.module('app.strings', [])
             "afr" : "Bevestig asseblief - is hierdie inligting korrek?"
         },
         "REGISTER_TIMEOUT" : {
-            "en" :"Registration timeout - confirmation SMS not received yet.\nPlease watch your SMS Inbox for the confirmation SMS. Please contact the Abalobi team if no SMS is received within 24 hours.",
-            "afr" : "Neem asseblief kennis: Die SMS om u registrasie te bevestig is nog nie ontvang nie.\nHou asb u SMS posbus dop vir hierdie SMS. Kontak asseblief die Abalobi span indien u nie binne 24 uur hierdie SMS ontvang nie."
+            "en" :"Take note: The SMS to confirm your registration has not been received yet.\nPlease watch your SMS Inbox for the confirmation SMS. Please contact the Abalobi team if no SMS is received within 24 hours. Contact details are on the Abalobi website.",
+            "afr" : "Neem asseblief kennis: Die SMS om u registrasie te bevestig is nog nie ontvang nie.\nHou asb u SMS posbus dop vir hierdie SMS. Kontak asseblief die Abalobi span indien u nie binne 24 uur hierdie SMS ontvang nie. Kontak besonderhede is op die Abalobi webtuiste beskikbaar."
         },
         "REGISTER_SUCCESS" : {
             "en" :"Registration SMS received - your registration was submitted.",
