@@ -84,7 +84,7 @@
         "PERSONAL_DEV_CELL_PH" : "Vul hierdie foon/tablet se selnommer hier in",
 
         "PERSONAL_PASSWORD_LABEL" : "*Wagwoord",
-        "PERSONAL_PASSWORD_PH" : "Kies 'n wagwoord wat u gaan gebruik om na Abalobi toegang te kry",
+        "PERSONAL_PASSWORD_PH" : "Kies 'n wagwoord",
         "PERSONAL_PASSWORD_IV" : "Minimum van 6 karakters word benodig",
 
         "PERSONAL_REPASSWORD_LABEL" : "*Herhaal wagwoord",

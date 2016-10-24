@@ -81,7 +81,7 @@
     "PERSONAL_DEV_CELL_PH" : "Enter this device's cell number here",
 
     "PERSONAL_PASSWORD_LABEL" : "*Password",
-    "PERSONAL_PASSWORD_PH" : "Please choose a password that you will use for accessing Abalobi",
+    "PERSONAL_PASSWORD_PH" : "Please choose a password",
     "PERSONAL_PASSWORD_IV" : "Minimum of 6 characters required",
 
     "PERSONAL_REPASSWORD_LABEL" : "*Re-type Password",
