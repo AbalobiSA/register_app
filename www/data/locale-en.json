@@ -53,6 +53,7 @@
     "PERSONAL_TITLE_ALL" : "Personal Information",
     "PERSONAL_TITLE_CO" : "Details of person responsible for the co-op",
     "PERSONAL_REQUIRED" : "Required fields are marked with: *",
+    "PERSONAL_LANGUAGE":"Preferred Language?",
 
     "PERSONAL_SURNAME_LABEL" : "*Surname",
     "PERSONAL_SURNAME_PH" : "Enter your surname here",
@@ -128,6 +129,10 @@
     "FISHER_BOATINFO_REG_PH" : "Enter registration number here",
     "FISHER_BOATINFO_REG_EXPIRY" : "Registration expiry date",
     "FISHER_BOATINFO_ENGINE_LABEL" : "Does your boat have an engine?",
+    "FISHER_BOATINFO_BOAT_TYPE" : "Boat Type?",
+    "FISHER_BOATINFO_BOAT_TYPE_BAKKIE" : "Bakkie",
+    "FISHER_BOATINFO_BOAT_TYPE_CHUKKIE" : "Chukkie",
+    "FISHER_BOATINFO_BOAT_TYPE_SKI_BOAT" : "Ski-Boat",
     "FISHER_BOATINFO_ENGINE_CHECKBOX" : "Yes, my boat has an engine",
     "FISHER_BOATINFO_ENGINECAP" : "Engine Capacity",
     "FISHER_BOATINFO_ENGINECAP_FILL" : "(Fill in either horsepower or cc)",

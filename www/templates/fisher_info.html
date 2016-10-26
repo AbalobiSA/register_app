@@ -107,6 +107,17 @@
 
         <ion-list ng-show="user.boat_own==true && user.fisher_boat==true">
           <h4> {{"FISHER_BOATINFO_LABEL" | translate}} </h4>
+          <label class="item item-input item-select"  ng-show="user.boat_own">
+            <div class="input-label">
+              {{"FISHER_BOATINFO_BOAT_TYPE" | translate}}
+            </div>
+            <!-- ng-change="evaluateBoatType()" -->
+            <select ng-model="user.fisher_boat_type" ng-change="evaluateBoatType()" id="fisher-boat-type-selector">
+              <option selected>{{"FISHER_BOATINFO_BOAT_TYPE_BAKKIE" | translate}}</option>
+              <option>{{"FISHER_BOATINFO_BOAT_TYPE_CHUKKIE" | translate}}</option>
+              <option>{{"FISHER_BOATINFO_BOAT_TYPE_SKI_BOAT" | translate}}</option>
+            </select>
+          </label>
           <label class="item item-input item-stacked-label "  id="register1-input3">
             <span class="input-label">{{"FISHER_BOATINFO_NAME_LABEL" | translate}}</span>
             <input type="text" ng-model="user.boat_name" placeholder="{{'FISHER_BOATINFO_NAME_PH' | translate}}" name="boat_name">
