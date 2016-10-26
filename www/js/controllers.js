@@ -340,6 +340,16 @@ angular.module('app.controllers', [])
       $location.path('/register');
     }
 
+    $scope.evaluateBoatType = function(){
+      // console.log("This definitely ran");
+      // var carlTest = angular.element('#fisher-boat-type-selector')[0].selectedIndex;
+      // var carlTest = angular.element(document).find('#fisher-boat-type-selector option:selected').index();
+      // angular.element(document).find(...)
+      // carlTest = ($("#dropDownMenuKategorie")[0].selectedIndex);
+      // $("#dropDownMenuKategorie")[0].selectedIndex
+      // console.log(carlTest);
+    }
+
     $scope.select = {}
     var data = []
 
