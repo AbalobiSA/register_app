@@ -53,6 +53,7 @@
     "PERSONAL_TITLE_ALL" : "Personal Information",
     "PERSONAL_TITLE_CO" : "Details of person responsible for the co-op",
     "PERSONAL_REQUIRED" : "Required fields are marked with: *",
+    "PERSONAL_LANGUAGE":"Preferred Language?",
 
     "PERSONAL_SURNAME_LABEL" : "*Surname",
     "PERSONAL_SURNAME_PH" : "Enter your surname here",

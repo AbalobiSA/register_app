@@ -56,6 +56,7 @@
         "PERSONAL_TITLE_ALL" : "Persoonlike Inligting",
         "PERSONAL_TITLE_CO" : "Besonderhede van persoon verantwoordelik vir die ko-op",
         "PERSONAL_REQUIRED" : "Vereiste velde word gemerk met: *",
+        "PERSONAL_LANGUAGE":"Preferred Language?",
 
         "PERSONAL_SURNAME_LABEL" : "*Van",
         "PERSONAL_SURNAME_PH" : "Vul u van hier in",
@@ -133,7 +134,7 @@
         "FISHER_BOATINFO_BOAT_TYPE" : "Tiepe van boot?",
         "FISHER_BOATINFO_BOAT_TYPE_BAKKIE" : "Bakkie",
         "FISHER_BOATINFO_BOAT_TYPE_CHUKKIE" : "Chukkie",
-        "FISHER_BOATINFO_BOAT_TYPE_SKI_BOAT" : "Ski-Boot",        
+        "FISHER_BOATINFO_BOAT_TYPE_SKI_BOAT" : "Ski-Boot",
         "FISHER_BOATINFO_ENGINE_CHECKBOX" : "Ja, my boot het n' enjin",
         "FISHER_BOATINFO_ENGINECAP" : "Enjin Kapasiteit",
         "FISHER_BOATINFO_ENGINECAP_FILL" : "(Vul in of perdekrag<HP> of cc)",
