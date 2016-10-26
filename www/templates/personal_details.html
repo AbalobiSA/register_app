@@ -17,7 +17,16 @@
             <button ng-click="autofillme()" class="button icon-right ion-nuclear">DEBUG</button>
 
             <ion-list id="register1-list1" class=" " >
-
+                <label class="item item-input item-select">
+                  <div class="input-label">
+                    Preferred Language
+                  </div>
+                  <select ng-model="user.preferred_language">
+                    <option selected>English</option>
+                    <option>Afrikaans</option>
+                    <option>Xhosa</option>
+                  </select>
+                </label>
                 <label class="item item-input item-stacked-label " id="register1-input1">
                     <span class="input-label item-text-wrap cs-max-width">{{"PERSONAL_SURNAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.surname" placeholder="{{'PERSONAL_SURNAME_PH' | translate}}" name="Surname" required >
