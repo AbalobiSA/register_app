@@ -452,17 +452,17 @@ angular.module('app.controllers', [])
       checkSms.checkSMSPermission();
 
       //saves info before post
-      userinfo.updateInfo($scope.user)
+      userinfo.updateInfo($scope.user);
 
       //checks for network connection if no connection prompt user to store offline else proceed to post
       var networkState = navigator.connection.type;
 
       //if no connection
       if (networkState == "none") {
-        var confirm = window.confirm(strings.get_translation(strings.REGISTER_OFFLINE))
-        if (confirm == true) {
+        var confirm = window.confirm(strings.get_translation(strings.REGISTER_OFFLINE));
+        if (confirm === true) {
           $localStorage.user = angular.copy(userinfo.getInfo());
-          alert(strings.get_translation(strings.REGISTER_INFO_STORED))
+          alert(strings.get_translation(strings.REGISTER_INFO_STORED));
         }
       }
 
@@ -470,21 +470,25 @@ angular.module('app.controllers', [])
       else {
 
         //prompts whether the info is correct
-        var x = window.confirm(strings.get_translation(strings.REGISTER_INFO_CONFIRM))
+        var x = window.confirm(strings.get_translation(strings.REGISTER_INFO_CONFIRM));
           //Add below for debugging
           // alert(JSON.stringify(userinfo.getInfo(), null, 2))
-        if (x == true) {
+        if (x === true) {
 
           //disable user while waiting
-          if (language.getInfo() == "afr") {
-            $ionicLoading.show({
-              template: "U registrasie word ingedien. U behoort binne " + SMS_TIMEOUT_PERIOD + "s 'n bevestigings SMS te ontvang - wag asseblief..."
-            })
-          } else {
-            $ionicLoading.show({
-              template: 'Your registration is being submitted. You should receive a confirmation SMS within ' + SMS_TIMEOUT_PERIOD + 's - please wait...'
-            })
-          }
+          // if (language.getInfo() == "afr") {
+          //   $ionicLoading.show({
+          //     template: "U registrasie word ingedien. U behoort binne "
+          //     + SMS_TIMEOUT_PERIOD
+          //     + "s 'n bevestigings SMS te ontvang - wag asseblief..."
+          //   });
+          // } else {
+          //   $ionicLoading.show({
+          //     template: 'Your registration is being submitted. You should receive a confirmation SMS within '
+          //     + SMS_TIMEOUT_PERIOD
+          //     + 's - please wait...'
+          //   });
+          // }
 
           //post http function with success and error results
           $http({
@@ -496,16 +500,18 @@ angular.module('app.controllers', [])
               }
             }).success(function(data, status, headers, config) {
 
+              alert(strings.get_translation(strings.REGISTER_SUCCESS));
               //start timeout call
-              var timeout = $timeout(function() {
-                alert(strings.get_translation(strings.REGISTER_TIMEOUT))
-                $ionicLoading.hide()
-              }, SMS_TIMEOUT_PERIOD * 1000);
+              // var timeout = $timeout(function() {
+              //   alert(strings.get_translation(strings.REGISTER_TIMEOUT))
+              //   $ionicLoading.hide()
+              // }, SMS_TIMEOUT_PERIOD * 1000);
 
               //initialize sms plugin
               var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
 
               //start sms plugin listening
+              /*
               smsInboxPlugin.startReception(function(msg) {
 
                   //filter recieved sms (msg) to see whether it contains tag and on
@@ -529,13 +535,13 @@ angular.module('app.controllers', [])
                     });
                   }
                 }) // end of startReception
-
+              */
             }) //end of success
 
           .error(function(data, status, headers, config) {
-            $ionicLoading.hide()
-            alert(strings.get_translation(strings.REGISTER_FAIL) + data)
-          })
+            $ionicLoading.hide();
+            alert(strings.get_translation(strings.REGISTER_FAIL) + data);
+          });
 
 
         } //end "if true"
