@@ -14,7 +14,7 @@
             <h5 style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_REQUIRED" | translate}}</h5>
 
             <button ng-click="help()" class="button icon-right ion-help">Help</button>
-            <!-- <button ng-click="autofillme()" class="button icon-right ion-nuclear">DEBUG</button> -->
+            <button ng-click="autofillme()" class="button icon-right ion-nuclear">DEBUG</button>
 
             <ion-list id="register1-list1" class=" " >
 
@@ -54,10 +54,10 @@
 
                 <label class="item item-input item-stacked-label " id="register1-input4">
                     <span class="input-label cs-max-width">{{"PERSONAL_DATE_LABEL" | translate}}</span>
-                    <input type="date" required ng-model-options="{timezone:'UTC'}" ng-model="user.birth_date" placeholder="" >
+                    <input type="date" ng-model-options="{timezone:'UTC'}" ng-model="user.birth_date" placeholder="" >
                     <!-- <input ui-date="{dateFormat: 'yy-mm-dd'}" ui-date-format="yy-mm-dd" ng-model="user.birth_date"></input> -->
-                    <span class="help-block" name="Birth_Date" style="color:red" ng-class="{ 'has-error': userForm.Birth_Date.$touched && userForm.Birth_Date.$invalid }"
-                    ng-show="userForm.Birth_Date.$touched">{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
+                    <!-- <span class="help-block" name="Birth_Date" style="color:red" ng-class="{ 'has-error': userForm.Birth_Date.$touched && userForm.Birth_Date.$invalid }"
+                    ng-show="userForm.Birth_Date.$touched">{"PERSONAL_REQUIRED_FIELD" | translate}}</span> -->
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register2-input5">
