@@ -31,8 +31,8 @@ angular.module('app.strings', [])
             "afr" : "Neem asseblief kennis: Die SMS om u registrasie te bevestig is nog nie ontvang nie.\nHou asb u SMS posbus dop vir hierdie SMS. Kontak asseblief die Abalobi span indien u nie binne 24 uur hierdie SMS ontvang nie. Kontak besonderhede is op die Abalobi webtuiste beskikbaar."
         },
         "REGISTER_SUCCESS" : {
-            "en" :"Registration SMS received - your registration was submitted.",
-            "afr" : "Registrasie SMS ontvang - u registrasie is ingedien."
+            "en" :"Your registration has been submitted. You should receive a confirmation SMS within a minute or two.",
+            "afr" : "U registrasie word ingedien. U behoort binne 'n minuut of twee 'n bevestigings SMS te ontvang."
         },
         "REGISTER_FAIL" : {
             "en" :"Registration submission failed. Please try again. Please contact the Abalobi team if the problem persists.",
