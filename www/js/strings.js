@@ -35,8 +35,8 @@ angular.module('app.strings', [])
             "afr" : "Registrasie SMS ontvang - u registrasie is ingedien."
         },
         "REGISTER_FAIL" : {
-            "en" :"Registration submission failed.",
-            "afr" : "Stuur van registrasie inligting het misluk."
+            "en" :"Registration submission failed. Please try again. Please contact the Abalobi team if the problem persists.",
+            "afr" : "Stuur van registrasie inligting het misluk. Probeer asseblief weer. Kontak asb die Abalobi span indien die probleem aanhou."
         },
         "CAMERA_FAIL" : {
             "en" :"Failure reason:",
