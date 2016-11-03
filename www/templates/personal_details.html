@@ -51,7 +51,15 @@
                     <input type="email" ng-model="user.email" placeholder="{{'PERSONAL_EMAIL_PH' | translate}}" name="Email" >
                     <span class="help-block" style="color:red"
                     ng-show="userForm.Email.$invalid && userForm.Email.$touched && !userForm.Email.$pristine ">{{"PERSONAL_EMAIL_IV" | translate}}</span>
+
                 </label>
+                <label class="item item-input item-stacked-label " id="register1-input41" ng-show="user.email">
+                  <span class="input-label cs-max-width">{{"PERSONAL_EMAIL_OWNERSHIP_QUESTION" | translate}}</span>
+                    <ion-radio ng-model="user.email_is_my_own" ng-value="true">{{"PERSONAL_EMAIL_OWN_EMAIL" | translate}}</ion-radio>
+                    <ion-radio ng-model="user.email_is_my_own" ng-value="false">{{"PERSONAL_EMAIL_NOT_OWN_EMAIL" | translate}}</ion-radio>
+                </label>
+
+
 
                 <label class="item item-input item-stacked-label " id="register1-input3">
                     <span class="input-label cs-max-width">{{"PERSONAL_ID_LABEL" | translate}}</span>

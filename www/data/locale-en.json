@@ -67,6 +67,9 @@
     "PERSONAL_EMAIL_LABEL": "E-mail",
     "PERSONAL_EMAIL_PH": "Enter your e-mail address here",
     "PERSONAL_EMAIL_IV": "Please enter a valid e-mail address",
+    "PERSONAL_EMAIL_OWNERSHIP_QUESTION": "Is this your email address?",
+    "PERSONAL_EMAIL_OWN_EMAIL": "My Email Address",
+    "PERSONAL_EMAIL_NOT_OWN_EMAIL": "Someone else's email address",
 
     "PERSONAL_ID_LABEL" : "*ID Number",
     "PERSONAL_ID_PH" : "Enter your ID number here",
