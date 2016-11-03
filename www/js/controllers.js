@@ -491,6 +491,20 @@ angular.module('app.controllers', [])
           // }
 
           //post http function with success and error results
+
+          //TODO: Carl - Create Spinner here
+
+          if (language.getInfo() == "afr") {
+            $ionicLoading.show({
+              template: "U registrasie word ingedien. Wag asseblief..."
+            });
+          } else {
+            $ionicLoading.show({
+              template: 'Your registration is being submitted. Please wait...'
+            });
+          }
+
+
           $http({
               method: 'POST',
               url: OPENFN_URL,
@@ -499,6 +513,11 @@ angular.module('app.controllers', [])
                 'Content-Type': 'application/json'
               }
             }).success(function(data, status, headers, config) {
+
+              //Cancel the timeout
+
+              // $timeout.cancel(timeout);
+              $ionicLoading.hide();
 
               alert(strings.get_translation(strings.REGISTER_SUCCESS));
               //start timeout call
