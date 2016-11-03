@@ -448,6 +448,7 @@ angular.module('app.controllers', [])
 
     $scope.register = function() {
 
+      $scope.showSpinner = false;
       //checks sms permissions and tells user to check inbox if no permission
       checkSms.checkSMSPermission();
 
@@ -456,6 +457,7 @@ angular.module('app.controllers', [])
 
       //checks for network connection if no connection prompt user to store offline else proceed to post
       var networkState = navigator.connection.type;
+
 
       //if no connection
       if (networkState == "none") {
@@ -493,14 +495,16 @@ angular.module('app.controllers', [])
           //post http function with success and error results
 
           //TODO: Carl - Create Spinner here
-
+          $scope.showSpinner = true;
           if (language.getInfo() == "afr") {
             $ionicLoading.show({
               template: "U registrasie word ingedien. Wag asseblief..."
+              + "<br /><ion-spinner></ion-spinner>"
             });
           } else {
             $ionicLoading.show({
               template: 'Your registration is being submitted. Please wait...'
+              + "<br /><ion-spinner></ion-spinner>"
             });
           }
 
@@ -518,6 +522,7 @@ angular.module('app.controllers', [])
 
               // $timeout.cancel(timeout);
               $ionicLoading.hide();
+              $scope.showSpinner = false;
 
               alert(strings.get_translation(strings.REGISTER_SUCCESS));
               //start timeout call
