@@ -71,8 +71,8 @@
         "PERSONAL_EMAIL_PH": "Vul u e-pos adres hier in",
         "PERSONAL_EMAIL_IV": "Vul asseblief 'n geldige e-pos adres in",
         "PERSONAL_EMAIL_OWNERSHIP_QUESTION": "Is hierdie jou e-pos adres?",
-        "PERSONAL_EMAIL_OWN_EMAIL": "My e-pos adres Address",
-        "PERSONAL_EMAIL_NOT_OWN_EMAIL": "Iemand anders'se e-pos adres",
+        "PERSONAL_EMAIL_OWN_EMAIL": "My e-pos adres",
+        "PERSONAL_EMAIL_NOT_OWN_EMAIL": "Iemand anders se e-pos adres",
 
         "PERSONAL_ID_LABEL" : "*ID Nommer",
         "PERSONAL_ID_PH" : "Vul u ID nommer hier in",
