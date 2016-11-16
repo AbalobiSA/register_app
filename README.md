@@ -42,7 +42,6 @@ cordova plugin add https://github.com/sidchilling/Phonegap-SMS-reception-plugin
 cordova plugin add cordova-plugin-camera
 cordova plugin add cordova-plugin-device
 cordova plugin add --save cordova-plugin-console
-cordova plugin add cordova-plugin-splashscreen
 cordova plugin add cordova-plugin-network-information
 cordova plugin add https://github.com/apache/cordova-plugin-compat
 cordova plugin add https://github.com/whiteoctober/cordova-plugin-app-version.git
