@@ -61,14 +61,14 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
     //function to go on from personal info
     $scope.next = function() {
 
+      //injects filter text used by OpenFn to recognise a registration submission.
+      $scope.user.filter = "abalobi_registration";
       // $scope.user = {};
       console.log("GOING TO SUMMARY...");
 
       userinfo.updateInfo($scope.user);
       $scope.user.usertype = userinfo.getInfo().usertype;
 
-      //injects filter text used by OpenFn to recognise a registration submission.
-      $scope.user.filter = "abalobi_registration";
 
       // userinfo.updateInfo($scope.user);
 
