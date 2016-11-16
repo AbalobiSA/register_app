@@ -75,7 +75,7 @@
     "PERSONAL_ID_PH" : "Enter your ID number here",
     "PERSONAL_ID_IV" : "Warning: A standard South African ID number is 13 characters long - the one you have entered is not. Please ensure that you filled it in correctly.",
 
-    "PERSONAL_DATE_LABEL" : "*Date of Birth",
+    "PERSONAL_DATE_LABEL" : "Date of Birth",
 
     "PERSONAL_CELL_LABEL" : "*Personal Cellphone Number",
     "PERSONAL_CELL_PH" : "Enter your cell number here",
