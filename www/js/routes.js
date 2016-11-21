@@ -23,61 +23,61 @@ angular.module('app.routes', [])
 
     .state('home', {
         url: '/home',
-        templateUrl: 'templates/home.html',
+        templateUrl: 'components/home/home.html',
         controller: 'homectrl'
     })
 
     .state('personal_details', {
         url: '/personal_details',
-        templateUrl: 'templates/personal_details.html',
+        templateUrl: 'components/personal_details/personal_details.html',
         controller: 'personal_detailsCtrl'
     })
 
     .state('personal_details_coop', {
         url: '/personal_details_coop',
-        templateUrl: 'templates/personal_details_coop.html',
+        templateUrl: 'components/personal_details_coop/personal_details_coop.html',
         controller: 'personal_detailsCtrl_coop'
     })
 
     .state('fisher_info', {
         url: '/fisher_info',
-        templateUrl: 'templates/fisher_info.html',
+        templateUrl: 'components/fisher_info/fisher_info.html',
         controller: 'fisher_infoCtrl'
     })
 
     .state('terms', {
         url: '/terms',
-        templateUrl: 'templates/terms.html',
+        templateUrl: 'components/terms/terms.html',
         controller: 'termsCtrl'
     })
 
     .state('register', {
         url: '/register',
-        templateUrl: 'templates/register.html',
+        templateUrl: 'components/register/register.html',
         controller: 'registerCtrl'
     })
 
     .state('register_coop_summary', {
         url: '/register_coop_summary',
-        templateUrl: 'templates/register_coop_summary.html',
+        templateUrl: 'components/register_coop_summary/register_coop_summary.html',
         controller: 'registerCtrl'
     })
 
     .state('monitor_fmanager_CoOp', {
         url: '/monitor_fmanager_CoOp',
-        templateUrl: 'templates/monitor_fmanager_CoOp.html',
+        templateUrl: 'components/monitor_fmanager_coop/monitor_fmanager_CoOp.html',
         controller: 'termsCtrl'
     })
 
     .state('photo', {
         url: '/photo',
-        templateUrl: 'templates/photo.html',
+        templateUrl: 'components/photo/photo.html',
         controller: 'photoCtrl'
     })
 
     .state('camera_popup', {
         url: '/camera_popup',
-        templateUrl: 'templates/camera_popup.html',
+        templateUrl: 'components/camera_popup/camera_popup.html',
         controller: 'photoCtrl'
     })
 
