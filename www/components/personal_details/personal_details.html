@@ -14,7 +14,7 @@
             <h5 style="color:#000000;text-align:center; margin-top:5px;" class=" ">{{"PERSONAL_REQUIRED" | translate}}</h5>
 
             <button ng-click="help()" class="button icon-right ion-help">Help</button>
-            <!-- <button ng-click="autofillme()" class="button icon-right ion-nuclear">DEBUG</button> -->
+            <button ng-click="autofillme()" class="button icon-right ion-nuclear">DEBUG</button>
 
             <ion-list id="register1-list1" class=" " >
                 <label class="item item-input item-select">
@@ -100,10 +100,11 @@
 
             <label class="item item-input item-stacked-label " id="register2-input6">
                 <text  class="input-label item-text-wrap cs-max-width">{{"PERSONAL_PASSWORD_LABEL" | translate}}</text>
-                <input type="password" name="password" ng-model="user.password"
-                ng-minlength="6" required=""  placeholder="{{'PERSONAL_PASSWORD_PH' | translate}}">
+                <input type="password" name="password" ng-model="user.password" ng-change="evaluatePassword()"
+                ng-minlength="6" required="" placeholder="{{'PERSONAL_PASSWORD_PH' | translate}}">
                 <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }"
-                ng-show="userForm.password.$invalid &&  userForm.password.$touched">{{"PERSONAL_PASSWORD_IV" | translate}}</span>
+                ng-show=" (userForm.password.$invalid ) &&  userForm.password.$touched" >{{"PERSONAL_PASSWORD_IV" | translate}}</span>
+                <span class="help-block" style="color:red" ng-show="evaluatePassword()" >{{"PERSONAL_PASSWORD_V" | translate}}</span>
             </label>
 
             <label class="item item-input item-stacked-label " id="register2-input7">
@@ -118,7 +119,7 @@
 
         <!-- Next button - goes to photo page -->
         <a  id="register1-button3"  ng-click="next()"
-        ng-disabled="userForm.$invalid || !match(password1)"
+        ng-disabled="userForm.$invalid || !match(password1) || evaluatePassword()"
         class=" button button-positive button-block ">{{"GEN_NEXT" | translate}}</a>
 
 

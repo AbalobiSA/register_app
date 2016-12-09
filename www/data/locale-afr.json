@@ -90,6 +90,7 @@
         "PERSONAL_PASSWORD_LABEL" : "*Wagwoord",
         "PERSONAL_PASSWORD_PH" : "Kies 'n wagwoord",
         "PERSONAL_PASSWORD_IV" : "Minimum van 6 karakters word benodig",
+        "PERSONAL_PASSWORD_V" : "Wagwoord mag nie jou naam, van of die woord 'password' bevat nie",
 
         "PERSONAL_REPASSWORD_LABEL" : "*Herhaal wagwoord",
         "PERSONAL_REPASSWORD_PH" : "Herhaal asseblief dieselfde wagwoord hier",

@@ -87,6 +87,7 @@
     "PERSONAL_PASSWORD_LABEL" : "*Password",
     "PERSONAL_PASSWORD_PH" : "Please choose a password",
     "PERSONAL_PASSWORD_IV" : "Minimum of 6 characters required",
+    "PERSONAL_PASSWORD_V" : "Password cannot contain your name, surname, or the word password",
 
     "PERSONAL_REPASSWORD_LABEL" : "*Re-type Password",
     "PERSONAL_REPASSWORD_PH" : "Please re-type the password here",
