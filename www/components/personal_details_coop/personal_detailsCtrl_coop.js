@@ -4,10 +4,10 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
     $scope.user = angular.copy(userinfo.getInfo());
 
     $scope.$on('$ionicView.enter', function() {
-        console.log("Resetting Scope...")
+        console.log("Resetting Scope...");
         $scope.user = {};
         $scope.user = angular.copy(userinfo.getInfo());
-    })
+    });
 
 
 
@@ -19,7 +19,7 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
         $scope.popover = popover;
         popover.show()
       })
-    }
+    };
 
     $scope.autofillme = function() {
       // alert("This works!", "This works!");
@@ -32,11 +32,23 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
       // $scope.user.cell = "0721234567";
       // $scope.user.password = "123456";
       // $scope.password1 = "123456";
-    }
+    };
 
     $scope.evaluate_byindex = function(destination) {
       return (matrix.evaluate($scope.user.usertype, destination))
+    };
+
+  $scope.evaluatePassword = function(){
+
+    var regexp = new RegExp("(" + $scope.user.surname.toLowerCase() + "|" + $scope.user.name.toLowerCase() + "|" + "password)", "gi");
+
+    try {
+      return regexp.test($scope.user.password);
+    } catch (e) {
+      console.log(e.toString());
+      return true;
     }
+  };
 
     //function to Check Whether password entered and password retyped match
     $scope.match = function(data) {
@@ -45,7 +57,7 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
         x = false;
       }
       return x;
-    }
+    };
 
     //function to check if ID is 13 characters long
     $scope.checkID = function(data) {
@@ -56,7 +68,7 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
         }
         return x;
       }
-    }
+    };
 
     //function to go on from personal info
     $scope.next = function() {
@@ -77,4 +89,4 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
       $location.path('/register_coop_summary');
     }
 
-  }) //end personal_detailsCtrl
+  }); //end personal_detailsCtrl
