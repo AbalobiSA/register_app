@@ -19,7 +19,8 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
       $scope.user.nickname = "Nickname";
       $scope.user.email = "test@test.com";
       $scope.user.id = "0123456789012";
-      // $scope.user.birth_date = "2016-10-13";
+      $scope.user.birth_date = new Date("2016-10-13");
+      alert("Birth date: " + $scope.user.birth_date);
       $scope.user.cell = "0721234567";
       // $scope.user.password = "123456";
       // $scope.password1 = "123456";

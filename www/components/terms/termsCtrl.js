@@ -3,12 +3,16 @@ angular.module('app.controllers').controller('termsCtrl', function($scope, $ioni
     $scope.select = {}
     var data = []
 
+    $scope.formInvalid = true;
+
     $scope.select_landingsite = function(site) {
-      $scope.user.landingsite = site
+      $scope.user.landingsite = site;
+      $scope.validateForm();
     }
 
     $scope.change = function() {
       $scope.user.landingsite = undefined
+      $scope.validateForm();
     }
 
     $http.get('/android_asset/www/data/communities.csv')
@@ -63,7 +67,16 @@ angular.module('app.controllers').controller('termsCtrl', function($scope, $ioni
     }
 
     $scope.update = function() {
+      console.log("LANDING SITE: " + $scope.user.landingsite);
       userinfo.updateInfo($scope.user)
+    }
+
+    $scope.validateForm = function(){
+        if ($scope.user.landingsite == undefined || $scope.user.landingsite == "" || $scope.user.landingsite == null){
+          $scope.formInvalid = true;
+        } else {
+          $scope.formInvalid = false;
+        }
     }
 
     $scope.evaluate_byindex = function(destination) {

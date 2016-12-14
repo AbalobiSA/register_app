@@ -5,22 +5,48 @@ angular.module('app.controllers').controller('homectrl', function($scope, $local
     function onDeviceReady() {
       cordova.getAppVersion(function(version) {
         $scope.appVersion = version;
+        $scope.user.app_version = version;
+        userinfo.updateInfo($scope.user);
       })
     }
 
+    $scope.$on('$ionicView.enter', function() {
+
+      try{
+        cordova.getAppVersion(function(version) {
+          $scope.appVersion = version;
+          $scope.user.app_version = version;
+          userinfo.updateInfo($scope.user);
+        })
+      } catch(ex){
+        // console.log("MAJOR ERROR: " + ex);
+      }
+
+    });
+
     //loads info from localStorage if user saved info offline
-    $scope.user = {}
-    userinfo.updateInfo($localStorage.user)
+    $scope.user = {};
+    userinfo.updateInfo($localStorage.user);
 
     //clear function clears all information including localStorage
     $scope.clear = function() {
       $localStorage.$reset();
       userinfo.clearInfo();
       $ionicHistory.clearCache();
-      alert(strings.get_translation(strings.HOME_CLEAR))
-    }
+      alert(strings.get_translation(strings.HOME_CLEAR));
 
-    //evaluates the current netowrk connection and warns user if offline
+      try{
+        cordova.getAppVersion(function(version) {
+          $scope.appVersion = version;
+          $scope.user.app_version = version;
+          userinfo.updateInfo($scope.user);
+        })
+      } catch(ex){
+        // console.log("MAJOR ERROR: " + ex);
+      }
+    };
+
+    //evaluates the current network connection and warns user if offline
     $scope.network = function() {
       var networkState = navigator.connection.type;
 
