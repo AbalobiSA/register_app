@@ -30,7 +30,7 @@ angular.module('app.controllers').controller('photoCtrl', function($scope, $loca
       $scope.type = id
       var CameraPopup = $ionicPopup.show({
         title: 'Camera',
-        templateUrl: 'templates/camera_popup.html',
+        templateUrl: 'components/camera_popup/camera_popup.html',
         scope: $scope
       })
 

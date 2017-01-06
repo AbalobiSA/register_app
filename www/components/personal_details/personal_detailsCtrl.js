@@ -4,7 +4,7 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
 
     //opens help popover
     $scope.help = function() {
-      $ionicPopover.fromTemplateUrl('templates/help.html', {
+      $ionicPopover.fromTemplateUrl('components/help/help.html', {
         scope: $scope,
       }).then(function(popover) {
         $scope.popover = popover;
@@ -13,15 +13,16 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
     };
 
     $scope.autofillme = function() {
-      // alert("This works!", "This works!");
-      $scope.user.name = "Carl";
-      $scope.user.surname = "Eiserman";
+      $scope.user.name = "Test";
+      $scope.user.surname = "TestSurname";
       $scope.user.nickname = "Nickname";
       $scope.user.email = "test@test.com";
       $scope.user.id = "0123456789012";
       $scope.user.birth_date = new Date("2016-10-13");
-      alert("Birth date: " + $scope.user.birth_date);
-      $scope.user.cell = "0721234567";
+      // alert("Birth date: " + $scope.user.birth_date);
+      $scope.user.cell = "0720641677";
+      $scope.user.preferred_language = "English";
+      $scope.user.email_is_my_own = true;
       // $scope.user.password = "123456";
       // $scope.password1 = "123456";
     };

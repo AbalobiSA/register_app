@@ -13,7 +13,7 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
 
     //opens help popover
     $scope.help = function() {
-      $ionicPopover.fromTemplateUrl('templates/help.html', {
+      $ionicPopover.fromTemplateUrl('components/help/help.html', {
         scope: $scope,
       }).then(function(popover) {
         $scope.popover = popover;
