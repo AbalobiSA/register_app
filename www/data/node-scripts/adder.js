@@ -8,22 +8,8 @@ console.log("==============================================");
 var english = JSON.parse(fs.readFileSync("../locale-en.json"));
 var afrikaans = JSON.parse(fs.readFileSync("../locale-afr.json"));
 
-var keysArr = [
-  {
-    "key":"PERSONAL_GENDER_FEMALE",
-    "eng":"Female",
-    "afr":"Vroulik"
-  },
-  {
-    "key":"PERSONAL_GENDER_VALIDATION",
-    "eng":"Please select a gender.",
-    "afr":"Kies asseblief 'n geslag."
-  }
-]
-
-
-
 // addWithTranslations(keysArr);
+console.log("Adding variables. On the 'end' question, send 'y' to exit and write.");
 readFromKb();
 // addVariables(newVariables);
 // removeVariables(newVariables);
@@ -55,13 +41,13 @@ function addWithTranslations(data){
 
     // data[i][]
 
-    var count = 0;
-    for (var i = 0; i < data.length; i++){
-        english[data[i].key] = data[i].eng;
-        afrikaans[data[i].key] = data[i].afr;
-        count++;
-        console.log("Added: " + data[i].key);
-    }
+    // var count = 0;
+    // for (var i = 0; i < data.length; i++){
+        english[data.key] = data.eng;
+        afrikaans[data.key] = data.afr;
+        // count++;
+        console.log("Added: " + data.key);
+    // }
 
 }
 
@@ -73,16 +59,23 @@ function readFromKb(){
 
   prompt.start();
 
-  prompt.get(['key', 'eng', 'afr'], function (err, result) {
+  prompt.get(['key', 'eng', 'afr', 'end'], function (err, result) {
     if (err)
     {
       return onErr(err);
     }
-    console.log('Command-line input received:');
-    console.log('  Key: ' + result.key);
-    console.log('  English: ' + result.eng);
-    console.log('  Afrikaans: ' + result.afr);
+    // console.log('Command-line input received:');
+    // console.log('  Key: ' + result.key);
+    // console.log('  English: ' + result.eng);
+    // console.log('  Afrikaans: ' + result.afr);
     addWithTranslations(result);
+    if (result.end == 'y'){
+      writeFiles();
+    }
+    else{
+      readFromKb();
+    }
+    // writeFiles();
   });
 
   function onErr(err) {
