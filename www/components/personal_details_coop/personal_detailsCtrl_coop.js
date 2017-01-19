@@ -78,6 +78,15 @@ angular.module('app.controllers').controller('personal_detailsCtrl_coop', functi
       // $scope.user = {};
       console.log("GOING TO SUMMARY...");
 
+      function generateUUID(){
+        var today = new Date();
+        var ISOString = today.toISOString();
+        return ISOString;
+      }
+      $scope.user.uuid_timestamp = generateUUID();
+      console.log("ACTUAL UUID: " + $scope.user.uuid_timestamp);
+
+
       userinfo.updateInfo($scope.user);
       $scope.user.usertype = userinfo.getInfo().usertype;
 

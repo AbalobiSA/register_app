@@ -93,6 +93,15 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
       //injects filter text used by OpenFn to recognise a registration submission.
       $scope.user.filter = "abalobi_registration";
 
+      //Creates UUID with timestamp for filtering in SalesForce
+      function generateUUID(){
+        var today = new Date();
+        var ISOString = today.toISOString();
+        return ISOString;
+      }
+      $scope.user.uuid_timestamp = generateUUID();
+      console.log("ACTUAL UUID: " + $scope.user.uuid_timestamp);
+
       userinfo.updateInfo($scope.user);
       console.log("EDITED: " + JSON.stringify($scope.user));
 
