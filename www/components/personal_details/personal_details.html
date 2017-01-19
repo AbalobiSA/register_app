@@ -48,14 +48,14 @@
 
                 <!-- <ion-list> -->
                 <label class="item item-stacked-label">
-                    <span class="input-label cs-max-width" style="margin-bottom: 5px;">*Gender (Required)</span>
-                    <ion-radio ng-model="user.isMale" ng-value="'A'">Male</ion-radio>
-                    <ion-radio ng-model="user.isFemale" ng-value="'B'">Female</ion-radio>
+                    <span class="input-label cs-max-width" style="margin-bottom: 5px;">{{"PERSONAL_GENDER_REQUIRED" | translate}}</span>
+                    <ion-radio ng-model="user.isMale" ng-value="'A'">{{"PERSONAL_GENDER_MALE" | translate}}</ion-radio>
+                    <ion-radio ng-model="user.isFemale" ng-value="'B'">{{"PERSONAL_GENDER_FEMALE" | translate}}</ion-radio>
                     <span
                       class="help-block"
                       style="color:red"
                       ng-show="userForm.password.$touched && validateGender()">
-                     Please select a gender.
+                     {{"PERSONAL_GENDER_VALIDATION" | translate}}
                     </span>
                 </label>
                 <!-- </ion-list> -->
