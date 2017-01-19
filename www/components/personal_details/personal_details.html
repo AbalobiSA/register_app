@@ -46,6 +46,20 @@
                     <input type="text" ng-model="user.nickname" placeholder="{{'PERSONAL_NICKNAME_PH' | translate}}" name="Nickame" >
                 </label>
 
+                <!-- <ion-list> -->
+                <label class="item item-stacked-label">
+                    <span class="input-label cs-max-width" style="margin-bottom: 5px;">*Gender (Required)</span>
+                    <ion-radio ng-model="user.isMale" ng-value="'A'">Male</ion-radio>
+                    <ion-radio ng-model="user.isFemale" ng-value="'B'">Female</ion-radio>
+                    <span
+                      class="help-block"
+                      style="color:red"
+                      ng-show="userForm.password.$touched && validateGender()">
+                     Please select a gender.
+                    </span>
+                </label>
+                <!-- </ion-list> -->
+
                 <label class="item item-input item-stacked-label " id="register1-input4">
                     <span class="input-label cs-max-width">{{"PERSONAL_EMAIL_LABEL" | translate}}</span>
                     <input type="email" ng-model="user.email" placeholder="{{'PERSONAL_EMAIL_PH' | translate}}" name="Email" >
@@ -54,7 +68,7 @@
 
                 </label>
                 <label class="item item-input item-stacked-label " id="register1-input41" ng-show="user.email">
-                  <span class="input-label cs-max-width">{{"PERSONAL_EMAIL_OWNERSHIP_QUESTION" | translate}}</span>
+                  <span class="input-label cs-max-width" style="margin-bottom: 5px;">{{"PERSONAL_EMAIL_OWNERSHIP_QUESTION" | translate}}</span>
                     <ion-radio ng-model="user.email_is_my_own" ng-value="true">{{"PERSONAL_EMAIL_OWN_EMAIL" | translate}}</ion-radio>
                     <ion-radio ng-model="user.email_is_my_own" ng-value="false">{{"PERSONAL_EMAIL_NOT_OWN_EMAIL" | translate}}</ion-radio>
                 </label>
@@ -115,11 +129,11 @@
             </label>
         </ion-list>
 
-        <p style="color:red;" ng-show="userForm.$invalid || !match(password1)" > {{"GEN_REQUIRED" | translate}} </p>
+        <p style="color:red;" ng-show="userForm.$invalid || !match(password1) || customValidation()" > {{"GEN_REQUIRED" | translate}} </p>
 
         <!-- Next button - goes to photo page -->
         <a  id="register1-button3"  ng-click="next()"
-        ng-disabled="userForm.$invalid || !match(password1) || evaluatePassword()"
+        ng-disabled="userForm.$invalid || !match(password1) || evaluatePassword() || customValidation()"
         class=" button button-positive button-block ">{{"GEN_NEXT" | translate}}</a>
 
 

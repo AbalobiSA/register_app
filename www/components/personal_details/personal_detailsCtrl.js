@@ -2,6 +2,9 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
     //loads information previously entered
     $scope.user = angular.copy(userinfo.getInfo());
 
+    $scope.user.isMale = false;
+    $scope.user.isFemale = false;
+
     //opens help popover
     $scope.help = function() {
       $ionicPopover.fromTemplateUrl('components/help/help.html', {
@@ -66,6 +69,17 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
 
       // if $scope.user.password
     };
+
+    $scope.customValidation = function(){
+        if ($scope.validateGender()){
+          return true;
+        }
+    }
+    $scope.validateGender = function(){
+      if ($scope.user.isMale == false && $scope.user.isFemale == false){
+        return true;
+      }
+    }
 
     //function to Check Whether password entered and password retyped match
     $scope.match = function(data) {
