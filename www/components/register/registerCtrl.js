@@ -1,4 +1,4 @@
-angular.module('app.controllers').controller('registerCtrl', function($scope, $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
+angular.module('app.controllers').controller('registerCtrl', function($scope, $q, $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
 
     console.log("USER: " + JSON.stringify($scope.user));
     // $scope.user = angular.copy(userinfo.getInfo());
@@ -97,20 +97,24 @@ angular.module('app.controllers').controller('registerCtrl', function($scope, $l
 
           //post http function with success and error results
 
+          var canceller;
           //TODO: Carl - Create Spinner here
           $scope.showSpinner = true;
           if (language.getInfo() == "afr") {
             $ionicLoading.show({
-              template: "U registrasie word ingedien. Wag asseblief..."
+              template: "U registrasie word ingedien. Wag asseblief 15s..."
               + "<br /><ion-spinner></ion-spinner>"
             });
           } else {
             $ionicLoading.show({
-              template: 'Your registration is being submitted. Please wait...'
+              template: 'Your registration is being submitted. Please wait 15 seconds...'
               + "<br /><ion-spinner></ion-spinner>"
             });
           }
 
+          $timeout(function(){canceller.resolve("Request cancelled");}, 15000);
+
+          canceller = $q.defer();
 
           $http({
               method: 'POST',
@@ -118,7 +122,8 @@ angular.module('app.controllers').controller('registerCtrl', function($scope, $l
               data: JSON.stringify(userinfo.getInfo()),
               headers: {
                 'Content-Type': 'application/json'
-              }
+              },
+              timeout: canceller.promise
             }).success(function(data, status, headers, config) {
 
               //Cancel the timeout
