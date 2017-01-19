@@ -6,3 +6,4 @@ platforms/
 plugins/
 www/js/secrets.js
 .idea/
+www/components/data/node-scripts/node_modules/
