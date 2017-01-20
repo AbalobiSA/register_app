@@ -43,11 +43,25 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
       $scope.user.landingsite = undefined
     }
 
-    $http.get('/android_asset/www/data/communities.csv')
+
+      $http.get('/android_asset/www/data/communities.csv')
       .then(function(response) {
+        alert(JSON.stringify(response));
         //alert(response.data)
         $scope.processData(response.data)
+      }, function(response){
+        // console.log("CSV ERROR OCCURRED.");
+        $http.get('data/communities.csv')
+        .then(function(response) {
+          // alert(JSON.stringify(response));
+          //alert(response.data)
+          $scope.processData(response.data)
+        }, function(response){
+
+        });
       });
+
+
 
       $scope.processData = function(text) {
 
