@@ -24,3 +24,9 @@
 .usertype-description p, .usertype-description h1, .usertype-description h2,.usertype-description h3,.usertype-description h4,.usertype-description h5{
   color: white;
 }
+.input-province-picker{
+  /*width: 400px;*/
+  width: auto;
+  max-width: 80%;
+  /*position: absolute;*/
+}

@@ -9,10 +9,17 @@
         <h4>{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
 
         <form >
-          <label class="item item-input item-stacked-label select" ng-hide="user.landingsite != undefined" >
-            <span class=""> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
-              <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
+          <!-- <label class="item item-input item-stacked-label select" ng-hide="user.landingsite != undefined" >
+            <span class="">
+
             </span>
+          </label> -->
+          <label for="" class="item item-select">
+            <div class="input-label input-province-picker">
+                  <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+            </div>
+            <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
+
           </label>
           <label class="item item-input item-stacked-label" ng-show="select.province!= undefined  && user.landingsite == undefined" class="item item-input">
             <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>

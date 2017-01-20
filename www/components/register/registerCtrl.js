@@ -59,7 +59,13 @@ angular.module('app.controllers').controller('registerCtrl', function($scope, $q
       userinfo.updateInfo($scope.user);
 
       //checks for network connection if no connection prompt user to store offline else proceed to post
-      var networkState = navigator.connection.type;
+
+      var networkState;
+      try{
+        networkState = navigator.connection.type;
+      } catch (ex){
+        networkState = "CELL_4G";
+      }
 
 
       //if no connection
