@@ -46,7 +46,7 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
 
       $http.get('/android_asset/www/data/communities.csv')
       .then(function(response) {
-        alert(JSON.stringify(response));
+        // alert(JSON.stringify(response));
         //alert(response.data)
         $scope.processData(response.data)
       }, function(response){
