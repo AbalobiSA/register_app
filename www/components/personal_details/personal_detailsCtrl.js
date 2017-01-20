@@ -2,8 +2,8 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
     //loads information previously entered
     $scope.user = angular.copy(userinfo.getInfo());
 
-    $scope.user.isMale = false;
-    $scope.user.isFemale = false;
+    $scope.user.gender = "unselected";
+    console.log("GENDER: " + $scope.user.gender);
 
     //opens help popover
     $scope.help = function() {
@@ -76,7 +76,7 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
         }
     }
     $scope.validateGender = function(){
-      if ($scope.user.isMale == false && $scope.user.isFemale == false){
+      if ($scope.user.gender == "unselected"){
         return true;
       }
     }
@@ -115,6 +115,8 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
       }
       $scope.user.uuid_timestamp = generateUUID();
       console.log("ACTUAL UUID: " + $scope.user.uuid_timestamp);
+      console.log("ACTUAL GENDER: " + $scope.user.gender);
+
 
       userinfo.updateInfo($scope.user);
       console.log("EDITED: " + JSON.stringify($scope.user));
