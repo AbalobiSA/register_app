@@ -53,7 +53,7 @@ angular.module('app.controllers').controller('registerCtrl', function($scope, $q
 
       $scope.showSpinner = false;
       //checks sms permissions and tells user to check inbox if no permission
-      checkSms.checkSMSPermission();
+      // checkSms.checkSMSPermission();
 
       //saves info before post
       userinfo.updateInfo($scope.user);
