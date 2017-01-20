@@ -6,8 +6,30 @@
     </div>
     <a ui-sref="terms" ng-click="network()" id="abalobiRegister-button1" class=" button button-positive  button-block ">{{"HOME_REGISTER_ME" | translate}} </a>
 
-    <a   ng-click="clear()" class=" button button-positive  button-block ">{{"HOME_CLEAR" | translate}}</a>
-    <a href="#" onclick ="window.open('http://abalobi.info/', '_system', 'location=yes'); return false;" id="abalobiRegister-button2" class=" button button-calm button-block ">{{"HOME_VISIT_WEBSITE" | translate}}</a>
+    <a   ng-click="clear()" class=" button button-positive  button-block  ">{{"HOME_CLEAR" | translate}}</a>
+    
+    <!-- Button container -->
+    <div class="row row-custom">
+      <div id="cs-split-left" class="col col-50">
+        <a href="" class="button button-positive button-half">
+          View Stored Registration
+        </a>
+          
+      </div>    
+      <div id="cs-split-right" class="col col-50">
+            <a   href="#"
+         onclick ="window.open('http://abalobi.info/', '_system', 'location=yes'); return false;"
+         id="abalobiRegister-button2"
+         class=" button button-calm button-half">{{"HOME_VISIT_WEBSITE" | translate}}</a>
+      </div>
+
+    </div>
+
+
+
+
+
     <p style="text-align:right; margin-top: 5%"> Version : {{appVersion}} </p>
+
   </ion-content>
 </ion-view>

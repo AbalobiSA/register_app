@@ -30,3 +30,22 @@
   max-width: 80%;
   /*position: absolute;*/
 }
+.row-custom{
+  padding:  0px;
+  margin:  0px;
+}
+#cs-split-left{
+  padding: 0px;
+  margin:  0px;
+  padding-left: 0px;
+  padding-right:  5px;
+}
+#cs-split-right{
+  padding: 0px;
+  margin:  0px;
+  padding-left: 5px;
+  padding-right:  px;
+}
+.button-half{
+  width:  100%;
+}

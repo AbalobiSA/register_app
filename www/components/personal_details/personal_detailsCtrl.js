@@ -21,13 +21,14 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
       $scope.user.nickname = "Nickname";
       $scope.user.email = "test@test.com";
       $scope.user.id = "0123456789012";
-      $scope.user.birth_date = new Date("2016-10-13");
+      $scope.user.birth_date = new Date("1993-07-21");
       // alert("Birth date: " + $scope.user.birth_date);
       $scope.user.cell = "0720641677";
       $scope.user.preferred_language = "English";
       $scope.user.email_is_my_own = true;
-      // $scope.user.password = "123456";
-      // $scope.password1 = "123456";
+      $scope.user.gender = "male";
+      $scope.user.password = "123456";
+      $scope.password1 = "123456";
     };
 
     $scope.evaluate_byindex = function(destination) {

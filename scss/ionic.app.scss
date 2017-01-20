@@ -1,5 +1,6 @@
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "../www/lib/ionic/scss";
+@import 'node_modules/jeet/scss/index';
 body.platform-ios {
 	font-family: Montserrat, sans-serif;
 }
@@ -19,4 +20,42 @@ body.platform-android {
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.tab-item,input,button,select,textarea {
 	font-family: inherit;
 }
+.button-half{
+  width:  100%;
+  /* max-width: 40%; */
+}
 
+
+
+// /* Empty. Add your own CSS if you like */
+// .cs-spanwrap{
+//   word-wrap:break-word !important;
+//   display: block !important;
+//   /*width: 100% !important;*/
+//   /*height: 300px !important;*/
+//   white-space: normal !important;
+//   padding: 0% !important;
+//   margin: 0% !important;
+//   /*border: 1px solid black !important;*/
+//   position: relative !important;
+// }
+// .cs-max-width{
+//   /*border: 1px solid black !important;*/
+//   width: 100% !important;
+// }
+// .usertype-description, {
+//   margin-top:5px !important;
+//   border-radius: 5px !important;
+//   border: 1px solid blue !important;
+//   padding: 2px !imporant;
+
+// }
+// .usertype-description p, .usertype-description h1, .usertype-description h2,.usertype-description h3,.usertype-description h4,.usertype-description h5{
+//   color: white;
+// }
+// .input-province-picker{
+//   /*width: 400px;*/
+//   width: auto;
+//   max-width: 80%;
+//   /*position: absolute;*/
+// }

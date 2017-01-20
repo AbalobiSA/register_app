@@ -14,7 +14,7 @@ angular.module('app.controllers').controller('homectrl', function($scope, $local
 
       try{
         cordova.getAppVersion(function(version) {
-          $scope.appVersion = version;
+          $scope.appVersion;
           $scope.user.app_version = version;
           userinfo.updateInfo($scope.user);
         })
