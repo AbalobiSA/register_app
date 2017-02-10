@@ -1,11 +1,11 @@
 angular.module('app.services', [])
 
-.factory('userinfo', [function(){
+.factory('userinfo', [function() {
 
     var userinfo = {};
     var info = {}
 
-    userinfo.getInfo =  function () {
+    userinfo.getInfo = function() {
         return info;
     }
 
@@ -16,24 +16,24 @@ angular.module('app.services', [])
         return info;
     }
 
-    userinfo.clearInfo = function(){
+    userinfo.clearInfo = function() {
         var blank = {};
         //info = blank
-        info = angular.copy(blank,info)
-        //alert(JSON.stringify(info))
-        //return info
+        info = angular.copy(blank, info)
+            //alert(JSON.stringify(info))
+            //return info
     }
 
     return userinfo
 
 }])
 
-.service('language', [function(){
+.service('language', [function() {
 
     var language = {};
     var current_lang = "en"
 
-    language.getInfo =  function () {
+    language.getInfo = function() {
         return current_lang;
     }
     language.updateInfo = function(data) {
@@ -45,16 +45,15 @@ angular.module('app.services', [])
 }])
 
 
-.service('checkSms', [function(){
+.service('checkSms', [function() {
 
     var app = {}
-    app.checkSMSPermission =function() {
+    app.checkSMSPermission = function() {
 
         var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
-        smsInboxPlugin.isSupported ((function(supported) {
-            if(supported){}
-            else
-            alert("SMS not supported. \n Please Check Inbox");
+        smsInboxPlugin.isSupported((function(supported) {
+            if (supported) {} else
+                alert("SMS not supported. \n Please Check Inbox");
         }), function() {
             alert("Error while checking the SMS support");
         });
@@ -62,32 +61,32 @@ angular.module('app.services', [])
     return app;
 }])
 
-.service('Storage', [function($localStorage, userinfo){
+.service('Storage', [function($localStorage, userinfo) {
 
     var app = {}
-    app.store =function() {
+    app.store = function() {
 
         var confirm = window.confirm("Offline Store?")
-        if (confirm == true){
+        if (confirm == true) {
             $localStorage.user = angular.copy(userinfo.getInfo());
             alert("Information has been stored")
         }
     }
-    app.clear = function(){
+    app.clear = function() {
         $localStorage.$reset()
     }
     return app;
 }])
 
-.factory("PopupTranslate",  function ($ionicPopup, language, $translate, $localStorage) {
+.factory("PopupTranslate", function($ionicPopup, language, $translate, $localStorage) {
 
     var title = "Select Language -- Kies Taal"
 
     function getPopup(scope) {
         return $ionicPopup.show({
             title: title,
-            buttons: [
-                { text: 'AFR',
+            buttons: [{
+                text: 'AFR',
                 type: 'button-calm',
                 cssClass: "termspopup",
                 onTap: function() {
@@ -95,17 +94,16 @@ angular.module('app.services', [])
                     language.updateInfo("afr");
                     $localStorage.language = "afr"
                 }
-            },
-            { text: 'XH',
-            type: 'button-stable',
-            cssClass: "termspopup",
-            onTap: function() {
-                $translate.use('xh')
-                language.updateInfo("xh");
-                $localStorage.language = "xh"
-            }
-        },
-            {
+            }, {
+                text: 'XH',
+                type: 'button-stable',
+                cssClass: "termspopup",
+                onTap: function() {
+                    $translate.use('xh')
+                    language.updateInfo("xh");
+                    $localStorage.language = "xh"
+                }
+            }, {
                 text: 'ENG',
                 type: 'button-positive',
                 onTap: function() {
@@ -113,12 +111,11 @@ angular.module('app.services', [])
                     language.updateInfo("en")
                     $localStorage.language = "en"
                 }
-            }
-        ]
-    });
-}
+            }]
+        });
+    }
 
-return {
-    getPopup: getPopup
-};
+    return {
+        getPopup: getPopup
+    };
 });
