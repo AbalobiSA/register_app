@@ -15,23 +15,25 @@
   width: 100% !important;
 }
 .usertype-description {
-    /*margin-top:5px !important;*/
-    /*border-radius: 5px !important;*/
-    /*border: 1px solid blue !important;*/
-    /*padding: 2px !important;*/
-
-    background-color: #81D4FA !important;
-    border: 1px solid #03A9F4 !important;
-    border-radius: 4px !important;
-    padding: 4px !important;
-    margin-top: 10px !important;
-
+  background-color: #81D4FA !important;
+  border: 1px solid #03A9F4 !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  margin-top: 10px !important;
 }
-
 
 .usertype-description p, .usertype-description h1, .usertype-description h2,.usertype-description h3,.usertype-description h4,.usertype-description h5{
   color: white;
 }
+
+.main-screen-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  max-height: 300px;
+}
+
 .input-province-picker{
   /*width: 400px;*/
   width: auto;

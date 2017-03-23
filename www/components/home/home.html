@@ -2,20 +2,20 @@
   <ion-content padding="true" class="manual-ios-statusbar-padding">
     <h2 id="abalobiRegister-heading1" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
     <div class="">
-      <img src="img/abalobi.jpg" width="70%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+      <img src="img/abalobi.jpg" class="main-screen-image" width="70%" height="auto" style="">
     </div>
     <a ui-sref="terms" ng-click="network()" id="abalobiRegister-button1" class=" button button-positive  button-block ">{{"HOME_REGISTER_ME" | translate}} </a>
 
     <a   ng-click="clear()" class=" button button-positive  button-block  ">{{"HOME_CLEAR" | translate}}</a>
-    
+
     <!-- Button container -->
     <div class="row row-custom">
       <div id="cs-split-left" class="col col-50">
-        <a href="" class="button button-positive button-half">
+        <a href="" class="button button-positive button-half" ng-disabled="true">
           View Stored Registration
         </a>
-          
-      </div>    
+
+      </div>
       <div id="cs-split-right" class="col col-50">
             <a   href="#"
          onclick ="window.open('http://abalobi.info/', '_system', 'location=yes'); return false;"
