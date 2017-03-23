@@ -11,8 +11,6 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
     $scope.select = {};
     $scope.communities_filtered = [];
 
-    var data = [];
-
     $scope.$on('$ionicView.beforeEnter', function() {
         console.log("Resetting Scope...");
         $scope.user = {};
@@ -46,7 +44,7 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
     $scope.change = function() {
         $scope.user.landingsite = undefined
     };
-    
+
     $scope.filter_by_province = function() {
 
         $scope.communities_filtered = [];
@@ -54,6 +52,14 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
         for (i in $scope.communities){
             if ($scope.communities[i].province === $scope.select.province){
                 $scope.communities_filtered.push($scope.communities[i]);
+            }
+        }
+    };
+
+    $scope.getCommunityName = function(key){
+        for (i in $scope.communities){
+            if ($scope.communities[i].name_key === key){
+                return $scope.communities[i].name_Eng;
             }
         }
     }

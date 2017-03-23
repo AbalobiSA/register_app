@@ -30,7 +30,7 @@
 
 
                 <ion-item ng-hide="user.landingsite == undefined">
-                    {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{user.landingsite}}</strong>
+                    {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{getCommunityName(user.landingsite)}}</strong>
                     <div class="text-right">
                         <button class="button button-stable" ng-click="change()">
                             {{"GEN_CHANGE" | translate}}
