@@ -1,177 +1,160 @@
-<ion-view title="fisher_info" hide-nav-bar="true" id="page3" class=" " >
-  <ion-content padding="true" class="manual-ios-statusbar-padding">
+<ion-view title="fisher_info" hide-nav-bar="true" id="page3" class=" ">
+    <ion-content padding="true" class="manual-ios-statusbar-padding">
+        <form id="register2-form2" class="list item-text-wrap" name="userForm" novalidate>
+            <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
+            <ion-list id="register2-list2" class=" ">
 
-    <form id="register2-form2" class="list item-text-wrap" name="userForm" novalidate >
+                <!--TODO: Landing Site / Community Question-->
 
-      <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
-      <ion-list id="register2-list2" class=" ">
-
-        <h4>{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
-
-        <form >
-          <!-- <label class="item item-input item-stacked-label select" ng-hide="user.landingsite != undefined" >
-            <span class="">
-
-            </span>
-          </label> -->
-          <label for="" class="item item-select">
-            <div class="input-label input-province-picker">
-                  <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
-            </div>
-            <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
-
-          </label>
-          <label class="item item-input item-stacked-label" ng-show="select.province!= undefined  && user.landingsite == undefined" class="item item-input">
-            <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>
-          </label>
-          <label class="item item-input" ng-show="select.province!= undefined && user.landingsite == undefined">
-            <i class="icon ion-search placeholder-icon"></i>
-            <input  ng-model="searchbox" type="search" placeholder="{{'FISHER_LANDINGSITE_PH' | translate}}">
-          </label>
-
-          <ion-list ng-hide="searchbox == undefined || user.landingsite != undefined " >
-
-            <ion-item ng-repeat="site in landingsites | filter:searchbox"
-            site="site"
-            ng-click="select_landingsite(site)">
-            <strong> {{site}} </strong>
-          </ion-item>
-        </ion-list>
-      </form>
-
-      <ion-item ng-hide="user.landingsite == undefined">
-        {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{user.landingsite}}</strong>
-        <div class="text-right">   <button  class="button button-stable" ng-click="change()">
-          {{"GEN_CHANGE" | translate}}
-        </button> </div>
-      </ion-item>
-      <label ng-show="user.landingsite == 'Other'" class="item item-input item-stacked-label "  id="register1-input3">
-        <!-- <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span> -->
-        <span>{{"MFC_LANDINGSITE_ENTER_NAME" | translate}}</span>
-        <!-- <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name"> -->
-        <input type="text" ng-model="user.landingsite_custom" placeholder="Community Name Here" name="other_landingsite_name">
-      </label>
+                <h4>{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
+                <form>
+                    <label for="" class="item item-select">
+                        <div class="input-label input-province-picker">
+                            <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+                        </div>
+                        <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
+                    </label>
+                    <label class="item item-input item-stacked-label" ng-show="select.province!= undefined  && user.landingsite == undefined">
+                        <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>
+                    </label>
+                    <label class="item item-input" ng-show="select.province!= undefined && user.landingsite == undefined">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input ng-model="searchbox" type="search" placeholder="{{'FISHER_LANDINGSITE_PH' | translate}}">
+                    </label>
+                    <ion-list ng-hide="searchbox == undefined || user.landingsite != undefined ">
+                        <ion-item ng-repeat="community in communities_filtered | filter:searchbox" site="site" ng-click="select_landingsite(community.name_key)">
+                            <strong> {{community.name_Eng}} </strong>
+                        </ion-item>
+                    </ion-list>
+                </form>
 
 
-      <form name="fish_form" novalidate>  <!-- novalidate -> we will handle validation ourselves in each field -->
-        <h4>{{"FISHER_PERMIT_QUESTION" | translate}}</h4>
-        <!-- Ask for IRP permit -->
-        <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">{{"FISHER_PERMIT_IRP_EXEMPTION" | translate}}</ion-checkbox>
-        <label ng-show="user.fisher_license_irp" class="item item-input">
-          <input  ng-model="user.fisher_licence_irp_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_IRP' | translate}}">
-        </label>
+                <ion-item ng-hide="user.landingsite == undefined">
+                    {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{user.landingsite}}</strong>
+                    <div class="text-right">
+                        <button class="button button-stable" ng-click="change()">
+                            {{"GEN_CHANGE" | translate}}
+                        </button>
+                    </div>
+                </ion-item>
+                <label ng-show="user.landingsite == 'Other'" class="item item-input item-stacked-label " id="register1-input3">
+                    <!-- <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span> -->
+                    <span>{{"MFC_LANDINGSITE_ENTER_NAME" | translate}}</span>
+                    <!-- <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name"> -->
+                    <input type="text" ng-model="user.landingsite_custom" placeholder="Community Name Here" name="other_landingsite_name">
+                </label>
+                <div class="cs-spacer"></div>
 
-        <!-- Ask for Commercial permit -->
-        <ion-checkbox name="box_boat2" ng-model="user.fisher_license_commercial" ng-disabled="user.fisher_license_irp">{{"FISHER_PERMIT_COMMERCIAL" | translate}}</ion-checkbox>
 
-        <!-- Ask for Recreational permit -->
-        <ion-checkbox name="box_boat3" ng-model="user.fisher_license_recreational">{{"FISHER_PERMIT_RECREATIONAL" | translate}}</ion-checkbox>
-        <label ng-show="user.fisher_license_recreational" class="item item-input">
-          <input  ng-model="user.fisher_licence_recreational_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_REC' | translate}}">
-        </label>
+                <!--TODO: Permit & Co-op Questionnaire-->
 
-        <div ng-show="user.fisher_license_commercial">
-          <h4>{{"FISHER_COM_LICENSE_QUESTION" | translate}}</h4>
-          <ion-checkbox name="box_boat4" ng-model="user.fisher_com_wcrl">{{"FISHER_COM_TYPE_WCRL" | translate}}</ion-checkbox>
-          <label ng-show="user.fisher_com_wcrl" class="item item-input">
-            <input  ng-model="user.fisher_licence_com_wcrl_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_WCRL' | translate}}">
-          </label>
+                <form name="fish_form" novalidate>
+                    <!-- novalidate -> we will handle validation ourselves in each field -->
+                    <h4>{{"FISHER_PERMIT_QUESTION" | translate}}</h4>
+                    <!-- Ask for IRP permit -->
+                    <ion-checkbox name="box_boat1" ng-model="user.fisher_license_irp" ng-disabled="user.fisher_license_commercial">{{"FISHER_PERMIT_IRP_EXEMPTION" | translate}}</ion-checkbox>
+                    <label ng-show="user.fisher_license_irp" class="item item-input">
+                        <input ng-model="user.fisher_licence_irp_number" type="text" placeholder="{{'FISHER_PLACEHOLDER_PERMIT_IRP' | translate}}">
+                    </label>
+                    <!-- Ask for Commercial permit -->
+                    <ion-checkbox name="box_boat2" ng-model="user.fisher_license_commercial" ng-disabled="user.fisher_license_irp">{{"FISHER_PERMIT_COMMERCIAL" | translate}}</ion-checkbox>
+                    <!-- Ask for Recreational permit -->
+                    <ion-checkbox name="box_boat3" ng-model="user.fisher_license_recreational">{{"FISHER_PERMIT_RECREATIONAL" | translate}}</ion-checkbox>
+                    <label ng-show="user.fisher_license_recreational" class="item item-input">
+                        <input ng-model="user.fisher_licence_recreational_number" type="text" placeholder="{{'FISHER_PLACEHOLDER_PERMIT_REC' | translate}}">
+                    </label>
+                    <div ng-show="user.fisher_license_commercial">
+                        <h4>{{"FISHER_COM_LICENSE_QUESTION" | translate}}</h4>
+                        <ion-checkbox name="box_boat4" ng-model="user.fisher_com_wcrl">{{"FISHER_COM_TYPE_WCRL" | translate}}</ion-checkbox>
+                        <label ng-show="user.fisher_com_wcrl" class="item item-input">
+                            <input ng-model="user.fisher_licence_com_wcrl_number" type="text" placeholder="{{'FISHER_PLACEHOLDER_PERMIT_WCRL' | translate}}">
+                        </label>
+                        <ion-checkbox name="box_boat5" ng-model="user.fisher_com_tlf">{{"FISHER_COM_TYPE_TLF" | translate}}</ion-checkbox>
+                        <label ng-show="user.fisher_com_tlf" class="item item-input">
+                            <input ng-model="user.fisher_licence_com_tlf_number" type="text" placeholder="{{'FISHER_PLACEHOLDER_PERMIT_TLF' | translate}}">
+                        </label>
+                        <ion-checkbox name="box_boat6" ng-model="user.fisher_com_other">{{"FISHER_COM_TYPE_OTHER" | translate}}</ion-checkbox>
+                        <label ng-show="user.fisher_com_other" class="item item-input">
+                            <input ng-model="user.fisher_licence_com_other_number" type="text" placeholder="{{'FISHER_PLACEHOLDER_PERMIT_OTHER' | translate}}">
+                        </label>
+                    </div>
 
-          <ion-checkbox name="box_boat5" ng-model="user.fisher_com_tlf">{{"FISHER_COM_TYPE_TLF" | translate}}</ion-checkbox>
-          <label ng-show="user.fisher_com_tlf" class="item item-input">
-            <input  ng-model="user.fisher_licence_com_tlf_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_TLF' | translate}}">
-          </label>
 
-          <ion-checkbox name="box_boat6" ng-model="user.fisher_com_other">{{"FISHER_COM_TYPE_OTHER" | translate}}</ion-checkbox>
-          <label ng-show="user.fisher_com_other" class="item item-input">
-            <input  ng-model="user.fisher_licence_com_other_number" type="text"  placeholder="{{'FISHER_PLACEHOLDER_PERMIT_OTHER' | translate}}">
-          </label>
+                    <div class="cs-spacer"></div>
+
+
+                    <!-- TODO: Co-op details (if fisher belongs to co-op) -->
+                    <h4 id="popup_fisher-markdown16" style="margin-top:5px;color:#000000;" class="">{{"FISHER_COOP_HEADING" | translate}}</h4>
+                    <ion-checkbox name="box_boat" ng-model="user.fisher_co_op">{{"FISHER_COOP_CHECKBOX" | translate}}</ion-checkbox>
+                    <label ng-show="user.fisher_co_op==true" class="item item-input item-stacked-label " id="register1-input3">
+                        <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span>
+                        <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name">
+                    </label>
+                    <div class="cs-spacer"></div>
+
+
+                    <!--TODO: Boat Questions-->
+                    <h4 id="popup_fisher-markdown15" style="margin-top:5px;color:#000000;" class=" ">{{"FISHER_FROM_LABEL"| translate}}</h4>
+                    <ion-checkbox name="box_boat" ng-model="user.fisher_boat">{{"FISHER_FROM_BOAT"| translate}}</ion-checkbox>
+                    <ion-checkbox name="box_shore" ng-model="user.fisher_shore">{{"FISHER_FROM_SHORE"| translate}}</ion-checkbox>
+                    <!-- Boat details - if fish from boat) -->
+                    <label ng-show="user.fisher_boat==true">
+                        <h4> {{"FISHER_BOAT_LABEL" |translate}} </h4>
+                        <ion-checkbox ng-model="user.boat_own">{{"FISHER_BOAT_OWN" |translate}}</ion-checkbox>
+                        <ion-checkbox ng-model="user.boat_other">{{"FISHER_BOAT_ELSE" |translate}}</ion-checkbox>
+                    </label>
+                    <ion-list ng-show="user.boat_own==true && user.fisher_boat==true">
+                        <h4> {{"FISHER_BOATINFO_LABEL" | translate}} </h4>
+                        <label class="item item-input item-select" ng-show="user.boat_own">
+                            <div class="input-label">
+                                {{"FISHER_BOATINFO_BOAT_TYPE" | translate}}
+                            </div>
+                            <!-- ng-change="evaluateBoatType()" -->
+                            <select ng-model="user.fisher_boat_type" id="fisher-boat-type-selector">
+                                <option selected>{{"FISHER_BOATINFO_BOAT_TYPE_BAKKIE" | translate}}</option>
+                                <option>{{"FISHER_BOATINFO_BOAT_TYPE_CHUKKIE" | translate}}</option>
+                                <option>{{"FISHER_BOATINFO_BOAT_TYPE_SKI_BOAT" | translate}}</option>
+                            </select>
+                        </label>
+                        <label class="item item-input item-stacked-label " id="register1-input3">
+                            <span class="input-label">{{"FISHER_BOATINFO_NAME_LABEL" | translate}}</span>
+                            <input type="text" ng-model="user.boat_name" placeholder="{{'FISHER_BOATINFO_NAME_PH' | translate}}" name="boat_name">
+                        </label>
+                        <label class="item item-input item-stacked-label ">
+                            <span class="input-label">{{"FISHER_BOATINFO_REG_LABEL" | translate}}</span>
+                            <input type="text" ng-model="user.boat_reg" placeholder="{{'FISHER_BOATINFO_REG_PH' | translate}}" name="boat_reg">
+                        </label>
+                        <label class="item item-input item-stacked-label ">
+                            <span class="input-label">{{"FISHER_BOATINFO_REG_EXPIRY" | translate}}</span>
+                            <input type="date" ng-model-options="{timezone:'UTC'}" ng-model="user.boat_expDate" name="boat_expDate">
+                        </label>
+                        <h5>{{"FISHER_BOATINFO_ENGINE_LABEL" | translate}}</h5>
+                        <ion-checkbox ng-model="user.boat_has_engine">{{"FISHER_BOATINFO_ENGINE_CHECKBOX" | translate}}</ion-checkbox>
+                        <label ng-show="user.boat_has_engine==true" class="item item-input ">
+                            <strong><span>{{"FISHER_BOATINFO_ENGINECAP" | translate}}</span></strong>
+                        </label>
+                        <div class="list" ng-show="user.boat_has_engine==true">
+                            <span>{{"FISHER_BOATINFO_ENGINECAP_FILL" | translate}}</span>
+                            <label class="item item-input">
+                                <span class="input-label">HP:</span>
+                                <input type="number" ng-model="user.boat_engine_hp">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">CC:</span>
+                                <input type="number" ng-model="user.boat_engine_cc">
+                            </label>
+                        </div>
+                    </ion-list>
+                    <div class="cs-spacer"></div>
+                </form>
+            </ion-list>
+            <p style="color:red;" ng-show="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null)"> {{"GEN_REQUIRED" | translate}} </p>
+            <!-- "Register" button -->
+            <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null) " class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
+            <!-- (user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null) -->
+            <!-- (user.fisher_boat == false && user.fisher_shore == false) || (user.landing_site == null) -->
+            <div class="spacer" style="width: 300px; height: 5px;"></div>
+        </form>
         </div>
-
-
-
-        <h4 id="popup_fisher-markdown16" style="margin-top:5px;color:#000000;" class="">{{"FISHER_COOP_HEADING" | translate}}</h4>
-        <ion-checkbox name="box_boat" ng-model="user.fisher_co_op">{{"FISHER_COOP_CHECKBOX" | translate}}</ion-checkbox>
-
-        <!-- Co-op details (if fisher belongs to co-op) -->
-        <label ng-show="user.fisher_co_op==true" class="item item-input item-stacked-label "  id="register1-input3">
-          <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span>
-          <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name">
-        </label>
-
-
-        <h4 id="popup_fisher-markdown15" style="margin-top:5px;color:#000000;" class=" ">{{"FISHER_FROM_LABEL"| translate}}</h4>
-        <ion-checkbox name="box_boat" ng-model="user.fisher_boat">{{"FISHER_FROM_BOAT"| translate}}</ion-checkbox>
-        <ion-checkbox name="box_shore" ng-model="user.fisher_shore">{{"FISHER_FROM_SHORE"| translate}}</ion-checkbox>
-
-        <!-- Boat details - if fish from boat) -->
-        <label ng-show="user.fisher_boat==true">
-          <h4> {{"FISHER_BOAT_LABEL" |translate}} </h4>
-          <ion-checkbox ng-model="user.boat_own">{{"FISHER_BOAT_OWN" |translate}}</ion-checkbox>
-          <ion-checkbox ng-model="user.boat_other"
-          >{{"FISHER_BOAT_ELSE" |translate}}</ion-checkbox>
-        </label>
-
-        <ion-list ng-show="user.boat_own==true && user.fisher_boat==true">
-          <h4> {{"FISHER_BOATINFO_LABEL" | translate}} </h4>
-          <label class="item item-input item-select"  ng-show="user.boat_own">
-            <div class="input-label">
-              {{"FISHER_BOATINFO_BOAT_TYPE" | translate}}
-            </div>
-            <!-- ng-change="evaluateBoatType()" -->
-            <select ng-model="user.fisher_boat_type" ng-change="evaluateBoatType()" id="fisher-boat-type-selector">
-              <option selected>{{"FISHER_BOATINFO_BOAT_TYPE_BAKKIE" | translate}}</option>
-              <option>{{"FISHER_BOATINFO_BOAT_TYPE_CHUKKIE" | translate}}</option>
-              <option>{{"FISHER_BOATINFO_BOAT_TYPE_SKI_BOAT" | translate}}</option>
-            </select>
-          </label>
-          <label class="item item-input item-stacked-label "  id="register1-input3">
-            <span class="input-label">{{"FISHER_BOATINFO_NAME_LABEL" | translate}}</span>
-            <input type="text" ng-model="user.boat_name" placeholder="{{'FISHER_BOATINFO_NAME_PH' | translate}}" name="boat_name">
-          </label>
-          <label class="item item-input item-stacked-label ">
-            <span class="input-label">{{"FISHER_BOATINFO_REG_LABEL" | translate}}</span>
-            <input type="text" ng-model="user.boat_reg" placeholder="{{'FISHER_BOATINFO_REG_PH' | translate}}" name="boat_reg">
-          </label>
-          <label class="item item-input item-stacked-label ">
-            <span class="input-label">{{"FISHER_BOATINFO_REG_EXPIRY" | translate}}</span>
-            <input type="date" ng-model-options="{timezone:'UTC'}" ng-model="user.boat_expDate" name="boat_expDate">
-          </label>
-
-          <h5>{{"FISHER_BOATINFO_ENGINE_LABEL" | translate}}</h5>
-          <ion-checkbox ng-model="user.boat_has_engine">{{"FISHER_BOATINFO_ENGINE_CHECKBOX" | translate}}</ion-checkbox>
-
-          <label ng-show="user.boat_has_engine==true" class="item item-input ">
-            <strong><span>{{"FISHER_BOATINFO_ENGINECAP" | translate}}</span></strong>
-          </label>
-
-
-          <div class="list" ng-show="user.boat_has_engine==true">
-            <span>{{"FISHER_BOATINFO_ENGINECAP_FILL" | translate}}</span>
-            <label class="item item-input">
-              <span class="input-label">HP:</span>
-              <input type="number" ng-model="user.boat_engine_hp">
-            </label>
-            <label class="item item-input">
-              <span class="input-label">CC:</span>
-              <input type="number" ng-model="user.boat_engine_cc">
-            </label>
-          </div>
-
-        </ion-list>
-      </form>
-
-    </ion-list>
-
-    <p style="color:red;" ng-show="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null)" > {{"GEN_REQUIRED" | translate}} </p>
-    <!-- "Register" button -->
-    <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null) " class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
-    <!-- (user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null) -->
-    <!-- (user.fisher_boat == false && user.fisher_shore == false) || (user.landing_site == null) -->
-    <div class="spacer" style="width: 300px; height: 5px;"></div>
-  </form>
-</div>
-
-</ion-content>
-
+    </ion-content>
 </ion-view>

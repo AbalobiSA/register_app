@@ -1,5 +1,10 @@
 angular.module('app.services').service('csvFiles', ['$http', function($http) {
 
+    String.prototype.replaceAll = function(search, replacement) {
+        var target = this;
+        return target.replace(new RegExp(search, 'g'), replacement);
+    };
+
     var communities = [];
     var communitiesObj = [];
     var provinces = [];
@@ -13,21 +18,76 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
     var wind_types = [];
     var sea_conditions = [];
 
+
+
+
     var initializedStatus = false;
+
+    this.getCommunities = function(){
+        return communitiesObj;
+    };
+
+    this.getProvinces = function(){
+        return provinces;
+    };
 
     this.init = function(callback){
         if (!initializedStatus){
-            // loadCSV("List_SeaConditions.csv", sea_conditions, function(result){
-            //     sea_conditions = result;
-            //     initializedStatus = true;
+            loadCommunityCSV("communities.csv", function(result){
+                communities = result;
+                initializedStatus = true;
                 callback();
-            // })
+            })
         } else{
             callback();
         }
     };
 
     function loadCSV(filename, global, callback){
+        var FILENAME = filename;
+        $http.get('/android_asset/www/data/' + FILENAME)
+            .then(function(response) {
+                // alert(JSON.stringify(response));
+                // alert(response.data)
+                global = processCSV(response.data);
+                callback(global);
+            }, function(response) {
+                $http.get('data/' + FILENAME)
+                    .then(function(response) {
+                        // alert(JSON.stringify(response));
+                        // console.log(response.data)
+                        global = processCSV(response.data);
+
+                        callback(global);
+                    }, function(response) {
+
+                    });
+            });
+    }
+
+    function loadCommunityCSV(filename, callback){
+        var FILENAME = filename;
+        $http.get('/android_asset/www/data/' + FILENAME)
+            .then(function(response) {
+                // alert(JSON.stringify(response));
+                // alert(response.data)
+               processCommunities(response.data);
+                callback();
+            }, function(response) {
+                $http.get('data/' + FILENAME)
+                    .then(function(response) {
+                        // alert(JSON.stringify(response));
+                        // console.log(response.data)
+                        processCommunities(response.data);
+
+                        callback();
+                    }, function(response) {
+
+                    });
+            });
+    }
+
+    function loadExternalCSV(filename, path, global, callback){
         var FILENAME = filename;
         $http.get('/android_asset/www/data/' + FILENAME)
             .then(function(response) {
@@ -86,6 +146,35 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
         // return removeDuplicates(provincesList);
         // landingSites = landingSitesList;
         return returnMe;
+    }
+
+    function processCommunities(csvFile){
+        //Create an empty holding array
+        var provincesList = [];
+        var communitiesList = [];
+        //Split the CSV file into an array of lines
+        var lines = csvFile.split("\n");
+        for (line in lines){
+            var currentLine = lines[line].split(",");
+            if (currentLine[0] === "name_key" || currentLine[0] === "" || currentLine[0] === null){
+                //Ignore the headings line
+            } else{
+                pushIfNotNull(communitiesList, currentLine[2]);
+                pushIfNotNull(provincesList, currentLine[1]);
+                // communitiesList.push(currentLine[0]);
+                provincesList.push(currentLine[1]);
+                communitiesObj.push({
+                    "name_key": currentLine[0].replaceAll("\\r", ""),
+                    "province": currentLine[1].replaceAll("\\r", ""),
+                    "name_Eng": currentLine[2].replaceAll("\\r", ""),
+                    "name_Afr": currentLine[3].replaceAll("\\r", "")
+                })
+            }
+        }
+        //Now, cut the list to only distinct items
+        // return removeDuplicates(provincesList);
+        provinces = removeDuplicates(provincesList);
+        communities = removeDuplicates(communitiesList).sort();
     }
 
     function removeDuplicates(processMe){
