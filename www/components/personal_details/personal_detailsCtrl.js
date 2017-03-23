@@ -1,6 +1,7 @@
-angular.module('app.controllers').controller('personal_detailsCtrl', function($scope, $location, $localStorage, matrix, userinfo, $ionicPopover) {
+angular.module('app.controllers').controller('personal_detailsCtrl', function($scope, $location, $localStorage, matrix, userinfo, $ionicPopover, settings) {
     //loads information previously entered
     $scope.user = angular.copy(userinfo.getInfo());
+    $scope.srv_settings = settings;
 
     $scope.user.gender = "unselected";
     console.log("GENDER: " + $scope.user.gender);
