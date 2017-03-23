@@ -8,15 +8,7 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
     var communities = [];
     var communitiesObj = [];
     var provinces = [];
-    var species = [];
-    var fishers = [];
-    var landingSites = [];
-    var monitors = [];
-    var baitTypes = [];
-    var weather_types = [];
-    var wind_directions = [];
-    var wind_types = [];
-    var sea_conditions = [];
+    var coops = [];
 
 
 
@@ -31,12 +23,19 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
         return provinces;
     };
 
+    this.getCoops = function(){
+        return coops;
+    };
+
     this.init = function(callback){
         if (!initializedStatus){
             loadCommunityCSV("communities.csv", function(result){
                 communities = result;
-                initializedStatus = true;
-                callback();
+                loadCSV("list_co_ops.csv", coops, function(result){
+                    coops = result;
+                    initializedStatus = true;
+                    callback();
+                })
             })
         } else{
             callback();
@@ -130,7 +129,7 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
             var currentObj = {};
 
             if (
-                i !== 0
+                i > 0
                 && currentLine.length > 1
             ){
                 for (j in currentLine){

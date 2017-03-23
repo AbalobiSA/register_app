@@ -17,6 +17,8 @@
                     <label class="item item-input item-stacked-label" ng-show="select.province!= undefined  && user.landingsite == undefined">
                         <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>
                     </label>
+
+                    <!--TODO: Search Box area-->
                     <label class="item item-input" ng-show="select.province!= undefined && user.landingsite == undefined">
                         <i class="icon ion-search placeholder-icon"></i>
                         <input ng-model="searchbox" type="search" placeholder="{{'FISHER_LANDINGSITE_PH' | translate}}">
@@ -28,7 +30,7 @@
                     </ion-list>
                 </form>
 
-
+                <!--TODO: Change Landing Site-->
                 <ion-item ng-hide="user.landingsite == undefined">
                     {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{getCommunityName(user.landingsite)}}</strong>
                     <div class="text-right">
@@ -37,6 +39,8 @@
                         </button>
                     </div>
                 </ion-item>
+
+                <!--TODO: Custom Landingsite Entry-->
                 <label ng-show="user.landingsite == 'Other'" class="item item-input item-stacked-label " id="register1-input3">
                     <!-- <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span> -->
                     <span>{{"MFC_LANDINGSITE_ENTER_NAME" | translate}}</span>
@@ -85,11 +89,42 @@
 
                     <!-- TODO: Co-op details (if fisher belongs to co-op) -->
                     <h4 id="popup_fisher-markdown16" style="margin-top:5px;color:#000000;" class="">{{"FISHER_COOP_HEADING" | translate}}</h4>
-                    <ion-checkbox name="box_boat" ng-model="user.fisher_co_op">{{"FISHER_COOP_CHECKBOX" | translate}}</ion-checkbox>
-                    <label ng-show="user.fisher_co_op==true" class="item item-input item-stacked-label " id="register1-input3">
+                    <ion-checkbox name="box_boat2" ng-model="user.fisher_co_op">{{"FISHER_COOP_CHECKBOX" | translate}}</ion-checkbox>
+
+                    <div ng-show="user.fisher_co_op === true">
+                        <div class="cs-spacer"></div>
+                        <button class="button button-block button-dark" ng-click="refreshCoops()">Refresh Co-Op List</button>
+
+                    </div>
+
+
+                    <div class="cs-spacer"></div>
+                    <label ng-show="user.fisher_co_op==true" class="item item-input item-stacked-label " id="register1-input31">
                         <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span>
-                        <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name">
+                        <input type="text" ng-model="coop_searchbox" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name">
                     </label>
+
+                    <!--TODO: Search Listx area-->
+                    <ion-list ng-hide="coop_searchbox == undefined || user.fisher_co_op_name != undefined ">
+                        <ion-item ng-repeat="coop in coops | filter:coop_searchbox" site="site" ng-click="select_coop(coop.name_key)">
+                            <strong> {{coop.name_Eng}} </strong>
+                        </ion-item>
+                    </ion-list>
+
+                    <!--TODO: Change Coop -->
+                    <ion-item ng-hide="user.fisher_co_op_name == undefined">
+                        {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{getGenericName(user.fisher_co_op_name, coops)}}</strong>
+                        <div class="text-right">
+                            <button class="button button-stable" ng-click="changeCoop()">
+                                {{"GEN_CHANGE" | translate}}
+                            </button>
+                        </div>
+                    </ion-item>
+
+
+
+
+
                     <div class="cs-spacer"></div>
 
 
