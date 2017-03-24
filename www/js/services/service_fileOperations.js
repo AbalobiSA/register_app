@@ -170,7 +170,7 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
                 window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory + ABALOBI_FILE_PATH, function(fileEntry) {
                     // console.log("DIR IS: " + directory.name);
                     // dir.filesystem.root.getDirectory(ABALOBI_FILE_PATH, { create: true }, gotDir);
-
+                    console.log("Got the directory. Reading...");
                     fileEntry.file(function(file) {
                         var reader = new FileReader();
 
@@ -189,8 +189,8 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
                 });
             } catch (ex) {
                 // alert("NO SETTINGS FOUND!!\n" + ex);
-                console.error("File reading failed!\n\n" + ex);
                 error();
+                console.error("File reading failed!\n\n" + ex);
 
             }
         }
@@ -227,7 +227,7 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
         }
 
         function fail(error) {
-            alert("Failed to list directory contents: " + error.code);
+            // alert("Failed to list directory contents: " + error.code);
             callback(0);
         }
 
@@ -313,7 +313,7 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
         }
 
         function fail(error) {
-            alert("Failed to list directory contents: " + error.code);
+            // alert("Failed to list directory contents: " + error.code);
             errorCallback();
             // callback(0);
         }
@@ -350,7 +350,77 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
         }
 
         function onDirectoryFail(error) {
-            alert("Unable to create new directory: " + error.code);
+            // alert("Unable to create new directory: " + error.code);
+            // callback(0);
+            errorCallback();
+        }
+
+        function onFileSystemFail(evt) {
+            console.log(evt.target.error.code);
+            errorCallback();
+            // callback(0);
+        }
+    };
+
+    this.getFileSafe = function(filepath, successCallback, errorCallback){
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        var formsArray = [];
+
+        function onDeviceReady() {
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFileSystemFail);
+        }
+
+        function onFileSystemSuccess(fileSystem) {
+            var directoryEntry = fileSystem.root;
+            directoryEntry.getDirectory("abalobi/register", {create: true, exclusive: false}, onDirectorySuccess, onDirectoryFail);
+        }
+
+        function onDirectorySuccess(parent) {
+            var directoryReader = parent.createReader();
+            directoryReader.readEntries(success, fail);
+        }
+
+        function fail(error) {
+            // alert("Failed to list directory contents: " + error.code);
+            errorCallback();
+            // callback(0);
+        }
+
+        function success(entries) {
+            if (entries.length === 0){
+                console.log("No Records");
+                errorCallback();
+                // callback(0);
+            }
+            else
+            {
+                for (var i = 0; i < entries.length; i++) {
+                    entries[i].file(function (file) {
+                        // console.log(file.data);
+
+                        var reader = new FileReader();
+
+                        reader.onloadend = function() {
+                            // console.log("Successful file read: " + this.result);
+                            // displayFileData(fileEntry.fullPath + ": " + this.result);
+                            successCallback(this.result, "abalobi/register/", file.name);
+                        };
+
+                        reader.readAsText(file);
+                        // formsArray.push(JSON.stringify(file));
+                        // console.log("file.name " + file.name);
+                    })
+                }
+            }
+            // console.log('file list created');
+            // successCallback(formsArray);
+            // callback(entries.length);
+        }
+
+        function onDirectoryFail(error) {
+            // alert("Unable to create new directory: " + error.code);
             // callback(0);
             errorCallback();
         }

@@ -1,4 +1,4 @@
-angular.module('app.controllers').controller('fisher_infoCtrl', function($scope, userinfo, $location, $http, Storage, csvFiles, nodeServer) {
+angular.module('app.controllers').controller('fisher_infoCtrl', function($scope, userinfo, $location, $http, Storage, csvFiles, nodeServer, fileOperations) {
 
 /*==============================================================
      Initialization
@@ -19,8 +19,12 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
         csvFiles.init(function(){
             $scope.communities = csvFiles.getCommunities();
             $scope.provinces = csvFiles.getProvinces();
+
+            //Get the built-in list of coops
             $scope.coops = csvFiles.getCoops();
-            // console.log(JSON.stringify($scope.coops, null, 4));
+
+            //Tries to read external list of coops, or writes built-in list to file
+            readCoopsExternal();
         })
     });
 
@@ -34,8 +38,14 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
         nodeServer.getData(endpoint, dataSuccess, dataError);
 
         function dataSuccess(data){
+            //DATA IS THE ARRAY OF COOPS.
+            fileOperations.writeFileCustom("coop_list.csv", "abalobi/register", csvFiles.convertToCSV(data), "application/csv", function(){
+                console.log("Write new list of coops - successful.");
+                console.log(csvFiles.convertToCSV(data));
+            });
+
             $scope.coops = data;
-            alert("Your co-ops have been updated!");
+            alert("CO-OP List updated!");
         }
 
         function dataError(error){
@@ -47,7 +57,7 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
     $scope.next = function() {
 
         if ($scope.user.usertype === "daff_manager") {
-            alert("TEST", "USER IS A DAFF MANAGER");
+            // alert("TEST", "USER IS A DAFF MANAGER");
         }
         userinfo.updateInfo($scope.user);
         $location.path('/register');
@@ -94,5 +104,50 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
                 return item[i].name_Eng;
             }
         }
+    };
+
+/*==============================================================
+     Tool Functions
+ ==============================================================*/
+
+    function readCoopsExternal(){
+        csvFiles.loadExternalCSV("abalobi/register/coop_list.csv", csvSuccess, csvError);
+
+        function csvSuccess(data, returnpath, returnfilename){
+            console.log("SUCCESSFULLY READ EXTERNAL COOP CSV.");
+            $scope.coops = data;
+        }
+
+        function csvError(err){
+            console.log("COOP CSV FAILED. REVERT TO BACKUP LIST.");
+            $scope.coops = csvFiles.getCoops();
+            console.log("Writing backup list to external file...");
+            fileOperations.writeFileCustom("coop_list.csv", "abalobi/register", csvFiles.convertToCSV($scope.coops), "application/csv", function(){
+                console.log("Write backup list of coops - successful.");
+                console.log(csvFiles.convertToCSV($scope.coops));
+            });
+        }
     }
-}); //end fisher_infoCtrl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});

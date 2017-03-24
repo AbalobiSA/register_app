@@ -41,7 +41,7 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
     $scope.evaluatePassword = function(){
 
       // var regexp = /( + $scope.user.surname + | + $scope.user.name + | + password)/g;
-      var regexp = new RegExp("(" + $scope.user.surname.toLowerCase() + "|" + $scope.user.name.toLowerCase() + "|" + "password)", "gi");
+      var regexp = new RegExp("(" + protectIfUndefined($scope.user.surname) + "|" + protectIfUndefined($scope.user.name) + "|" + "password)", "gi");
       // var regexp = new RegExp($scope.user.surname.toLowerCase(), "gi");
       // console.log("Starting Regexp...");
       // console.log("Name: " + $scope.user.name.toLowerCase());
@@ -58,6 +58,14 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
       } catch (e) {
         console.log(e.toString());
         return true;
+      }
+
+      function protectIfUndefined(input){
+          if (input === undefined || input === null){
+              return "";
+          } else{
+              return input.toLowerCase();
+          }
       }
 
 

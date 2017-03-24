@@ -1,4 +1,4 @@
-angular.module('app.services').service('csvFiles', ['$http', function($http) {
+angular.module('app.services').service('csvFiles', ['$http', 'fileOperations', function($http, fileOperations) {
 
     String.prototype.replaceAll = function(search, replacement) {
         var target = this;
@@ -10,10 +10,13 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
     var provinces = [];
     var coops = [];
 
-
-
+    var csv = this;
 
     var initializedStatus = false;
+
+/*====================================================================
+    Getters
+ ====================================================================*/
 
     this.getCommunities = function(){
         return communitiesObj;
@@ -30,7 +33,7 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
     this.init = function(callback){
         if (!initializedStatus){
             loadCommunityCSV("communities.csv", function(result){
-                communities = result;
+                // communities = result;
                 loadCSV("list_co_ops.csv", coops, function(result){
                     coops = result;
                     initializedStatus = true;
@@ -41,6 +44,10 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
             callback();
         }
     };
+
+/*====================================================================
+     CSV Modules
+ ====================================================================*/
 
     function loadCSV(filename, global, callback){
         var FILENAME = filename;
@@ -86,27 +93,22 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
             });
     }
 
-    function loadExternalCSV(filename, path, global, callback){
-        var FILENAME = filename;
-        $http.get('/android_asset/www/data/' + FILENAME)
-            .then(function(response) {
-                // alert(JSON.stringify(response));
-                // alert(response.data)
-                global = processCSV(response.data);
-                callback(global);
-            }, function(response) {
-                $http.get('data/' + FILENAME)
-                    .then(function(response) {
-                        // alert(JSON.stringify(response));
-                        // console.log(response.data)
-                        global = processCSV(response.data);
+    this.loadExternalCSV = function(fullpath, successCallback, errorCallback){
+        // var FILENAME = filename;
+        // fullpath = "abalobi/register/coop_list.csv";
 
-                        callback(global);
-                    }, function(response) {
+        // fileOperations.readFileCustom(fullpath, success, error);
 
-                    });
-            });
-    }
+        fileOperations.getFileSafe(fullpath, success, error);
+
+        function success(data, returnpath, returnfilename){
+            successCallback(processCSV(data), returnpath, returnfilename);
+        }
+
+        function error(err){
+            errorCallback(err);
+        }
+    };
 
     /**
      * Takes any raw csv and returns a JSON array of the data
@@ -124,10 +126,8 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
         var keysList = angular.copy(lines[0]).split(",");
 
         for (i in lines){
-
             var currentLine = lines[i].split(",");
             var currentObj = {};
-
             if (
                 i > 0
                 && currentLine.length > 1
@@ -146,6 +146,10 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
         // landingSites = landingSitesList;
         return returnMe;
     }
+
+/*====================================================================
+     Custom Handlers
+ ====================================================================*/
 
     function processCommunities(csvFile){
         //Create an empty holding array
@@ -175,6 +179,10 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
         provinces = removeDuplicates(provincesList);
         communities = removeDuplicates(communitiesList).sort();
     }
+
+/*====================================================================
+     Tools
+ ====================================================================*/
 
     function removeDuplicates(processMe){
         var distinctArray = [];
@@ -225,7 +233,53 @@ angular.module('app.services').service('csvFiles', ['$http', function($http) {
         return returnMe;
     }
 
+    this.convertToCSV = function(input) {
 
+        //Remove hashkeys
+        var objArray = angular.copy(input);
+
+        //Get the keys
+        var keysStr = "";
+        var keysLength = countKeys(objArray[0]);
+        var count = 0;
+        for (key in objArray[0]){
+            keysStr += key + noCommaIfLast(keysLength, count);
+            count++;
+        }
+
+        //Add data
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        var str = '';
+
+        for (var i = 0; i < array.length; i++) {
+            var line = '';
+            for (var index in array[i]) {
+                if (line != '') line += ','
+
+                line += array[i][index];
+            }
+
+            str += line + '\r\n';
+        }
+
+        return keysStr + "\r\n" + str;
+
+        function countKeys(input){
+            var count = 0;
+            for (i in input){
+                count++;
+            }
+            return count;
+        }
+
+        function noCommaIfLast(length, current){
+            if (current === length-1){
+                return "";
+            } else{
+                return ",";
+            }
+        }
+    };
 
     this.isInitialized = function(){
         return initializedStatus;
