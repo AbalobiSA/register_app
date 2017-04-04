@@ -39,7 +39,7 @@
 
                 <label class="item item-input item-stacked-label " id="register1-input3">
                     <span class="input-label cs-max-width">{{"PERSONAL_ID_LABEL" | translate}}</span>
-                    <input type="text" ng-model="user.coop_admin_id" placeholder="{{'PERSONAL_ID_PH' | translate}}" name="ID"
+                    <input disallow-spaces type="text" ng-model="user.coop_admin_id" placeholder="{{'PERSONAL_ID_PH' | translate}}" name="ID"
                     required>
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.ID.$touched && userForm.ID.$invalid }"
                     ng-show="!checkID(user.id) && userForm.ID.$touched ">{{"PERSONAL_ID_IV" | translate}}</span>
