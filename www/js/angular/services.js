@@ -3,18 +3,18 @@ angular.module('app.services', [])
 .factory('userinfo', [function() {
 
     var userinfo = {};
-    var info = {}
+    var info = {};
 
     userinfo.getInfo = function() {
         return info;
-    }
+    };
 
     userinfo.updateInfo = function(data) {
         angular.merge(info, data);
         //alert(JSON.stringify(info))
         console.log("Updated to: " + JSON.stringify(info));
         return info;
-    }
+    };
 
     userinfo.clearInfo = function() {
         var blank = {};
@@ -22,7 +22,7 @@ angular.module('app.services', [])
         info = angular.copy(blank, info)
             //alert(JSON.stringify(info))
             //return info
-    }
+    };
 
     return userinfo
 
@@ -31,15 +31,15 @@ angular.module('app.services', [])
 .service('language', [function() {
 
     var language = {};
-    var current_lang = "en"
+    var current_lang = "en";
 
     language.getInfo = function() {
         return current_lang;
-    }
+    };
     language.updateInfo = function(data) {
-        current_lang = data
+        current_lang = data;
         return current_lang;
-    }
+    };
 
     return language
 }])
@@ -47,7 +47,7 @@ angular.module('app.services', [])
 
 .service('checkSms', [function() {
 
-    var app = {}
+    var app = {};
     app.checkSMSPermission = function() {
 
         var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
@@ -57,30 +57,30 @@ angular.module('app.services', [])
         }), function() {
             alert("Error while checking the SMS support");
         });
-    }
+    };
     return app;
 }])
 
 .service('Storage', [function($localStorage, userinfo) {
 
-    var app = {}
+    var app = {};
     app.store = function() {
 
-        var confirm = window.confirm("Offline Store?")
-        if (confirm == true) {
+        var confirm = window.confirm("Offline Store?");
+        if (confirm === true) {
             $localStorage.user = angular.copy(userinfo.getInfo());
             alert("Information has been stored")
         }
-    }
+    };
     app.clear = function() {
         $localStorage.$reset()
-    }
+    };
     return app;
 }])
 
 .factory("PopupTranslate", function($ionicPopup, language, $translate, $localStorage) {
 
-    var title = "Select Language -- Kies Taal"
+    var title = "Select Language -- Kies Taal";
 
     function getPopup(scope) {
         return $ionicPopup.show({
@@ -90,7 +90,7 @@ angular.module('app.services', [])
                 type: 'button-calm',
                 cssClass: "termspopup",
                 onTap: function() {
-                    $translate.use('afr')
+                    $translate.use('afr');
                     language.updateInfo("afr");
                     $localStorage.language = "afr"
                 }
@@ -99,7 +99,7 @@ angular.module('app.services', [])
                 type: 'button-stable',
                 cssClass: "termspopup",
                 onTap: function() {
-                    $translate.use('xh')
+                    $translate.use('xh');
                     language.updateInfo("xh");
                     $localStorage.language = "xh"
                 }
@@ -107,8 +107,8 @@ angular.module('app.services', [])
                 text: 'ENG',
                 type: 'button-positive',
                 onTap: function() {
-                    $translate.use('en')
-                    language.updateInfo("en")
+                    $translate.use('en');
+                    language.updateInfo("en");
                     $localStorage.language = "en"
                 }
             }]

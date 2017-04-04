@@ -45,21 +45,25 @@ angular.module('app.strings', [])
         "START_STORAGE" : {
             "en" :"Saved information was found and have been loaded. Click 'Clear info' to clear the registration info on your device.",
             "afr" : "Gestoorde inligting is gevind en gelaai. Gebruik 'Vee inligting uit' om die registrasie inligting op u foon/tablet uit te wis."
+        },
+        "COOP_UPDATE_DATA" : {
+            "en" : "Getting new Co-op data. Please wait...",
+            "afr" : "Kry nuwe inligting, wag asseblief..."
         }
-    }
+    };
 
     strings.get_translation = function(data){
-        var result = null
-        if (language.getInfo() == 'afr'){
-            if (data.afr == undefined){
+        var result = null;
+        if (language.getInfo() === 'afr'){
+            if (data.afr === undefined){
                 result = data.en
             }
             else {
                 result = data.afr
             }
         }
-        else if (language.getInfo() == 'isx'){
-            if (data.isx == null){
+        else if (language.getInfo() === 'isx'){
+            if (data.isx === null){
                 result = data.en
             }
             result = data.isx
@@ -67,11 +71,11 @@ angular.module('app.strings', [])
         else {
             result = data.en
         }
-        if (result==null){
-            return "NO STRING PROVIDED"
+        if (result===null){
+            return "NO STRING PROVIDED";
         }
-        return result
-    }
+        return result;
+    };
 
     return strings
-}])
+}]);

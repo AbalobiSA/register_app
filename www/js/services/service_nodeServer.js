@@ -1,5 +1,5 @@
-angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$ionicPopover', '$ionicLoading', '$timeout', '$q',
-    function($http, $ionicPopup, $ionicPopover, $ionicLoading, $timeout, $q) {
+angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$ionicPopover', '$ionicLoading', '$timeout', '$q', 'strings',
+    function($http, $ionicPopup, $ionicPopover, $ionicLoading, $timeout, $q, strings) {
 
 
     var SERVER_IP = "http://197.85.186.65:8080";
@@ -98,7 +98,7 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
 
         //Show ionic blocking loader with timeout
         $ionicLoading.show({
-            template: 'Getting new Co-op data. Please wait 15 seconds...'
+            template: strings.get_translation(strings.COOP_UPDATE_DATA)
             + "<br /><ion-spinner></ion-spinner>"
         });
 
