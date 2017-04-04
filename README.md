@@ -2,8 +2,6 @@
 
 This app is used for fishers etc to register themselves once-off with Abalobi.
 
-TODO: add url for post to Open Function
-
 -----
 ### Getting Started
 
@@ -14,7 +12,8 @@ Clone the repo:
 
 In local directory, open CLI and run:
 
-    $ npm install
+    $ npm install -g yarn
+    $ yarn
 
 Add android as a platform in cordova.
 ```

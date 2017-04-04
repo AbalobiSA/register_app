@@ -156,5 +156,8 @@
     "PERSONAL_GENDER_MALE": "Male",
     "PERSONAL_GENDER_FEMALE": "Female",
     "PERSONAL_GENDER_VALIDATION": "Please select a gender.",
-    "MFC_COOP_SELECTED": "Selected Co-op:"
+    "MFC_COOP_SELECTED": "Selected Co-op:",
+    "TERMS_ASK_FISHING": "Will you be recording your own catch on Abalobi as well?",
+    "TERMS_DESCRIBE_CHOICE_YES": "Yes",
+    "TERMS_DESCRIBE_CHOICE_NO": "No"
 }

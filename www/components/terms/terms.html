@@ -33,6 +33,16 @@
                     <p ng-show="(user.usertype == 'daff_manager' && user.usertype != null)">{{"TERMS_DESCRIBE_DAFFMANAGER"| translate}}</p>
                 </div>
 
+                <div ng-show="user.usertype === 'fisher_manager'">
+                    <div class="cs-spacer"></div>
+                    <h4>{{"TERMS_ASK_FISHING" | translate}}</h4>
+                    <ion-list>
+                        <ion-radio name="fisher_question" ng-model="user.is_also_fisher" ng-value="true">{{"TERMS_DESCRIBE_CHOICE_YES"| translate}}</ion-radio>
+                        <ion-radio name="fisher_question" ng-model="user.is_also_fisher" ng-value="false">{{"TERMS_DESCRIBE_CHOICE_NO"| translate}}</ion-radio>
+                    </ion-list>
+                </div>
+
+                <div class="cs-spacer"></div>
                 <a ng-click="leave_terms()" ng-disabled="user.usertype == null " id="abalobiRegister-button1"
                    class=" button button-positive button-block "
                 >{{"GEN_NEXT" | translate}}
@@ -47,20 +57,13 @@
     <ion-modal-view style=" width: 90%; height: 85%; left: 5%; right: 5%;">
         <ion-content>
             <div style="margin-left:3%; margin-right:3%;color:#000000;text-align:center;">
-
                 <h3 id="terms_fishers-heading5" style="color:#000000;text-align:center; margin-top:5%;" class=" ">{{"TERMS_MODAL_TITLE" | translate}}</h3>
-
                 <!-- For monitors: -->
-                <p  ng-show="evaluate_byindex(0)"id="terms_monitor" style="color:#000000;" class=" "
-                >{{"TERMS_MODAL_MONITOR_PAR" | translate}}
+                <p ng-show="evaluate_byindex(0)" id="terms_monitor" style="color:#000000;" class=" ">{{"TERMS_MODAL_MONITOR_PAR" | translate}}
                 </p>
-
                 <!-- For fishermen / Co-op: -->
-                <p ng-show="evaluate_byindex(1)" id="terms_fisher" style="color:#000000; margin-left:3%; margin-right:3%;" class=" "
-                >{{"TERMS_MODAL_FISHER_PAR" | translate}}
+                <p ng-show="evaluate_byindex(1)" id="terms_fisher" style="color:#000000; margin-left:3%; margin-right:3%;" class=" ">{{"TERMS_MODAL_FISHER_PAR" | translate}}
                 </p>
-
-
                 <!-- "I agree" - visible to all user types -->
                 <div class="spacer" style="width: 300px; height: 28px;"></div>
                 <strong>
@@ -69,13 +72,9 @@
                     </p>
                 </strong>
                 <form id="popup_fisher-form7" class="list ">
-
                     <ion-checkbox ng-model="checked">{{"TERMS_MODAL_AGREE_CONFIRM" | translate}}</ion-checkbox>
-
                     <!-- ------------------------------ -->
-
                     <div class="spacer" style="width: 300px; height: 24px;"></div>
-
                     <!--futher consent boxes for fisher/Co-ops -->
                     <div ng-show="evaluate_byindex(2)">
                         <strong>
@@ -88,15 +87,10 @@
                             <ion-checkbox class="item-text-wrap" ng-model="user.permission_daff">{{"TERMS_MODAL_CONSENT_DAFF"| translate}}</ion-checkbox>
                         </div>
                     </div>
-
-                    <p style="color:red;" ng-show="!checked" > {{"GEN_REQUIRED" | translate}} </p>
+                    <p style="color:red;" ng-show="!checked"> {{"GEN_REQUIRED" | translate}} </p>
                     <!--Next button - used to Close the pop-up -->
-                    <button id="popup_fisher-button5" ng-click="sendOrder()" ng-disabled="!checked"
-                            class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}
+                    <button id="popup_fisher-button5" ng-click="sendOrder()" ng-disabled="!checked" class=" button button-positive  button-block ">{{"GEN_NEXT"| translate}}
                     </button>
-
-
-
                 </form>
             </div>
         </ion-content>

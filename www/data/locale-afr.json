@@ -155,5 +155,8 @@
     "PERSONAL_GENDER_MALE": "Manlik",
     "PERSONAL_GENDER_FEMALE": "Vroulik",
     "PERSONAL_GENDER_VALIDATION": "Kies asseblief 'n geslag.",
-    "MFC_COOP_SELECTED": "U huidige ko-operasie:"
+    "MFC_COOP_SELECTED": "U huidige ko-operasie:",
+    "TERMS_ASK_FISHING": "Gaan jy jou eie vangs aan Abalobi opskryf?",
+    "TERMS_DESCRIBE_CHOICE_YES": "Ja",
+    "TERMS_DESCRIBE_CHOICE_NO": "Nee"
 }
