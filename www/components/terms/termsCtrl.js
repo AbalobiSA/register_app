@@ -70,51 +70,6 @@ angular.module('app.controllers').controller('termsCtrl', function(
         $scope.user.landingsite = undefined;
         $scope.validateForm();
     };
-    //
-    // var FILENAME = "communities.csv";
-    //
-    // $http.get('/android_asset/www/data/' + FILENAME)
-    //     .then(function(response) {
-    //         // alert(JSON.stringify(response));
-    //         // alert(response.data)
-    //         $scope.processData(response.data)
-    //     }, function(response) {
-    //         $http.get('data/' + FILENAME)
-    //             .then(function(response) {
-    //                 // alert(JSON.stringify(response));
-    //                 // console.log(response.data)
-    //                 $scope.processData(response.data)
-    //             }, function(response) {
-    //
-    //             });
-    //     });
-    //
-    // $scope.processData = function(text) {
-    //
-    //     var lines = text.split("\n");
-    //     for (x = 1; x < lines.length - 1; x++) {
-    //         var line = lines[x].split(",");
-    //         data.push(line)
-    //     }
-    //
-    //     $scope.provinces = [];
-    //
-    //     for (x = 0; x < data.length; x++) {
-    //         if ($scope.provinces.indexOf(data[x][1]) == -1) {
-    //             $scope.provinces.push(data[x][1])
-    //         }
-    //     }
-    // };
-
-    // $scope.filter_by_province = function() {
-    //
-    //     $scope.landingsites = [];
-    //     for (x = 0; x < data.length; x++) {
-    //         if (data[x][1] == $scope.select.province) {
-    //             $scope.landingsites.push(data[x][2])
-    //         }
-    //     }
-    // };
 
     //variable that indicates whether usertype has been defined
     var x = false;
