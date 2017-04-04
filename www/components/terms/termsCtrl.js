@@ -1,9 +1,9 @@
 angular.module('app.controllers').controller('termsCtrl', function(
     $scope, $ionicHistory, $ionicModal, $http, matrix,
     $ionicPopup, $location, userinfo, csvFiles) {
-/*===============================================================
+/*============================================================================
     Initialization
- ===============================================================*/
+ ============================================================================*/
     $scope.select = {};
     var data = [];
 
@@ -24,9 +24,12 @@ angular.module('app.controllers').controller('termsCtrl', function(
         })
     });
 
-/*===============================================================
-     Carl's Functions
- ===============================================================*/
+    //variable that indicates whether usertype has been defined
+    var USERTYPE_DEFINED = false;
+
+/*============================================================================
+    Carl's Functions
+ ============================================================================*/
 
     $scope.filter_by_province = function() {
 
@@ -55,9 +58,9 @@ angular.module('app.controllers').controller('termsCtrl', function(
         }
     };
 
-/*===============================================================
-     Main Functions
- ===============================================================*/
+/*============================================================================
+    Main Functions
+ ============================================================================*/
 
     $scope.select_landingsite = function(site) {
         $scope.user.landingsite = site;
@@ -71,20 +74,15 @@ angular.module('app.controllers').controller('termsCtrl', function(
         $scope.validateForm();
     };
 
-    //variable that indicates whether usertype has been defined
-    var x = false;
-
-
-    //alert(userinfo.getInfo().usertype)
 
     //if usertype is changed reset fields
     $scope.reset = function() {
 
-        if (x == true) {
+        if (USERTYPE_DEFINED === true) {
             userinfo.clearInfo();
             $ionicHistory.clearCache();
         }
-        x = true;
+        USERTYPE_DEFINED = true;
     };
 
     $scope.update = function() {
@@ -93,11 +91,7 @@ angular.module('app.controllers').controller('termsCtrl', function(
     };
 
     $scope.validateForm = function() {
-        if ($scope.user.landingsite == undefined || $scope.user.landingsite == "" || $scope.user.landingsite == null) {
-            $scope.formInvalid = true;
-        } else {
-            $scope.formInvalid = false;
-        }
+        $scope.formInvalid = $scope.user.landingsite === undefined || $scope.user.landingsite === "" || $scope.user.landingsite === null;
     };
 
     $scope.evaluate_byindex = function(destination) {
