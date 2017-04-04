@@ -4,36 +4,37 @@
 
     <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
     <ion-list id="register2-list2" class=" ">
-    <h4 ng-show="evaluate_byindex(6) && user.landingsite == undefined ">{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
-      <form name="landing_form" ng-show="evaluate_byindex(6) && user.landingsite == undefined " id="MFC_landingsite1" novalidate>
-        <label class="item item-input item-stacked-label select" >
-          <span class=""> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+        <h4 ng-show="evaluate_byindex(6) && user.landingsite == undefined ">{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
+        <form name="landing_form" ng-show="evaluate_byindex(6) && user.landingsite == undefined " id="MFC_landingsite1" novalidate>
+            <label class="item item-input item-stacked-label select">
+        <span class=""> <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
             <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
-          </span>
-        </label>
-        <label class="item item-input item-stacked-label cs-max-width" ng-show="select.province!= undefined" class="item item-input">
-          <span ng-show="evaluate_byindex(7) && select.province!= undefined" id="MFC_landingsite2" class="cs-spanwrap">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
-          <span ng-show="evaluate_byindex(8) && select.province!= undefined" id="MFC_landingsite3" class="cs-spanwrap">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
-          <span ng-hide="evaluate_byindex(8) || evaluate_byindex(7)" id="MFC_landingsite31" class="cs-spanwrap">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
-        </label>
-        <label class="item item-input" ng-show="select.province!= undefined">
-          <i class="icon ion-search placeholder-icon"></i>
-          <input  ng-model="searchbox" type="search" placeholder="{{'MFC_LANDINGSITE_PC' | translate}}">
-        </label>
-      </form>
+        </span>
+            </label>
+            <label class="item item-input item-stacked-label cs-max-width" ng-show="select.province!= undefined" class="item item-input">
+                <span ng-show="evaluate_byindex(7) && select.province!= undefined" id="MFC_landingsite2" class="cs-spanwrap">{{"MFC_LANDINGSITE_MONITOR" | translate}}</span>
+                <span ng-show="evaluate_byindex(8) && select.province!= undefined" id="MFC_landingsite3" class="cs-spanwrap">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
+                <span ng-hide="evaluate_byindex(8) || evaluate_byindex(7)" id="MFC_landingsite31" class="cs-spanwrap">{{"MFC_LANDINGSITE_FISHMANAGER" | translate}}</span>
+            </label>
+            <label class="item item-input" ng-show="select.province!= undefined">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input ng-model="searchbox" type="search" placeholder="{{'MFC_LANDINGSITE_PC' | translate}}">
+            </label>
+        </form>
+
 
       <ion-list ng-hide="searchbox == undefined || user.landingsite != undefined " >
 
-        <ion-item ng-repeat="site in landingsites | filter:searchbox"
+        <ion-item ng-repeat="community in communities_filtered | filter:searchbox"
         site="site"
-        ng-click="select_landingsite(site)">
-        <strong> {{site}} </strong>
+        ng-click="select_landingsite(community.name_key)">
+        <strong> {{community.name_Eng}} </strong>
       </ion-item>
     </ion-list>
   </form>
 
   <ion-item ng-hide="user.landingsite == undefined">
-    <span class="cs-spanwrap">{{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{user.landingsite}}</strong></span>
+    <span class="cs-spanwrap">{{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{getGenericName(user.landingsite, communities)}}</strong></span>
     <div class="text-right">   <button  class="button button-stable" ng-click="change()">
       {{"GEN_CHANGE" | translate}}
     </button> </div>

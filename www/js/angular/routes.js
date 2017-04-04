@@ -79,7 +79,7 @@ angular.module('app.routes', [])
         url: '/camera_popup',
         templateUrl: 'components/camera_popup/camera_popup.html',
         controller: 'photoCtrl'
-    })
+    });
 
 
 
