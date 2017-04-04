@@ -155,5 +155,6 @@
     "PERSONAL_GENDER_REQUIRED": "*Gender (Required)",
     "PERSONAL_GENDER_MALE": "Male",
     "PERSONAL_GENDER_FEMALE": "Female",
-    "PERSONAL_GENDER_VALIDATION": "Please select a gender."
+    "PERSONAL_GENDER_VALIDATION": "Please select a gender.",
+    "MFC_COOP_SELECTED": "Selected Co-op:"
 }

@@ -39,7 +39,9 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
             });
 
 
-            $timeout(function(){canceller.resolve("Request cancelled");}, 15000);
+            $timeout(function(){
+                canceller.resolve("Request cancelled");
+            }, 3000);
 
             canceller = $q.defer();
 
@@ -92,27 +94,42 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
         });
     };
 
-    this.getData = function(endpoint, success, error){
+    this.getData = function(endpoint, successCB, errorCB){
 
         //Show ionic blocking loader with timeout
+        $ionicLoading.show({
+            template: 'Getting new Co-op data. Please wait 15 seconds...'
+            + "<br /><ion-spinner></ion-spinner>"
+        });
 
+        // Simple GET request example:
         $http({
             method: 'GET',
             url: SERVER_IP + endpoint,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Date-header': new Date()
             }
-        }).success(function(data, status, headers, config) {
+        }).then(successCallback , errorCallback );
+
+        function successCallback(response) {
+
+            console.log("RESPONSE HEADERS: " + JSON.stringify(response.headers, null, 4));
+            console.log("DATA FROM SERVER: " + JSON.stringify(response.body, null, 4));
+            console.log("RESPONSE: " + response);
             //Cancel the timeout
-            success(data.data);
+            successCB(response.data);
+
+            $ionicLoading.hide();
 
             // alert("Your data was saved successfully!");
-        }) //end of success
-        .error(function(data, status, headers, config) {
+        }
+
+        function errorCallback(response) {
             $ionicLoading.hide();
-            alert("POST FAILED! " + data);
-            error();
-        });
+            alert("GET FAILED! " + data);
+            errorCB();
+        }
     }
 
 }]);

@@ -154,5 +154,6 @@
     "PERSONAL_GENDER_REQUIRED": "*Geslag",
     "PERSONAL_GENDER_MALE": "Manlik",
     "PERSONAL_GENDER_FEMALE": "Vroulik",
-    "PERSONAL_GENDER_VALIDATION": "Kies asseblief 'n geslag."
+    "PERSONAL_GENDER_VALIDATION": "Kies asseblief 'n geslag.",
+    "MFC_COOP_SELECTED": "U huidige ko-operasie:"
 }

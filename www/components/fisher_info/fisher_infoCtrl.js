@@ -37,14 +37,19 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
 
         nodeServer.getData(endpoint, dataSuccess, dataError);
 
-        function dataSuccess(data){
+        function dataSuccess(response){
+
+            var data = response.data;
+
+            console.log("DEBUG: " + JSON.stringify(data, null, 4));
+            $scope.coops = angular.copy(data);
+
+
             //DATA IS THE ARRAY OF COOPS.
             fileOperations.writeFileCustom("coop_list.csv", "abalobi/register", csvFiles.convertToCSV(data), "application/csv", function(){
                 console.log("Write new list of coops - successful.");
                 console.log(csvFiles.convertToCSV(data));
             });
-
-            $scope.coops = data;
             alert("CO-OP List updated!");
         }
 

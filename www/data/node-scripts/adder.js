@@ -69,7 +69,7 @@ function readFromKb(){
     // console.log('  English: ' + result.eng);
     // console.log('  Afrikaans: ' + result.afr);
     addWithTranslations(result);
-    if (result.end == 'y'){
+    if (result.end === 'y'){
       writeFiles();
     }
     else{
