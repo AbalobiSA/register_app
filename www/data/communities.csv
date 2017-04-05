@@ -1,13 +1,18 @@
-name_key,province,name_Eng,name_Afr
-lambertsbaai,WC,Lamberts Bay,Lambertsbaai
-struisbaai,WC,Struis Bay,Struisbaai
-kleinmond,WC,Kleinmond,Kleinmond
-portnolloth,NC,Port Nolloth,Port Nolloth
-hondeklipbaai,NC,Hondeklip Bay,Hondeklipbaai
-sainthelena,WC,Saint Helena,Saint Helena
-doringbaai,WC,Doring Bay,Doringbaai
-olifants,WC,Olifants,Olifants
-elandsbaai,WC,Elands Bay,Elandsbaai
-democommunity,WC,Demo Community,Demo Gemeenskap
-arniston,WC,Arniston,Waenhuiskrans
-langebaan,WC,Langebaan,Langebaan
+name_key,province,name_Eng,name_Afr,region
+arniston,WC,Arniston,Waenhuiskrans,west_coast
+bettysbay,WC,Bettys Bay,Bettysbaai,west_coast
+capetown,WC,Cape Town,Cape Town,west_coast
+coffeebay,KZN,Coffee Bay,Koffiebaai,kwazulunatal eastern_cape
+democommunity,WC,Demo Community,Demo Gemeenskap,west_coast
+doringbaai,WC,Doring Bay,Doringbaai,west_coast
+elandsbaai,WC,Elands Bay,Elandsbaai,west_coast
+hondeklipbaai,NC,Hondeklip Bay,Hondeklipbaai,west_coast
+kleinmond,WC,Kleinmond,Kleinmond,west_coast
+lambertsbaai,WC,Lamberts Bay,Lambertsbaai,west_coast
+langebaan,WC,Langebaan,Langebaan,west_coast
+olifants,WC,Olifants,Olifants,west_coast
+paternoster,WC,Paternoster,Paternoster,west_coast
+portnolloth,NC,Port Nolloth,Port Nolloth,west_coast
+pringlebay,WC,Pringle Bay,Pringlebaai,west_coast
+sainthelena,WC,Saint Helena,Saint Helena,west_coast
+struisbaai,WC,Struis Bay,Struisbaai,west_coast
