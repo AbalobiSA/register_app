@@ -18,27 +18,27 @@
 
             <ion-list id="register1-list1" class=" " >
                 <label class="item item-input item-select">
-                  <div class="input-label">
-                    {{"PERSONAL_LANGUAGE" | translate}}
-                  </div>
-                  <select ng-model="user.preferred_language">
-                    <option selected>English</option>
-                    <option>Afrikaans</option>
-                    <option>Xhosa</option>
-                  </select>
+                    <div class="input-label">
+                        {{"PERSONAL_LANGUAGE" | translate}}
+                    </div>
+                    <select ng-model="user.preferred_language">
+                        <option selected>English</option>
+                        <option>Afrikaans</option>
+                        <option>Xhosa</option>
+                    </select>
                 </label>
                 <label class="item item-input item-stacked-label " id="register1-input1">
                     <span class="input-label item-text-wrap cs-max-width">{{"PERSONAL_SURNAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.surname" placeholder="{{'PERSONAL_SURNAME_PH' | translate}}" name="Surname" required >
                     <span class="help-block" style="color:red"
-                    ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
+                          ng-show="userForm.Surname.$invalid && userForm.Surname.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input2">
                     <span class="input-label cs-max-width">{{"PERSONAL_NAME_LABEL" | translate}}</span>
                     <input type="text" ng-model="user.name" placeholder="{{'PERSONAL_NAME_PH' | translate}}" name="Name" required>
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.Name.$touched && userForm.Name.$invalid }"
-                    ng-show="userForm.Name.$invalid && userForm.Name.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
+                          ng-show="userForm.Name.$invalid && userForm.Name.$touched">{{"PERSONAL_REQUIRED_FIELD" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input2">
@@ -52,9 +52,9 @@
                     <ion-radio name="gender-selector" ng-model="user.gender" ng-value="'male'">{{"PERSONAL_GENDER_MALE" | translate}}</ion-radio>
                     <ion-radio name="gender-selector" ng-model="user.gender" ng-value="'female'">{{"PERSONAL_GENDER_FEMALE" | translate}}</ion-radio>
                     <span
-                      class="help-block"
-                      style="color:red"
-                      ng-show="userForm.password.$touched && validateGender()">
+                        class="help-block"
+                        style="color:red"
+                        ng-show="userForm.password.$touched && validateGender()">
                      {{"PERSONAL_GENDER_VALIDATION" | translate}}
                     </span>
                 </label>
@@ -64,11 +64,11 @@
                     <span class="input-label cs-max-width">{{"PERSONAL_EMAIL_LABEL" | translate}}</span>
                     <input type="email" ng-model="user.email" placeholder="{{'PERSONAL_EMAIL_PH' | translate}}" name="Email" >
                     <span class="help-block" style="color:red"
-                    ng-show="userForm.Email.$invalid && userForm.Email.$touched && !userForm.Email.$pristine ">{{"PERSONAL_EMAIL_IV" | translate}}</span>
+                          ng-show="userForm.Email.$invalid && userForm.Email.$touched && !userForm.Email.$pristine ">{{"PERSONAL_EMAIL_IV" | translate}}</span>
 
                 </label>
                 <label class="item item-input item-stacked-label " id="register1-input41" ng-show="user.email">
-                  <span class="input-label cs-max-width" style="margin-bottom: 5px;">{{"PERSONAL_EMAIL_OWNERSHIP_QUESTION" | translate}}</span>
+                    <span class="input-label cs-max-width" style="margin-bottom: 5px;">{{"PERSONAL_EMAIL_OWNERSHIP_QUESTION" | translate}}</span>
                     <ion-radio ng-model="user.email_is_my_own" ng-value="true">{{"PERSONAL_EMAIL_OWN_EMAIL" | translate}}</ion-radio>
                     <ion-radio ng-model="user.email_is_my_own" ng-value="false">{{"PERSONAL_EMAIL_NOT_OWN_EMAIL" | translate}}</ion-radio>
                 </label>
@@ -78,9 +78,9 @@
                 <label class="item item-input item-stacked-label " id="register1-input3">
                     <span class="input-label cs-max-width">{{"PERSONAL_ID_LABEL" | translate}}</span>
                     <input disallow-spaces type="text" ng-model="user.id" placeholder="{{'PERSONAL_ID_PH' | translate}}" name="ID"
-                    required>
+                           required>
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.ID.$touched && userForm.ID.$invalid }"
-                    ng-show="!checkID(user.id) && userForm.ID.$touched ">{{"PERSONAL_ID_IV" | translate}}</span>
+                          ng-show="!checkID(user.id) && userForm.ID.$touched ">{{"PERSONAL_ID_IV" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register1-input4">
@@ -94,51 +94,52 @@
                 <label class="item item-input item-stacked-label " id="register2-input5">
                     <span class="input-label cs-max-width">{{"PERSONAL_CELL_LABEL" | translate}}</span>
                     <input disallow-spaces type="tel" name="cell" ng-model="user.cell"
-                    ng-minlength="10"
-                    ng-maxlength="10" required placeholder="{{'PERSONAL_CELL_PH' | translate}}">
+                           ng-minlength="10"
+                           ng-maxlength="10" required placeholder="{{'PERSONAL_CELL_PH' | translate}}">
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
-                    ng-show="userForm.cell.$invalid && userForm.cell.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
+                          ng-show="userForm.cell.$invalid && userForm.cell.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
                 </label>
 
 
 
-            <!-- Device cell number (for monitor and Co-op) -->
-            <label class="item item-input item-stacked-label " ng-show="evaluate_byindex(12)" id="personal_details_device_num">
-                <span class="input-label cs-max-width">{{"PERSONAL_DEV_CELL_LABEL" | translate}}</span>
-                <input  type="tel" name="cell_dev" ng-model="user.cell_dev"
-                ng-minlength="10"
-                ng-maxlength="10"  ng-required="evaluate_byindex(12)" placeholder="{{'PERSONAL_DEV_CELL_PH' | translate}}">
-                <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
-                ng-show="userForm.cell_dev.$invalid && userForm.cell_dev.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
-            </label>
+                <!-- Device cell number (for monitor and Co-op) -->
+                <label class="item item-input item-stacked-label " ng-show="evaluate_byindex(12)" id="personal_details_device_num">
+                    <span class="input-label cs-max-width">{{"PERSONAL_DEV_CELL_LABEL" | translate}}</span>
+                    <input  type="tel" name="cell_dev" ng-model="user.cell_dev"
+                            ng-minlength="10"
+                            ng-maxlength="10"  ng-required="evaluate_byindex(12)" placeholder="{{'PERSONAL_DEV_CELL_PH' | translate}}">
+                    <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
+                          ng-show="userForm.cell_dev.$invalid && userForm.cell_dev.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
+                </label>
 
-            <label class="item item-input item-stacked-label " id="register2-input6">
-                <text  class="input-label item-text-wrap cs-max-width">{{"PERSONAL_PASSWORD_LABEL" | translate}}</text>
-                <input type="password" name="password" ng-model="user.password" ng-change="evaluatePassword()"
-                ng-minlength="6" required="" placeholder="{{'PERSONAL_PASSWORD_PH' | translate}}">
-                <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }"
-                ng-show=" (userForm.password.$invalid ) &&  userForm.password.$touched" >{{"PERSONAL_PASSWORD_IV" | translate}}</span>
-                <span class="help-block" style="color:red" ng-show="evaluatePassword()" >{{"PERSONAL_PASSWORD_V" | translate}}</span>
-            </label>
+                <label class="item item-input item-stacked-label " id="register2-input6">
+                    <text  class="input-label item-text-wrap cs-max-width">{{"PERSONAL_PASSWORD_LABEL" | translate}}</text>
+                    <input type="password" name="password" ng-model="user.password" ng-change="evaluatePassword()"
+                           ng-minlength="6" required="" placeholder="{{'PERSONAL_PASSWORD_PH' | translate}}">
+                    <p> <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.password.$touched && userForm.password.$invalid }"
+                          ng-show=" (userForm.password.$invalid ) &&  userForm.password.$touched" >{{"PERSONAL_PASSWORD_IV" | translate}}</span></p>
+                    <p><span class="help-block" style="color:red" ng-show="evaluatePassword()" >{{"PERSONAL_PASSWORD_V" | translate}}</span></p>
+                </label>
 
-            <label class="item item-input item-stacked-label " id="register2-input7">
-                <span class="input-label cs-max-width">{{"PERSONAL_REPASSWORD_LABEL" | translate}}</span>
-                <input type="password"  name="password1" ng-model="password1" placeholder="{{'PERSONAL_REPASSWORD_PH' | translate}}" required="">
-                <span class="help-block" style="color:red"
-                ng-show="!match(password1) && userForm.password1.$touched" >{{"PERSONAL_REPASSWORD_IV" | translate}}</span>
-            </label>
-        </ion-list>
+                <label class="item item-input item-stacked-label " id="register2-input7">
+                    <span class="input-label cs-max-width">{{"PERSONAL_REPASSWORD_LABEL" | translate}}</span>
+                    <input type="password"  name="password1" ng-model="password1" placeholder="{{'PERSONAL_REPASSWORD_PH' | translate}}" required="">
+                    <p><span class="help-block" style="color:red"
+                          ng-show="!match(password1) && userForm.password1.$touched" >{{"PERSONAL_REPASSWORD_IV" | translate}}</span>
+                    </p>
+                </label>
+            </ion-list>
 
-        <p style="color:red;" ng-show="userForm.$invalid || !match(password1) || customValidation()" > {{"GEN_REQUIRED" | translate}} </p>
+            <p style="color:red;" ng-show="userForm.$invalid || !match(password1) || customValidation()" > {{"GEN_REQUIRED" | translate}} </p>
 
-        <!-- Next button - goes to photo page -->
-        <a  id="register1-button3"  ng-click="next()"
-        ng-disabled="userForm.$invalid || !match(password1) || evaluatePassword() || customValidation()"
-        class=" button button-positive button-block ">{{"GEN_NEXT" | translate}}</a>
-
-
-    </form>
+            <!-- Next button - goes to photo page -->
+            <a  id="register1-button3"  ng-click="next()"
+                ng-disabled="userForm.$invalid || !match(password1) || evaluatePassword() || customValidation()"
+                class=" button button-positive button-block ">{{"GEN_NEXT" | translate}}</a>
 
 
-</ion-content>
+        </form>
+
+
+    </ion-content>
 </ion-view>
