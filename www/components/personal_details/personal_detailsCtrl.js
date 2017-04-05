@@ -114,6 +114,10 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
         }
     };
 
+/*============================================================================
+    Button Navigation
+ ============================================================================*/
+
     //function to go on from personal info
     $scope.next = function() {
 

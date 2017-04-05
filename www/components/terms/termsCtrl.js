@@ -137,7 +137,6 @@ angular.module('app.controllers').controller('termsCtrl', function(
             } else{
                 return false;
             }
-
         }
 
     };

@@ -3,8 +3,9 @@ angular.module('app.controllers').controller('photoCtrl', function($scope, $loca
     Initialization
  ============================================================================*/
 
-$scope.user = {};
+    $scope.user = {};
     $scope.user.usertype = userinfo.getInfo().usertype;
+    $scope.compareUser = angular.copy(userinfo.getInfo());
     // $scope.user = angular.copy(userinfo.getInfo());
 
 /*============================================================================
@@ -18,17 +19,6 @@ $scope.user = {};
 
         }
         return (matrix.evaluate($scope.user.usertype, destinationindex))
-    };
-
-    //save info and continue to next page
-    $scope.next = function() {
-        userinfo.updateInfo($scope.user);
-        $scope.user.usertype = userinfo.getInfo().usertype;
-        if ($scope.evaluate_bystring('photoCtrl_from_photo')) {
-            $location.path('/fisher_info');
-        } else {
-            $location.path('/register');
-        }
     };
 
     //take photo first shows popop selecting either camera or gallery and then saves the photo as well as displays on thumbnail
@@ -86,5 +76,26 @@ $scope.user = {};
                 CameraPopup.close();
             }
         }
-    }
+    };
+
+/*============================================================================
+    Buttons
+ ============================================================================*/
+
+    //save info and continue to next page
+    $scope.next = function() {
+        userinfo.updateInfo($scope.user);
+        $scope.user.usertype = userinfo.getInfo().usertype;
+        if ($scope.evaluate_bystring('photoCtrl_from_photo')) {
+            $location.path('/fisher_info');
+        } else {
+            if ($scope.compareUser.is_also_fisher !== undefined && $scope.compareUser.is_also_fisher === true){
+                $location.path('/fisher_info');
+            } else{
+                $location.path('/register');
+            }
+        }
+    };
+
+
 }); //photoCtrl
