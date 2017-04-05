@@ -118,6 +118,30 @@ angular.module('app.controllers').controller('termsCtrl', function(
         return (matrix.evaluate($scope.user.usertype, destinationindex))
     };
 
+
+    $scope.invalidateNext = function(){
+        return ($scope.user.usertype === null || $scope.user.usertype === undefined || managerFisherQuestion());
+
+        function managerFisherQuestion(){
+            if ($scope.user.usertype === "fisher_manager"){
+                switch ($scope.user.is_also_fisher){
+                    case undefined:
+                    case null:
+                    case "":
+                        return true;
+                        break;
+                    case true:
+                    case false:
+                        return false;
+                }
+            } else{
+                return false;
+            }
+
+        }
+
+    };
+
 /*============================================================================
     Button Clicks
  ============================================================================*/
