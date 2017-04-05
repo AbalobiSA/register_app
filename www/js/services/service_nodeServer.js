@@ -164,7 +164,7 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
 
         function errorCallback(response) {
             $ionicLoading.hide();
-            alert("GET FAILED! " + data);
+            // alert("GET FAILED!");
             errorCB();
         }
     }

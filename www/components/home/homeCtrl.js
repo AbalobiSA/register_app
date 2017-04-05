@@ -8,7 +8,7 @@ angular.module('app.controllers').controller('homectrl', function(
 
     function onDeviceReady() {
         cordova.getAppVersion(function(version) {
-            alert(version);
+            // alert(version);
             $scope.appVersion = version;
             $scope.user.app_version = version;
             userinfo.updateInfo($scope.user);
@@ -24,9 +24,9 @@ angular.module('app.controllers').controller('homectrl', function(
                 userinfo.updateInfo($scope.user);
             })
         } catch(ex){
-            // console.log("MAJOR ERROR: " + ex);
-            $scope.appVersion = "0.5.0";
-            $scope.user.app_version =  "0.5.0";
+            //This will happen when run on a browser
+            $scope.appVersion = "browser";
+            $scope.user.app_version =  "browser";
         }
 
     });
@@ -72,7 +72,8 @@ angular.module('app.controllers').controller('homectrl', function(
         }
 
         function errorCB(response){
-
+            alert("Unable to check for updates.\n" +
+                "Please check your network settings.");
         }
 
     };
