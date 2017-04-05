@@ -13,7 +13,6 @@ angular.module('app.controllers').controller('termsCtrl', function(
     $scope.user = angular.copy(userinfo.getInfo());
     $scope.user.usertype = angular.copy(userinfo.getInfo().usertype);
 
-
     $scope.$on('$ionicView.beforeEnter', function() {
 
         csvFiles.init(function(){
@@ -24,7 +23,7 @@ angular.module('app.controllers').controller('termsCtrl', function(
         })
     });
 
-    //variable that indicates whether usertype has been defined
+    //variable that indicates whether userType has been defined
     var USERTYPE_DEFINED = false;
 
 /*============================================================================

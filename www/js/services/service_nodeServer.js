@@ -130,6 +130,43 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
             alert("GET FAILED! " + data);
             errorCB();
         }
+    };
+
+    this.checkVersion = function(endpoint, sentVersion, successCB, errorCB){
+        //Show ionic blocking loader with timeout
+        $ionicLoading.show({
+            template: "Checking for updates, please wait..."
+            + "<br /><ion-spinner></ion-spinner>"
+        });
+
+        // Simple GET request example:
+        $http({
+            method: 'GET',
+            url: SERVER_IP + endpoint,
+            headers: {
+                'Content-Type': 'application/json',
+                'currentversion': sentVersion
+            }
+        }).then(successCallback , errorCallback );
+
+        function successCallback(response) {
+
+            console.log("RESPONSE HEADERS: " + JSON.stringify(response.headers, null, 4));
+            console.log("DATA FROM SERVER: " + JSON.stringify(response.body, null, 4));
+            console.log("RESPONSE: " + response);
+            //Cancel the timeout
+            successCB(response.data);
+
+            $ionicLoading.hide();
+
+            // alert("Your data was saved successfully!");
+        }
+
+        function errorCallback(response) {
+            $ionicLoading.hide();
+            alert("GET FAILED! " + data);
+            errorCB();
+        }
     }
 
 }]);

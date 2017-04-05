@@ -1,4 +1,5 @@
-angular.module('app.controllers').controller('homectrl', function($scope, $localStorage, $location, strings, matrix, $ionicHistory, userinfo) {
+angular.module('app.controllers').controller('homectrl', function(
+    $scope, $localStorage, $location, strings, matrix, $ionicHistory, userinfo, nodeServer) {
 
 /*============================================================================
      Initialization
@@ -7,6 +8,7 @@ angular.module('app.controllers').controller('homectrl', function($scope, $local
 
     function onDeviceReady() {
         cordova.getAppVersion(function(version) {
+            alert(version);
             $scope.appVersion = version;
             $scope.user.app_version = version;
             userinfo.updateInfo($scope.user);
@@ -17,12 +19,14 @@ angular.module('app.controllers').controller('homectrl', function($scope, $local
 
         try{
             cordova.getAppVersion(function(version) {
-                // $scope.appVersion;
+                $scope.appVersion = version;
                 $scope.user.app_version = version;
                 userinfo.updateInfo($scope.user);
             })
         } catch(ex){
             // console.log("MAJOR ERROR: " + ex);
+            $scope.appVersion = "0.5.0";
+            $scope.user.app_version =  "0.5.0";
         }
 
     });
@@ -31,11 +35,11 @@ angular.module('app.controllers').controller('homectrl', function($scope, $local
     userinfo.updateInfo($localStorage.user);
 
 /*============================================================================
-     Functions
+    Buttons
  ============================================================================*/
 
     //clear function clears all information including localStorage
-    $scope.clear = function() {
+    $scope.button_clear = function() {
 
         $localStorage.$reset();
         userinfo.clearInfo();
@@ -53,12 +57,36 @@ angular.module('app.controllers').controller('homectrl', function($scope, $local
         }
     };
 
-    //evaluates the current network connection and warns user if offline
-    $scope.network = function() {
+    $scope.button_check_for_updates = function(){
+        // $scope.appVersion = version;
+        nodeServer.checkVersion("/version_registerapp", $scope.appVersion, successCB, errorCB);
+
+        function successCB(response){
+            // console.log("RESPONSE: " + JSON.stringify(response, null, 4));
+            if (response.updateAvailable === true){
+                alert("There is an update available on the play store!");
+                window.open('https://play.google.com/store/apps/details?id=com.abalobi.register', '_system')
+            } else{
+                alert("You currently have the latest version of the app.");
+            }
+        }
+
+        function errorCB(response){
+
+        }
+
+    };
+
+    $scope.button_register = function() {
         var networkState = navigator.connection.type;
 
-        if (networkState == "none") {
+        if (networkState === "none") {
             alert(strings.get_translation(strings.HOME_NO_CONNECTION))
         }
     }
+
+/*============================================================================
+    Other Functions
+ ============================================================================*/
+
 }); //end home controller

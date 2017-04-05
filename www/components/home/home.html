@@ -5,25 +5,27 @@
             <img src="img/abalobi.jpg" class="main-screen-image" width="70%" height="auto" style="">
         </div>
 
-        <a ui-sref="terms" ng-click="network()" id="abalobiRegister-button1" class=" button button-positive  button-block ">
+        <a ui-sref="terms" ng-click="button_register()" id="abalobiRegister-button1" class=" button button-abalobi-1 padding button-block ">
             {{"HOME_REGISTER_ME" | translate}}
         </a>
 
-        <a ng-click="clear()" class=" button button-positive  button-block  ">{{"HOME_CLEAR" | translate}}</a>
+        <a ng-click="button_clear()" class=" button button-abalobi-2 padding button-block  ">{{"HOME_CLEAR" | translate}}</a>
 
-        <a ng-click="check_for_updates()" class=" button button-positive  button-block  ">{{"HOME_CLEAR" | translate}}</a>
+        <div class="cs-spacer"></div>
+
+        <a ng-click="button_check_for_updates()" class=" button button-abalobi-1 padding button-block  ">Check for updates</a>
 
         <!-- Button container -->
         <div class="row row-custom">
             <!--Left button-->
             <div id="cs-split-left" class="col col-50">
-                <a href="" class="button button-positive button-half" ng-disabled="true">
+                <a href="" class="button button-abalobi-3 padding button-half" ng-disabled="true">
                     View Stored Registration
                 </a>
             </div>
             <!--Right button-->
             <div id="cs-split-right" class="col col-50">
-                <a href="#" onclick="window.open('http://abalobi.info/', '_system', 'location=yes'); return false;" id="abalobiRegister-button2" class=" button button-calm button-half">{{"HOME_VISIT_WEBSITE" | translate}}</a>
+                <a href="#" onclick="window.open('http://abalobi.info/', '_system', 'location=yes'); return false;" id="abalobiRegister-button2" class=" button button-abalobi-2 padding button-half">{{"HOME_VISIT_WEBSITE" | translate}}</a>
             </div>
         </div>
         <p style="text-align:right; margin-top: 5%"> Version : {{appVersion}} </p>
