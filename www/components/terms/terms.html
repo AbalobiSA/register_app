@@ -37,8 +37,8 @@
                     <div class="cs-spacer"></div>
                     <h4>{{"TERMS_ASK_FISHING" | translate}}</h4>
                     <ion-list>
-                        <ion-radio name="fisher_question" ng-model="user.is_also_fisher" ng-value="true">{{"TERMS_DESCRIBE_CHOICE_YES"| translate}}</ion-radio>
-                        <ion-radio name="fisher_question" ng-model="user.is_also_fisher" ng-value="false">{{"TERMS_DESCRIBE_CHOICE_NO"| translate}}</ion-radio>
+                        <ion-radio name="fisher_question" ng-model="$parent.user.is_also_fisher" ng-value="true">{{"TERMS_DESCRIBE_CHOICE_YES"| translate}}</ion-radio>
+                        <ion-radio name="fisher_question" ng-model="$parent.user.is_also_fisher" ng-value="false">{{"TERMS_DESCRIBE_CHOICE_NO"| translate}}</ion-radio>
                     </ion-list>
                 </div>
 

@@ -118,6 +118,10 @@ angular.module('app.controllers').controller('termsCtrl', function(
         return (matrix.evaluate($scope.user.usertype, destinationindex))
     };
 
+/*============================================================================
+    Button Clicks
+ ============================================================================*/
+
     $scope.leave_terms = function() {
 
         //function either opens modal or routes depending on scope.user.usertype
@@ -136,7 +140,16 @@ angular.module('app.controllers').controller('termsCtrl', function(
                     modal.hide();
                     //route_MFC_personaldetails
                     if ($scope.evaluate_bystring('termsCtrl_from_modal')) {
-                        $location.path('/monitor_fmanager_CoOp');
+
+                        // alert($scope.user.is_also_fisher);
+
+                        //Check if user is also a fisher
+                        if ($scope.user.is_also_fisher !== undefined && $scope.user.is_also_fisher === true){
+                            $location.path('/personal_details');
+                        } else{
+                            $location.path('/monitor_fmanager_CoOp');
+                        }
+
                     } else { // == fisher
                         $location.path('/personal_details');
                     }
@@ -146,10 +159,15 @@ angular.module('app.controllers').controller('termsCtrl', function(
         //termstoMFC_personaldetails
         else if ($scope.evaluate_bystring('termsCtrl_from_terms')) {
             userinfo.updateInfo($scope.user);
-            $location.path('/monitor_fmanager_CoOp');
+            //Check if user is also a fisher
+            if ($scope.user.is_also_fisher !== undefined && $scope.user.is_also_fisher === true){
+                $location.path('/personal_details');
+            } else{
+                $location.path('/monitor_fmanager_CoOp');
+            }
         } else {
             userinfo.updateInfo($scope.user);
-            $location.path('/personal_details')
+            $location.path('/personal_details');
         }
     }
 }); //end terms controller
