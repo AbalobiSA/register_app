@@ -362,6 +362,12 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
         }
     };
 
+    this.saveToPipeline = function(input){
+        // var temp = angular.copy(dataStore);
+        var archiveFileName = createFileTimestamp();
+        fo.writeFileCustom((archiveFileName).toString(), "abalobi/register/pipeline", JSON.stringify(input));
+    };
+
     this.getFileSafe = function(filepath, successCallback, errorCallback){
 
         document.addEventListener("deviceready", onDeviceReady, false);

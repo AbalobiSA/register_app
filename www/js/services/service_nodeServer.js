@@ -1,5 +1,6 @@
-angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$ionicPopover', '$ionicLoading', '$timeout', '$q', 'strings',
-    function($http, $ionicPopup, $ionicPopover, $ionicLoading, $timeout, $q, strings) {
+angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$ionicPopover', '$ionicLoading',
+'$timeout', '$q', 'strings', '$state', 'OPENFN_URL', 'userinfo',
+    function($http, $ionicPopup, $ionicPopover, $ionicLoading, $timeout, $q, strings, $state, OPENFN_URL, userinfo) {
 
 
     var SERVER_IP = "http://197.85.186.65:8080";
@@ -130,6 +131,26 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
             alert("GET FAILED! " + data);
             errorCB();
         }
+    };
+
+    this.postRegistration = function(successCB, errorCB){
+        var canceller;
+
+        $timeout(function(){canceller.resolve("Request cancelled");}, 15000);
+
+        canceller = $q.defer();
+
+        $http({
+            method: 'POST',
+            url: OPENFN_URL,
+            data: JSON.stringify(userinfo.getInfo()),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            timeout: canceller.promise
+        })
+        .success(successCB)
+        .error(errorCB)
     };
 
     this.checkVersion = function(endpoint, sentVersion, successCB, errorCB){

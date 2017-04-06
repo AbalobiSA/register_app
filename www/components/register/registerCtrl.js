@@ -1,29 +1,41 @@
-angular.module('app.controllers').controller('registerCtrl', function($scope, $q, $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
+angular.module('app.controllers').controller('registerCtrl',
+function($scope, $q, $location, $ionicLoading, $http, $timeout,
+$ionicHistory, $localStorage, language, userinfo, Storage,
+OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeServer) {
 /*============================================================================
     Initialization
  ============================================================================*/
-    console.log("USER: " + JSON.stringify($scope.user));
+
+    console.log("OLD USER INFO: " + JSON.stringify($scope.user));
     // $scope.user = angular.copy(userinfo.getInfo());
     $scope.user = {};
-    console.log("USER2: " + JSON.stringify($scope.user));
-
-
 
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
         console.log(device.cordova);
         console.log("MAIN USERINFO: " + JSON.stringify(userinfo.getInfo()));
+
+        loadUserInfo();
+        loadDeviceInfo();
+
+    }
+
+    function loadUserInfo(){
+        //loads information for display and check by user
         $scope.user.name = userinfo.getInfo().name;
         $scope.user.surname = userinfo.getInfo().surname;
         $scope.user.id = userinfo.getInfo().id;
         $scope.user.cell = userinfo.getInfo().cell;
 
+        // //loads information for CO-OP registration
         $scope.user.coop_admin_name = userinfo.getInfo().coop_admin_name;
         $scope.user.coop_admin_surname = userinfo.getInfo().coop_admin_surname;
         $scope.user.coop_admin_id = userinfo.getInfo().coop_admin_id;
         $scope.user.co_op_name = userinfo.getInfo().co_op_name;
-        //
+    }
+
+    function loadDeviceInfo(){
         $scope.user.device_manufacturer = device.manufacturer;
         $scope.user.device_model = device.model;
         $scope.user.device_platform = device.platform;
@@ -34,34 +46,21 @@ angular.module('app.controllers').controller('registerCtrl', function($scope, $q
         userinfo.updateInfo($scope.user);
     }
 
-    //loads information for display and check by user
-    $scope.user.name = userinfo.getInfo().name;
-    $scope.user.surname = userinfo.getInfo().surname;
-    $scope.user.id = userinfo.getInfo().id;
-    $scope.user.cell = userinfo.getInfo().cell;
+    loadUserInfo();
 
-    // //loads information for CO-OP registration
-    $scope.user.coop_admin_name = userinfo.getInfo().coop_admin_name;
-    $scope.user.coop_admin_surname = userinfo.getInfo().coop_admin_surname;
-    $scope.user.coop_admin_id = userinfo.getInfo().coop_admin_id;
-    $scope.user.co_op_name = userinfo.getInfo().co_op_name;
+
 
 
 /*============================================================================
-    Main Functions
+    Main Methods
  ============================================================================*/
 
     $scope.register = function() {
-
-        $scope.showSpinner = false;
-        //checks sms permissions and tells user to check inbox if no permission
-        // checkSms.checkSMSPermission();
 
         //saves info before post
         userinfo.updateInfo($scope.user);
 
         //checks for network connection if no connection prompt user to store offline else proceed to post
-
         var networkState;
         try{
             networkState = navigator.connection.type;
@@ -71,120 +70,87 @@ angular.module('app.controllers').controller('registerCtrl', function($scope, $q
 
         //if no connection
         if (networkState === "none") {
-            var confirm = window.confirm(strings.get_translation(strings.REGISTER_OFFLINE));
-            if (confirm === true) {
-                $localStorage.user = angular.copy(userinfo.getInfo());
-                alert(strings.get_translation(strings.REGISTER_INFO_STORED));
-            }
+            storeFormPrompt();
         }
 
         //else connection is present
         else {
-
             //prompts whether the info is correct
-            var x = window.confirm(strings.get_translation(strings.REGISTER_INFO_CONFIRM));
-            //Add below for debugging
-            // alert(JSON.stringify(userinfo.getInfo(), null, 2))
-            if (x === true) {
-
-                //disable user while waiting
-                // if (language.getInfo() == "afr") {
-                //   $ionicLoading.show({
-                //     template: "U registrasie word ingedien. U behoort binne "
-                //     + SMS_TIMEOUT_PERIOD
-                //     + "s 'n bevestigings SMS te ontvang - wag asseblief..."
-                //   });
-                // } else {
-                //   $ionicLoading.show({
-                //     template: 'Your registration is being submitted. You should receive a confirmation SMS within '
-                //     + SMS_TIMEOUT_PERIOD
-                //     + 's - please wait...'
-                //   });
-                // }
-
-                //post http function with success and error results
-
-                var canceller;
-                //TODO: Carl - Create Spinner here
-                $scope.showSpinner = true;
-                if (language.getInfo() === "afr") {
-                    $ionicLoading.show({
-                        template: "U registrasie word ingedien. Wag asseblief 15s..."
-                        + "<br /><ion-spinner></ion-spinner>"
-                    });
-                } else {
-                    $ionicLoading.show({
-                        template: 'Your registration is being submitted. Please wait 15 seconds...'
-                        + "<br /><ion-spinner></ion-spinner>"
-                    });
-                }
-
-                $timeout(function(){canceller.resolve("Request cancelled");}, 15000);
-
-                canceller = $q.defer();
-
-                $http({
-                    method: 'POST',
-                    url: OPENFN_URL,
-                    data: JSON.stringify(userinfo.getInfo()),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    timeout: canceller.promise
-                }).success(function(data, status, headers, config) {
-
-                    //Cancel the timeout
-
-                    // $timeout.cancel(timeout);
-                    $ionicLoading.hide();
-                    $scope.showSpinner = false;
-
-                    alert(strings.get_translation(strings.REGISTER_SUCCESS));
-                    //start timeout call
-                    // var timeout = $timeout(function() {
-                    //   alert(strings.get_translation(strings.REGISTER_TIMEOUT))
-                    //   $ionicLoading.hide()
-                    // }, SMS_TIMEOUT_PERIOD * 1000);
-
-                    //initialize sms plugin
-                    var smsInboxPlugin = cordova.require('cordova/plugin/smsinboxplugin');
-
-                    //start sms plugin listening
-                    /*
-                     smsInboxPlugin.startReception(function(msg) {
-
-                     //filter recieved sms (msg) to see whether it contains tag and on
-                     //success notify user of success, cancel timeout and
-                     if (msg.indexOf("[Abalobi Registration]") >= 0) {
-
-                     $timeout.cancel(timeout);
-                     alert(strings.get_translation(strings.REGISTER_SUCCESS) +
-                     "\n" + msg);
-
-                     //stop sms plugin listening disable loading status and route user to home, clean storage on successful submission
-                     smsInboxPlugin.stopReception(function() {
-                     $localStorage.$reset();
-                     $ionicLoading.hide()
-                     $location.path('/home.html')
-                     $ionicHistory.clearCache();
-                     userinfo.clearInfo()
-                     $scope.$apply();
-                     }, function() {
-                     alert("Error while stopping the SMS receiver");
-                     });
-                     }
-                     }) // end of startReception
-                     */
-                }) //end of success
-
-                    .error(function(data, status, headers, config) {
-                        $ionicLoading.hide();
-                        alert(strings.get_translation(strings.REGISTER_FAIL) + data);
-                    });
-
-
-            } //end "if true"
+            postRegistrationPrompt();
         }
+    };
+
+/*============================================================================
+    Functions
+ ============================================================================*/
+
+    /**
+     * Ask if details are correct, then try to send to OpenFn.
+     * Success -> clear forms
+     * Fail -> save form to pipeline
+     */
+    function postRegistrationPrompt(){
+        var x = window.confirm(strings.get_translation(strings.REGISTER_INFO_CONFIRM));
+        if (x === true) {
+            showLoadingScreen();
+
+            nodeServer.postRegistration(postSuccess, postError);
+
+            function postSuccess(data, status, headers, config){
+                $ionicLoading.hide();
+                alert(strings.get_translation(strings.REGISTER_SUCCESS));
+                clearForm();
+                $state.go("home");
+            }
+
+            function postError(data, status, headers, config){
+                $ionicLoading.hide();
+                alert(strings.get_translation(strings.REGISTER_FAIL) + data);
+                saveFormToPipeline();
+                $state.go("home");
+            }
+        } //end "if true"
+    }
+
+
+
+    function storeFormPrompt(){
+        var confirm = window.confirm(strings.get_translation(strings.REGISTER_OFFLINE));
+        if (confirm === true) {
+
+            saveFormToPipeline();
+            alert(strings.get_translation(strings.REGISTER_INFO_STORED));
+            $state.go("home");
+        }
+    }
+
+    function showLoadingScreen(){
+        if (language.getInfo() === "afr") {
+            $ionicLoading.show({
+                template: "U registrasie word ingedien. Wag asseblief 15s..."
+                + "<br /><ion-spinner></ion-spinner>"
+            });
+        } else {
+            $ionicLoading.show({
+                template: 'Your registration is being submitted. Please wait 15 seconds...'
+                + "<br /><ion-spinner></ion-spinner>"
+            });
+        }
+    }
+
+    function saveFormToPipeline(){
+        $localStorage.user = angular.copy(userinfo.getInfo());
+        fileOperations.saveToPipeline(angular.copy($localStorage.user));
+
+        clearForm();
+    }
+
+    function clearForm(){
+        // $localStorage.user = angular.copy({});
+        // $scope.user = angular.copy({});
+        $localStorage.$reset();
+        userinfo.clearInfo();
+        $ionicHistory.clearCache();
     }
 
 }); //end registerCtrl
