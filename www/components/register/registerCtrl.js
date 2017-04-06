@@ -18,7 +18,6 @@ OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeS
 
         loadUserInfo();
         loadDeviceInfo();
-
     }
 
     function loadUserInfo(){
@@ -48,9 +47,6 @@ OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeS
 
     loadUserInfo();
 
-
-
-
 /*============================================================================
     Main Methods
  ============================================================================*/
@@ -62,6 +58,9 @@ OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeS
 
         //checks for network connection if no connection prompt user to store offline else proceed to post
         var networkState;
+
+        // If you can't get connection, you are probably using a browser.
+        // Force the connection to CELL_4G
         try{
             networkState = navigator.connection.type;
         } catch (ex){
@@ -113,7 +112,9 @@ OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeS
     }
 
 
-
+    /**
+     * Ask user if they want to store form for later, or do nothing
+     */
     function storeFormPrompt(){
         var confirm = window.confirm(strings.get_translation(strings.REGISTER_OFFLINE));
         if (confirm === true) {

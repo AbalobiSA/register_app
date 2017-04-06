@@ -211,14 +211,10 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
             var directoryEntry = fileSystem.root;
             //Try create the directory first
             console.log("CREATING PIPELINE:::");
-            createDirectory(fileSystem.root, "abalobi/monitorsurvey/pipeline", function(info){
+            createDirectory(fileSystem.root, "abalobi/register/pipeline", function(info){
                 // console.log("Pipeline created.");
-                directoryEntry.getDirectory("abalobi/monitorsurvey/pipeline", {create: false, exclusive: false}, onDirectorySuccess, onDirectoryFail);
+                directoryEntry.getDirectory("abalobi/register/pipeline", {create: false, exclusive: false}, onDirectorySuccess, onDirectoryFail);
             });
-
-
-
-
         }
 
         function onDirectorySuccess(parent) {
@@ -232,7 +228,7 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
         }
 
         function success(entries) {
-            if (entries.length == 0){
+            if (entries.length === 0){
                 // console.log("No Records");
                 callback(0);
             }
@@ -304,7 +300,7 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
 
         function onFileSystemSuccess(fileSystem) {
             var directoryEntry = fileSystem.root;
-            directoryEntry.getDirectory("abalobi/monitorsurvey/pipeline", {create: false, exclusive: false}, onDirectorySuccess, onDirectoryFail);
+            directoryEntry.getDirectory("abalobi/register/pipeline", {create: false, exclusive: false}, onDirectorySuccess, onDirectoryFail);
         }
 
         function onDirectorySuccess(parent) {
@@ -319,7 +315,7 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
         }
 
         function success(entries) {
-            if (entries.length == 0){
+            if (entries.length === 0){
                 // console.log("No Records");
                 errorCallback();
                 // callback(0);
@@ -335,7 +331,7 @@ angular.module('app.services').service('fileOperations', ['$ionicPopup', '$state
                         reader.onloadend = function() {
                             // console.log("Successful file read: " + this.result);
                             // displayFileData(fileEntry.fullPath + ": " + this.result);
-                            successCallback(this.result, "abalobi/monitorsurvey/pipeline/", file.name);
+                            successCallback(this.result, "abalobi/register/pipeline/", file.name);
                         };
 
                         reader.readAsText(file);

@@ -153,6 +153,26 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
         .error(errorCB)
     };
 
+    this.postRegistrationManually = function(data, successCB, errorCB){
+        var canceller;
+
+        $timeout(function(){canceller.resolve("Request cancelled");}, 15000);
+
+        canceller = $q.defer();
+
+        $http({
+            method: 'POST',
+            url: OPENFN_URL,
+            data: data,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            timeout: canceller.promise
+        })
+            .success(successCB)
+            .error(errorCB)
+    };
+
     this.checkVersion = function(endpoint, sentVersion, successCB, errorCB){
         //Show ionic blocking loader with timeout
         $ionicLoading.show({

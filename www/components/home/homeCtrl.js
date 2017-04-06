@@ -1,5 +1,5 @@
 angular.module('app.controllers').controller('homectrl', function(
-    $scope, $localStorage, $location, strings, matrix, $ionicHistory, userinfo, nodeServer) {
+    $scope, $localStorage, $location, strings, matrix, $ionicHistory, userinfo, nodeServer, fileOperations) {
 
 /*============================================================================
      Initialization
@@ -14,6 +14,17 @@ angular.module('app.controllers').controller('homectrl', function(
             userinfo.updateInfo($scope.user);
         })
     }
+
+    $scope.$on( "$ionicView.beforeEnter", function() {
+
+        $scope.unsent_form_count = 0;
+
+        fileOperations.getFileCount(function(number){
+            $scope.unsent_form_count = number;
+            $scope.$apply();
+        });
+
+    });
 
     $scope.$on('$ionicView.enter', function() {
 
@@ -84,10 +95,67 @@ angular.module('app.controllers').controller('homectrl', function(
         if (networkState === "none") {
             alert(strings.get_translation(strings.HOME_NO_CONNECTION))
         }
+    };
+
+    $scope.button_send_forms = function(){
+
+    };
+
+    $scope.sendPipelineForms = function(){
+        //TODO: Read in every form in the pipeline, and send one by one
+
+        fileOperations.getPipelineForms(success, error);
+
+        //This will run once for each file in the system.
+        function success(fileData, filePath, fileName){
+
+            //Upload the file
+            upload(fileData, function(){
+
+                //Uploaded, now archive
+                // fileOperations.writeFileCustom(fileName, "abalobi/monitorsurvey/archive", fileData);
+
+                //Delete from pipeline upon successful upload
+                fileOperations.deleteFile(filePath + fileName, function(){
+                    //Done!
+
+                    //Reset the number of forms in the pipeline
+                    fileOperations.getFileCount(function(number){
+                        $scope.unsent_form_count = number;
+                        $scope.$apply();
+                        updateViewCycle();
+                    });
+
+                }, error);
+            });
+        }
+
+        function error(){
+            //Reset the number of forms in the pipeline
+            fileOperations.getFileCount(function(number){
+                $scope.unsent_form_count = number;
+                $scope.$apply();
+            });
+
+            console.err("AN ERROR HAS OCCURRED!");
+        }
+    };
+
+    function upload(input, success){
+
+        var SEND_TO_LOCALHOST = false;
+
+        if (SEND_TO_LOCALHOST){
+            // openFn.postLocally(input, prepareNewFormState, preserveData);
+        } else{
+            nodeServer.postRegistrationManually(input, success, function(){});
+        }
     }
 
 /*============================================================================
     Other Functions
  ============================================================================*/
-
+    $scope.unsentFormsExist = function(){
+        return !$scope.unsent_form_count > 0;
+    }
 }); //end home controller
