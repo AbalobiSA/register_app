@@ -115,11 +115,10 @@ angular.module('app.controllers').controller('homectrl', function(
         //This will run once for each file in the system.
         function success(fileData, filePath, fileName){
 
-            showLoadingScreen();
-
             //Upload the file
             upload(fileData, function(){
 
+                showLoadingScreen();
                 //Uploaded, now archive
                 // fileOperations.writeFileCustom(fileName, "abalobi/monitorsurvey/archive", fileData);
 
