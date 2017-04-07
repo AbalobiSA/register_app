@@ -9,17 +9,22 @@
             {{"HOME_REGISTER_ME" | translate}}
         </a>
 
-        <a ng-click="button_clear()" class=" button button-abalobi-2 padding button-block  ">{{"HOME_CLEAR" | translate}}</a>
-
-        <div class="cs-spacer"></div>
-
-        <a ng-click="button_check_for_updates()" class=" button button-abalobi-1 padding button-block  ">Check for updates</a>
-
         <button class="button button-abalobi-3 padding button-block" ng-disabled="unsentFormsExist()" ng-click="sendPipelineForms()">
             Send saved forms ({{unsent_form_count}})
         </button>
 
-        <button ng-click="window.open('http://abalobi.info/', '_system', 'location=yes');" id="abalobiRegister-button2" class=" button button-abalobi-2 padding button-block">{{"HOME_VISIT_WEBSITE" | translate}}</button>
+        <div class="cs-spacer"></div>
+
+        <a ng-click="button_clear()" class=" button button-abalobi-2 padding button-block  ">{{"HOME_CLEAR" | translate}}</a>
+
+        <a onclick="window.open('http://abalobi.info/', '_system', 'location=yes');" id="abalobiRegister-button2" class=" button button-abalobi-2 padding button-block">{{"HOME_VISIT_WEBSITE" | translate}}</a>
+
+        <div class="cs-spacer"></div>
+
+        <button ng-click="button_check_for_updates()" class=" button button-abalobi-1 padding button-block  ">Check for updates</button>
+
+
+
 
         <p style="text-align:right; margin-top: 5%"> Version : {{appVersion}} </p>
     </ion-content>

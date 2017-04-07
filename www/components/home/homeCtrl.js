@@ -1,5 +1,5 @@
 angular.module('app.controllers').controller('homectrl', function(
-    $scope, $localStorage, $location, strings, matrix, $ionicHistory, userinfo, nodeServer, fileOperations) {
+    $scope, $localStorage, $location, strings, matrix, $ionicHistory, userinfo, nodeServer, fileOperations, language, $ionicLoading) {
 
 /*============================================================================
      Initialization
@@ -41,6 +41,12 @@ angular.module('app.controllers').controller('homectrl', function(
         }
 
     });
+
+
+    $scope.$on('$ionicView.afterEnter', function() {
+        $scope.$apply();
+    });
+
     //loads info from localStorage if user saved info offline
     $scope.user = {};
     userinfo.updateInfo($localStorage.user);
@@ -104,10 +110,12 @@ angular.module('app.controllers').controller('homectrl', function(
     $scope.sendPipelineForms = function(){
         //TODO: Read in every form in the pipeline, and send one by one
 
-        fileOperations.getPipelineForms(success, error);
+        fileOperations.getPipelineForms(success, errorFileRead);
 
         //This will run once for each file in the system.
         function success(fileData, filePath, fileName){
+
+            showLoadingScreen();
 
             //Upload the file
             upload(fileData, function(){
@@ -126,29 +134,47 @@ angular.module('app.controllers').controller('homectrl', function(
                         updateViewCycle();
                     });
 
-                }, error);
-            });
+                    hideLoadingScreen();
+
+                }, errorFileRead);
+            }, errorPost);
         }
 
-        function error(){
+        function errorFileRead(){
             //Reset the number of forms in the pipeline
             fileOperations.getFileCount(function(number){
                 $scope.unsent_form_count = number;
                 $scope.$apply();
             });
 
-            console.err("AN ERROR HAS OCCURRED!");
+            console.err("Unable to read the pipeline files!");
+        }
+
+        function errorPost(){
+            //Reset the number of forms in the pipeline
+            fileOperations.getFileCount(function(number){
+                $scope.unsent_form_count = number;
+                $scope.$apply();
+            });
+
+            alert("Unable to submit your forms. Please check your network settings and try again.");
+
+            console.err("Unable to post to OpenFn!");
         }
     };
 
-    function upload(input, success){
+    function upload(input, success, error){
+
+        if (error === undefined){
+            error = function(){};
+        }
 
         var SEND_TO_LOCALHOST = false;
 
         if (SEND_TO_LOCALHOST){
             // openFn.postLocally(input, prepareNewFormState, preserveData);
         } else{
-            nodeServer.postRegistrationManually(input, success, function(){});
+            nodeServer.postRegistrationManually(input, success, error);
         }
     }
 
@@ -157,5 +183,23 @@ angular.module('app.controllers').controller('homectrl', function(
  ============================================================================*/
     $scope.unsentFormsExist = function(){
         return !$scope.unsent_form_count > 0;
+    };
+
+    function showLoadingScreen(){
+        if (language.getInfo() === "afr") {
+            $ionicLoading.show({
+                template: "U registrasie word ingedien. Wag asseblief 15s..."
+                + "<br /><ion-spinner></ion-spinner>"
+            });
+        } else {
+            $ionicLoading.show({
+                template: 'Submitting all registrations - Please wait 15 seconds...'
+                + "<br /><ion-spinner></ion-spinner>"
+            });
+        }
+    }
+
+    function hideLoadingScreen(){
+        $ionicLoading.hide();
     }
 }); //end home controller
