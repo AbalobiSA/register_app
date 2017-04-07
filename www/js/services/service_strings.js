@@ -52,7 +52,7 @@ angular.module('app.strings', [])
         },
         "UPLOAD_CONNECTION_ERROR" : {
             "en" : "Unable to submit your forms. Please check your network settings and try again.",
-            "afr" : "Unable to submit your forms. Please check your network settings and try again."
+            "afr" : "Kon nie u vorms stuur nie. Maak asseblief seker u netwerk verstellings is reg en probeer weer."
         },
         "UPLOAD_PIPELINE_ERROR" : {
             "en" : "REPLACE_ME",
@@ -60,15 +60,15 @@ angular.module('app.strings', [])
         },
         "UPDATE_CONNECTION_ERROR" : {
             "en" : "Unable to check for updates. \nPlease check your network settings.",
-            "afr" : "Unable to check for updates. \nPlease check your network settings."
+            "afr" : "Kon nie toets of daar nuwe weergawes beskikbaar is nie. \nMaak asseblief seker u netwerk verstellings is reg."
         },
         "UPDATE_NOT_NECESSARY" : {
             "en" : "You currently have the latest version of the app.",
-            "afr" : "You currently have the latest version of the app."
+            "afr" : "U het klaar die nuutste weergawe van die app."
         },
         "UPDATE_AVAILABLE" : {
-            "en" : "There is an update available on the play store!",
-            "afr" : "There is an update available on the play store!"
+            "en" : "There is an update available on the Play Store!",
+            "afr" : "Daar is 'n nuwe weergawe (update) beskikbaar op die Play Store!"
         }
     };
 
