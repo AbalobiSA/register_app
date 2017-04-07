@@ -83,16 +83,15 @@ angular.module('app.controllers').controller('homectrl', function(
         function successCB(response){
             // console.log("RESPONSE: " + JSON.stringify(response, null, 4));
             if (response.updateAvailable === true){
-                alert("There is an update available on the play store!");
+                alert(strings.get_translation(strings.UPDATE_AVAILABLE));
                 window.open('https://play.google.com/store/apps/details?id=com.abalobi.register', '_system')
             } else{
-                alert("You currently have the latest version of the app.");
+                alert(strings.get_translation(strings.UPDATE_NOT_NECESSARY));
             }
         }
 
         function errorCB(response){
-            alert("Unable to check for updates.\n" +
-                "Please check your network settings.");
+            alert(strings.get_translation(strings.UPDATE_CONNECTION_ERROR));
         }
 
     };
@@ -160,7 +159,7 @@ angular.module('app.controllers').controller('homectrl', function(
             });
 
             if (!$scope.ERRORS_HAVE_BEEN_SHOWN){
-                alert("Unable to submit your forms. Please check your network settings and try again.");
+                alert(strings.get_translation(strings.UPLOAD_CONNECTION_ERROR));
                 $scope.ERRORS_HAVE_BEEN_SHOWN = true;
                 hideLoadingScreen();
             }

@@ -49,6 +49,26 @@ angular.module('app.strings', [])
         "COOP_UPDATE_DATA" : {
             "en" : "Getting new Co-op data. Please wait...",
             "afr" : "Kry nuwe inligting, wag asseblief..."
+        },
+        "UPLOAD_CONNECTION_ERROR" : {
+            "en" : "Unable to submit your forms. Please check your network settings and try again.",
+            "afr" : "Unable to submit your forms. Please check your network settings and try again."
+        },
+        "UPLOAD_PIPELINE_ERROR" : {
+            "en" : "REPLACE_ME",
+            "afr" : "REPLACE_ME"
+        },
+        "UPDATE_CONNECTION_ERROR" : {
+            "en" : "Unable to check for updates. \nPlease check your network settings.",
+            "afr" : "Unable to check for updates. \nPlease check your network settings."
+        },
+        "UPDATE_NOT_NECESSARY" : {
+            "en" : "You currently have the latest version of the app.",
+            "afr" : "You currently have the latest version of the app."
+        },
+        "UPDATE_AVAILABLE" : {
+            "en" : "There is an update available on the play store!",
+            "afr" : "There is an update available on the play store!"
         }
     };
 

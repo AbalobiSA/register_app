@@ -128,7 +128,7 @@ OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeS
     function showLoadingScreen(){
         if (language.getInfo() === "afr") {
             $ionicLoading.show({
-                template: "U registrasie word ingedien. Wag asseblief 15s..."
+                template: "U registrasies word ingedien. Wag asseblief 15s..."
                 + "<br /><ion-spinner></ion-spinner>"
             });
         } else {
