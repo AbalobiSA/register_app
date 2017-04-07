@@ -115,10 +115,13 @@ angular.module('app.controllers').controller('homectrl', function(
         //This will run once for each file in the system.
         function success(fileData, filePath, fileName){
 
+
+            showLoadingScreen();
+
             //Upload the file
             upload(fileData, function(){
 
-                showLoadingScreen();
+
                 //Uploaded, now archive
                 // fileOperations.writeFileCustom(fileName, "abalobi/monitorsurvey/archive", fileData);
 
@@ -130,7 +133,6 @@ angular.module('app.controllers').controller('homectrl', function(
                     fileOperations.getFileCount(function(number){
                         $scope.unsent_form_count = number;
                         $scope.$apply();
-                        updateViewCycle();
                     });
 
                     hideLoadingScreen();
@@ -160,6 +162,7 @@ angular.module('app.controllers').controller('homectrl', function(
             if (!$scope.ERRORS_HAVE_BEEN_SHOWN){
                 alert("Unable to submit your forms. Please check your network settings and try again.");
                 $scope.ERRORS_HAVE_BEEN_SHOWN = true;
+                hideLoadingScreen();
             }
 
             console.err("Unable to post to OpenFn!");
