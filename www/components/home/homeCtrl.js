@@ -6,6 +6,8 @@ angular.module('app.controllers').controller('homectrl', function(
  ============================================================================*/
     document.addEventListener("deviceready", onDeviceReady, false);
 
+    $scope.ERRORS_HAVE_BEEN_SHOWN = false;
+
     function onDeviceReady() {
         cordova.getAppVersion(function(version) {
             // alert(version);
@@ -103,12 +105,10 @@ angular.module('app.controllers').controller('homectrl', function(
         }
     };
 
-    $scope.button_send_forms = function(){
-
-    };
-
     $scope.sendPipelineForms = function(){
         //TODO: Read in every form in the pipeline, and send one by one
+
+        $scope.ERRORS_HAVE_BEEN_SHOWN = false;
 
         fileOperations.getPipelineForms(success, errorFileRead);
 
@@ -148,6 +148,7 @@ angular.module('app.controllers').controller('homectrl', function(
             });
 
             console.err("Unable to read the pipeline files!");
+            hideLoadingScreen();
         }
 
         function errorPost(){
@@ -157,9 +158,13 @@ angular.module('app.controllers').controller('homectrl', function(
                 $scope.$apply();
             });
 
-            alert("Unable to submit your forms. Please check your network settings and try again.");
+            if (!$scope.ERRORS_HAVE_BEEN_SHOWN){
+                alert("Unable to submit your forms. Please check your network settings and try again.");
+                $scope.ERRORS_HAVE_BEEN_SHOWN = true;
+            }
 
             console.err("Unable to post to OpenFn!");
+            hideLoadingScreen();
         }
     };
 
@@ -200,6 +205,10 @@ angular.module('app.controllers').controller('homectrl', function(
     }
 
     function hideLoadingScreen(){
-        $ionicLoading.hide();
+        try {
+            $ionicLoading.hide();
+        } catch (ex){
+
+        }
     }
 }); //end home controller
