@@ -7,45 +7,61 @@
                 <!--TODO: Landing Site / Community Question-->
 
                 <h4>{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
-                <form>
-                    <label for="" class="item item-select">
-                        <div class="input-label input-province-picker">
-                            <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+
+                <div ng-show="!user.community_not_specified">
+                    <form>
+                        <label for="" class="item item-select">
+                            <div class="input-label input-province-picker">
+                                <strong> {{"MFC_LANDINGSITE_PROVINCE" | translate}} </strong>
+                            </div>
+                            <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
+                        </label>
+                        <label class="item item-input item-stacked-label" ng-show="select.province!= undefined  && user.landingsite == undefined">
+                            <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>
+                        </label>
+
+
+
+                        <!--TODO: Search Box area-->
+                        <label class="item item-input" ng-show="select.province!= undefined && user.landingsite == undefined">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input ng-model="searchbox" type="search" placeholder="{{'FISHER_LANDINGSITE_PH' | translate}}">
+                        </label>
+                        <ion-list ng-hide="searchbox == undefined || user.landingsite != undefined ">
+                            <ion-item ng-repeat="community in communities_filtered | filter:searchbox" site="site" ng-click="select_landingsite(community.name_key)">
+                                <strong> {{community.name_Eng}} </strong>
+                            </ion-item>
+                        </ion-list>
+                    </form>
+
+
+
+
+
+
+                    <!--TODO: Change Landing Site-->
+                    <ion-item ng-hide="user.landingsite == undefined">
+                        {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{getCommunityName(user.landingsite)}}</strong>
+                        <div class="text-right">
+                            <button class="button button-stable" ng-click="change()">
+                                {{"GEN_CHANGE" | translate}}
+                            </button>
                         </div>
-                        <select required ng-change="filter_by_province()" ng-model="select.province" ng-options="province for province in provinces"></select>
-                    </label>
-                    <label class="item item-input item-stacked-label" ng-show="select.province!= undefined  && user.landingsite == undefined">
-                        <span ng-show="select.province!= undefined" id="MFC_landingsite2" class="">{{"FISHER_LANDINGSITE_LABEL" | translate}}</span>
-                    </label>
+                    </ion-item>
+                </div>
 
-                    <!--TODO: Search Box area-->
-                    <label class="item item-input" ng-show="select.province!= undefined && user.landingsite == undefined">
-                        <i class="icon ion-search placeholder-icon"></i>
-                        <input ng-model="searchbox" type="search" placeholder="{{'FISHER_LANDINGSITE_PH' | translate}}">
-                    </label>
-                    <ion-list ng-hide="searchbox == undefined || user.landingsite != undefined ">
-                        <ion-item ng-repeat="community in communities_filtered | filter:searchbox" site="site" ng-click="select_landingsite(community.name_key)">
-                            <strong> {{community.name_Eng}} </strong>
-                        </ion-item>
-                    </ion-list>
-                </form>
-
-                <!--TODO: Change Landing Site-->
-                <ion-item ng-hide="user.landingsite == undefined">
-                    {{"MFC_LANDINGSITE_SELECTED" | translate}} <strong>{{getCommunityName(user.landingsite)}}</strong>
-                    <div class="text-right">
-                        <button class="button button-stable" ng-click="change()">
-                            {{"GEN_CHANGE" | translate}}
-                        </button>
-                    </div>
-                </ion-item>
+                <div class="cs-spacer"></div>
+                <ion-list >
+                    <ion-checkbox name="box_unspecified_community"
+                                  ng-model="user.community_not_specified">{{"FISHER_COMM_NOT_ON_LIST" | translate}}</ion-checkbox>
+                </ion-list>
 
                 <!--TODO: Custom Landingsite Entry-->
-                <label ng-show="user.landingsite == 'Other'" class="item item-input item-stacked-label " id="register1-input3">
+                <label ng-show="user.community_not_specified" class="item item-input item-stacked-label " id="register1-input3">
                     <!-- <span class="input-label">{{"FISHER_COOP_NAME" | translate}}</span> -->
-                    <span>{{"MFC_LANDINGSITE_ENTER_NAME" | translate}}</span>
+                    <span><strong>{{"MFC_LANDINGSITE_ENTER_NAME" | translate}}:</strong></span>
                     <!-- <input type="text" ng-model="user.fisher_co_op_name" placeholder="{{'FISHER_COOP_NAME_PH' | translate}}" name="co_op_name"> -->
-                    <input type="text" ng-model="user.landingsite_custom" placeholder="Community Name Here" name="other_landingsite_name">
+                    <input type="text" ng-model="user.landingsite_custom" placeholder="" name="other_landingsite_name">
                 </label>
                 <div class="cs-spacer"></div>
 

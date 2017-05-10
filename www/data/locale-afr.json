@@ -160,5 +160,6 @@
     "TERMS_DESCRIBE_CHOICE_YES": "Ja",
     "TERMS_DESCRIBE_CHOICE_NO": "Nee",
     "HOME_SEND_PIPELINE": "Stuur gestoorde vorms",
-    "HOME_CHECK_UPDATES": "Kry nuwe weergawe"
+    "HOME_CHECK_UPDATES": "Kry nuwe weergawe",
+    "FISHER_COMM_NOT_ON_LIST": "My community is not on the list"
 }
