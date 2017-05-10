@@ -1,4 +1,5 @@
-angular.module('app.controllers').controller('fisher_infoCtrl', function($scope, userinfo, $location, $http, Storage, csvFiles, nodeServer, fileOperations) {
+angular.module('app.controllers').controller('fisher_infoCtrl', function($scope, userinfo, $location, $http,
+Storage, csvFiles, nodeServer, fileOperations, settings) {
 
 /*==============================================================
      Initialization
@@ -12,6 +13,9 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
     $scope.communities_filtered = [];
 
     $scope.$on('$ionicView.beforeEnter', function() {
+
+        $scope.debugMode = settings.getDebugMode();
+
         console.log("Resetting Scope...");
         $scope.user = {};
         $scope.user = angular.copy(userinfo.getInfo());
@@ -110,6 +114,27 @@ angular.module('app.controllers').controller('fisher_infoCtrl', function($scope,
             }
         }
     };
+/*============================================================================
+    Validation
+ ============================================================================*/
+
+$scope.validateNext = function(){
+
+    if ($scope.user.community_not_specified === undefined || $scope.user.community_not_specified === false){
+        return (($scope.user.fisher_boat !== true && $scope.user.fisher_shore !== true) || (
+            $scope.user.landingsite === null ||
+            $scope.user.landingsite === undefined
+        ))
+    } else {
+        return ($scope.user.fisher_boat !== true && $scope.user.fisher_shore !== true) || (
+                $scope.user.landingsite_custom === null ||
+                $scope.user.landingsite_custom === "" ||
+                $scope.user.landingsite_custom === undefined
+            )
+    }
+};
+
+
 
 /*==============================================================
      Tool Functions

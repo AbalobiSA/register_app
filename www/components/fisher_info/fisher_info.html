@@ -4,6 +4,13 @@
             <h2 id="register2-heading4" style="color:#000000;text-align:center;" class=" ">Abalobi Register</h2>
             <ion-list id="register2-list2" class=" ">
 
+                <div ng-show="debugMode">
+                    <h1>DEBUG MODE ENABLED</h1>
+                    <p>Chosen landingsite: {{user.landingsite}}</p>
+                    <p>Custom landingsite: {{user.landingsite_custom}}</p>
+                    <p>Community not specified?: {{user.community_not_specified}}</p>
+                </div>
+
                 <!--TODO: Landing Site / Community Question-->
 
                 <h4>{{"MFC_COMMUNITY_LANDINGSITE_DESC" | translate}}</h4>
@@ -201,7 +208,7 @@
             </ion-list>
             <p style="color:red;" ng-show="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null)"> {{"GEN_REQUIRED" | translate}} </p>
             <!-- "Register" button -->
-            <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null) " class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
+            <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="validateNext()" class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
             <!-- (user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null) -->
             <!-- (user.fisher_boat == false && user.fisher_shore == false) || (user.landing_site == null) -->
             <div class="spacer" style="width: 300px; height: 5px;"></div>
