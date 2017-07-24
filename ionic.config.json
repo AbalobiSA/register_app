@@ -2,5 +2,8 @@
   "name": "A_Register",
   "app_id": "2eb8c4b6",
   "defaultBrowser": "chrome",
-  "type": "ionic1"
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*"
+  ]
 }
