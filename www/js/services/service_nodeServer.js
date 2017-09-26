@@ -108,8 +108,7 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
             method: 'GET',
             url: SERVER_IP + endpoint,
             headers: {
-                'Content-Type': 'application/json',
-                'Date-header': new Date()
+                'Content-Type': 'application/json'
             }
         }).then(successCallback , errorCallback );
 

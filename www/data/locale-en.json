@@ -162,5 +162,6 @@
     "TERMS_DESCRIBE_CHOICE_NO": "No",
     "HOME_SEND_PIPELINE": "Send saved forms",
     "HOME_CHECK_UPDATES": "Check for updates",
-    "FISHER_COMM_NOT_ON_LIST": "My community is not on the list"
+    "FISHER_COMM_NOT_ON_LIST": "My community is not on the list",
+    "GEN_REQUIRED_COMMUNITY": "Please input the name of your community."
 }

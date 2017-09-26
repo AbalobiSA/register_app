@@ -161,5 +161,6 @@
     "TERMS_DESCRIBE_CHOICE_NO": "Nee",
     "HOME_SEND_PIPELINE": "Stuur gestoorde vorms",
     "HOME_CHECK_UPDATES": "Kry nuwe weergawe",
-    "FISHER_COMM_NOT_ON_LIST": "My community is not on the list"
+    "FISHER_COMM_NOT_ON_LIST": "My gemeenskap is nie op die lys nie",
+    "GEN_REQUIRED_COMMUNITY": "Spesifiseer asseblief jou gemeenskap se naam."
 }

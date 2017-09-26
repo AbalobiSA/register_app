@@ -134,6 +134,13 @@ $scope.validateNext = function(){
     }
 };
 
+$scope.validateCustomCommunity = function() {
+    return ($scope.user.community_not_specified &&
+        ($scope.user.landingsite_custom === null ||
+            $scope.user.landingsite_custom === undefined ||
+            $scope.user.landingsite_custom === "" ));
+};
+
 
 
 /*==============================================================

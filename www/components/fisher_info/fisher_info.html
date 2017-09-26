@@ -207,6 +207,7 @@
                 </form>
             </ion-list>
             <p style="color:red;" ng-show="(user.fisher_boat != true && user.fisher_shore != true) || (user.landingsite == null)"> {{"GEN_REQUIRED" | translate}} </p>
+            <p style="color:red;" ng-show="validateCustomCommunity()"> {{"GEN_REQUIRED_COMMUNITY" | translate}} </p>
             <!-- "Register" button -->
             <button id="register2-button5" type="submit" ng-click="next()" ng-disabled="validateNext()" class=" button button-positive button-block">{{"GEN_NEXT" | translate}}</button>
             <!-- (user.fisher_boat != true && user.fisher_shore != true) || (user.landing_site == null) -->
