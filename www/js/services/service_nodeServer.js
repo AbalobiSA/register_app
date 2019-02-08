@@ -3,7 +3,8 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
     function($http, $ionicPopup, $ionicPopover, $ionicLoading, $timeout, $q, strings, $state, OPENFN_URL, userinfo) {
 
 
-    var SERVER_IP = "http://197.85.186.65:8080";
+    // var SERVER_IP = "http://197.85.186.65:8080";
+        var SERVER_IP = "https://server.abalobi.org";
     // var SERVER_IP = "http://127.0.0.1:8080";
 
     this.init = function(callback) {
@@ -138,6 +139,8 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
         $timeout(function(){canceller.resolve("Request cancelled");}, 15000);
 
         canceller = $q.defer();
+
+        console.log(`Going to post to '${OPENFN_URL}'`);
 
         $http({
             method: 'POST',
