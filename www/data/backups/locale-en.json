@@ -73,7 +73,7 @@
 
     "PERSONAL_ID_LABEL" : "*ID Number",
     "PERSONAL_ID_PH" : "Enter your ID number here",
-    "PERSONAL_ID_IV" : "Warning: A standard South African ID number is 13 characters long - the one you have entered is not. Please ensure that you filled it in correctly.",
+    "PERSONAL_ID_IV" : "Please enter a valid ID number.",
 
     "PERSONAL_DATE_LABEL" : "Date of Birth",
 
@@ -171,7 +171,7 @@
     "HELP_EMAIL" : "E-mail:",
     "HELP_EMAIL_TEXT" : "If you have an E-mail account enter it here.",
     "HELP_ID" : "ID number:",
-    "HELP_ID_TEXT" : "Enter your Personal Identification Number. South African ID numbers are 13 digits long.",
+    "HELP_ID_TEXT" : "Enter your Personal Identification Number.",
     "HELP_DATE" : "Date of Birth:",
     "HELP_DATE_TEXT" : "Enter the date when you were born by selecting the year, month and day using the date selector.",
     "HELP_CELL" : "Personal Cellphone Number:",

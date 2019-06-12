@@ -103,15 +103,11 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
         return x;
     };
 
-    //function to check if ID is 13 characters long
+    //function to check ID
     $scope.checkID = function(data) {
-        var x = true;
-        if (data !== null && data !== undefined) {
-            if (data.length !== 13) {
-                x = false;
-            }
-            return x;
-        }
+        let regex = RegExp("^[a-zA-Z0-9]+$");
+        if (data === null || data === undefined) return false;
+        return regex.test(data);
     };
 
     $scope.checkCell = function(data) {
