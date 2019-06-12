@@ -8,4 +8,4 @@
 
 */
 angular.module('app.controllers')
-  .constant('OPENFN_URL', "YOUR_URL_HERE");
+  .constant('REGISTRATION_URL', "YOUR_URL_HERE");

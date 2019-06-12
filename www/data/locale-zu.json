@@ -60,7 +60,7 @@
     "PERSONAL_DATE_LABEL": "Date of Birth",
     "PERSONAL_CELL_LABEL": "*Personal Cellphone Number",
     "PERSONAL_CELL_PH": "Enter your cell number here",
-    "PERSONAL_CELL_IV": "Please enter a valid 10-digit cell number (e.g. 08412345678)",
+    "PERSONAL_CELL_IV": "Please enter a valid cell number in international format (e.g. +278412345678)",
     "PERSONAL_DEV_CELL_LABEL": "*This device's cell number",
     "PERSONAL_DEV_CELL_PH": "Enter this device's cell number here",
     "PERSONAL_PASSWORD_LABEL": "*Password",

@@ -1,7 +1,7 @@
 angular.module('app.controllers').controller( 'registerCtrl',
 function($scope, $q, $location, $ionicLoading, $http, $timeout,
 $ionicHistory, $localStorage, language, userinfo, Storage,
-OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeServer) {
+REGISTRATION_URL, SMS_TIMEOUT_PERIOD, checkSms, strings, fileOperations, $state, nodeServer) {
 /*============================================================================
     Initialization
  ============================================================================*/

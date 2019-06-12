@@ -114,6 +114,11 @@ angular.module('app.controllers').controller('personal_detailsCtrl', function($s
         }
     };
 
+    $scope.checkCell = function(data) {
+        let regex = RegExp('^[+][0-9]+$');
+        return regex.test(data);
+    }
+
 /*============================================================================
     Button Navigation
  ============================================================================*/

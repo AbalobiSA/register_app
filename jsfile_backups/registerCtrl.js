@@ -1,7 +1,7 @@
 /**
  * Created by Carl on 2017-04-05.
  */
-angular.module('app.controllers').controller('registerCtrl', function($scope, $q, $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, OPENFN_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
+angular.module('app.controllers').controller('registerCtrl', function($scope, $q, $location, $ionicLoading, $http, $timeout, $ionicHistory, $localStorage, language, userinfo, Storage, REGISTRATION_URL, SMS_TIMEOUT_PERIOD, checkSms, strings) {
     /*============================================================================
      Initialization
      ============================================================================*/
@@ -128,7 +128,7 @@ angular.module('app.controllers').controller('registerCtrl', function($scope, $q
 
                 $http({
                     method: 'POST',
-                    url: OPENFN_URL,
+                    url: REGISTRATION_URL,
                     data: JSON.stringify(userinfo.getInfo()),
                     headers: {
                         'Content-Type': 'application/json'

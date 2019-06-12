@@ -93,11 +93,10 @@
 
                 <label class="item item-input item-stacked-label " id="register2-input5">
                     <span class="input-label cs-max-width">{{"PERSONAL_CELL_LABEL" | translate}}</span>
-                    <input disallow-spaces type="tel" name="cell" ng-model="user.cell"
-                           ng-minlength="10"
-                           ng-maxlength="10" required placeholder="{{'PERSONAL_CELL_PH' | translate}}">
+                    <input disallow-spaces type="tel" name="cell" ng-model="user.cell" 
+                        required placeholder="{{'PERSONAL_CELL_PH' | translate}}">
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
-                          ng-show="userForm.cell.$invalid && userForm.cell.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
+                          ng-show="!checkCell(user.cell) && userForm.cell.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
                 </label>
 
 
@@ -106,10 +105,9 @@
                 <label class="item item-input item-stacked-label " ng-show="evaluate_byindex(12)" id="personal_details_device_num">
                     <span class="input-label cs-max-width">{{"PERSONAL_DEV_CELL_LABEL" | translate}}</span>
                     <input  type="tel" name="cell_dev" ng-model="user.cell_dev"
-                            ng-minlength="10"
-                            ng-maxlength="10"  ng-required="evaluate_byindex(12)" placeholder="{{'PERSONAL_DEV_CELL_PH' | translate}}">
+                          ng-required="evaluate_byindex(12)" placeholder="{{'PERSONAL_DEV_CELL_PH' | translate}}">
                     <span class="help-block" style="color:red" ng-class="{ 'has-error': userForm.cell.$touched && userForm.cell.$invalid }"
-                          ng-show="userForm.cell_dev.$invalid && userForm.cell_dev.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
+                          ng-show="!checkCell(userForm.cell_dev) && userForm.cell_dev.$touched">{{"PERSONAL_CELL_IV" | translate}}</span>
                 </label>
 
                 <label class="item item-input item-stacked-label " id="register2-input6">

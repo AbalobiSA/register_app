@@ -1,6 +1,6 @@
 angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$ionicPopover', '$ionicLoading',
-'$timeout', '$q', 'strings', '$state', 'OPENFN_URL', 'userinfo',
-    function($http, $ionicPopup, $ionicPopover, $ionicLoading, $timeout, $q, strings, $state, OPENFN_URL, userinfo) {
+'$timeout', '$q', 'strings', '$state', 'REGISTRATION_URL', 'userinfo',
+    function($http, $ionicPopup, $ionicPopover, $ionicLoading, $timeout, $q, strings, $state, REGISTRATION_URL, userinfo) {
 
 
     // var SERVER_IP = "http://197.85.186.65:8080";
@@ -140,11 +140,11 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
 
         canceller = $q.defer();
 
-        console.log(`Going to post to '${OPENFN_URL}'`);
+        console.log(`Going to post to '${REGISTRATION_URL}'`);
 
         $http({
             method: 'POST',
-            url: OPENFN_URL,
+            url: REGISTRATION_URL,
             data: JSON.stringify(userinfo.getInfo()),
             headers: {
                 'Content-Type': 'application/json'
@@ -164,7 +164,7 @@ angular.module('app.services').service('nodeServer', ['$http', '$ionicPopup', '$
 
         $http({
             method: 'POST',
-            url: OPENFN_URL,
+            url: REGISTRATION_URL,
             data: data,
             headers: {
                 'Content-Type': 'application/json'
